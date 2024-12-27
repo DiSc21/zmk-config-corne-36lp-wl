@@ -104,7 +104,7 @@
                 signs_braces {
                         bindings = <
    &kp MINUS &kp EXCL         &kp AT          &kp HASH  &kp DOLLAR &kp PRCNT        &kp CARET &kp AMPS      &kp PIPE      &kp APOS       &kp DOUBLE_QUOTES &kp MINUS
-   &kp MINUS &trans &trans &trans  &trans &trans         &trans &trans &trans  &trans &trans &kp MINUS
+   &kp MINUS &mt LSHIFT TILDE &mt LCTRL GRAVE &trans    &trans     &kp PG_UP        &kp UNDER &mt RALT LPAR &mt RGUI LBKT &mt RCTRL RBKT &mt RSHIFT RPAR   &kp MINUS
    &kp MINUS &trans &trans &trans  &trans &trans         &trans &trans &trans  &trans &trans &kp MINUS
                            &trans  &trans &trans         &trans &trans &trans
 //   &kp MINUS &kp EXCL         &kp AT          &kp HASH  &kp DOLLAR &kp PRCNT        &kp CARET &kp AMPS      &kp PIPE      &kp APOS       &kp DOUBLE_QUOTES &kp MINUS
