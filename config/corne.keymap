@@ -44,7 +44,7 @@
 // |---|------------|-----------|----------|----------||---------|  |    -    |  |----------||---------|---------|----------|-----------|---|
 // | - | F9         | F10       | F11      | F12      || Sqrt2   |  |    -    |  | 0        || 1       | 2       | 3        | .         | - |
 // -----------------------------|----------|----------||---------|  |    -    |  |----------||---------|---------|---------------------------
-//                              | ESC      | RET      || --TAB-- |  |    -    |  | --BSPC-- || SPC     | ENTF    |
+//                              | ESC      | RET      || **TAB** |  |    -    |  | **BSPC** || SPC     | ENTF    |
 //                              ----------------------------------------------------------------------------------
                 numbers {
                         bindings = <
@@ -70,7 +70,7 @@
    &kp MINUS &kp EXCL         &kp AT          &kp HASH  &kp DOLLAR &kp PRCNT       &kp CARET &kp AMPS      &kp ASTERISK   &kp LPAR       &kp RPAR        &kp MINUS
    &kp MINUS &mt LSHIFT TILDE &mt LCTRL GRAVE &trans    &trans     &kp PG_UP       &kp MINUS &mt RALT LBRC &mt RGUI LBKT  &mt RCTRL RBKT &mt RSHIFT RBRC &kp MINUS
    &kp MINUS &kp HOME         &kp INSERT      &kp PSCRN &kp END    &kp PG_DN       &kp EQUAL &BSLH         &kp LT         &kp GT         &kp FSLH        &kp MINUS
-                                              &kp ESC   &trans     &kp TAB         &kp BSPC  &kp SPACE     &kp DEL
+                                              &kp ESC   &trans     &kp TAB         &kp BSPC  &trans        &kp DEL
                         >;
                 };
 
@@ -89,7 +89,7 @@
    &kp MINUS &trans &trans &trans  &trans  &trans                        &trans   &trans    &trans  &trans    &trans &kp MINUS
    &kp MINUS &trans &trans &trans  &trans  &trans                        &kp LEFT &kp DOWN  &kp  UP &kp RIGHT &trans &kp MINUS
    &kp MINUS &trans &trans &trans  &trans  &trans                        &trans   &trans    &trans  &trans    &trans &kp MINUS
-                           &trans  &kp RET &kp TAB                       &trans   &kp SPACE &trans
+                           &trans  &kp RET &kp TAB                       &kp BSPC &kp SPACE &trans
                         >;
                 };
 
