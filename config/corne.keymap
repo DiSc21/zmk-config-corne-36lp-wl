@@ -103,10 +103,14 @@
 //                            ---------------------------------------------------------------------------------
                 signs_braces {
                         bindings = <
-   &kp MINUS &kp EXCL         &kp AT          &kp HASH  &kp DOLLAR &kp PRCNT        &kp CARET &kp AMPS      &kp PIPE      &kp APOS       &kp DOUBLE_QUOTES &kp MINUS
-   &kp MINUS &mt LSHIFT TILDE &mt LCTRL GRAVE &trans    &trans     &kp PG_UP        &kp UNDER &mt RALT LPAR &mt RGUI LBKT &mt RCTRL RBKT &mt RSHIFT RPAR   &kp MINUS
-   &kp MINUS &kp HOME         &kp INSERT      &kp PSCRN &kp END    &kp PG_DOWN      &kp BSLH  &kp LBRC      &kp LT        &kp GT         &kp RBRC          &kp MINUS
-                                              &kp ESC   &kp RET    &kp TAB          &kp BSPC  &kp SPACE     &kp DEL
+   &kp MINUS &trans &trans &trans  &trans &trans         &trans &trans &trans  &trans &trans &kp MINUS
+   &kp MINUS &trans &trans &trans  &trans &trans         &trans &trans &trans  &trans &trans &kp MINUS
+   &kp MINUS &trans &trans &trans  &trans &trans         &trans &trans &trans  &trans &trans &kp MINUS
+                           &trans  &trans &trans         &trans &trans &trans
+//   &kp MINUS &kp EXCL         &kp AT          &kp HASH  &kp DOLLAR &kp PRCNT        &kp CARET &kp AMPS      &kp PIPE      &kp APOS       &kp DOUBLE_QUOTES &kp MINUS
+//   &kp MINUS &mt LSHIFT TILDE &mt LCTRL GRAVE &trans    &trans     &kp PG_UP        &kp UNDER &mt RALT LPAR &mt RGUI LBKT &mt RCTRL RBKT &mt RSHIFT RPAR   &kp MINUS
+//   &kp MINUS &kp HOME         &kp INSERT      &kp PSCRN &kp END    &kp PG_DOWN      &kp BSLH  &kp LBRC      &kp LT        &kp GT         &kp RBRC          &kp MINUS
+//                                              &kp ESC   &kp RET    &kp TAB          &kp BSPC  &kp SPACE     &kp DEL
                         >;
                 };
 
@@ -156,7 +160,7 @@
 //// | CTRL |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |  '   |
 //// | SHFT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | ESC  |
 ////                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
-//                old_default{
+//                old_default {
 //                        bindings = <
 //   &kp TAB   &kp Q &kp W &kp E &kp R &kp T   &kp Y &kp U  &kp I     &kp O   &kp P    &kp BSPC
 //   &kp LCTRL &kp A &kp S &kp D &kp F &kp G   &kp H &kp J  &kp K     &kp L   &kp SEMI &kp SQT
