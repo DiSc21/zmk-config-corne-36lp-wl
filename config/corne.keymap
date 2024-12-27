@@ -69,7 +69,7 @@
                         bindings = <
    &kp MINUS &kp EXCL         &kp AT          &kp HASH  &kp DOLLAR &kp PRCNT       &kp CARET &kp AMPS      &kp ASTERISK   &kp LPAR       &kp RPAR        &kp MINUS
    &kp MINUS &mt LSHIFT TILDE &mt LCTRL GRAVE &trans    &trans     &kp PG_UP       &kp MINUS &mt RALT LBRC &mt RGUI LBKT  &mt RCTRL RBKT &mt RSHIFT RBRC &kp MINUS
-   &kp MINUS &kp HOME         &kp INSERT      &kp PSCRN &kp END    &kp PG_DN       &kp EQUAL &BSLH         &kp LT         &kp GT         &kp FSLH        &kp MINUS
+   &kp MINUS &kp HOME         &kp INSERT      &kp PSCRN &kp END    &kp PG_DN       &kp EQUAL &kp BSLH      &kp LT         &kp GT         &kp FSLH        &kp MINUS
                                               &kp ESC   &trans     &kp TAB         &kp BSPC  &trans        &kp DEL
                         >;
                 };
