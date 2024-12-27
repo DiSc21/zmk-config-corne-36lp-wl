@@ -103,7 +103,7 @@
 //                            ---------------------------------------------------------------------------------
                 signs_braces {
                         bindings = <
-   &kp MINUS &trans &trans &trans  &trans &trans         &trans &trans &trans  &trans &trans &kp MINUS
+   &kp MINUS &kp EXCL         &kp AT          &kp HASH  &kp DOLLAR &kp PRCNT        &kp CARET &kp AMPS      &kp PIPE      &kp APOS       &kp DOUBLE_QUOTES &kp MINUS
    &kp MINUS &trans &trans &trans  &trans &trans         &trans &trans &trans  &trans &trans &kp MINUS
    &kp MINUS &trans &trans &trans  &trans &trans         &trans &trans &trans  &trans &trans &kp MINUS
                            &trans  &trans &trans         &trans &trans &trans
