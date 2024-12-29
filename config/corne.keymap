@@ -11,47 +11,78 @@
 
 // #include <dt-bindings/zmk/pointing.h>
 
-
+#define L_DEF 0
+#define L_NUM 1
+#define L_BRC 2
+#define L_NAV 3
 
 / {
+    behaviors {
+        hm: homerow_mods {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping-term-ms = <120>;
+            quick-tap-ms = <0>;
+            flavor = "tap-preferred";
+            bindings = <&kp>, <&kp>;
+        };
+        bhm: balanced_homerow_mods {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping-term-ms = <150>;    // <---[[moderate duration]]
+            quick-tap-ms = <0>;
+            flavor = "balanced";
+            bindings = <&kp>, <&kp>;
+        };
+        pht: positional_hold_tap {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "hold-preferred";
+            tapping-term-ms = <400>;
+            quick-tap-ms = <200>;
+            bindings = <&kp>, <&kp>;
+            hold-trigger-key-positions = <1>;    // <---[[the W key]]
+        };
+    };
+
         keymap {
                 compatible = "zmk,keymap";
 
 // The Base Layer
 // -----------------------------------------------------------------------------------------------------------------------------------------------------
-// | - |  Q         |  W        | E         | R         || T         | |   -   | | Y          || U          | I           | O         | P           | - |
-// |---|------------|-----------|-----------|-----------||-----------| |   -   | |------------||------------|-------------|-----------|-------------|---|
-// | - |  A [SHIFT] |  S [CTRL] | D [WIN]   | F [ALT]   || G         | |   -   | | H          || J [ALT]    | K [WIN]     | L [CTRL]  | ;/: [SHIFT] | - |
-// |---|------------|-----------|-----------|-----------||-----------| |   -   | |------------||------------|-------------|-----------|-------------|---|
-// | - |  Z         |  X        | C [FUNC]  | V [BRACE] || B [BTL]   | |   -   | | N [BTL]    || M [BRACE]  | ,/< [FUNC]  | ./>       | //?         | - |
-// -----------------------------|-----------|-----------||-----------| |   -   | |------------||------------|-------------|------------------------------
-//                              | ESC [NAV] | RET [BRC] || TAB [NUM] | |   -   | | BSPC [NUM] || SPC [BRC]  | ENTF [NAV]   |
+// | - |  Q         |  W        | E          | R         || T         | |   -   | | Y         || U          | I           | O         | P           | - |
+// |---|------------|-----------|------------|-----------||-----------| |   -   | |-----------||------------|-------------|-----------|-------------|---|
+// | - |  A [SHIFT] |  S [CTRL] | D [WIN]    | F [ALT]   || G         | |   -   | | H         || J [ALT]    | K [WIN]     | L [CTRL]  | ;/: [SHIFT] | - |
+// |---|------------|-----------|------------|-----------||-----------| |   -   | |-----------||------------|-------------|-----------|-------------|---|
+// | - |  Z         |  X        | C [FUNC]   | V [BRACE] || B [BTL]   | |   -   | | N [BTL]   || M [BRACE]  | ,/< [FUNC]  | ./>       | //?         | - |
+// -----------------------------|------------|-----------||-----------| |   -   | |-----------||------------|-------------|------------------------------
+//                              | BSPC [NAV] | RET [BRC] || TAB [NUM] | |   -   | | ESC [NUM] || SPC [BRC]  | ENTF [NAV]   |
 //                              ------------------------------------------------------------------------------------------
                 default_layer {
                         bindings = <
-   &kp MINUS &kp Q        &kp W       &kp E      &kp R      &kp T                &kp Y      &kp U       &kp I       &kp O       &kp P           &kp MINUS
-   &kp MINUS &mt LSHIFT A &mt LCTRL D &mt LGUI D &mt LALT F &kp G                &kp H      &mt RALT J  &mt RGUI K  &mt RCTRL L &mt RSHIFT SEMI &kp MINUS
-   &kp MINUS &kp Z        &kp X       &lt 4 C    &lt 5 V    &lt 6 B              &lt 6 N    &lt 5 M     &lt 4 COMMA &kp DOT     &kp FSLH        &kp MINUS
-                                      &lt 3 ESC  &lt 2 RET  &lt 1 TAB            &lt 1 BSPC &lt 2 SPACE &lt 3 DEL
+   &kp MINUS &kp Q        &kp W       &kp E          &kp R         &kp T             &kp Y         &kp U           &kp I         &kp O       &kp P           &kp MINUS
+   &kp MINUS &hm LSHIFT A &hm LCTRL S &hm LGUI D     &hm LALT F    &kp G             &kp H         &hm RALT J      &hm RGUI K    &hm RCTRL L &hm RSHIFT SEMI &kp MINUS
+   &kp MINUS &kp Z        &kp X       &lt 4 C        &lt 5 V       &lt 6 B           &lt 6 N       &lt 5 M         &lt 4 COMMA   &kp DOT     &kp FSLH        &kp MINUS
+                                      &lt L_BRC BSPC &lt L_NUM RET &lt L_DEF TAB     &lt L_DEF ESC &lt L_NUM SPACE &lt L_BRC DEL
                         >;
                 };
 
 // [NUM] LAYER
-// ------------------------------------------------------------------------------------------------------------------------------------------
-// | - | F1         | F2        | F3       | F4       || Euler   |  |    -    |  | +        || 7       | 8       | 9        | *         | - |
-// |---|------------|-----------|----------|----------||---------|  |    -    |  |----------||---------|---------|----------|-----------|---|
-// | - | F5 [SHIFT] | F6 [CTRL] | F7 [WIN] | F8 [ALT] || PI      |  |    -    |  | -        || 4 [ALT] | 5 [WIN] | 6 [CTRL] | = [SHIFT] | - |
-// |---|------------|-----------|----------|----------||---------|  |    -    |  |----------||---------|---------|----------|-----------|---|
-// | - | F9         | F10       | F11      | F12      || Sqrt2   |  |    -    |  | 0        || 1       | 2       | 3        | .         | - |
-// -----------------------------|----------|----------||---------|  |    -    |  |----------||---------|---------|---------------------------
-//                              | ESC      | RET      || **TAB** |  |    -    |  | **BSPC** || SPC     | ENTF    |
-//                              ----------------------------------------------------------------------------------
+// -----------------------------------------------------------------------------------------------------------------------------------------
+// | - | F1         | F2        | F3       | F4       || Euler   |  |    -    |  | +       || 7       | 8       | 9        | *         | - |
+// |---|------------|-----------|----------|----------||---------|  |    -    |  |---------||---------|---------|----------|-----------|---|
+// | - | F5 [SHIFT] | F6 [CTRL] | F7 [WIN] | F8 [ALT] || PI      |  |    -    |  | -       || 4 [ALT] | 5 [WIN] | 6 [CTRL] | = [SHIFT] | - |
+// |---|------------|-----------|----------|----------||---------|  |    -    |  |---------||---------|---------|----------|-----------|---|
+// | - | F9         | F10       | F11      | F12      || Sqrt2   |  |    -    |  | 0       || 1       | 2       | 3        | .         | - |
+// -----------------------------|----------|----------||---------|  |    -    |  |---------||---------|---------|---------------------------
+//                              | BSPC     | RET      || **TAB** |  |    -    |  | **ESC** || SPC     | ENTF    |
+//                              ---------------------------------------------------------------------------------
                 numbers {
                         bindings = <
    &kp MINUS &kp F1        &kp F2       &kp F3      &kp F4      &trans         &kp PLUS  &kp N7      &kp N8      &kp N9       &kp ASTERISK     &kp MINUS
-   &kp MINUS &mt LSHIFT F5 &mt LCTRL F6 &mt LGUI F7 &mt LALT F8 &trans         &kp MINUS &mt RALT N4 &mt RGUI N5 &mt RCTRL N6 &mt RSHIFT EQUAL &kp MINUS
+   &kp MINUS &hm LSHIFT F5 &hm LCTRL F6 &hm LGUI F7 &hm LALT F8 &trans         &kp MINUS &hm RALT N4 &hm RGUI N5 &hm RCTRL N6 &hm RSHIFT EQUAL &kp MINUS
    &kp MINUS &kp F9        &kp F10      &kp F11     &kp F12     &kp HOME       &kp N0    &kp N1      &kp N2      &kp N3       &kp DOT          &kp MINUS
-                                        &kp ESC     &kp RET     &trans         &trans    &kp SPACE   &kp DEL
+                                        &kp BSPC    &kp RET     &trans         &trans    &kp SPACE   &kp DEL
                         >;
                 };
 
@@ -61,19 +92,18 @@
 // |---|-----------|----------|---------|-----------|-----------||   |    -    |   |------||---------|---------|-----------|-----------|---|
 // | - | ~ [SHIFT] | ` [CTRL] |   [WIN] |     [ALT] | P-UP      ||   |    -    |   | -/_  || { [ALT] | [ [WIN] | ] [CTRL]  | } [SHIFT] | - |
 // |---|-----------|----------|---------|-----------|-----------||   |    -    |   |------||---------|---------|-----------|-----------|---|
-// | - | HOME      | INSERT   | PRINT   | END       | P-DOWN    ||   |    -    |   | =/+  || \/|     | <       | >         | //?       | - |
+// | - | HOME      | INSERT   | PRINT   | END       | P-DOWN    ||   |    -    |   | '/"  || \/|     | <       | >         | //?       | - |
 // ---------------------------|---------|-----------|-----------||   |    -    |   |------||---------|---------|----------------------------
-//                            | ESC     | **RET**   | TAB       ||   |    -    |   | BSPC || **SPC** | ENTF    |
+//                            | BSPC    | **RET**   | TAB       ||   |    -    |   | ESC  || **SPC** | ENTF    |
 //                            ----------------------------------------------------------------------------------
                 signs_braces {
                         bindings = <
-   &kp MINUS &kp EXCL         &kp AT          &kp HASH  &kp DOLLAR &kp PRCNT       &kp CARET &kp AMPS      &kp ASTERISK   &kp LPAR       &kp RPAR        &kp MINUS
-   &kp MINUS &mt LSHIFT TILDE &mt LCTRL GRAVE &trans    &trans     &kp PG_UP       &kp MINUS &mt RALT LBRC &mt RGUI LBKT  &mt RCTRL RBKT &mt RSHIFT RBRC &kp MINUS
-   &kp MINUS &kp HOME         &kp INSERT      &kp PSCRN &kp END    &kp PG_DN       &kp EQUAL &kp BSLH      &kp LT         &kp GT         &kp FSLH        &kp MINUS
-                                              &kp ESC   &trans     &kp TAB         &kp BSPC  &trans        &kp DEL
+   &kp MINUS &kp EXCL         &kp AT          &kp HASH  &kp DOLLAR &kp PRCNT       &kp CARET        &kp AMPS      &kp ASTERISK   &kp LPAR       &kp RPAR        &kp MINUS
+   &kp MINUS &hm LSHIFT TILDE &hm LCTRL GRAVE &trans    &trans     &kp PG_UP       &kp MINUS        &hm RALT LBRC &hm RGUI LBKT  &hm RCTRL RBKT &hm RSHIFT RBRC &kp MINUS
+   &kp MINUS &kp HOME         &kp INSERT      &kp PSCRN &kp END    &kp PG_DN       &kp SINGLE_QUOTE &kp BSLH      &kp LT         &kp GT         &kp FSLH        &kp MINUS
+                                              &kp BSPC  &trans     &kp TAB         &kp ESC          &trans        &kp DEL
                         >;
                 };
-
 // [NAV] LAYER
 // --------------------------------------------------------------------------------------------------------------------------------------------------
 // | - |            |           |          |          ||         |  |    -    |  | M-LEFT   || SNIPER-    | M-MIDDLE   | SNIPER+    | M-RIGHT    | - |
@@ -82,14 +112,14 @@
 // |---|------------|-----------|----------|----------||---------|  |    -    |  |----------||------------|------------|------------|------------|---|
 // | - |            |           |          |          ||         |  |    -    |  | <-MOUSE  || M-DOWN     | M-UP       | ->MOUSE    | P-DOWN     | - |
 // -----------------------------|----------|----------||---------|  |    -    |  |----------||------------|------------|------------------------------
-//                              | **ESC**  | RET      || TAB     |  |    -    |  | BSPC     || SPC        | **ENTF**   |
+//                              | **BSPC** | RET      || TAB     |  |    -    |  | ESC      || SPC        | **ENTF**   |
 //                              ----------------------------------------------------------------------------------------
                 navigation {
                         bindings = <
-   &kp MINUS &trans &trans &trans  &trans  &trans                        &trans   &trans    &trans  &trans    &trans &kp MINUS
-   &kp MINUS &trans &trans &trans  &trans  &trans                        &kp LEFT &kp DOWN  &kp  UP &kp RIGHT &trans &kp MINUS
-   &kp MINUS &trans &trans &trans  &trans  &trans                        &trans   &trans    &trans  &trans    &trans &kp MINUS
-                           &trans  &kp RET &kp TAB                       &kp BSPC &kp SPACE &trans
+   &kp MINUS &trans &trans &trans  &trans  &trans        &trans   &trans    &trans  &trans    &trans &kp MINUS
+   &kp MINUS &trans &trans &trans  &trans  &trans        &kp LEFT &kp DOWN  &kp  UP &kp RIGHT &trans &kp MINUS
+   &kp MINUS &trans &trans &trans  &trans  &trans        &trans   &trans    &trans  &trans    &trans &kp MINUS
+                           &trans  &kp RET &kp TAB       &kp ESC &kp SPACE &trans
                         >;
                 };
 
