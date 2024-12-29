@@ -217,7 +217,7 @@
    &kp MINUS &kp Q                &kp W         &kp E          &kp R         &kp T             &kp Y         &kp U           &kp I         &kp O         &kp P                   &kp MINUS
    &kp MINUS &hm_shift_l LSHIFT A &hm_l LCTRL S &hm_l LGUI D   &hm_l LALT F  &kp G             &kp H         &hm_r RALT J    &hm_r RGUI K  &hm_r RCTRL L &hm_shift_r RSHIFT SEMI &kp MINUS
    &kp MINUS &kp Z                &kp X         &lt 4 C        &lt 5 V       &lt 6 B           &lt 6 N       &lt 5 M         &lt 4 COMMA   &kp DOT       &kp FSLH                &kp MINUS
-                                                &lt L_BRC BSPC &lt L_NUM RET &lt L_DEF TAB     &lt L_DEF ESC &lt L_NUM SPACE &lt L_BRC DEL
+                                                &lt L_NAV BSPC &lt L_BRC RET &lt L_NUM TAB     &lt L_NUM ESC &lt L_BRC SPACE &lt L_NAV DEL
                         >;
                 };
 
