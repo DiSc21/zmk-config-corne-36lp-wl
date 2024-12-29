@@ -83,8 +83,75 @@
 #define HM_PRIOR_IDLE 150
 
 / {
-    behaviors {
 
+//  Combo Keys All Layers ATM:
+//  --------------------------
+//  ___________________________________________           ___________________________________________
+// |   |     __|__   __|__   __|__     |       |#########|       |     __|__   __|__   __|__     |   |
+// | - |    |_ESC_| |_TAB_| |_____|    |       |#########|       |    |_____| |_DEL_| |_BSP_|    | - |
+// |___|_______|_______|_______|_______|_______|#########|_______|_______|_______|_______|_______|___|
+// |   |     __|_______|_______|__     |       |#########|       |     _____________________     |   |
+// | - |    |________ENTER________|    |       |#########|       |    |________SPACE________|    | - |
+// |___|_______|_______|_______|_______|_______|#########|_______|_______|_______|_______|_______|___|
+// |   |     __|__     |       |       |       |#########|       |     __|__   __|__   __|__     |   |
+// | - |    |_HOM_|    |       |       |       |#########|       |    |__{__| |__}__| |_END_|    | - |
+// |___|_______________|_______|_______|_______|#########|_______|_______|_______|_______|_______|___|
+//                     |       |       |       |#########|       |       |       |
+//                     |_______|_______|_______|#########|_______|_______|_______|
+    combos {
+        compatible = "zmk,combos";
+
+        // TopRow Combos
+        // -------------
+        combo_esc {
+            timeout-ms = <50>;
+            key-positions = <LT1 LT2>;
+            bindings = <&kp ESC>;
+        };
+        combo_tab {
+            timeout-ms = <50>;
+            key-positions = <LT2 LT3>;
+            bindings = <&kp TAB>;
+        };
+        combo_del {
+            timeout-ms = <50>;
+            key-positions = <RT2 RT3>;
+            bindings = <&kp DEL>;
+        };
+        combo_bspc {
+            timeout-ms = <50>;
+            key-positions = <RT3 RT4>;
+            bindings = <&kp BSPC>;
+        };
+
+        // MiddleRow Combos
+        // ----------------
+        combo_return {
+            timeout-ms = <50>;
+            key-positions = <LM1 LM2 LM3 LM4>;
+            bindings = <&kp RET>;
+        };
+        combo_space {
+            timeout-ms = <50>;
+            key-positions = <RM1 RM2 RM3 RM4>;
+            bindings = <&kp SPACE>;
+        };
+
+        // BottomRow Combos
+        // ----------------
+        combo_home {
+            timeout-ms = <50>;
+            key-positions = <LB1 LB2>;
+            bindings = <&kp HOME>;
+        };
+        combo_end {
+            timeout-ms = <50>;
+            key-positions = <RB3 RB4>;
+            bindings = <&kp END>;
+        };
+    };
+
+    behaviors {
         // Positional Homerow mods
         // Homerow mods that prevent accidental activations when rolling keys,
         // such as when typing `st` or `ne` on colemak-dh layouts or `as` on
@@ -199,84 +266,84 @@
         };
     };
 
-        keymap {
-                compatible = "zmk,keymap";
+    keymap {
+        compatible = "zmk,keymap";
 
-// The Base Layer
-// -----------------------------------------------------------------------------------------------------------------------------------------------------
-// | - |  Q         |  W        | E          | R         || T         | |   -   | | Y         || U          | I           | O         | P           | - |
-// |---|------------|-----------|------------|-----------||-----------| |   -   | |-----------||------------|-------------|-----------|-------------|---|
-// | - |  A [SHIFT] |  S [CTRL] | D [WIN]    | F [ALT]   || G         | |   -   | | H         || J [ALT]    | K [WIN]     | L [CTRL]  | ;/: [SHIFT] | - |
-// |---|------------|-----------|------------|-----------||-----------| |   -   | |-----------||------------|-------------|-----------|-------------|---|
-// | - |  Z         |  X        | C [FUNC]   | V [BRACE] || B [BTL]   | |   -   | | N [BTL]   || M [BRACE]  | ,/< [FUNC]  | ./>       | //?         | - |
-// -----------------------------|------------|-----------||-----------| |   -   | |-----------||------------|-------------|------------------------------
-//                              | BSPC [NAV] | RET [BRC] || TAB [NUM] | |   -   | | ESC [NUM] || SPC [BRC]  | ENTF [NAV]   |
-//                              ------------------------------------------------------------------------------------------
-                default_layer {
-                        bindings = <
-   &kp MINUS &kp Q                &kp W         &kp E          &kp R         &kp T             &kp Y         &kp U           &kp I         &kp O         &kp P                   &kp MINUS
-   &kp MINUS &hm_shift_l LSHIFT A &hm_l LCTRL S &hm_l LGUI D   &hm_l LALT F  &kp G             &kp H         &hm_r RALT J    &hm_r RGUI K  &hm_r RCTRL L &hm_shift_r RSHIFT SEMI &kp MINUS
-   &kp MINUS &kp Z                &kp X         &lt 4 C        &lt 5 V       &lt 6 B           &lt 6 N       &lt 5 M         &lt 4 COMMA   &kp DOT       &kp FSLH                &kp MINUS
-                                                &lt L_NAV BSPC &lt L_BRC RET &lt L_NUM TAB     &lt L_NUM ESC &lt L_BRC SPACE &lt L_NAV DEL
-                        >;
-                };
+        // The Base Layer
+        // ---------------------------------------------------------------------------------------------------------------------------------------------------
+        // | - |  Q         |  W        | E          | R         || T         | |   -   | | Y         || U         | I          | O         | P           | - |
+        // |---|------------|-----------|------------|-----------||-----------| |   -   | |-----------||-----------|------------|-----------|-------------|---|
+        // | - |  A [SHIFT] |  S [CTRL] | D [WIN]    | F [ALT]   || G         | |   -   | | H         || J [ALT]   | K [WIN]    | L [CTRL]  | ;/: [SHIFT] | - |
+        // |---|------------|-----------|------------|-----------||-----------| |   -   | |-----------||-----------|------------|-----------|-------------|---|
+        // | - |  Z         |  X        | C          | V         || B         | |   -   | | N         || M         | ,/<        | ./>       | //?         | - |
+        // -----------------------------|------------|-----------||-----------| |   -   | |-----------||-----------|------------|------------------------------
+        //                              | BSPC [NAV] | RET [BRC] || TAB [NUM] | |   -   | | ESC [NUM] || SPC [BRC] | ENTF [NAV] |
+        //                              -----------------------------------------------------------------------------------------
+        default_layer {
+            bindings = <
+                &kp MINUS &kp Q                &kp W          &kp E          &kp R         &kp T             &kp Y           &kp U           &kp I         &kp O         &kp P                   &kp MINUS
+                &kp MINUS &hm_shift_l LSHIFT A &hm_l LCTRL S  &hm_l LGUI D   &hm_l LALT F  &kp G             &kp H           &hm_r RALT J    &hm_r RGUI K  &hm_r RCTRL L &hm_shift_r RSHIFT SEMI &kp MINUS
+                &kp MINUS &kp Z                &kp X          &kp C          &kp V         &kp B             &kp N           &kp M           &kp COMMA     &kp DOT       &kp FSLH                &kp MINUS
+                                               &lt L_NAV BSPC &lt L_BRC RET  &lt L_NUM TAB &lt L_NUM ESC     &lt L_BRC SPACE &lt L_NAV DEL
+            >;
+        };
 
-// [NUM] LAYER
-// -----------------------------------------------------------------------------------------------------------------------------------------
-// | - | F1         | F2        | F3       | F4       || Euler   |  |    -    |  | +       || 7       | 8       | 9        | *         | - |
-// |---|------------|-----------|----------|----------||---------|  |    -    |  |---------||---------|---------|----------|-----------|---|
-// | - | F5 [SHIFT] | F6 [CTRL] | F7 [WIN] | F8 [ALT] || PI      |  |    -    |  | -       || 4 [ALT] | 5 [WIN] | 6 [CTRL] | = [SHIFT] | - |
-// |---|------------|-----------|----------|----------||---------|  |    -    |  |---------||---------|---------|----------|-----------|---|
-// | - | F9         | F10       | F11      | F12      || Sqrt2   |  |    -    |  | 0       || 1       | 2       | 3        | .         | - |
-// -----------------------------|----------|----------||---------|  |    -    |  |---------||---------|---------|---------------------------
-//                              | BSPC     | RET      || **TAB** |  |    -    |  | **ESC** || SPC     | ENTF    |
-//                              ---------------------------------------------------------------------------------
-                numbers {
-                        bindings = <
-   &kp MINUS &kp F1                &kp F2         &kp   F3      &kp F4        &trans         &kp PLUS  &kp N7        &kp N8        &kp N9         &kp ASTERISK             &kp MINUS
-   &kp MINUS &hm_shift_l LSHIFT F5 &hm_l LCTRL F6 &hm_l LGUI F7 &hm_l LALT F8 &trans         &kp MINUS &hm_r RALT N4 &hm_r RGUI N5 &hm_r RCTRL N6 &hm_shift_r RSHIFT EQUAL &kp MINUS
-   &kp MINUS &kp F9                &kp F10        &kp   F11     &kp F12       &kp HOME       &kp N0    &kp N1        &kp N2        &kp N3         &kp DOT                  &kp MINUS
-                                                  &kp   BSPC    &kp RET       &trans         &trans    &kp SPACE     &kp DEL
-                        >;
-                };
+        // [NUM] LAYER
+        // -----------------------------------------------------------------------------------------------------------------------------------------
+        // | - | F1         | F2        | F3       | F4       || Euler   |  |    -    |  | +       || 7       | 8       | 9        | *         | - |
+        // |---|------------|-----------|----------|----------||---------|  |    -    |  |---------||---------|---------|----------|-----------|---|
+        // | - | F5 [SHIFT] | F6 [CTRL] | F7 [WIN] | F8 [ALT] || PI      |  |    -    |  | -       || 4 [ALT] | 5 [WIN] | 6 [CTRL] | = [SHIFT] | - |
+        // |---|------------|-----------|----------|----------||---------|  |    -    |  |---------||---------|---------|----------|-----------|---|
+        // | - | F9         | F10       | F11      | F12      || Sqrt2   |  |    -    |  | 0       || 1       | 2       | 3        | .         | - |
+        // -----------------------------|----------|----------||---------|  |    -    |  |---------||---------|---------|---------------------------
+        //                              | BSPC     | RET      || **TAB** |  |    -    |  | **ESC** || SPC     | ENTF    |
+        //                              ---------------------------------------------------------------------------------
+        numbers {
+            bindings = <
+                &kp MINUS &kp F1                &kp F2         &kp   F3      &kp F4        &trans         &kp PLUS  &kp N7        &kp N8        &kp N9         &kp ASTERISK             &kp MINUS
+                &kp MINUS &hm_shift_l LSHIFT F5 &hm_l LCTRL F6 &hm_l LGUI F7 &hm_l LALT F8 &trans         &kp MINUS &hm_r RALT N4 &hm_r RGUI N5 &hm_r RCTRL N6 &hm_shift_r RSHIFT EQUAL &kp MINUS
+                &kp MINUS &kp F9                &kp F10        &kp   F11     &kp F12       &trans         &kp N0    &kp N1        &kp N2        &kp N3         &kp DOT                  &kp MINUS
+                                                               &kp   BSPC    &kp RET       &trans         &trans    &kp SPACE     &kp DEL
+            >;
+        };
 
-// [BRC] LAYER (BRACES/SIGNS)
-// -----------------------------------------------------------------------------------------------------------------------------------------
-// | - | !         | @        | #       | $         | %         ||   |    -    |   | ^    || &       | *       | (         | )         | - |
-// |---|-----------|----------|---------|-----------|-----------||   |    -    |   |------||---------|---------|-----------|-----------|---|
-// | - | ~ [SHIFT] | ` [CTRL] |   [WIN] |     [ALT] | P-UP      ||   |    -    |   | -/_  || { [ALT] | [ [WIN] | ] [CTRL]  | } [SHIFT] | - |
-// |---|-----------|----------|---------|-----------|-----------||   |    -    |   |------||---------|---------|-----------|-----------|---|
-// | - | HOME      | INSERT   | PRINT   | END       | P-DOWN    ||   |    -    |   | '/"  || \/|     | <       | >         | //?       | - |
-// ---------------------------|---------|-----------|-----------||   |    -    |   |------||---------|---------|----------------------------
-//                            | BSPC    | **RET**   | TAB       ||   |    -    |   | ESC  || **SPC** | ENTF    |
-//                            ----------------------------------------------------------------------------------
-                signs_braces {
-                        bindings = <
-   &kp MINUS &kp EXCL                 &kp AT            &kp HASH  &kp DOLLAR &kp PRCNT       &kp CARET        &kp AMPS        &kp ASTERISK    &kp LPAR         &kp RPAR                &kp MINUS
-   &kp MINUS &hm_shift_l LSHIFT TILDE &hm_l LCTRL GRAVE &trans    &trans     &kp PG_UP       &kp MINUS        &hm_r RALT LBRC &hm_r RGUI LBKT &hm_r RCTRL RBKT &hm_shift_r RSHIFT RBRC &kp MINUS
-   &kp MINUS &kp HOME                 &kp INSERT        &kp PSCRN &kp END    &kp PG_DN       &kp SINGLE_QUOTE &kp BSLH        &kp LT          &kp GT           &kp FSLH                &kp MINUS
-                                                        &kp BSPC  &trans     &kp TAB         &kp ESC          &trans          &kp DEL
-                        >;
-                };
-// [NAV] LAYER
-// --------------------------------------------------------------------------------------------------------------------------------------------------
-// | - |            |           |          |          ||         |  |    -    |  | M-LEFT   || SNIPER-    | M-MIDDLE   | SNIPER+    | M-RIGHT    | - |
-// |---|------------|-----------|----------|----------||---------|  |    -    |  |----------||------------|------------|------------|------------|---|
-// | - |    [SHIFT] | M2 [CTRL] | M3 [WIN] | M1 [ALT] || M-DBL   |  |    -    |  | <-       || DOWN       | UP         | ->         | P-UP       | - |
-// |---|------------|-----------|----------|----------||---------|  |    -    |  |----------||------------|------------|------------|------------|---|
-// | - |            |           |          |          ||         |  |    -    |  | <-MOUSE  || M-DOWN     | M-UP       | ->MOUSE    | P-DOWN     | - |
-// -----------------------------|----------|----------||---------|  |    -    |  |----------||------------|------------|------------------------------
-//                              | **BSPC** | RET      || TAB     |  |    -    |  | ESC      || SPC        | **ENTF**   |
-//                              ----------------------------------------------------------------------------------------
-                navigation {
-                        bindings = <
-   &kp MINUS &trans &trans &trans  &trans  &trans        &trans   &trans    &trans  &trans    &trans &kp MINUS
-   &kp MINUS &trans &trans &trans  &trans  &trans        &kp LEFT &kp DOWN  &kp  UP &kp RIGHT &trans &kp MINUS
-   &kp MINUS &trans &trans &trans  &trans  &trans        &trans   &trans    &trans  &trans    &trans &kp MINUS
-                           &trans  &kp RET &kp TAB       &kp ESC &kp SPACE &trans
-                        >;
-                };
+        // [BRC] LAYER (BRACES/SIGNS)
+        // -----------------------------------------------------------------------------------------------------------------------------------------
+        // | - | !         | @        | #       | $         | %         ||   |    -    |   | ^    || &       | *       | (         | )         | - |
+        // |---|-----------|----------|---------|-----------|-----------||   |    -    |   |------||---------|---------|-----------|-----------|---|
+        // | - | ~ [SHIFT] | ` [CTRL] |   [WIN] |     [ALT] | P-UP      ||   |    -    |   | -/_  || { [ALT] | [ [WIN] | ] [CTRL]  | } [SHIFT] | - |
+        // |---|-----------|----------|---------|-----------|-----------||   |    -    |   |------||---------|---------|-----------|-----------|---|
+        // | - | HOME      | INSERT   | PRINT   | END       | P-DOWN    ||   |    -    |   | '/"  || \/|     | <       | >         | //?       | - |
+        // ---------------------------|---------|-----------|-----------||   |    -    |   |------||---------|---------|----------------------------
+        //                            | BSPC    | **RET**   | TAB       ||   |    -    |   | ESC  || **SPC** | ENTF    |
+        //                            ----------------------------------------------------------------------------------
+        signs_braces {
+            bindings = <
+                &kp MINUS &kp EXCL                 &kp AT            &kp HASH  &kp DOLLAR &kp PRCNT       &kp CARET        &kp AMPS        &kp ASTERISK    &kp LPAR         &kp RPAR                &kp MINUS
+                &kp MINUS &hm_shift_l LSHIFT TILDE &hm_l LCTRL GRAVE &trans    &trans     &kp PG_UP       &kp MINUS        &hm_r RALT LBRC &hm_r RGUI LBKT &hm_r RCTRL RBKT &hm_shift_r RSHIFT RBRC &kp MINUS
+                &kp MINUS &kp HOME                 &kp INSERT        &kp PSCRN &kp END    &kp PG_DN       &kp SINGLE_QUOTE &kp BSLH        &kp LT          &kp GT           &kp FSLH                &kp MINUS
+                                                                     &kp BSPC  &trans     &kp TAB         &kp ESC          &trans          &kp DEL
+            >;
+        };
 
+        // [NAV] LAYER
+        // --------------------------------------------------------------------------------------------------------------------------------------------------
+        // | - |            |           |          |          ||         |  |    -    |  | M-LEFT   || SNIPER-    | M-MIDDLE   | SNIPER+    | M-RIGHT    | - |
+        // |---|------------|-----------|----------|----------||---------|  |    -    |  |----------||------------|------------|------------|------------|---|
+        // | - |    [SHIFT] | M2 [CTRL] | M3 [WIN] | M1 [ALT] || M-DBL   |  |    -    |  | <-       || DOWN       | UP         | ->         | P-UP       | - |
+        // |---|------------|-----------|----------|----------||---------|  |    -    |  |----------||------------|------------|------------|------------|---|
+        // | - |            |           |          |          ||         |  |    -    |  | <-MOUSE  || M-DOWN     | M-UP       | ->MOUSE    | P-DOWN     | - |
+        // -----------------------------|----------|----------||---------|  |    -    |  |----------||------------|------------|------------------------------
+        //                              | **BSPC** | RET      || TAB     |  |    -    |  | ESC      || SPC        | **ENTF**   |
+        //                              ----------------------------------------------------------------------------------------
+        navigation {
+            bindings = <
+                &kp MINUS &trans &trans &trans  &trans  &trans        &trans   &trans    &trans  &trans    &trans &kp MINUS
+                &kp MINUS &trans &trans &trans  &trans  &trans        &kp LEFT &kp DOWN  &kp  UP &kp RIGHT &trans &kp MINUS
+                &kp MINUS &trans &trans &trans  &trans  &trans        &trans   &trans    &trans  &trans    &trans &kp MINUS
+                                        &trans  &kp RET &kp TAB       &kp ESC &kp SPACE &trans
+            >;
+        };
 
                 dummy_01 {
                         bindings = <
