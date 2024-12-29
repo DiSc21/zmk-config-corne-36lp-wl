@@ -172,7 +172,7 @@
         };
 
         // STD ZMK DOC Homerow Mods
-        hm: homerow_mods {
+        hm: homerow_mods_zmk_doc {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             tapping-term-ms = <120>;
