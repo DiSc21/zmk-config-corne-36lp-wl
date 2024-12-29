@@ -1,0 +1,305 @@
+layout: {qmk_keyboard: corne_rotated, layout_name: LAYOUT_split_3x6_3}
+layers:
+  default:
+  - ['-', Q, W, E, R, T, Y, U, I, O]
+  - - P
+    - '-'
+    - '-'
+    - {t: A, h: LSHIFT}
+    - {t: S, h: LCTRL}
+    - {t: D, h: LGUI}
+    - {t: F, h: LALT}
+    - G
+    - H
+    - {t: J, h: RALT}
+  - - {t: K, h: RGUI}
+    - {t: L, h: RCTRL}
+    - {t: ;, h: RSHIFT}
+    - '-'
+    - '-'
+    - Z
+    - X
+    - C
+    - V
+    - B
+  - - N
+    - M
+    - ','
+    - .
+    - /
+    - '-'
+    - {t: BSPC, h: navigation}
+    - {t: RET, h: signs_braces}
+    - {t: TAB, h: numbers}
+    - {t: ESC, h: numbers}
+  - - {t: SPACE, h: signs_braces}
+    - {t: DEL, h: navigation}
+  numbers:
+  - - '-'
+    - F1
+    - F2
+    - F3
+    - F4
+    - {t: ▽, type: trans}
+    - +
+    - '7'
+    - '8'
+    - '9'
+  - - '*'
+    - '-'
+    - '-'
+    - {t: F5, h: LSHIFT}
+    - {t: F6, h: LCTRL}
+    - {t: F7, h: LGUI}
+    - {t: F8, h: LALT}
+    - {t: ▽, type: trans}
+    - '-'
+    - {t: '4', h: RALT}
+  - - {t: '5', h: RGUI}
+    - {t: '6', h: RCTRL}
+    - {t: '=', h: RSHIFT}
+    - '-'
+    - '-'
+    - F9
+    - F10
+    - F11
+    - F12
+    - {t: ▽, type: trans}
+  - - '0'
+    - '1'
+    - '2'
+    - '3'
+    - .
+    - '-'
+    - BSPC
+    - RET
+    - {type: held}
+    - {t: ▽, type: trans}
+  - [SPACE, DEL]
+  signs_braces:
+  - ['-', '!', '@', '#', $, '%', ^, '&', '*', (]
+  - - )
+    - '-'
+    - '-'
+    - {t: '~', h: LSHIFT}
+    - {t: '`', h: LCTRL}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - PG UP
+    - '-'
+    - {t: '{', h: RALT}
+  - - {t: '[', h: RGUI}
+    - {t: ']', h: RCTRL}
+    - {t: '}', h: RSHIFT}
+    - '-'
+    - '-'
+    - HOME
+    - INSERT
+    - PSCRN
+    - END
+    - PG DN
+  - - ''''
+    - \
+    - <
+    - '>'
+    - /
+    - '-'
+    - BSPC
+    - {type: held}
+    - TAB
+    - ESC
+  - - {t: ▽, type: trans}
+    - DEL
+  navigation:
+  - - '-'
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+  - - {t: ▽, type: trans}
+    - '-'
+    - '-'
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - LEFT
+    - DOWN
+  - - UP
+    - RIGHT
+    - {t: ▽, type: trans}
+    - '-'
+    - '-'
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+  - - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - '-'
+    - {type: held}
+    - RET
+    - TAB
+    - ESC
+  - - SPACE
+    - {t: ▽, type: trans}
+  dummy_01:
+  - - '-'
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+  - - {t: ▽, type: trans}
+    - '-'
+    - '-'
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+  - - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - '-'
+    - '-'
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+  - - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - '-'
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+  - - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+  dummy_02:
+  - - '-'
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+  - - {t: ▽, type: trans}
+    - '-'
+    - '-'
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+  - - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - '-'
+    - '-'
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+  - - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - '-'
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+  - - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+  dummy_03:
+  - - '-'
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+  - - {t: ▽, type: trans}
+    - '-'
+    - '-'
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+  - - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - '-'
+    - '-'
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+  - - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - '-'
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+  - - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+combos:
+- p: [1, 2]
+  k: ESC
+- p: [2, 3]
+  k: TAB
+- p: [8, 9]
+  k: DEL
+- p: [9, 10]
+  k: BSPC
+- p: [13, 14, 15, 16]
+  k: RET
+- p: [19, 20, 21, 22]
+  k: SPACE
+- p: [25, 26]
+  k: HOME
+- p: [31, 32]
+  k: '{'
+- p: [32, 33]
+  k: '}'
+- p: [33, 34]
+  k: END
