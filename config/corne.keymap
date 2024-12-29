@@ -9,7 +9,7 @@
 #include <dt-bindings/zmk/bt.h>
 
 
-// #include <dt-bindings/zmk/pointing.h>
+#include <dt-bindings/zmk/pointing.h>
 
 /* TOP LEFT hand keys */
 #define LT0 0
@@ -143,6 +143,16 @@
             timeout-ms = <50>;
             key-positions = <LB1 LB2>;
             bindings = <&kp HOME>;
+        };
+        combo_lbrc {
+            timeout-ms = <50>;
+            key-positions = <RB1 RB2>;
+            bindings = <&kp LBRC>;
+        };
+        combo_lbrc {
+            timeout-ms = <50>;
+            key-positions = <RB2 RB3>;
+            bindings = <&kp RBRC>;
         };
         combo_end {
             timeout-ms = <50>;
