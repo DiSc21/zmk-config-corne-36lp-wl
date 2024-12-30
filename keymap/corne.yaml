@@ -38,11 +38,11 @@ layers:
   - /
   - {t: '-', s: _}
   - {t: BSPC, h: '&led_red 3'}
-  - {t: RET, h: signs_braces}
-  - {t: ↹, h: numbers}
-  - {t: ESC, h: numbers}
-  - {t: SPACE, h: signs_braces}
-  - {t: DEL, h: navigation}
+  - {t: RET, h: '&led_blue 2'}
+  - {t: ↹, h: '&led_purple 1'}
+  - {t: ESC, h: '&led_purple 1'}
+  - {t: SPACE, h: '&led_blue 2'}
+  - {t: DEL, h: '&led_red 3'}
   numbers:
   - {t: '-', s: _}
   - F1
@@ -82,8 +82,8 @@ layers:
   - {t: '-', s: _}
   - BSPC
   - RET
-  - {t: ' ', type: held}
-  - {t: ' ', type: held alternate}
+  - ' '
+  - ' '
   - SPACE
   - DEL
   signs_braces:
@@ -124,10 +124,10 @@ layers:
   - /
   - {t: '-', s: _}
   - BSPC
-  - {t: ' ', type: held}
+  - ' '
   - ↹
   - ESC
-  - {t: ' ', type: held alternate}
+  - ' '
   - DEL
   navigation:
   - {t: '-', s: _}
@@ -171,7 +171,7 @@ layers:
   - ↹
   - ESC
   - SPACE
-  - {t: ' ', type: held}
+  - ' '
   dummy_01:
   - {t: '-', s: _}
   - ' '
@@ -306,19 +306,35 @@ combos:
   k: ESC
 - p: [2, 3]
   k: ↹
+- p: [3, 4]
+  k: ↹
+- p: [7, 8]
+  k: ↹
 - p: [8, 9]
-  k: DEL
-- p: [9, 10]
   k: BSPC
+- p: [9, 10]
+  k: DEL
 - p: [13, 14, 15, 16]
   k: RET
+- p: [15, 16]
+  k: INSERT
+- p: [19, 20]
+  k: {t: '-', s: _}
+- p: [20, 21]
+  k: {t: '=', s: +}
+- p: [21, 22]
+  k: {t: '''', s: '"'}
 - p: [19, 20, 21, 22]
   k: SPACE
 - p: [25, 26]
   k: HOME
-- p: [31, 32]
-  k: '{'
-- p: [32, 33]
-  k: '}'
-- p: [33, 34]
+- p: [26, 27]
   k: END
+- p: [27, 28]
+  k: B
+- p: [31, 32]
+  k: N
+- p: [32, 33]
+  k: {t: ',', s: <}
+- p: [33, 34]
+  k: \
