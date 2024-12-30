@@ -82,6 +82,8 @@
 #define HM_TAPPING_TERM_FAST 200
 #define HM_PRIOR_IDLE 150
 
+#define COMBO_TAPPING_TIME 70
+
 &led_strip {
     chain-length = <24>;
 };
@@ -92,14 +94,14 @@
 //  --------------------------
 //  ___________________________________________           ___________________________________________
 // |   |     __|__   __|__   __|__     |       |#########|       |     __|__   __|__   __|__     |   |
-// | - |    |_ESC_| |_TAB_| |_____|    |       |#########|       |    |_____| |_DEL_| |_BSP_|    | - |
+// | - |    |_ESC_| |__A__| |__T__|    |       |#########|       |    |__Y__| |_BSP_| |_DEL_|    | - |
 // |___|_______|_______|_______|_______|_______|#########|_______|_______|_______|_______|_______|___|
-// |   |     __|_______|_______|__     |       |#########|       |     _____________________     |   |
-// | - |    |________ENTER________|    |       |#########|       |    |________SPACE________|    | - |
+// |   |     __|__   __|__   __|__     |       |#########|       |     _____   _____   _____     |   |
+// | - |    |-CAP-| |-NTE-| |_INS_|    |       |#########|       |    |__-__| |__=__| |__'__|    | - |
 // |___|_______|_______|_______|_______|_______|#########|_______|_______|_______|_______|_______|___|
-// |   |     __|__     |       |       |       |#########|       |     __|__   __|__   __|__     |   |
-// | - |    |_HOM_|    |       |       |       |#########|       |    |__{__| |__}__| |_END_|    | - |
-// |___|_______________|_______|_______|_______|#########|_______|_______|_______|_______|_______|___|
+// |   |     __|__   __|__   __|__     |       |#########|       |     __|__   __|__   __|__     |   |
+// | - |    |_HOM_| |_END_| |__B__|    |       |#########|       |    |__N__| |__,__| |__\__|    | - |
+// |___|_______|_______|_______|_______|_______|#########|_______|_______|_______|_______|_______|___|
 //                     |       |       |       |#########|       |       |       |
 //                     |_______|_______|_______|#########|_______|_______|_______|
     combos {
@@ -108,35 +110,65 @@
         // TopRow Combos
         // -------------
         combo_esc {
-            timeout-ms = <50>;
+            timeout-ms = <COMBO_TAPPING_TIME>;
             key-positions = <LT1 LT2>;
             bindings = <&kp ESC>;
         };
         combo_tab {
-            timeout-ms = <50>;
+            timeout-ms = <COMBO_TAPPING_TIME>;
             key-positions = <LT2 LT3>;
             bindings = <&kp TAB>;
         };
-        combo_del {
-            timeout-ms = <50>;
-            key-positions = <RT2 RT3>;
-            bindings = <&kp DEL>;
+        combo_key_t {
+            timeout-ms = <COMBO_TAPPING_TIME>;
+            key-positions = <LT3 LT4>;
+            bindings = <&kp TAB>;
+        };
+        combo_key_y {
+            timeout-ms = <COMBO_TAPPING_TIME>;
+            key-positions = <RT1 RT2>;
+            bindings = <&kp TAB>;
         };
         combo_bspc {
-            timeout-ms = <50>;
-            key-positions = <RT3 RT4>;
+            timeout-ms = <COMBO_TAPPING_TIME>;
+            key-positions = <RT2 RT3>;
             bindings = <&kp BSPC>;
+        };
+        combo_del {
+            timeout-ms = <COMBO_TAPPING_TIME>;
+            key-positions = <RT3 RT4>;
+            bindings = <&kp DEL>;
         };
 
         // MiddleRow Combos
         // ----------------
         combo_return {
-            timeout-ms = <50>;
+            timeout-ms = <COMBO_TAPPING_TIME>;
             key-positions = <LM1 LM2 LM3 LM4>;
             bindings = <&kp RET>;
         };
+        combo_insert {
+            timeout-ms = <COMBO_TAPPING_TIME>;
+            key-positions = <LM3 LM4>;
+            bindings = <&kp INSERT>;
+        };
+        combo_minus {
+            timeout-ms = <COMBO_TAPPING_TIME>;
+            key-positions = <RM1 RM2>;
+            bindings = <&kp MINUS>;
+        };
+        combo_equal {
+            timeout-ms = <COMBO_TAPPING_TIME>;
+            key-positions = <RM2 RM3>;
+            bindings = <&kp EQUAL>;
+        };
+        combo_quote {
+            timeout-ms = <COMBO_TAPPING_TIME>;
+            key-positions = <RM3 RM4>;
+            bindings = <&kp SINGLE_QUOTE>;
+        };
         combo_space {
-            timeout-ms = <50>;
+            timeout-ms = <COMBO_TAPPING_TIME>;
             key-positions = <RM1 RM2 RM3 RM4>;
             bindings = <&kp SPACE>;
         };
@@ -144,24 +176,34 @@
         // BottomRow Combos
         // ----------------
         combo_home {
-            timeout-ms = <50>;
+            timeout-ms = <COMBO_TAPPING_TIME>;
             key-positions = <LB1 LB2>;
             bindings = <&kp HOME>;
         };
-        combo_lbrc {
-            timeout-ms = <50>;
-            key-positions = <RB1 RB2>;
-            bindings = <&kp LBRC>;
-        };
-        combo_rbrc {
-            timeout-ms = <50>;
-            key-positions = <RB2 RB3>;
-            bindings = <&kp RBRC>;
-        };
         combo_end {
-            timeout-ms = <50>;
-            key-positions = <RB3 RB4>;
+            timeout-ms = <COMBO_TAPPING_TIME>;
+            key-positions = <LB2 LB3>;
             bindings = <&kp END>;
+        };
+        combo_key_b {
+            timeout-ms = <COMBO_TAPPING_TIME>;
+            key-positions = <LB3 LB4>;
+            bindings = <&kp B>;
+        };
+        combo_key_n {
+            timeout-ms = <COMBO_TAPPING_TIME>;
+            key-positions = <RB1 RB2>;
+            bindings = <&kp N>;
+        };
+        combo_comma {
+            timeout-ms = <COMBO_TAPPING_TIME>;
+            key-positions = <RB2 RB3>;
+            bindings = <&kp COMMA>;
+        };
+        combo_bslh {
+            timeout-ms = <COMBO_TAPPING_TIME>;
+            key-positions = <RB3 RB4>;
+            bindings = <&kp BSLH>;
         };
     };
 
@@ -264,10 +306,10 @@
 
     behaviors {
 
-        lt_red: lt_red {
+        lt_rl: lt_rl {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            bindings = <&led_red>,  <&kp>;
+            bindings = <&led_red>, <&kp>;
 
             flavor = "balanced";
             tapping-term-ms = <HM_TAPPING_TERM>;
@@ -275,6 +317,73 @@
             require-prior-idle-ms = <HM_PRIOR_IDLE>;
 
             hold-trigger-key-positions = <KEYS_R KEYS_THUMBS>;
+            hold-trigger-on-release;
+        };
+        lt_rr: lt_rr {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            bindings = <&led_red>, <&kp>;
+
+            flavor = "balanced";
+            tapping-term-ms = <HM_TAPPING_TERM>;
+            quick-tap-ms = <175>;                // repeat on tap-into-hold
+            require-prior-idle-ms = <HM_PRIOR_IDLE>;
+
+            hold-trigger-key-positions = <KEYS_L KEYS_THUMBS>;
+            hold-trigger-on-release;
+        };
+
+        lt_bl: lt_bl {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            bindings = <&led_blue>, <&kp>;
+
+            flavor = "balanced";
+            tapping-term-ms = <HM_TAPPING_TERM>;
+            quick-tap-ms = <175>;                // repeat on tap-into-hold
+            require-prior-idle-ms = <HM_PRIOR_IDLE>;
+
+            hold-trigger-key-positions = <KEYS_R KEYS_THUMBS>;
+            hold-trigger-on-release;
+        };
+        lt_br: lt_br {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            bindings = <&led_blue>, <&kp>;
+
+            flavor = "balanced";
+            tapping-term-ms = <HM_TAPPING_TERM>;
+            quick-tap-ms = <175>;                // repeat on tap-into-hold
+            require-prior-idle-ms = <HM_PRIOR_IDLE>;
+
+            hold-trigger-key-positions = <KEYS_L KEYS_THUMBS>;
+            hold-trigger-on-release;
+        };
+
+        lt_pl: lt_pl {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            bindings = <&led_purple>, <&kp>;
+
+            flavor = "balanced";
+            tapping-term-ms = <HM_TAPPING_TERM>;
+            quick-tap-ms = <175>;                // repeat on tap-into-hold
+            require-prior-idle-ms = <HM_PRIOR_IDLE>;
+
+            hold-trigger-key-positions = <KEYS_R KEYS_THUMBS>;
+            hold-trigger-on-release;
+        };
+        lt_pr: lt_pr {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            bindings = <&led_purple>, <&kp>;
+
+            flavor = "balanced";
+            tapping-term-ms = <HM_TAPPING_TERM>;
+            quick-tap-ms = <175>;                // repeat on tap-into-hold
+            require-prior-idle-ms = <HM_PRIOR_IDLE>;
+
+            hold-trigger-key-positions = <KEYS_L KEYS_THUMBS>;
             hold-trigger-on-release;
         };
 
@@ -407,10 +516,10 @@
         //                              -----------------------------------------------------------------------------------------
         default_layer {
             bindings = <
-                &kp MINUS &kp Q                &kp W              &kp E          &kp R         &kp T             &kp Y           &kp U           &kp I         &kp O         &kp P                   &kp MINUS
-                &kp MINUS &hm_shift_l LSHIFT A &hm_l LCTRL S      &hm_l LGUI D   &hm_l LALT F  &kp G             &kp H           &hm_r RALT J    &hm_r RGUI K  &hm_r RCTRL L &hm_shift_r RSHIFT SEMI &kp MINUS
-                &kp MINUS &kp Z                &kp X              &kp C          &kp V         &kp B             &kp N           &kp M           &kp COMMA     &kp DOT       &kp FSLH                &kp MINUS
-                                               &lt_red L_NAV BSPC &lt L_BRC RET  &lt L_NUM TAB &lt L_NUM ESC     &lt L_BRC SPACE &lt L_NAV DEL
+                &kp MINUS &kp Q                &kp W         &kp E             &kp R            &kp T                &kp Y            &kp U              &kp I            &kp O         &kp P                   &kp MINUS
+                &kp MINUS &hm_shift_l LSHIFT A &hm_l LCTRL S &hm_l LGUI D      &hm_l LALT F     &kp G                &kp H            &hm_r RALT J       &hm_r RGUI K     &hm_r RCTRL L &hm_shift_r RSHIFT SEMI &kp MINUS
+                &kp MINUS &kp Z                &kp X         &kp C             &kp V            &kp B                &kp N            &kp M              &kp COMMA        &kp DOT       &kp FSLH                &kp MINUS
+                                                             &lt_rl L_NAV BSPC &lt_bl L_BRC RET &lt_pl L_NUM TAB     &lt_pr L_NUM ESC &lt_br L_BRC SPACE &lt_rr L_NAV DEL
             >;
         };
 
