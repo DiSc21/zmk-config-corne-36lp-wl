@@ -1,0 +1,3 @@
+# Don't track vim swp files
+**/**.swp
+**/**.swo
