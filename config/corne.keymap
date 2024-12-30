@@ -122,12 +122,12 @@
         combo_key_t {
             timeout-ms = <COMBO_TAPPING_TIME>;
             key-positions = <LT3 LT4>;
-            bindings = <&kp TAB>;
+            bindings = <&kp T>;
         };
         combo_key_y {
             timeout-ms = <COMBO_TAPPING_TIME>;
             key-positions = <RT1 RT2>;
-            bindings = <&kp TAB>;
+            bindings = <&kp Y>;
         };
         combo_bspc {
             timeout-ms = <COMBO_TAPPING_TIME>;
