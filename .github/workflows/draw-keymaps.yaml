@@ -1,14 +1,21 @@
-name: Build ZMK firmware
-on: [push, pull_request, workflow_dispatch]
-
-permissions:
-  contents: write  # allow workflow to commit to the repo
+# Example for using the keymap-drawer ZMK user config workflow
+name: Draw ZMK keymaps
+on:
+  workflow_dispatch:  # can be triggered manually
+  push:               # automatically run on changes to following paths
+    paths:
+      - "config/*.keymap"
+      - "config/*.dtsi"
+      - "keymap/keymap_config.yaml"
+      # - 'boards/*/*/*.keymap'
 
 jobs:
-  draw:
+  draw_and_update:
     uses: caksoylar/keymap-drawer/.github/workflows/draw-zmk.yml@main
+    permissions:
+      contents: write  # allow workflow to commit to the repo
     with:
-      destination: 'artifact'
+      destination: 'both'
       keymap_patterns: "config/*.keymap"        # path to the keymaps to parse
       config_path: "keymap/keymap_config.yaml"  # config file, ignored if not exists
       output_folder: "keymap"                   # path to save produced SVG and keymap YAML files
@@ -16,7 +23,3 @@ jobs:
       draw_args: ""   # map of extra args to pass to `keymap draw`, e.g. "corne:'-k corne_rotated' cradio:'-k paroxysm'"
       # Use the triggering commit's message, prepending the "[Draw]" tag
       commit_message: "[Autogen-Draw-Keymaps] ${{ github.event.head_commit.message }}"
-
-  build:
-    uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main
-
