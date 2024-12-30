@@ -160,7 +160,7 @@ parse_config:
     TRNS: ''
     UNDERSCORE: _
     UNDS: _
-    SPACE: ⎵
+    SPACE: "SPACE"
   raw_binding_map:
     '&trans': {t: ' '}
   skip_binding_parsing: false
