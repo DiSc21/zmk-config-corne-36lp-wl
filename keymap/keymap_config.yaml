@@ -1,6 +1,6 @@
 draw_config:
-  append_colon_to_layer_header: true
-  dark_mode: true
+  append_colon_to_layer_header: True
+  dark_mode: True
   arc_radius: 6.0
   arc_scale: 1.0
   combo_h: 26.0
@@ -91,6 +91,7 @@ draw_config:
 parse_config:
   assign_combos_to_layers: false
   preprocess: true
+  mark_alternate_layer_activators: True
   qmk_keycode_map:
     AMPERSAND: '&'
     AMPR: '&'

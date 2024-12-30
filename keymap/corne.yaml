@@ -83,7 +83,7 @@ layers:
     - BSPC
     - RET
     - {t: ' ', type: held}
-    - ' '
+    - {t: ' ', type: held alternate}
   - [SPACE, DEL]
   signs_braces:
   - - {t: '-', s: _}
@@ -126,7 +126,8 @@ layers:
     - {t: ' ', type: held}
     - ↹
     - ESC
-  - [' ', DEL]
+  - - {t: ' ', type: held alternate}
+    - DEL
   navigation:
   - - {t: '-', s: _}
     - ' '
@@ -168,7 +169,8 @@ layers:
     - RET
     - ↹
     - ESC
-  - [SPACE, ' ']
+  - - SPACE
+    - {t: ' ', type: held alternate}
   dummy_01:
   - - {t: '-', s: _}
     - ' '
