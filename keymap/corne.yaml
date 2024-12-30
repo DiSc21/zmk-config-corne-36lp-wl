@@ -37,7 +37,7 @@ layers:
   - {t: ., s: '>'}
   - /
   - {t: '-', s: _}
-  - {t: BSPC, h: navigation}
+  - {t: BSPC, h: '&led_red 3'}
   - {t: RET, h: signs_braces}
   - {t: ↹, h: numbers}
   - {t: ESC, h: numbers}
@@ -166,12 +166,12 @@ layers:
   - ' '
   - ' '
   - {t: '-', s: _}
-  - {t: ' ', type: held}
+  - ' '
   - RET
   - ↹
   - ESC
   - SPACE
-  - {t: ' ', type: held alternate}
+  - {t: ' ', type: held}
   dummy_01:
   - {t: '-', s: _}
   - ' '
