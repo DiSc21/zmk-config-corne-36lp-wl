@@ -17,4 +17,3 @@
 #### Keyboard Layout:
 
 ![Alt text](./keymap/corne.svg)
-<img src="./keymap/corne.svg">
