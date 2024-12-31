@@ -217,4 +217,3 @@ parse_config:
     combo_tog_nav_word: {'k': "NavWord", 'a': 'bottom', 'o': +0.05}
     combo_tog_num_word: {'k': "NumWord", 'a': 'bottom', 'o': +0.25}
     combo_capsword: {'k': "Caps\nWord"}
-
