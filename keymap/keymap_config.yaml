@@ -94,9 +94,9 @@ parse_config:
   mark_alternate_layer_activators: true
   raw_binding_map:
     '&trans': {t: ' '}
-    '&led_red 3': 'NAV'
-    '&led_blue 2': 'SIGNS'
     '&led_purple 1': 'NUM'
+    '&led_blue 2': 'SIGNS'
+    '&led_red 3': 'NAV'
   skip_binding_parsing: false
   zmk_keycode_map:
     AMPERSAND: '&'
