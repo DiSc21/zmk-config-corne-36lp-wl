@@ -257,7 +257,7 @@
             #binding-cells = <1>;
             bindings
                 = <&macro_param_1to1>, <&macro_press &mo MACRO_PLACEHOLDER>
-                , <&macro_tap &rgb_ug RGB_COLOR_HSB(210,100,100)>
+                , <&macro_tap &rgb_ug RGB_COLOR_HSB(270,100,100)>
                 , <&macro_pause_for_release>
                 , <&macro_param_1to1>, <&macro_release &mo MACRO_PLACEHOLDER>
                 , <&macro_tap &rgb_ug RGB_COLOR_HSB(0,20,20)>;
@@ -474,12 +474,12 @@
         // -----------------------------|------------|-----------||-----------| |   -   | |-----------||-----------|------------|------------------------------
         //                              | BSPC [NAV] | RET [BRC] || TAB [NUM] | |   -   | | ESC [NUM] || SPC [BRC] | ENTF [NAV] |
         //                              -----------------------------------------------------------------------------------------
-        default_layer {
+        default {
             bindings = <
-                &kp MINUS &kp Q                &kp W         &kp E             &kp R            &kp T                &kp Y            &kp U              &kp I            &kp O         &kp P                   &kp MINUS
-                &kp MINUS &hm_shift_l LSHIFT A &hm_l LCTRL S &hm_l LGUI D      &hm_l LALT F     &kp G                &kp H            &hm_r RALT J       &hm_r RGUI K     &hm_r RCTRL L &hm_shift_r RSHIFT SEMI &kp MINUS
-                &kp MINUS &kp Z                &kp X         &kp C             &kp V            &kp B                &kp N            &kp M              &kp COMMA        &kp DOT       &kp FSLH                &kp MINUS
-                                                             &lt_rl L_NAV BSPC &lt_bl L_BRC RET &lt_pl L_NUM TAB     &lt_pr L_NUM ESC &lt_br L_BRC SPACE &lt_rr L_NAV DEL
+                &none &kp Q                &kp W         &kp E             &kp R            &kp T                &kp Y            &kp U              &kp I            &kp O         &kp P                   &none
+                &none &hm_shift_l LSHIFT A &hm_l LCTRL S &hm_l LGUI D      &hm_l LALT F     &kp G                &kp H            &hm_r RALT J       &hm_r RGUI K     &hm_r RCTRL L &hm_shift_r RSHIFT SEMI &none
+                &none &kp Z                &kp X         &kp C             &kp V            &kp B                &kp N            &kp M              &kp COMMA        &kp DOT       &kp FSLH                &none
+                                                         &lt_rl L_NAV BSPC &lt_bl L_BRC RET &lt_pl L_NUM TAB     &lt_pr L_NUM ESC &lt_br L_BRC SPACE &lt_rr L_NAV DEL
             >;
         };
 
@@ -495,13 +495,14 @@
         //                              ---------------------------------------------------------------------------------
         numbers {
             bindings = <
-                &kp MINUS &kp F1                &kp F2         &kp   F3      &kp F4        &trans         &kp PLUS  &kp N7        &kp N8        &kp N9         &kp ASTERISK             &kp MINUS
-                &kp MINUS &hm_shift_l LSHIFT F5 &hm_l LCTRL F6 &hm_l LGUI F7 &hm_l LALT F8 &trans         &kp MINUS &hm_r RALT N4 &hm_r RGUI N5 &hm_r RCTRL N6 &hm_shift_r RSHIFT EQUAL &kp MINUS
-                &kp MINUS &kp F9                &kp F10        &kp   F11     &kp F12       &trans         &kp N0    &kp N1        &kp N2        &kp N3         &kp DOT                  &kp MINUS
-                                                               &kp   BSPC    &kp RET       &trans         &trans    &kp SPACE     &kp DEL
+                &none &kp F1                &kp F2         &kp   F3      &kp F4        &trans         &kp PLUS  &kp N7        &kp N8        &kp N9         &kp ASTERISK             &none
+                &none &hm_shift_l LSHIFT F5 &hm_l LCTRL F6 &hm_l LGUI F7 &hm_l LALT F8 &trans         &kp MINUS &hm_r RALT N4 &hm_r RGUI N5 &hm_r RCTRL N6 &hm_shift_r RSHIFT EQUAL &none
+                &none &kp F9                &kp F10        &kp   F11     &kp F12       &trans         &kp N0    &kp N1        &kp N2        &kp N3         &kp DOT                  &none
+                                                           &trans        &trans        &trans         &trans    &trans        &trans
             >;
         };
 
+                                                           //&kp   BSPC    &kp RET       &trans         &trans    &kp SPACE     &kp DEL
         // [BRC] LAYER (BRACES/SIGNS)
         // -----------------------------------------------------------------------------------------------------------------------------------------
         // | - | !         | @        | #       | $         | %         ||   |    -    |   | ^    || &       | *       | (         | )         | - |
@@ -512,15 +513,16 @@
         // ---------------------------|---------|-----------|-----------||   |    -    |   |------||---------|---------|----------------------------
         //                            | BSPC    | **RET**   | TAB       ||   |    -    |   | ESC  || **SPC** | ENTF    |
         //                            ----------------------------------------------------------------------------------
-        signs_braces {
+        braces {
             bindings = <
-                &kp MINUS &kp EXCL                 &kp AT            &kp HASH  &kp DOLLAR &kp PRCNT       &kp CARET        &kp AMPS        &kp ASTERISK    &kp LPAR         &kp RPAR                &kp MINUS
-                &kp MINUS &hm_shift_l LSHIFT TILDE &hm_l LCTRL GRAVE &trans    &trans     &kp PG_UP       &kp MINUS        &hm_r RALT LBRC &hm_r RGUI LBKT &hm_r RCTRL RBKT &hm_shift_r RSHIFT RBRC &kp MINUS
-                &kp MINUS &kp HOME                 &kp INSERT        &kp PSCRN &kp END    &kp PG_DN       &kp SINGLE_QUOTE &kp BSLH        &kp LT          &kp GT           &kp FSLH                &kp MINUS
-                                                                     &kp BSPC  &trans     &kp TAB         &kp ESC          &trans          &kp DEL
+                &none &kp EXCL                 &kp AT            &kp HASH  &kp DOLLAR &kp PRCNT       &kp CARET        &kp AMPS        &kp ASTERISK    &kp LPAR         &kp RPAR                &none
+                &none &hm_shift_l LSHIFT TILDE &hm_l LCTRL GRAVE &trans    &trans     &kp PG_UP       &kp MINUS        &hm_r RALT LBRC &hm_r RGUI LBKT &hm_r RCTRL RBKT &hm_shift_r RSHIFT RBRC &none
+                &none &kp HOME                 &kp INSERT        &kp PSCRN &kp END    &kp PG_DN       &kp SINGLE_QUOTE &kp BSLH        &kp LT          &kp GT           &kp FSLH                &none
+                                                                 &trans    &trans     &trans          &trans           &trans          &trans
             >;
         };
 
+                                                                 //&kp BSPC  &trans     &kp TAB         &kp ESC          &trans          &kp DEL
         // [NAV] LAYER
         // --------------------------------------------------------------------------------------------------------------------------------------------------
         // | - |            |           |          |          ||         |  |    -    |  | M-LEFT   || SNIPER-    | M-MIDDLE   | SNIPER+    | M-RIGHT    | - |
@@ -533,48 +535,32 @@
         //                              ----------------------------------------------------------------------------------------
         navigation {
             bindings = <
-                &kp MINUS &trans &trans &trans  &trans  &trans        &trans   &trans    &trans  &trans    &trans &kp MINUS
-                &kp MINUS &trans &trans &trans  &trans  &trans        &kp LEFT &kp DOWN  &kp  UP &kp RIGHT &trans &kp MINUS
-                &kp MINUS &trans &trans &trans  &trans  &trans        &trans   &trans    &trans  &trans    &trans &kp MINUS
-                                        &trans  &kp RET &kp TAB       &kp ESC &kp SPACE &trans
+                &none &trans &trans &trans  &trans  &trans        &trans   &trans   &trans  &trans    &trans &none
+                &none &trans &trans &trans  &trans  &trans        &kp LEFT &kp DOWN &kp  UP &kp RIGHT &trans &none
+                &none &trans &trans &trans  &trans  &trans        &trans   &trans   &trans  &trans    &trans &none
+                                    &trans  &trans  &trans        &trans   &trans   &trans
             >;
         };
 
-                dummy_01 {
-                        bindings = <
-   &kp MINUS &trans &trans &trans  &trans &trans         &trans &trans &trans  &trans &trans &kp MINUS
-   &kp MINUS &trans &trans &trans  &trans &trans         &trans &trans &trans  &trans &trans &kp MINUS
-   &kp MINUS &trans &trans &trans  &trans &trans         &trans &trans &trans  &trans &trans &kp MINUS
-                           &trans  &trans &trans         &trans &trans &trans
+                                    //&trans  &kp RET &kp TAB       &kp ESC &kp SPACE &trans
+        // [BT+L1] LAYER
+        // ---------------------------------------------------------------------------------------------------------------------------------------------
+        // | - | BTCLR      |           |          |          |         |  |    -    |  |         |          |            |           |            | - |
+        // |---|------------|-----------|----------|----------|---------|  |    -    |  |---------|----------|------------|-----------|------------|---|
+        // | - | B1         | B2        | B3       | B4       | B5      |  |    -    |  |         |    [ALT] |      [WIN] |    [CTRL] |    [SHIFT] | - |
+        // |---|------------|-----------|----------|----------|---------|  |    -    |  |---------|----------|------------|-----------|------------|---|
+        // | - | L1         | L2        | L3       | L4       | L5      |  |    -    |  | ******* |          |            |           |            | - |
+        // -----------------------------|----------|----------|---------|  |    -    |  |---------|----------|------------|-----------------------------
+        //                              | ESC      | RET      | TAB     |  |    -    |  | SPC     | BSPC     | ENTF       |
+        //                              -----------------------------------------------------------------------------------
+        dummy_01 {
+            bindings = <
+                &none &trans &trans &trans  &trans &trans         &trans &trans &trans  &trans &trans &none
+                &none &trans &trans &trans  &trans &trans         &trans &trans &trans  &trans &trans &none
+                &none &trans &trans &trans  &trans &trans         &trans &trans &trans  &trans &trans &none
+                                    &trans  &trans &trans         &trans &trans &trans
                         >;
                 };
-                dummy_02 {
-                        bindings = <
-   &kp MINUS &trans &trans &trans  &trans &trans         &trans &trans &trans  &trans &trans &kp MINUS
-   &kp MINUS &trans &trans &trans  &trans &trans         &trans &trans &trans  &trans &trans &kp MINUS
-   &kp MINUS &trans &trans &trans  &trans &trans         &trans &trans &trans  &trans &trans &kp MINUS
-                           &trans  &trans &trans         &trans &trans &trans
-                        >;
-                };
-                dummy_03 {
-                        bindings = <
-   &kp MINUS &trans &trans &trans  &trans &trans         &trans &trans &trans  &trans &trans &kp MINUS
-   &kp MINUS &trans &trans &trans  &trans &trans         &trans &trans &trans  &trans &trans &kp MINUS
-   &kp MINUS &trans &trans &trans  &trans &trans         &trans &trans &trans  &trans &trans &kp MINUS
-                           &trans  &trans &trans         &trans &trans &trans
-                        >;
-                };
-
-// [BT+L1] LAYER
-// ---------------------------------------------------------------------------------------------------------------------------------------------
-// | - | BTCLR      |           |          |          |         |  |    -    |  |         |          |            |           |            | - |
-// |---|------------|-----------|----------|----------|---------|  |    -    |  |---------|----------|------------|-----------|------------|---|
-// | - | B1         | B2        | B3       | B4       | B5      |  |    -    |  |         |    [ALT] |      [WIN] |    [CTRL] |    [SHIFT] | - |
-// |---|------------|-----------|----------|----------|---------|  |    -    |  |---------|----------|------------|-----------|------------|---|
-// | - | L1         | L2        | L3       | L4       | L5      |  |    -    |  | ******* |          |            |           |            | - |
-// -----------------------------|----------|----------|---------|  |    -    |  |---------|----------|------------|-----------------------------
-//                              | ESC      | RET      | TAB     |  |    -    |  | SPC     | BSPC     | ENTF       |
-//                              -----------------------------------------------------------------------------------
 
 
 //   //// -----------------------------------------------------------------------------------------

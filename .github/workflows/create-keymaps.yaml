@@ -1,0 +1,63 @@
+name: 'Create ZMK Keymaps'
+on:
+  workflow_call:
+    inputs:
+      commit_message:
+        type: string
+        required: true
+
+#  workflow_dispatch:  # can be triggered manually
+#  push:               # automatically run on changes to following paths
+#    paths:
+#      - "config/*.keymap"
+#      - "config/*.dtsi"
+#      - "keymap/keymap_config.yaml"
+#      # - 'boards/*/*/*.keymap'
+
+permissions:
+  contents: write  # allow workflow to commit to the repo
+
+jobs:
+  create-keymaps:
+    name: Create Corne36 keymaps
+    runs-on: ubuntu-latest
+    steps:
+      - name: Extract branch name
+        shell: bash
+        run: |
+          if [ "${{ github.event_name }}" == "pull_request" ]; then
+            echo "branch=${{ github.head_ref }}" >> $GITHUB_OUTPUT
+          elif [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
+            echo "branch=${{ github.ref_name }}" >> $GITHUB_OUTPUT
+          else
+            echo "branch=${{ github.ref_name }}" >> $GITHUB_OUTPUT
+          fi
+        id: extract_branch
+
+      - name: Checkout the repo
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ steps.extract_branch.outputs.branch }}
+
+      - name: Install keymap-drawer
+        run: pip install --no-cache-dir keymap-drawer
+
+      - name: Create keymaps
+        run: ./keymap/create_keymap_by_layer.sh
+
+      - name: Check output
+        id: check_output
+        run: is_modified="false"; if [ -n "$(git status --porcelain keymap)" ]; then is_modified="true"; fi; echo "{modified}={${is_modified}}" >> $GITHUB_OUTPUT
+
+      - name: Update changes in GitHub repository
+        if: ${{ steps.run_tests.outputs.modified }} == "true"
+        uses: EndBug/add-and-commit@v9
+        with:
+          message: ${{ inputs.commit_message }}
+          add: 'keymap/*'
+
+      - name: Archive keymaps
+        uses: actions/upload-artifact@v4
+        with:
+          name: keymaps
+          path: ./keymap/fancy

@@ -1,0 +1,11 @@
+  svg_style: |
+    /* font and background color specifications */
+    svg {
+        font-family: Roboto-Regular,Roboto, Arial, SansSerif;
+        font-size: 12px;
+        font-kerning: none;
+        font-weight: bold;
+        text-rendering: optimizeLegibility;
+        fill: orange;
+        stroke: none;
+    }

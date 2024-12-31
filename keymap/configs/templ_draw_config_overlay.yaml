@@ -1,0 +1,18 @@
+draw_config:
+  append_colon_to_layer_header: true
+  dark_mode: false
+  arc_radius: 6.0
+  arc_scale: 1.0
+  combo_h: 15.0
+  combo_w: 30.0
+  inner_pad_h: 2.0
+  inner_pad_w: 2.0
+  key_h: 61.0
+  key_rx: 6.0
+  key_ry: 6.0
+  key_w: 65.0
+  line_spacing: 1.2
+  outer_pad_h: 56.0
+  outer_pad_w: 30.0
+  small_pad: 2.0
+  split_gap: 30.0

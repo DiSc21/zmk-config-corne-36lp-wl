@@ -6,7 +6,8 @@ cmd=.docker/run.sh
 
 .PHONY: create_keymap
 create_keymap:
-	${cmd} "keymap -c ./keymap/keymap_config.yaml parse -c 10 -z ./config/corne.keymap >./keymap/corne.yaml; keymap  -c ./keymap/keymap_config.yaml draw ./keymap/corne.yaml >./keymap/corne.svg"
+	${cmd} "./keymap/create_keymap_by_layer.sh"
+#${cmd} "keymap -c ./keymap/keymap_config_trans_orange.yaml parse -c 10 -z ./config/corne.keymap >./keymap/corne.yaml; keymap -c ./keymap/keymap_config_trans_orange.yaml draw ./keymap/corne.yaml -s numbers >./keymap/corne.svg; keymap -c ./keymap/keymap_config.yaml parse -c 10 -z ./config/corne.keymap >./keymap/corne_base.yaml; keymap -c ./keymap/keymap_config.yaml draw ./keymap/corne_base.yaml -s default >./keymap/corne_base.svg"
 
 
 .PHONY: build
