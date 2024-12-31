@@ -93,7 +93,7 @@ parse_config:
     RIGHT_SHFT: "SHFT"
     LEFT: 🡄
     RIGHT: 🡆
-    UP: 🡄
+    UP: 🡅
     DOWN: 🡇
     TAB: ↹
     RETURN: "ENTER"

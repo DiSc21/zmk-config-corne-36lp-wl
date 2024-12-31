@@ -108,7 +108,7 @@ parse_config:
     RIGHT_SHFT: ⏏
     LEFT: 🡄
     RIGHT: 🡆
-    UP: 🡄
+    UP: 🡅
     DOWN: 🡇
     C_REWIND: '⏮'
     C_FAST_FORWARD: '⏭'
