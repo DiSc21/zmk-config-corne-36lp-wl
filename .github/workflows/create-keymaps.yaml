@@ -23,10 +23,11 @@ jobs:
         run: pip install --no-cache-dir keymap-drawer
       - name: Create keymaps
         run: ./keymap/create_keymap_by_layer.sh
-      - name: Set output
-        run: is_modified="true"; if [ -n "$(git status --porcelain keymap)" ]; then is_modified="true"; fi; echo "{modified}={${is_modified}}" >> $GITHUB_OUTPUT
+      - name: Check output
+        id: check_output
+        run: is_modified="false"; if [ -n "$(git status --porcelain keymap)" ]; then is_modified="true"; fi; echo "{modified}={${is_modified}}" >> $GITHUB_OUTPUT
       - name: Update changes in GitHub repository
-        if: GITHUB_OUTPUT.modified == "true"
+        if: ${{ steps.run_tests.outputs.modified }} == "true"
         run:  |
           git config --global user.name 'GitHub'
           git config --global user.email 'dirkschnabel03@aol.com'
