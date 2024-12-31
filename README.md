@@ -16,7 +16,6 @@
 
 #### Keyboard Layout:
 
-/*#  <image x="0"   y="0"  width="100%" height="100%" href="./keymap/background.jpg" />a*/
 <svg width="975" height="411" viewBox="0 0 975 411" class="keymap" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <style>/* font and background color specifications */
 </style>
