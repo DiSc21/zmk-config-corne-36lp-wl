@@ -3,13 +3,14 @@ on:
   workflow_call:
     inputs:
       commit_message: "[Autogen-Draw-Keymaps]"
-    #  workflow_dispatch:  # can be triggered manually
-    #  push:               # automatically run on changes to following paths
-    #    paths:
-    #      - "config/*.keymap"
-    #      - "config/*.dtsi"
-    #      - "keymap/keymap_config.yaml"
-    #      # - 'boards/*/*/*.keymap'
+
+#  workflow_dispatch:  # can be triggered manually
+#  push:               # automatically run on changes to following paths
+#    paths:
+#      - "config/*.keymap"
+#      - "config/*.dtsi"
+#      - "keymap/keymap_config.yaml"
+#      # - 'boards/*/*/*.keymap'
 
 permissions:
   contents: write  # allow workflow to commit to the repo
