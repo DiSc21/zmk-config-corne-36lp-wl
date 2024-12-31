@@ -25,12 +25,10 @@ jobs:
       - name: Extract branch name
         shell: bash
         run: |
-          if [[ "${GITHUB_EVENT_NAME}" == "push" ]]; then
-            echo "branch=$(echo ${GITHUB_REF##*/})" >> $GITHUB_OUTPUT
-          elif [[ "${GITHUB_EVENT_NAME}" == "pull_request" ]]; then
-            echo "branch=$(echo $GITHUB_BASE_REF)" >> $GITHUB_OUTPUT
+          if [ "${{ github.event_name }}" == "pull_request" ]; then
+            echo "branch=${{ github.head_ref }}" >> $GITHUB_OUTPUT
           else
-            echo "branch=INVALID_EVENT_BRANCH_UNKNOWN" >> $GITHUB_OUTPUT
+            echo "branch=${GITHUB_REF##*/}" >> $GITHUB_OUTPUT
           fi
         id: extract_branch
 
