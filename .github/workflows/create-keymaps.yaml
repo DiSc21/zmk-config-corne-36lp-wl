@@ -19,36 +19,23 @@ jobs:
     steps:
       - name: Checkout the repo
         uses: actions/checkout@v2
+
       - name: Install keymap-drawer
         run: pip install --no-cache-dir keymap-drawer
+
       - name: Create keymaps
         run: ./keymap/create_keymap_by_layer.sh
+
       - name: Check output
         id: check_output
         run: is_modified="false"; if [ -n "$(git status --porcelain keymap)" ]; then is_modified="true"; fi; echo "{modified}={${is_modified}}" >> $GITHUB_OUTPUT
+
       - name: Update changes in GitHub repository
         if: ${{ steps.run_tests.outputs.modified }} == "true"
-        run:  |
-          git config --global --add safe.directory /__w/zmk-config-corne-36lp-wl/zmk-config-corne-36lp-wl
-          git add keymap/
-          last_commit_msg="$(git log -1 --pretty=%B)"
-          git commit -m "[Autogen-Draw-Keymaps] ${last_commit_msg}"
-          git push
-
-      #    pip install --no-cache-dir keymap-drawer
-      #FROM python:3
-      ##FROM ubuntu:22.04
-      #
-      ## install basic libraries 
-      #RUN apt-get update && apt-get install -y
-      #RUN apt-get install -y --no-install-recommends --fix-missing vim curl gnupg2 wget lsb-release software-properties-common
-      #
-      #ENV TZ=Europe/Berlin
-      #RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
-      #RUN apt-get update && apt-get install -y --fix-missing tzdata
-      #
-      #RUN pip install --no-cache-dir --upgrade pip && \
-      #    pip install --no-cache-dir keymap-drawer
-      #
-      #CMD mkdir /ws/
-      #WORKDIR /ws/
+                - name: Commit changes
+        uses: EndBug/add-and-commit@v9
+        with:
+          author_name: DiSc21
+          author_email: dirkschnabel03@aol.com
+          message: "[Autogen-Draw-Keymaps]"
+          add: 'keymap/*'
