@@ -2,7 +2,9 @@ name: 'Create ZMK Keymaps'
 on:
   workflow_call:
     inputs:
-      commit_message: "[Autogen-Draw-Keymaps]"
+      commit_message:
+        type: string
+        required: true
 
 #  workflow_dispatch:  # can be triggered manually
 #  push:               # automatically run on changes to following paths
