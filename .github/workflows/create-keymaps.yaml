@@ -37,7 +37,7 @@ jobs:
           add: 'keymap/*'
 
       - name: Create keymap archive
-        run: find keymap | egrep "\.(svg)$" | zip -@ keymaps.zip
+        run: zip -r keymaps.zip keymap
 
       - name: Archive keymaps
         uses: actions/upload-artifact@v4
