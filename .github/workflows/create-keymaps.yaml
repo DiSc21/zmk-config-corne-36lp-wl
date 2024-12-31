@@ -22,9 +22,6 @@ jobs:
       - name: Install keymap-drawer
         run: pip install --no-cache-dir keymap-drawer
 
-      - name: Install zip
-        run: apt install zip
-
       - name: Create keymaps
         run: ./keymap/create_keymap_by_layer.sh
 
