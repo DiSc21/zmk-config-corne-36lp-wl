@@ -16,7 +16,12 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: Run ShellCheck
-      run: shellcheck **/*.sh
+      uses: reviewdog/action-shellcheck@v1
+      with:
+        github_token: ${{ secrets.github_token }}
+        reporter: github-action
+        pattern: "**/*.sh"
+        exclude: "./.git/*"
 
   build:
     uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main
