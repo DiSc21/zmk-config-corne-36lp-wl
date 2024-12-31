@@ -1,12 +1,15 @@
 name: 'Create ZMK Keymaps'
 on:
-  workflow_dispatch:  # can be triggered manually
-  push:               # automatically run on changes to following paths
-    paths:
-      - "config/*.keymap"
-      - "config/*.dtsi"
-      - "keymap/keymap_config.yaml"
-      # - 'boards/*/*/*.keymap'
+  workflow_call:
+    inputs:
+      commit_message: "[Autogen-Draw-Keymaps]"
+    #  workflow_dispatch:  # can be triggered manually
+    #  push:               # automatically run on changes to following paths
+    #    paths:
+    #      - "config/*.keymap"
+    #      - "config/*.dtsi"
+    #      - "keymap/keymap_config.yaml"
+    #      # - 'boards/*/*/*.keymap'
 
 permissions:
   contents: write  # allow workflow to commit to the repo
@@ -33,7 +36,7 @@ jobs:
         if: ${{ steps.run_tests.outputs.modified }} == "true"
         uses: EndBug/add-and-commit@v9
         with:
-          message: "[Autogen-Draw-Keymaps]"
+          message: ${{ inputs.commit_message }}
           add: 'keymap/*'
 
       - name: Archive keymaps

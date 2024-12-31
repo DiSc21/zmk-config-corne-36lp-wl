@@ -96,10 +96,9 @@ done
 
 
 icon_style="fancy"
-config_yaml="${SH_PATH}/keymap_config.yaml"
-
-out_svg="${SH_PATH}/corne.svg"
-out_yaml="${SH_PATH}/corne.yaml"
+config_yaml="/tmp/zmk_draw_config_${base_layer}.yaml"
+out_svg="${SH_PATH}/${icon_style}/corne.svg"
+out_yaml="${SH_PATH}/${icon_style}/corne.yaml"
 keymap -c "${config_yaml}" parse -c 10 -z ./config/corne.keymap >"${out_yaml}";
 keymap -c "${config_yaml}" draw "${out_yaml}" >"${out_svg}";
 

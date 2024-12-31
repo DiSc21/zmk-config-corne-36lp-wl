@@ -28,5 +28,5 @@
 </g>
 </svg>
 
-![Alt text](./keymap/corne.svg)
+![Alt text](./keymap/fancy/corne.svg)
 
