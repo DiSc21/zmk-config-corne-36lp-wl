@@ -1,6 +1,6 @@
 draw_config:
-  append_colon_to_layer_header: True
-  dark_mode: True
+  append_colon_to_layer_header: true
+  dark_mode: true
   arc_radius: 6.0
   arc_scale: 1.0
   combo_h: 26.0
@@ -91,82 +91,11 @@ draw_config:
 parse_config:
   assign_combos_to_layers: false
   preprocess: true
-  mark_alternate_layer_activators: True
-  qmk_keycode_map:
-    AMPERSAND: '&'
-    AMPR: '&'
-    ASTERISK: '*'
-    ASTR: '*'
-    AT: '@'
-    BACKSLASH: \
-    BSLS: \
-    CIRC: ^
-    CIRCUMFLEX: ^
-    COLN: ':'
-    COLON: ':'
-    COMM: ','
-    COMMA: ','
-    DLR: $
-    DOLLAR: $
-    DOT: .
-    DOUBLE_QUOTE: '"'
-    DQT: '"'
-    DQUO: '"'
-    EQL: '='
-    EQUAL: '='
-    EXCLAIM: '!'
-    EXLM: '!'
-    GRAVE: '`'
-    GRV: '`'
-    GT: '>'
-    HASH: '#'
-    LABK: <
-    LBRC: '['
-    LCBR: '{'
-    LEFT_ANGLE_BRACKET: <
-    LEFT_BRACKET: '['
-    LEFT_CURLY_BRACE: '{'
-    LEFT_PAREN: (
-    LPRN: (
-    LT: <
-    MINS: '-'
-    MINUS: '-'
-    'NO': ''
-    NONUS_HASH: '#'
-    NUHS: '#'
-    PERC: '%'
-    PERCENT: '%'
-    PIPE: '|'
-    PLUS: +
-    QUES: '?'
-    QUESTION: '?'
-    QUOT: ''''
-    QUOTE: ''''
-    RABK: '>'
-    RBRC: ']'
-    RCBR: '}'
-    RIGHT_ANGLE_BRACKET: '>'
-    RIGHT_BRACKET: ']'
-    RIGHT_CURLY_BRACE: '}'
-    RIGHT_PAREN: )
-    RPRN: )
-    SCLN: ;
-    SEMICOLON: ;
-    SLASH: /
-    SLSH: /
-    TILD: '~'
-    TILDE: '~'
-    TRANSPARENT: ''
-    TRNS: ''
-    UNDERSCORE: _
-    UNDS: _
-    SPACE: "SPACE"
+  mark_alternate_layer_activators: true
   raw_binding_map:
     '&trans': {t: ' '}
   skip_binding_parsing: false
   zmk_keycode_map:
-    BSPC: "BSPC"
-    DEL: "DEL"
     AMPERSAND: '&'
     AMPS: '&'
     APOS: .
@@ -177,9 +106,11 @@ parse_config:
     AT_SIGN: '@'
     BACKSLASH: {t: '\', s: '|'}
     BSLH: \
+    BSPC: "BSPC"
     CARET: ^
     COLON: ':'
     COMMA: {t: ',', s: '<'}
+    DEL: "DEL"
     DLLR: $
     DOLLAR: $
     DOT: {t: '.', s: '>'}
@@ -208,6 +139,8 @@ parse_config:
     NUHS: '#'
     PERCENT: '%'
     PERIOD: .
+    PG_DN: 🢃
+    PG_UP: 🢁
     PIPE: '|'
     PIPE2: '|'
     PLUS: +
@@ -232,26 +165,26 @@ parse_config:
     TILDE2: '~'
     UNDER: _
     UNDERSCORE: _
-    LCTRL: "LCTRL"
-    LALT: "LALT"
-    LGUI: "LGUI"
-    LSHFT: "LSHFT"
-    LEFT_CONTROL: "LCTRL"
-    LEFT_ALT: "LALT"
-    LEFT_GUI: "LGUI"
-    LEFT_SHFT: "LSHFT"
-    RCTRL: "RCTRL"
-    RALT: "RALT"
-    RGUI: "RGUI"
-    RSHFT: "RSHFT"
-    RIGHT_CONTROL: "RCTRL"
-    RIGHT_ALT: "RALT"
-    RIGHT_GUI: "RGUI"
-    RIGHT_SHFT: "RSHFT"
-    LEFT: ←
-    RIGHT: →
-    UP: ↑
-    DOWN: ↓
+    LCTRL: "CTRL"
+    LALT: "ALT"
+    LGUI: "GUI"
+    LSHFT: "SHFT"
+    LEFT_CONTROL: "CTRL"
+    LEFT_ALT: "ALT"
+    LEFT_GUI: "GUI"
+    LEFT_SHFT: "SHFT"
+    RCTRL: "CTRL"
+    RALT: "ALT"
+    RGUI: "GUI"
+    RSHFT: "SHFT"
+    RIGHT_CONTROL: "CTRL"
+    RIGHT_ALT: "ALT"
+    RIGHT_GUI: "GUI"
+    RIGHT_SHFT: "SHFT"
+    LEFT: 🡄
+    RIGHT: 🡆
+    UP: 🡄
+    DOWN: 🡇
     TAB: ↹
     RETURN: "ENTER"
     ESCAPE: "ESC"
@@ -281,8 +214,7 @@ parse_config:
     'LC(TAB)': '⌃↹'
     'LS(LC(TAB))': '⌃⇧↹'
   zmk_combos:
-    combo_tog_nav_word: {'a': 'bottom', 'o': +0.05}
-    combo_tog_num_word: {'a': 'bottom', 'o': +0.25}
+    combo_tog_nav_word: {'k': "NavWord", 'a': 'bottom', 'o': +0.05}
+    combo_tog_num_word: {'k': "NumWord", 'a': 'bottom', 'o': +0.25}
     combo_capsword: {'k': "Caps\nWord"}
-    combo_tog_mouse_keys_l: {'a': 'bottom', 'o': +2}
-    combo_tog_mouse_keys_r: {'a': 'bottom', 'o': +2}
+

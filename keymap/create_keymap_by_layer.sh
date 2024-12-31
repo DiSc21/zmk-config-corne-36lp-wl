@@ -32,6 +32,7 @@ SH_PATH="$(dirname "$0")"
 readonly SH_PATH
 
 base_layer="default"
+readonly base_layer
 
 declare -A layers
 
@@ -87,28 +88,18 @@ for key in "${!layers[@]}"; do
 
   cat "${config_yaml}"
 
-  out_svg="keymap/corne_${key}.svg"
-  out_yaml="keymap/corne_${key}.yaml"
+  out_svg="${SH_PATH}/${icon_style}/corne_${key}.svg"
+  out_yaml="${SH_PATH}/${icon_style}/corne_${key}.yaml"
   keymap -c "${config_yaml}" parse -c 10 -z ./config/corne.keymap >"${out_yaml}";
   keymap -c "${config_yaml}" draw "${out_yaml}" -s "${key}" >"${out_svg}";
 done
 
-#for key in "${!layers[@]}"; do
-#  clr_name=${layers[${key}]}
-#  echo "Parsing ZMK keymap for layer ${key} (${clr_name})"
-#  out_svg="keymap/corne_${key}.svg"
-#  out_yaml="keymap/corne_${key}.yaml"
-#  config_yaml="keymap/configs/$clr_name.yaml"
-#  keymap -c "${config_yaml}" parse -c 10 -z ./config/corne.keymap >"${out_yaml}";
-#  keymap -c "${config_yaml}" draw "${out_yaml}" -s "${key}" >"${out_svg}";
-#done
 
-#	${cmd} "keymap -c ./keymap/keymap_config_trans_orange.yaml parse -c 10 -z ./config/corne.keymap >./keymap/corne.yaml; keymap -c ./keymap/keymap_config_trans_orange.yaml draw ./keymap/corne.yaml -s numbers >./keymap/corne.svg; keymap -c ./keymap/keymap_config.yaml parse -c 10 -z ./config/corne.keymap >./keymap/corne_base.yaml; keymap -c ./keymap/keymap_config.yaml draw ./keymap/corne_base.yaml -s default >./keymap/corne_base.svg"
-#echo 'Parsing ZMK keymap...'
-#keymap -c keymap_config.yaml parse -c 12 -z ../config/corne.keymap > keymap.yaml
-#
-## echo '\n\nAdjusting keymap yaml...'
-## ./keymap_img_adjuster.py keymap.yaml
-#
-#echo '\n\nDrawing keymap...'
-#keymap -c keymap_config.yaml draw --qmk-keyboard crkbd/rev1 --qmk-layout LAYOUT_split_3x6_3 keymap.yaml -s Base Nav Num Func Sym Adjust > keymap.svg
+icon_style="fancy"
+config_yaml="${SH_PATH}/keymap_config.yaml"
+
+out_svg="${SH_PATH}/corne.svg"
+out_yaml="${SH_PATH}/corne.yaml"
+keymap -c "${config_yaml}" parse -c 10 -z ./config/corne.keymap >"${out_yaml}";
+keymap -c "${config_yaml}" draw "${out_yaml}" >"${out_svg}";
+
