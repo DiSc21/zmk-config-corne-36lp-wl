@@ -15,10 +15,6 @@ jobs:
   create-keymaps:
     name: Create Corne36 keymaps
     runs-on: ubuntu-latest
-    container:
-      image: python:3
-      volumes:
-        - ${{ github.workspace }}:/app
     steps:
       - name: Checkout the repo
         uses: actions/checkout@v2
