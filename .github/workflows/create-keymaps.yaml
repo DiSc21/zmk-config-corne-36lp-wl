@@ -8,6 +8,9 @@ on:
       - "keymap/keymap_config.yaml"
       # - 'boards/*/*/*.keymap'
 
+permissions:
+  contents: write  # allow workflow to commit to the repo
+
 jobs:
   create-keymaps:
     name: Create Corne36 keymaps
@@ -32,6 +35,7 @@ jobs:
 
       - name: Update changes in GitHub repository
         if: ${{ steps.run_tests.outputs.modified }} == "true"
+                - name: Commit changes
         uses: EndBug/add-and-commit@v9
         with:
           author_name: DiSc21
