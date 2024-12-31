@@ -1,0 +1,46 @@
+    /* template to hide all but tap-key */
+
+    /* default key styling */
+    rect {
+        fill: none;
+        stroke: none;
+    }
+
+    /* color accent for combo boxes */
+    rect.combo {
+        fill: none;
+    }
+
+    /* color accent for held keys and combo boxes */
+    rect.combo, rect.held, rect.combo.held {
+        fill: none;
+    }
+
+    /* color accent for ghost (optional) keys */
+    rect.ghost, rect.combo.ghost {
+        fill: none;
+    }
+
+    text {
+        text-anchor: middle;
+        dominant-baseline: middle;
+    }
+
+    /* styling for layer labels, combo tap, and key hold/shifted label text */
+    text.label, text.combo, text.hold, text.shifted {
+        stroke: none;
+        fill: none;
+    }
+
+    /* styling for combo tap, hold/shifted label text in combo box and key hold/shifted label text */
+    text.combo, text.hold, text.shifted, text.combo.hold, text.combo.shifted {
+        stroke: none;
+        fill: none;
+    }
+
+    /* styling for combo dendrons */
+    path {
+        stroke-width: 1;
+        stroke: none;
+        fill: none;
+    }
