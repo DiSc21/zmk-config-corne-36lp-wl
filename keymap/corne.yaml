@@ -28,12 +28,12 @@ layers:
     - {t: ., s: '>'}
     - /
     - ''
-    - {t: BSPC, h: '&led_red 3'}
-    - {t: RET, h: '&led_blue 2'}
-    - {t: ↹, h: '&led_purple 1'}
-    - {t: ESC, h: '&led_purple 1'}
-  - - {t: SPACE, h: '&led_blue 2'}
-    - {t: DEL, h: '&led_red 3'}
+    - {t: BSPC, h: NAV}
+    - {t: RET, h: SIGNS}
+    - {t: ↹, h: NUM}
+    - {t: ESC, h: NUM}
+  - - {t: SPACE, h: SIGNS}
+    - {t: DEL, h: NAV}
   numbers:
   - ['', F1, F2, F3, F4, ' ', +, '7', '8', '9']
   - - '*'
