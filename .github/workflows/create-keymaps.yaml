@@ -22,6 +22,9 @@ jobs:
       - name: Install keymap-drawer
         run: pip install --no-cache-dir keymap-drawer
 
+      - name: Install zip
+        run: apt install zip
+
       - name: Create keymaps
         run: ./keymap/create_keymap_by_layer.sh
 
@@ -35,3 +38,12 @@ jobs:
         with:
           message: "[Autogen-Draw-Keymaps]"
           add: 'keymap/*'
+
+      - name: Create keymap archive
+        run: find keymap | egrep "\.(svg)$" | zip -@ keymaps.zip
+
+      - name: Archive keymaps
+        uses: actions/upload-artifact@v4
+        with:
+          name: keymaps
+          path: keymaps.zip
