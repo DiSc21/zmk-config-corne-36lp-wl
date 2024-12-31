@@ -32,7 +32,7 @@ jobs:
           git config --global --add safe.directory /__w/zmk-config-corne-36lp-wl/zmk-config-corne-36lp-wl
           git config --global user.name 'DiSc21'
           git config --global user.email 'dirkschnabel03@aol.com'
-          git add .keymap/
+          git add keymap/
           last_commit_msg="$(git log -1 --pretty=%B)"
           git commit -m "[Autogen-Draw-Keymaps] ${last_commit_msg}"
           git push
