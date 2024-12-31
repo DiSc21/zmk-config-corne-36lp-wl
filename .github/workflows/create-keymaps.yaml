@@ -29,6 +29,7 @@ jobs:
       - name: Update changes in GitHub repository
         if: ${{ steps.run_tests.outputs.modified }} == "true"
         run:  |
+          git status
           git config --global --add safe.directory /__w/zmk-config-corne-36lp-wl/zmk-config-corne-36lp-wl
           git config --global user.name 'DiSc21'
           git config --global user.email 'dirkschnabel03@aol.com'
