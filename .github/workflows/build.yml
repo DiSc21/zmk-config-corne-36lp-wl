@@ -10,6 +10,14 @@ jobs:
     with:
       commit_message: "[Autogen-Draw-Keymaps] ${{ github.event.head_commit.message }}"
 
+  shellcheck:
+    name: ShellCheck
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Run ShellCheck
+      run: shellcheck **/*.sh
+
   build:
     uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main
 
