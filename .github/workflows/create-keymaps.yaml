@@ -13,16 +13,15 @@ jobs:
     name: Create Corne36 keymaps
     runs-on: ubuntu-latest
     container:
-      image: composer:latest
+      image: python:3
       volumes:
-        -
+        - ${{ github.workspace }}:/app
     steps:
       - name: Checkout the repo
         uses: actions/checkout@v2
-      - name: Running composer install
-        run: composer install
       - name: Running create keymaps
-        run: ./keymap/create_keymap_by_layer.sh
+        run: pip install --no-cache-dir keymap-drawer && ./keymap/create_keymap_by_layer.sh
+      #    pip install --no-cache-dir keymap-drawer
       #FROM python:3
       ##FROM ubuntu:22.04
       #
