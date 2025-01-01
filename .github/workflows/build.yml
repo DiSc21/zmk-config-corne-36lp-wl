@@ -23,10 +23,10 @@ jobs:
         level: "info"
         fail_level: "any"
         path: |
-          keymap
-          .docker
-        pattern: *.sh
-        exclude: ./.git/*
+          "keymap"
+          ".docker"
+        pattern: "*.sh"
+        exclude: "./.git/*"
 
   build:
     uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main
