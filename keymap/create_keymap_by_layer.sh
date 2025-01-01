@@ -88,8 +88,6 @@ create_layer() {
 
   cat "${parse_config_templ}" >> "${config_yaml}"
 
-  cat "${config_yaml}"
-
   out_svg="${SH_PATH}/${icon_style}/corne_${key}.svg"
   out_yaml="${SH_PATH}/${icon_style}/corne_${key}.yaml"
   keymap -c "${config_yaml}" parse -c 10 -z ./config/corne.keymap >"${out_yaml}";

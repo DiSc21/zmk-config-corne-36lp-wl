@@ -4,12 +4,19 @@
  * SPDX-License-Identifier: MIT
  */
 
+
+/* std includes */
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 
+/* led and mouse includes */
 #include <dt-bindings/zmk/rgb.h>
 #include <dt-bindings/zmk/pointing.h>
+
+/* urobs num word */
+#include <behaviors/num_word.dtsi>
+
 
 /* TOP LEFT hand keys */
 #define LT0 0
@@ -77,6 +84,8 @@
 #define L_NUM 1
 #define L_BRC 2
 #define L_NAV 3
+#define L_LED 4
+#define L_BT 5
 
 #define HM_TAPPING_TERM 300
 #define HM_TAPPING_TERM_FAST 200
@@ -85,7 +94,7 @@
 #define LAYER_QUICK_TAP_MS 175
 
 #define COMBO_TAPPING_TIME 50
-#define COMBO_TAPPING_TIME_FAST 25
+#define COMBO_TAPPING_TIME_FAST 35
 
 &led_strip {
     chain-length = <24>;
@@ -97,19 +106,31 @@
 //  --------------------------
 //  ___________________________________________           ___________________________________________
 // |   |     __|__   __|__   __|__     |       |#########|       |     __|__   __|__   __|__     |   |
-// | - |    |_ESC_| |__A__| |__T__|    |       |#########|       |    |__Y__| |_BSP_| |_DEL_|    | - |
+// | - |    |_ESC_| |__A__| |__T__|    |       |#########|       |    |__Y__| |_BSP_| |_To0_|    | - |
 // |___|_______|_______|_______|_______|_______|#########|_______|_______|_______|_______|_______|___|
 // |   |     __|__   __|__   __|__     |       |#########|       |     _____   _____   _____     |   |
 // | - |    |-CAP-| |-NTE-| |_INS_|    |       |#########|       |    |__-__| |__=__| |__'__|    | - |
 // |___|_______|_______|_______|_______|_______|#########|_______|_______|_______|_______|_______|___|
 // |   |     __|__   __|__   __|__     |       |#########|       |     __|__   __|__   __|__     |   |
-// | - |    |_HOM_| |_END_| |__B__|    |       |#########|       |    |__N__| |__,__| |__\__|    | - |
+// | - |    |_HOM_| |_END_| |_ToN_|    |       |#########|       |    |__N__| |__,__| |__\__|    | - |
 // |___|_______|_______|_______|_______|_______|#########|_______|_______|_______|_______|_______|___|
 //                     |       |       |       |#########|       |       |       |
 //                     |_______|_______|_______|#########|_______|_______|_______|
     combos {
         compatible = "zmk,combos";
 
+        // CrossSide Combos
+        // ----------------
+        combo_sticky_bt {
+            timeout-ms = <COMBO_TAPPING_TIME_FAST>;
+            key-positions = <LT5 RT0>;
+            bindings = <&sl L_BT>;
+        };
+        combo_sticky_led {
+            timeout-ms = <COMBO_TAPPING_TIME_FAST>;
+            key-positions = <LM5 RM0>;
+            bindings = <&sl L_LED>;
+        };
         // TopRow Combos
         // -------------
         combo_esc {
@@ -137,10 +158,10 @@
             key-positions = <RT2 RT3>;
             bindings = <&kp BSPC>;
         };
-        combo_del {
+        combo_to_0 {
             timeout-ms = <COMBO_TAPPING_TIME_FAST>;
             key-positions = <RT3 RT4>;
-            bindings = <&kp DEL>;
+            bindings = <&to L_DEF>;
         };
 
         // MiddleRow Combos
@@ -178,10 +199,10 @@
             key-positions = <LB2 LB3>;
             bindings = <&kp END>;
         };
-        combo_key_b {
+        combo_key_to_num {
             timeout-ms = <COMBO_TAPPING_TIME_FAST>;
             key-positions = <LB3 LB4>;
-            bindings = <&kp B>;
+            bindings = <&to NUM>;
         };
         combo_key_n {
             timeout-ms = <COMBO_TAPPING_TIME_FAST>;
@@ -221,7 +242,7 @@
                 , <&macro_tap &rgb_ug RGB_COLOR_HSB(0,100,100)>
                 , <&macro_pause_for_release>
                 , <&macro_param_1to1>, <&macro_release &mo MACRO_PLACEHOLDER>
-                , <&macro_tap &rgb_ug RGB_COLOR_HSB(0,20,20)>;
+                , <&macro_tap &rgb_ug RGB_COLOR_HSB(0,20,5)>;
         };
 
         led_green: led_green {
@@ -234,7 +255,7 @@
                 , <&macro_tap &rgb_ug RGB_COLOR_HSB(120,100,100)>
                 , <&macro_pause_for_release>
                 , <&macro_param_1to1>, <&macro_release &mo MACRO_PLACEHOLDER>
-                , <&macro_tap &rgb_ug RGB_COLOR_HSB(0,20,20)>;
+                , <&macro_tap &rgb_ug RGB_COLOR_HSB(0,20,5)>;
         };
 
         led_blue: led_blue {
@@ -247,7 +268,7 @@
                 , <&macro_tap &rgb_ug RGB_COLOR_HSB(210,100,100)>
                 , <&macro_pause_for_release>
                 , <&macro_param_1to1>, <&macro_release &mo MACRO_PLACEHOLDER>
-                , <&macro_tap &rgb_ug RGB_COLOR_HSB(0,20,20)>;
+                , <&macro_tap &rgb_ug RGB_COLOR_HSB(0,20,5)>;
         };
 
         led_purple: led_purple {
@@ -260,7 +281,7 @@
                 , <&macro_tap &rgb_ug RGB_COLOR_HSB(270,100,100)>
                 , <&macro_pause_for_release>
                 , <&macro_param_1to1>, <&macro_release &mo MACRO_PLACEHOLDER>
-                , <&macro_tap &rgb_ug RGB_COLOR_HSB(0,20,20)>;
+                , <&macro_tap &rgb_ug RGB_COLOR_HSB(0,20,5)>;
         };
     };
 
@@ -487,17 +508,17 @@
         // -----------------------------------------------------------------------------------------------------------------------------------------
         // | - | F1         | F2        | F3       | F4       || Euler   |  |    -    |  | +       || 7       | 8       | 9        | *         | - |
         // |---|------------|-----------|----------|----------||---------|  |    -    |  |---------||---------|---------|----------|-----------|---|
-        // | - | F5 [SHIFT] | F6 [CTRL] | F7 [WIN] | F8 [ALT] || PI      |  |    -    |  | -       || 4 [ALT] | 5 [WIN] | 6 [CTRL] | = [SHIFT] | - |
+        // | - | F5 [SHIFT] | F6 [CTRL] | F7 [WIN] | F8 [ALT] || PI      |  |    -    |  | 0       || 4 [ALT] | 5 [WIN] | 6 [CTRL] | = [SHIFT] | - |
         // |---|------------|-----------|----------|----------||---------|  |    -    |  |---------||---------|---------|----------|-----------|---|
-        // | - | F9         | F10       | F11      | F12      || Sqrt2   |  |    -    |  | 0       || 1       | 2       | 3        | .         | - |
+        // | - | F9         | F10       | F11      | F12      || Sqrt2   |  |    -    |  | -       || 1       | 2       | 3        | .         | - |
         // -----------------------------|----------|----------||---------|  |    -    |  |---------||---------|---------|---------------------------
         //                              | BSPC     | RET      || **TAB** |  |    -    |  | **ESC** || SPC     | ENTF    |
         //                              ---------------------------------------------------------------------------------
         numbers {
             bindings = <
                 &none &kp F1                &kp F2         &kp   F3      &kp F4        &trans         &kp PLUS  &kp N7        &kp N8        &kp N9         &kp ASTERISK             &none
-                &none &hm_shift_l LSHIFT F5 &hm_l LCTRL F6 &hm_l LGUI F7 &hm_l LALT F8 &trans         &kp MINUS &hm_r RALT N4 &hm_r RGUI N5 &hm_r RCTRL N6 &hm_shift_r RSHIFT EQUAL &none
-                &none &kp F9                &kp F10        &kp   F11     &kp F12       &trans         &kp N0    &kp N1        &kp N2        &kp N3         &kp DOT                  &none
+                &none &hm_shift_l LSHIFT F5 &hm_l LCTRL F6 &hm_l LGUI F7 &hm_l LALT F8 &trans         &kp N0    &hm_r RALT N4 &hm_r RGUI N5 &hm_r RCTRL N6 &hm_shift_r RSHIFT EQUAL &none
+                &none &kp F9                &kp F10        &kp   F11     &kp F12       &trans         &kp MINUS &kp N1        &kp N2        &kp N3         &kp DOT                  &none
                                                            &trans        &trans        &trans         &trans    &trans        &trans
             >;
         };
@@ -507,17 +528,17 @@
         // -----------------------------------------------------------------------------------------------------------------------------------------
         // | - | !         | @        | #       | $         | %         ||   |    -    |   | ^    || &       | *       | (         | )         | - |
         // |---|-----------|----------|---------|-----------|-----------||   |    -    |   |------||---------|---------|-----------|-----------|---|
-        // | - | ~ [SHIFT] | ` [CTRL] |   [WIN] |     [ALT] | P-UP      ||   |    -    |   | -/_  || { [ALT] | [ [WIN] | ] [CTRL]  | } [SHIFT] | - |
+        // | - | ~ [SHIFT] | ` [CTRL] |   [WIN] |     [ALT] | P-UP      ||   |    -    |   | '/"  || { [ALT] | [ [WIN] | ] [CTRL]  | } [SHIFT] | - |
         // |---|-----------|----------|---------|-----------|-----------||   |    -    |   |------||---------|---------|-----------|-----------|---|
-        // | - | HOME      | INSERT   | PRINT   | END       | P-DOWN    ||   |    -    |   | '/"  || \/|     | <       | >         | //?       | - |
+        // | - | HOME      | INSERT   | PRINT   | END       | P-DOWN    ||   |    -    |   | -/_  || \/|     | <       | >         | //?       | - |
         // ---------------------------|---------|-----------|-----------||   |    -    |   |------||---------|---------|----------------------------
         //                            | BSPC    | **RET**   | TAB       ||   |    -    |   | ESC  || **SPC** | ENTF    |
         //                            ----------------------------------------------------------------------------------
         braces {
             bindings = <
                 &none &kp EXCL                 &kp AT            &kp HASH  &kp DOLLAR &kp PRCNT       &kp CARET        &kp AMPS        &kp ASTERISK    &kp LPAR         &kp RPAR                &none
-                &none &hm_shift_l LSHIFT TILDE &hm_l LCTRL GRAVE &trans    &trans     &kp PG_UP       &kp MINUS        &hm_r RALT LBRC &hm_r RGUI LBKT &hm_r RCTRL RBKT &hm_shift_r RSHIFT RBRC &none
-                &none &kp HOME                 &kp INSERT        &kp PSCRN &kp END    &kp PG_DN       &kp SINGLE_QUOTE &kp BSLH        &kp LT          &kp GT           &kp FSLH                &none
+                &none &hm_shift_l LSHIFT TILDE &hm_l LCTRL GRAVE &trans    &trans     &kp PG_UP       &kp SINGLE_QUOTE &hm_r RALT LBRC &hm_r RGUI LBKT &hm_r RCTRL RBKT &hm_shift_r RSHIFT RBRC &none
+                &none &kp HOME                 &kp INSERT        &kp PSCRN &kp END    &kp PG_DN       &kp MINUS        &kp BSLH        &kp LT          &kp GT           &kp FSLH                &none
                                                                  &trans    &trans     &trans          &trans           &trans          &trans
             >;
         };
@@ -525,40 +546,61 @@
                                                                  //&kp BSPC  &trans     &kp TAB         &kp ESC          &trans          &kp DEL
         // [NAV] LAYER
         // --------------------------------------------------------------------------------------------------------------------------------------------------
-        // | - |            |           |          |          ||         |  |    -    |  | M-LEFT   || SNIPER-    | M-MIDDLE   | SNIPER+    | M-RIGHT    | - |
+        // | - |            |           |          |          ||         |  |    -    |  | M-LEFT   || SNIPER-    | M-MIDDLE   | SNIPER+    | P-UP       | - |
         // |---|------------|-----------|----------|----------||---------|  |    -    |  |----------||------------|------------|------------|------------|---|
-        // | - |    [SHIFT] | M2 [CTRL] | M3 [WIN] | M1 [ALT] || M-DBL   |  |    -    |  | <-       || DOWN       | UP         | ->         | P-UP       | - |
+        // | - |    [SHIFT] | M2 [CTRL] | M3 [WIN] | M1 [ALT] || M-DBL   |  |    -    |  | <-       || DOWN       | UP         | ->         |            | - |
         // |---|------------|-----------|----------|----------||---------|  |    -    |  |----------||------------|------------|------------|------------|---|
         // | - |            |           |          |          ||         |  |    -    |  | <-MOUSE  || M-DOWN     | M-UP       | ->MOUSE    | P-DOWN     | - |
         // -----------------------------|----------|----------||---------|  |    -    |  |----------||------------|------------|------------------------------
         //                              | **BSPC** | RET      || TAB     |  |    -    |  | ESC      || SPC        | **ENTF**   |
         //                              ----------------------------------------------------------------------------------------
         navigation {
+            display-name = "navigation";
             bindings = <
-                &none &trans &trans &trans  &trans  &trans        &trans   &trans   &trans  &trans    &trans &none
-                &none &trans &trans &trans  &trans  &trans        &kp LEFT &kp DOWN &kp  UP &kp RIGHT &trans &none
-                &none &trans &trans &trans  &trans  &trans        &trans   &trans   &trans  &trans    &trans &none
-                                    &trans  &trans  &trans        &trans   &trans   &trans
+                &none &trans &trans &trans  &trans &trans         &mkp LCLK      &mkp LCLK      &mkp MCLK    &mkp RCLK       &kp PG_UP  &none
+                &none &trans &trans &trans  &trans &trans         &kp LEFT       &kp DOWN       &kp  UP      &kp RIGHT       &trans     &none
+                &none &trans &trans &trans  &trans &trans         &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_UP &mmv MOVE_RIGHT &kp PG_DN  &none
+                                    &trans  &trans &trans         &trans   &trans   &trans
             >;
         };
 
-                                    //&trans  &kp RET &kp TAB       &kp ESC &kp SPACE &trans
-        // [BT+L1] LAYER
+        // [LED] LAYER
+        // ---------------------------------------------------------------------------------------------------------------------------------------------
+        // | - | TOGGLE     | HUE++     | Sat++    | Light++  | Clr 1   |  |    -    |  |         |          |            |           |            | - |
+        // |---|------------|-----------|----------|----------|---------|  |    -    |  |---------|----------|------------|-----------|------------|---|
+        // | - | Previous   | Slower    | Faster   | Next     | Clr 2   |  |    -    |  |         |          |            |           |            | - |
+        // |---|------------|-----------|----------|----------|---------|  |    -    |  |---------|----------|------------|-----------|------------|---|
+        // | - |            | HUE--     | Sat--    | Light--  | Clr 3   |  |    -    |  |         |          |            |           |            | - |
+        // -----------------------------|----------|----------|---------|  |    -    |  |---------|----------|------------|-----------------------------
+        //                              |          |          |         |  |    -    |  |         |          |            |
+        //                              -----------------------------------------------------------------------------------
+        lighting {
+            display-name = "lighting";
+            bindings = <
+                &none &rgb_ug RGB_TOG &rgb_ug RGB_HUI &rgb_ug RGB_SAI &rgb_ug RGB_BRI &rgb_ug RGB_COLOR_HSB(25,100,0)   &none &none &none &none &none &none
+                &none &rgb_ug RGB_EFR &rgb_ug RGB_SPD &rgb_ug RGB_SPD &rgb_ug RGB_EFF &rgb_ug RGB_COLOR_HSB(25,100,80)  &none &none &none &none &none &none
+                &none &none           &rgb_ug RGB_HUD &rgb_ug RGB_SAD &rgb_ug RGB_BRD &rgb_ug RGB_COLOR_HSB(25,0,100)   &none &none &none &none &none &none
+                                                      &none           &none           &none                             &none &none &none
+            >;
+        };
+
+        // [BT] LAYER
         // ---------------------------------------------------------------------------------------------------------------------------------------------
         // | - | BTCLR      |           |          |          |         |  |    -    |  |         |          |            |           |            | - |
         // |---|------------|-----------|----------|----------|---------|  |    -    |  |---------|----------|------------|-----------|------------|---|
-        // | - | B1         | B2        | B3       | B4       | B5      |  |    -    |  |         |    [ALT] |      [WIN] |    [CTRL] |    [SHIFT] | - |
+        // | - | B1         | B2        | B3       | B4       | B5      |  |    -    |  |         |          |            |           |            | - |
         // |---|------------|-----------|----------|----------|---------|  |    -    |  |---------|----------|------------|-----------|------------|---|
-        // | - | L1         | L2        | L3       | L4       | L5      |  |    -    |  | ******* |          |            |           |            | - |
+        // | - |            |           |          |          |         |  |    -    |  |         |          |            |           |            | - |
         // -----------------------------|----------|----------|---------|  |    -    |  |---------|----------|------------|-----------------------------
-        //                              | ESC      | RET      | TAB     |  |    -    |  | SPC     | BSPC     | ENTF       |
+        //                              |          |          |         |  |    -    |  |         |          |            |
         //                              -----------------------------------------------------------------------------------
-        dummy_01 {
+        bluetooth {
+            display-name = "bluetooth";
             bindings = <
-                &none &trans &trans &trans  &trans &trans         &trans &trans &trans  &trans &trans &none
-                &none &trans &trans &trans  &trans &trans         &trans &trans &trans  &trans &trans &none
-                &none &trans &trans &trans  &trans &trans         &trans &trans &trans  &trans &trans &none
-                                    &trans  &trans &trans         &trans &trans &trans
+                &none &bt BT_CLR   &to L_DEF    &to L_DEF    &to L_DEF    &to L_DEF     &to L_DEF &to L_DEF &to L_DEF  &to L_DEF &to L_DEF &none
+                &none &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4  &to L_DEF &to L_DEF &to L_DEF  &to L_DEF &to L_DEF &none
+                &none &to L_DEF    &to L_DEF    &to L_DEF    &to L_DEF    &to L_DEF     &to L_DEF &to L_DEF &to L_DEF  &to L_DEF &to L_DEF &none
+                                                &to L_DEF    &to L_DEF    &to L_DEF     &to L_DEF &to L_DEF &to L_DEF
                         >;
                 };
 
