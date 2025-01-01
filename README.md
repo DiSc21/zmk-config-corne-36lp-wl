@@ -2,17 +2,30 @@
 
 #### Features:
 
-* Combo Keys for Backspace/ESC/...
-* [Urob's awesome homerow mods!!!](https://github.com/urob/zmk-config)
-* [Keymap image generator helper and workflow](https://github.com/caksoylar/keymap-drawer?tab=readme-ov-file)
+* [x] LED Layer Indicators
+* [x] Combo Keys for Backspace/ESC/...
+* [x] [Urob's awesome homerow mods](https://github.com/urob/zmk-config)
+* [x] Keymap image generator helpers and actions
+  - [x] [Keymap image generator](https://github.com/caksoylar/keymap-drawer?tab=readme-ov-file)
+  - [x] Script to create layer overlays
+  - [x] Github workflow for auto updates
+* [x] Playful GitHub actions addition of 'shellcheck' with auto comments on issues
 
 #### Missing Features:
 
-* LED Layer Indicators
-* BT Shortcuts
-* Mouse Actions
-* Intelligent Number Layer
-* Intelligent CAPS_WORD
+* [ ] BT Shortcuts
+* [ ] LED Shortcuts
+* [ ] Mouse Actions
+* [ ] Intelligent CAPS WORD
+* [ ] Intelligent Number Layer
+
+#### Cleanups/Optimizations:
+
+* [ ] Optimize combo timings
+* [ ] Clean up config (includes)
+* [ ] Clean up overlay script (includes)
+* [ ] Optimize numbers layer trigger
+* [ ] Optimize hold-tap/combo/... timings
 
 #### Keyboard Layout:
 

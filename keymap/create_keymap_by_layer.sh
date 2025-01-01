@@ -41,23 +41,26 @@ layers["numbers"]="orange"
 layers["braces"]="orangered"
 layers["navigation"]="gold"
 
-# Prints a greeting
-# GLOBALS:
-#   PREFIX
-# ARGUMENTS:
-#   Name as a String to use for greeting
-# OUTPUTS:
-#   Writes String to STDOUT
-# RETURN:
-#   0 if success, non-zero otherwise.
-### FUNCTION END
-#function () {
-#  echo "${PREFIX}: $1!"
-#}
+#
+# @brief creates a zmk keymap svg for given layer
+#
+# @params arg1 layer key
+# @params arg2 style
+#
+# @globals:
+#   - SH_PATH
+#   - layers
+#   - base_layer
+#
+create_layer() {
+  if [[ $# -ne 2 ]]; then
+    echo "Wrong number or args! Two arguments expected but got $#"
+    exit 1
+  fi
 
-#sed -i -e 's/abc/XYZ/g' /tmp/file.txt
+  key="$1"
+  icon_style="$2"
 
-for key in "${!layers[@]}"; do
   echo "Create ZMK keymap for layer ${key}"
 
   clr_name=""
@@ -71,12 +74,11 @@ for key in "${!layers[@]}"; do
     cat "${SH_PATH}/configs/templ_draw_config_base.yaml" > "${config_yaml}"
   else
     cat "${SH_PATH}/configs/templ_draw_config_overlay.yaml" > "${config_yaml}"
-    cat "${SH_PATH}/configs/templ_svg_style_overlay_head.yaml" | sed -e "s/fill: orange;/fill: ${clr_name};/g" >> "${config_yaml}"
+    sed "s/fill: orange;/fill: ${clr_name};/g" "${SH_PATH}/configs/templ_svg_style_overlay_head.yaml" >> "${config_yaml}"
     cat "${SH_PATH}/configs/templ_svg_style_overlay_body.yaml" >> "${config_yaml}"
   fi
 
   parse_config_templ="${SH_PATH}/configs/templ_parse_config"
-  icon_style="fancy"
   if [[ -f "${parse_config_templ}_${icon_style}.yaml" ]]; then
     parse_config_templ="${parse_config_templ}_${icon_style}.yaml"
   else
@@ -92,8 +94,12 @@ for key in "${!layers[@]}"; do
   out_yaml="${SH_PATH}/${icon_style}/corne_${key}.yaml"
   keymap -c "${config_yaml}" parse -c 10 -z ./config/corne.keymap >"${out_yaml}";
   keymap -c "${config_yaml}" draw "${out_yaml}" -s "${key}" >"${out_svg}";
-done
+}
 
+
+for layer_key in "${!layers[@]}"; do
+  create_layer "${layer_key}" "fancy"
+done
 
 icon_style="fancy"
 config_yaml="/tmp/zmk_draw_config_${base_layer}.yaml"
@@ -101,4 +107,3 @@ out_svg="${SH_PATH}/${icon_style}/corne.svg"
 out_yaml="${SH_PATH}/${icon_style}/corne.yaml"
 keymap -c "${config_yaml}" parse -c 10 -z ./config/corne.keymap >"${out_yaml}";
 keymap -c "${config_yaml}" draw "${out_yaml}" >"${out_svg}";
-
