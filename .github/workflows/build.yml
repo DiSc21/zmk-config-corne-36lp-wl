@@ -10,6 +10,27 @@ jobs:
     with:
       commit_message: "[Autogen-Draw-Keymaps] ${{ github.event.head_commit.message }}"
 
+  shellcheck:
+    name: ShellCheck
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+    steps:
+    - uses: actions/checkout@v4
+    - name: Run ShellCheck
+      uses: reviewdog/action-shellcheck@v1
+      with:
+        github_token: ${{ secrets.github_token }}
+        reporter: github-pr-review
+        level: "info"
+        fail_level: "any"
+        path: |
+          ./keymap
+          ./.docker
+        pattern: "*.sh"
+        exclude: "./.git/*"
+
   build:
     uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main
 
