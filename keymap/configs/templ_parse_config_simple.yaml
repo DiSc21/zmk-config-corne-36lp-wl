@@ -4,6 +4,9 @@ parse_config:
   mark_alternate_layer_activators: true
   raw_binding_map:
     '&trans': {t: ' '}
+    '&led_red 3': 'NAV'
+    '&led_blue 2': 'SIGNS'
+    '&led_purple 1': 'NUM'
   skip_binding_parsing: false
   zmk_keycode_map:
     AMPERSAND: '&'
@@ -16,11 +19,11 @@ parse_config:
     AT_SIGN: '@'
     BACKSLASH: {t: '\', s: '|'}
     BSLH: \
-    BSPC: "BSPC"
+    BSPC: "Bspc"
     CARET: ^
     COLON: ':'
     COMMA: {t: ',', s: '<'}
-    DEL: "DEL"
+    DEL: "Del"
     DLLR: $
     DOLLAR: $
     DOT: {t: '.', s: '>'}
@@ -75,29 +78,29 @@ parse_config:
     TILDE2: '~'
     UNDER: _
     UNDERSCORE: _
-    LCTRL: "CTRL"
-    LALT: "ALT"
-    LGUI: "GUI"
-    LSHFT: "SHFT"
-    LEFT_CONTROL: "CTRL"
-    LEFT_ALT: "ALT"
-    LEFT_GUI: "GUI"
-    LEFT_SHFT: "SHFT"
-    RCTRL: "CTRL"
-    RALT: "ALT"
-    RGUI: "GUI"
-    RSHFT: "SHFT"
-    RIGHT_CONTROL: "CTRL"
-    RIGHT_ALT: "ALT"
-    RIGHT_GUI: "GUI"
-    RIGHT_SHFT: "SHFT"
+    LCTRL: "Ctrl"
+    LALT: "Alt"
+    LGUI: "Gui"
+    LSHFT: "Shft"
+    LEFT_CONTROL: "Ctrl"
+    LEFT_ALT: "Alt"
+    LEFT_GUI: "Gui"
+    LEFT_SHFT: "Shft"
+    RCTRL: "Ctrl"
+    RALT: "Alt"
+    RGUI: "Gui"
+    RSHFT: "Shft"
+    RIGHT_CONTROL: "Ctrl"
+    RIGHT_ALT: "Alt"
+    RIGHT_GUI: "Gui"
+    RIGHT_SHFT: "Shft"
     LEFT: 🡄
     RIGHT: 🡆
     UP: 🡅
     DOWN: 🡇
     TAB: ↹
-    RETURN: "ENTER"
-    ESCAPE: "ESC"
+    RETURN: "Enter"
+    ESCAPE: "Esc"
     C_REWIND: '⏮'
     C_FAST_FORWARD: '⏭'
     C_PAUSE: '⏯'
