@@ -22,7 +22,6 @@ jobs:
         reporter: github-pr-review
         level: "info"
         fail_level: "any"
-        reviewdog_flags:
         path: |
           keymap
           .docker
