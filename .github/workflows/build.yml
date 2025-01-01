@@ -23,8 +23,8 @@ jobs:
         level: "info"
         fail_level: "any"
         path: |
-          "keymap"
-          ".docker"
+          ./keymap
+          ./.docker
         pattern: "*.sh"
         exclude: "./.git/*"
 
