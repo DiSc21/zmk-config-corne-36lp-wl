@@ -2,11 +2,6 @@ parse_config:
   assign_combos_to_layers: false
   preprocess: true
   mark_alternate_layer_activators: true
-  raw_binding_map:
-    '&trans': {t: ' '}
-    '&led_red 3': 'NAV'
-    '&led_blue 2': 'SIGNS'
-    '&led_purple 1': 'NUM'
   skip_binding_parsing: false
   zmk_keycode_map:
     AMPERSAND: '&'
@@ -126,6 +121,11 @@ parse_config:
     'LG(V)': '⌘V'
     'LC(TAB)': '⌃↹'
     'LS(LC(TAB))': '⌃⇧↹'
+  raw_binding_map:
+    '&trans': {t: ' '}
+    '&led_red 3': 'NAV'
+    '&led_blue 2': 'SIGNS'
+    '&led_purple 1': 'NUM'
   zmk_combos:
     combo_tog_nav_word: {'k': "NavWord", 'a': 'bottom', 'o': +0.05}
     combo_tog_num_word: {'k': "NumWord", 'a': 'bottom', 'o': +0.25}

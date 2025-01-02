@@ -3,11 +3,6 @@ parse_config:
   preprocess: true
   mark_alternate_layer_activators: true
   skip_binding_parsing: false
-  raw_binding_map:
-    '&trans': ' '
-    '&led_red 3': 'NAV'
-    '&led_blue 2': 'SIGNS'
-    '&led_purple 1': 'NUM'
   zmk_keycode_map:
     AMPERSAND: '&'
     AMPS: '&'
@@ -67,8 +62,8 @@ parse_config:
     NUHS: '#'
     PERCENT: '%'
     PERIOD: .
-    PG_DN: 🢃
-    PG_UP: 🢁
+    PG_DN: 📜🢃
+    PG_UP: 📜🢁
     PIPE: '|'
     PIPE2: '|'
     PLUS: +
@@ -89,7 +84,7 @@ parse_config:
     SEMICOLON:  ';'
     SINGLE_QUOTE: ''''
     SLASH: '/'
-    SPACE: "🪐🛰️"
+    SPACE: "🪐"
     SQT: ''''
     STAR: '*'
     TAB: 🔮
@@ -135,7 +130,108 @@ parse_config:
     'LG(V)': '⌘V'
     'LC(TAB)': '⌃↹'
     'LS(LC(TAB))': '⌃⇧↹'
+  raw_binding_map:
+    '&none': ''
+    '&trans': ''
+    '&to L_DEF': ''
+
+    # ctrl-tabdance
+    '&td_ctrl_dot':
+      tap: "💃."
+
+    # Mouse emo
+    '&msc SCRL_LEFT':
+      tap: 🖱️🢀
+    '&msc SCRL_RIGHT':
+      tap: 🖱️🢂
+    '&msc SCRL_DOWN':
+      tap: 🖱️🢃
+    '&msc SCRL_UP':
+      tap: 🖱️🢁
+
+    '&mkp LCLK':
+      tap: 🖱️L
+    '&mkp MCLK':
+      tap: 🖱️M
+    '&mkp RCLK':
+      tap: 🖱️R
+
+    '&mmv MOVE_LEFT':
+      tap: 🖱️🡄
+    '&mmv MOVE_RIGHT':
+      tap: 🖱️🡆
+    '&mmv MOVE_UP':
+      tap: 🖱️🡅
+    '&mmv MOVE_DOWN':
+      tap: 🖱️🡇
+
+    # LED macros
+    '&led_red 3': 'NAV'
+    '&led_blue 2': 'SIGNS'
+    '&led_purple 1': 'NUM'
+
+    # LED keys
+    '&rgb_ug RGB_TOG':
+      tap: 💡
+    '&rgb_ug RGB_EFR':
+      tap: 💡
+      hold: ⏮
+    '&rgb_ug RGB_EFF':
+      tap: 💡
+      hold: ⏭
+    '&rgb_ug RGB_SPD':
+      tap: 💡
+      hold: 🐢
+    '&rgb_ug RGB_SPI':
+      tap: 💡
+      hold: 🏎️
+    '&rgb_ug RGB_HUI':
+      tap: 🎨
+      hold: ➕
+    '&rgb_ug RGB_HUD':
+      tap: 🎨
+      hold: ➖
+    '&rgb_ug RGB_SAI':
+      tap: 🌈
+      hold: ➕
+    '&rgb_ug RGB_SAD':
+      tap: 🌈
+      hold: ➖
+    '&rgb_ug RGB_BRI':
+      tap: 🌗
+      hold: ➕
+    '&rgb_ug RGB_BRD':
+      tap: 🌗
+      hold: ➖
+
+
+    # Bluetooth 𝟎𝟏𝟐𝟑𝟒𝟓𝟔𝟕𝟖𝟗
+    "&bt BT_CLR":
+      tap: 📡
+      shifted: 🗑️
+    "&bt BT_SEL 0":
+      tap: 📡
+      shifted: 𝟎
+    "&bt BT_SEL 1":
+      tap: 📡
+      shifted: 𝟏
+    "&bt BT_SEL 2":
+      tap: 📡
+      shifted: 𝟐
+    "&bt BT_SEL 3":
+      tap: 📡
+      shifted: 𝟑
+    "&bt BT_SEL 4":
+      tap: 📡
+      shifted: 𝟒
+    "&bt BT_SEL 5":
+      tap: 📡
+      shifted: 𝟓
+
   zmk_combos:
-    combo_tog_nav_word: {'k': "NavWord", 'a': 'bottom', 'o': +0.05}
-    combo_tog_num_word: {'k': "NumWord", 'a': 'bottom', 'o': +0.25}
-    combo_capsword: {'k': "Caps\nWord"}
+    combo_sticky_bt: {'k': 📌BT}
+    combo_sticky_led: {'k': 📌LED}
+    combo_to_default: {'k': 🌐}
+    combo_to_numbers: {'k': 🔘🔢}
+    combo_to_navigation: {'k': 🔘🧭}
+    combo_caps_word: {'k': 🚩⏏}

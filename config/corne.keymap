@@ -126,9 +126,14 @@
             key-positions = <LT5 RT0>;
             bindings = <&sl L_BT>;
         };
-        combo_sticky_led {
+        combo_to_navigation {
             timeout-ms = <COMBO_TAPPING_TIME_FAST>;
             key-positions = <LM5 RM0>;
+            bindings = <&to L_NAV>;
+        };
+        combo_sticky_led {
+            timeout-ms = <COMBO_TAPPING_TIME_FAST>;
+            key-positions = <LB5 RB0>;
             bindings = <&sl L_LED>;
         };
         // TopRow Combos
@@ -158,7 +163,7 @@
             key-positions = <RT2 RT3>;
             bindings = <&kp BSPC>;
         };
-        combo_to_0 {
+        combo_to_default {
             timeout-ms = <COMBO_TAPPING_TIME_FAST>;
             key-positions = <RT3 RT4>;
             bindings = <&to L_DEF>;
@@ -166,6 +171,16 @@
 
         // MiddleRow Combos
         // ----------------
+        combo_caps_word {
+            timeout-ms = <COMBO_TAPPING_TIME_FAST>;
+            key-positions = <LM1 LM2>;
+            bindings = <&caps_word>;
+        };
+        combo_space {
+            timeout-ms = <COMBO_TAPPING_TIME_FAST>;
+            key-positions = <LM2 LM3>;
+            bindings = <&kp SPACE>;
+        };
         combo_insert {
             timeout-ms = <COMBO_TAPPING_TIME_FAST>;
             key-positions = <LM3 LM4>;
@@ -199,20 +214,20 @@
             key-positions = <LB2 LB3>;
             bindings = <&kp END>;
         };
-        combo_key_to_num {
+        combo_to_numbers {
             timeout-ms = <COMBO_TAPPING_TIME_FAST>;
             key-positions = <LB3 LB4>;
             bindings = <&to L_NUM>;
         };
-        combo_key_n {
-            timeout-ms = <COMBO_TAPPING_TIME_FAST>;
-            key-positions = <RB1 RB2>;
-            bindings = <&kp N>;
-        };
         combo_comma {
             timeout-ms = <COMBO_TAPPING_TIME_FAST>;
-            key-positions = <RB2 RB3>;
+            key-positions = <RB1 RB2>;
             bindings = <&kp COMMA>;
+        };
+        combo_dot {
+            timeout-ms = <COMBO_TAPPING_TIME_FAST>;
+            key-positions = <RB2 RB3>;
+            bindings = <&kp DOT>;
         };
         combo_bslh {
             timeout-ms = <COMBO_TAPPING_TIME_FAST>;
@@ -222,6 +237,25 @@
     };
 
     macros {
+        key_space: key_space {
+            compatible = "zmk,behavior-macro-one-param";
+            wait-ms = <0>;
+            tap-ms = <0>;
+            #binding-cells = <1>;
+            bindings
+                = <&macro_param_1to1>, <&macro_tap &kp MACRO_PLACEHOLDER>
+                , <&macro_tap &kp SPACE>;
+        };
+        key_space_sticky_shift: key_space_sticky_shift {
+            compatible = "zmk,behavior-macro-one-param";
+            wait-ms = <0>;
+            tap-ms = <0>;
+            #binding-cells = <1>;
+            bindings
+                = <&macro_param_1to1>, <&macro_tap &kp MACRO_PLACEHOLDER>
+                , <&macro_tap &kp SPACE &sk LSHIFT>;
+        };
+
         /**
          * Layer + underglow color
          * Triggers a different underglow when the macro is pressed, and when it is released,
@@ -286,6 +320,36 @@
     };
 
     behaviors {
+        /*
+         * CTRL-Tapdance Character Additions
+         * ---------------------------------
+         *
+         * Enable tabledance if ctrl modifier is active
+         *
+         * Mod-Morphs for common completions, i.e.
+         * - add space to ,.!?;:
+         * - add space+shift to .;!?
+         * - t -> th/Th/the/The
+         */
+        morph_shift_dot_tabdance: morph_shift_dot_tabdance {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&key_space DOT>, <&key_space_sticky_shift DOT>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        morph_ctrl_dot_tabdance: morph_ctrl_dot_tabdance {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp DOT>, <&morph_shift_dot_tabdance>;
+            mods = <(MOD_LCTL|MOD_RCTL)>;
+        };
+        td_ctrl_dot: td_ctrl_dot {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <150>;
+            bindings = <&kp DOT>, <&morph_ctrl_dot_tabdance>;
+        };
+
 
         lt_rl: lt_rl {
             compatible = "zmk,behavior-hold-tap";
@@ -499,7 +563,7 @@
             bindings = <
                 &none &kp Q                &kp W         &kp E             &kp R            &kp T                &kp Y            &kp U              &kp I            &kp O         &kp P                   &none
                 &none &hm_shift_l LSHIFT A &hm_l LCTRL S &hm_l LGUI D      &hm_l LALT F     &kp G                &kp H            &hm_r RALT J       &hm_r RGUI K     &hm_r RCTRL L &hm_shift_r RSHIFT SEMI &none
-                &none &kp Z                &kp X         &kp C             &kp V            &kp B                &kp N            &kp M              &kp COMMA        &kp DOT       &kp FSLH                &none
+                &none &kp Z                &kp X         &kp C             &kp V            &kp B                &kp N            &kp M              &kp COMMA        &td_ctrl_dot  &kp FSLH                &none
                                                          &lt_rl L_NAV BSPC &lt_bl L_BRC RET &lt_pl L_NUM TAB     &lt_pr L_NUM ESC &lt_br L_BRC SPACE &lt_rr L_NAV DEL
             >;
         };
@@ -516,14 +580,13 @@
         //                              ---------------------------------------------------------------------------------
         numbers {
             bindings = <
-                &none &kp F1                &kp F2         &kp   F3      &kp F4        &trans         &kp PLUS  &kp N7        &kp N8        &kp N9         &kp ASTERISK             &none
-                &none &hm_shift_l LSHIFT F5 &hm_l LCTRL F6 &hm_l LGUI F7 &hm_l LALT F8 &trans         &kp N0    &hm_r RALT N4 &hm_r RGUI N5 &hm_r RCTRL N6 &hm_shift_r RSHIFT EQUAL &none
-                &none &kp F9                &kp F10        &kp   F11     &kp F12       &trans         &kp MINUS &kp N1        &kp N2        &kp N3         &kp DOT                  &none
-                                                           &trans        &trans        &trans         &trans    &trans        &trans
+                &none &kp F1                &kp F2         &kp   F3      &kp F4        &trans         &trans &kp N7        &kp N8        &kp N9         &kp ASTERISK             &none
+                &none &hm_shift_l LSHIFT F5 &hm_l LCTRL F6 &hm_l LGUI F7 &hm_l LALT F8 &trans         &kp N0 &hm_r RALT N4 &hm_r RGUI N5 &hm_r RCTRL N6 &hm_shift_r RSHIFT EQUAL &none
+                &none &kp F9                &kp F10        &kp   F11     &kp F12       &trans         &trans &kp N1        &kp N2        &kp N3         &kp FSLH                 &none
+                                                           &trans        &trans        &trans         &trans &trans        &trans
             >;
         };
 
-                                                           //&kp   BSPC    &kp RET       &trans         &trans    &kp SPACE     &kp DEL
         // [BRC] LAYER (BRACES/SIGNS)
         // -----------------------------------------------------------------------------------------------------------------------------------------
         // | - | !         | @        | #       | $         | %         ||   |    -    |   | ^    || &       | *       | (         | )         | - |
@@ -536,31 +599,30 @@
         //                            ----------------------------------------------------------------------------------
         braces {
             bindings = <
-                &none &kp EXCL                 &kp AT            &kp HASH  &kp DOLLAR &kp PRCNT       &kp CARET        &kp AMPS        &kp ASTERISK    &kp LPAR         &kp RPAR                &none
-                &none &hm_shift_l LSHIFT TILDE &hm_l LCTRL GRAVE &trans    &trans     &kp PG_UP       &kp SINGLE_QUOTE &hm_r RALT LBRC &hm_r RGUI LBKT &hm_r RCTRL RBKT &hm_shift_r RSHIFT RBRC &none
-                &none &kp HOME                 &kp INSERT        &kp PSCRN &kp END    &kp PG_DN       &kp MINUS        &kp BSLH        &kp LT          &kp GT           &kp FSLH                &none
-                                                                 &trans    &trans     &trans          &trans           &trans          &trans
+                &none &kp EXCL                 &kp AT            &kp HASH         &kp DOLLAR &trans       &trans &kp AMPS        &kp ASTERISK    &kp LPAR         &kp RPAR                &none
+                &none &hm_shift_l LSHIFT TILDE &hm_l LCTRL GRAVE &kp SINGLE_QUOTE &kp PRCNT  &trans       &trans &hm_r RALT LBRC &hm_r RGUI LBKT &hm_r RCTRL RBKT &hm_shift_r RSHIFT RBRC &none
+                &none &kp CARET                &kp INSERT        &kp PSCRN        &kp QMARK  &trans       &trans &kp BSLH        &kp LT          &kp GT           &kp FSLH                &none
+                                                                 &trans           &trans     &trans       &trans &trans          &trans
             >;
         };
 
-                                                                 //&kp BSPC  &trans     &kp TAB         &kp ESC          &trans          &kp DEL
         // [NAV] LAYER
-        // --------------------------------------------------------------------------------------------------------------------------------------------------
-        // | - |            |           |          |          ||         |  |    -    |  | M-LEFT   || SNIPER-    | M-MIDDLE   | SNIPER+    | P-UP       | - |
-        // |---|------------|-----------|----------|----------||---------|  |    -    |  |----------||------------|------------|------------|------------|---|
-        // | - |    [SHIFT] | M2 [CTRL] | M3 [WIN] | M1 [ALT] || M-DBL   |  |    -    |  | <-       || DOWN       | UP         | ->         |            | - |
-        // |---|------------|-----------|----------|----------||---------|  |    -    |  |----------||------------|------------|------------|------------|---|
-        // | - |            |           |          |          ||         |  |    -    |  | <-MOUSE  || M-DOWN     | M-UP       | ->MOUSE    | P-DOWN     | - |
-        // -----------------------------|----------|----------||---------|  |    -    |  |----------||------------|------------|------------------------------
-        //                              | **BSPC** | RET      || TAB     |  |    -    |  | ESC      || SPC        | **ENTF**   |
-        //                              ----------------------------------------------------------------------------------------
+        // ----------------------------------------------------------------------------------------------------------------------------------------------------
+        // | - |            |           |          |          ||         |  |    -    |  | M-Scroll-L || M-LCKL     | M-MIDDLE   | M-Scroll-R | P-UP       | - |
+        // |---|------------|-----------|----------|----------||---------|  |    -    |  |------------||------------|------------|------------|------------|---|
+        // | - |    [SHIFT] | M2 [CTRL] | M3 [WIN] | M1 [ALT] || M-DBL   |  |    -    |  | <-         || DOWN       | UP         | ->         | M-RCKL     | - |
+        // |---|------------|-----------|----------|----------||---------|  |    -    |  |------------||------------|------------|------------|------------|---|
+        // | - |            |           |          |          ||         |  |    -    |  | <-MOUSE    || M-DOWN     | M-UP       | ->MOUSE    | P-DOWN     | - |
+        // -----------------------------|----------|----------||---------|  |    -    |  |------------||------------|------------|------------------------------
+        //                              | **BSPC** | RET      || TAB     |  |    -    |  | ESC        || SPC        | **ENTF**   |
+        //                              ------------------------------------------------------------------------------------------
         navigation {
             display-name = "navigation";
             bindings = <
-                &none &trans &trans &trans  &trans &trans         &mkp LCLK      &mkp LCLK      &mkp MCLK    &mkp RCLK       &kp PG_UP  &none
-                &none &trans &trans &trans  &trans &trans         &kp LEFT       &kp DOWN       &kp  UP      &kp RIGHT       &trans     &none
-                &none &trans &trans &trans  &trans &trans         &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_UP &mmv MOVE_RIGHT &kp PG_DN  &none
-                                    &trans  &trans &trans         &trans   &trans   &trans
+                &none &msc SCRL_UP   &mkp RCLK      &mmv MOVE_UP   &mkp LCLK       &trans             &trans   &mkp LCLK &mkp MCLK &mkp RCLK &kp PG_UP &none
+                &none &msc SCRL_LEFT &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT &msc SCRL_RIGHT    &kp LEFT &kp DOWN  &kp  UP   &kp RIGHT &trans    &none
+                &none &msc SCRL_DOWN &trans         &mkp MCLK      &trans          &trans             &trans   &trans    &trans    &trans    &kp PG_DN &none
+                                                    &trans         &trans          &trans             &trans   &trans    &trans
             >;
         };
 
@@ -578,7 +640,7 @@
             display-name = "lighting";
             bindings = <
                 &none &rgb_ug RGB_TOG &rgb_ug RGB_HUI &rgb_ug RGB_SAI &rgb_ug RGB_BRI &rgb_ug RGB_COLOR_HSB(25,100,0)   &none &none &none &none &none &none
-                &none &rgb_ug RGB_EFR &rgb_ug RGB_SPD &rgb_ug RGB_SPD &rgb_ug RGB_EFF &rgb_ug RGB_COLOR_HSB(25,100,80)  &none &none &none &none &none &none
+                &none &rgb_ug RGB_EFR &rgb_ug RGB_SPD &rgb_ug RGB_SPI &rgb_ug RGB_EFF &rgb_ug RGB_COLOR_HSB(25,100,80)  &none &none &none &none &none &none
                 &none &none           &rgb_ug RGB_HUD &rgb_ug RGB_SAD &rgb_ug RGB_BRD &rgb_ug RGB_COLOR_HSB(25,0,100)   &none &none &none &none &none &none
                                                       &none           &none           &none                             &none &none &none
             >;
