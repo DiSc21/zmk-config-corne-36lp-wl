@@ -350,13 +350,13 @@
         td_test: td_test {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            tapping-term-ms = <1..50>;
+            tapping-term-ms = <250>;
             bindings = <&kp DOT>, <&key_space_sticky_shift DOT>;
         };
         td_free_test: td_free_test {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            tapping-term-ms = <1..50>;
+            tapping-term-ms = <250>;
             bindings = <&kp H>, <&key_space_sticky_shift DOT>;
         };
 
