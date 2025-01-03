@@ -84,14 +84,15 @@
 #define L_NUM 1
 #define L_BRC 2
 #define L_NAV 3
-#define L_LED 4
-#define L_BT 5
+#define L_BT_LED 4
 
 #define HM_TAPPING_TERM 300
 #define HM_TAPPING_TERM_FAST 200
 #define HM_PRIOR_IDLE 150
 
 #define LAYER_QUICK_TAP_MS 175
+
+#define TABDANCE_TERM_MS 250
 
 #define COMBO_TAPPING_TIME 50
 #define COMBO_TAPPING_TIME_FAST 35
@@ -121,20 +122,15 @@
 
         // CrossSide Combos
         // ----------------
-        combo_sticky_bt {
+        combo_sticky_bt_led {
             timeout-ms = <COMBO_TAPPING_TIME_FAST>;
             key-positions = <LT5 RT0>;
-            bindings = <&sl L_BT>;
+            bindings = <&sl L_BT_LED>;
         };
         combo_to_navigation {
             timeout-ms = <COMBO_TAPPING_TIME_FAST>;
             key-positions = <LM5 RM0>;
             bindings = <&to L_NAV>;
-        };
-        combo_sticky_led {
-            timeout-ms = <COMBO_TAPPING_TIME_FAST>;
-            key-positions = <LB5 RB0>;
-            bindings = <&sl L_LED>;
         };
         // TopRow Combos
         // -------------
@@ -329,36 +325,26 @@
          * - add space+shift to .;!?
          * - t -> th/Th/the/The
          */
-        morph_ctrl_shift_dot: morph_ctrl_shift_dot {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&key_space DOT>, <&key_space_sticky_shift DOT>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
+        //morph_ctrl_shift_dot: morph_ctrl_shift_dot {
+        //    compatible = "zmk,behavior-mod-morph";
+        //    #binding-cells = <0>;
+        //    bindings = <&key_space DOT>, <&key_space_sticky_shift DOT>;
+        //    mods = <(MOD_LSFT|MOD_RSFT)>;
+        //};
         tdm_ctrl_dot: tdm_ctrl_dot {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&kp DOT>, <&morph_ctrl_shift_dot>;
+            bindings = <&kp DOT>, <&key_space_sticky_shift DOT>;
             mods = <(MOD_LCTL|MOD_RCTL)>;
         };
         td_ctrl_dot: td_ctrl_dot {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            tapping-term-ms = <250>;
+            tapping-term-ms = <TABDANCE_TERM_MS>;
             bindings = <&kp DOT>, <&tdm_ctrl_dot>;
         };
-        td_test: td_test {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <250>;
-            bindings = <&kp DOT>, <&key_space_sticky_shift DOT>;
-        };
-        td_free_test: td_free_test {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <250>;
-            bindings = <&kp H>, <&key_space_sticky_shift DOT>;
-        };
+
+
 
 
         lt_rl: lt_rl {
@@ -641,36 +627,36 @@
 
         // [LED] LAYER
         // ---------------------------------------------------------------------------------------------------------------------------------------------
-        // | - | TOGGLE     | HUE++     | Sat++    | Light++  | Clr 1   |  |    -    |  |         |          |            |           |            | - |
-        // |---|------------|-----------|----------|----------|---------|  |    -    |  |---------|----------|------------|-----------|------------|---|
-        // | - | Previous   | Slower    | Faster   | Next     | Clr 2   |  |    -    |  |         |          |            |           |            | - |
-        // |---|------------|-----------|----------|----------|---------|  |    -    |  |---------|----------|------------|-----------|------------|---|
-        // | - |            | HUE--     | Sat--    | Light--  | Clr 3   |  |    -    |  |         |          |            |           |            | - |
-        // -----------------------------|----------|----------|---------|  |    -    |  |---------|----------|------------|-----------------------------
-        //                              |          |          |         |  |    -    |  |         |          |            |
-        //                              -----------------------------------------------------------------------------------
+        // | - | BTCLR      |           |          |          |         |  |    -    |  |         | TOGGLE     | HUE++     | Sat++    | Light++    | - |
+        // |---|------------|-----------|----------|----------|---------|  |    -    |  |---------|------------|-----------|----------|------------|---|
+        // | - | B1         | B2        | B3       | B4       | B5      |  |    -    |  |         | Previous   | Slower    | Faster   | Next       | - |
+        // |---|------------|-----------|----------|----------|---------|  |    -    |  |---------|------------|-----------|----------|------------|---|
+        // | - |            |           |          |          |         |  |    -    |  |         |            | HUE--     | Sat--    | Light--    | - |
+        // -----------------------------|----------|----------|---------|  |    -    |  |---------|------------|-----------|----------------------------
+        //                              |          |          |         |  |    -    |  |         |            |           |
+        //                              ------------------------------------------------------------------------------------
         lighting {
-            display-name = "lighting";
+            display-name = "bt-lighting";
             bindings = <
-                &none &rgb_ug RGB_TOG &rgb_ug RGB_HUI &rgb_ug RGB_SAI &rgb_ug RGB_BRI &rgb_ug RGB_COLOR_HSB(25,100,0)   &none &none &none &none &none &none
-                &none &rgb_ug RGB_EFR &rgb_ug RGB_SPD &rgb_ug RGB_SPI &rgb_ug RGB_EFF &rgb_ug RGB_COLOR_HSB(25,100,80)  &none &none &none &none &none &none
-                &none &none           &rgb_ug RGB_HUD &rgb_ug RGB_SAD &rgb_ug RGB_BRD &rgb_ug RGB_COLOR_HSB(25,0,100)   &none &none &none &none &none &none
-                                                      &none           &none           &none                             &none &none &none
+                &none &bt BT_CLR   &to L_DEF    &to L_DEF    &to L_DEF    &to L_DEF       &to L_DEF &rgb_ug RGB_TOG &rgb_ug RGB_HUI &rgb_ug RGB_SAI &rgb_ug RGB_BRI &none
+                &none &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4    &to L_DEF &rgb_ug RGB_EFR &rgb_ug RGB_SPD &rgb_ug RGB_SPI &rgb_ug RGB_EFF &none
+                &none &to L_DEF    &to L_DEF    &to L_DEF    &to L_DEF    &to L_DEF       &to L_DEF &to L_DEF       &rgb_ug RGB_HUD &rgb_ug RGB_SAD &rgb_ug RGB_BRD &none
+                                                &to L_DEF    &to L_DEF    &to L_DEF       &to L_DEF &to L_DEF       &to L_DEF
             >;
         };
 
-        // [BT] LAYER
+        // [KeyCombos] LAYER
         // ---------------------------------------------------------------------------------------------------------------------------------------------
-        // | - | BTCLR      |           |          |          |         |  |    -    |  |         |          |            |           |            | - |
+        // | - |            |           |          |          |         |  |    -    |  |         |          |            |           |            | - |
         // |---|------------|-----------|----------|----------|---------|  |    -    |  |---------|----------|------------|-----------|------------|---|
-        // | - | B1         | B2        | B3       | B4       | B5      |  |    -    |  |         |          |            |           |            | - |
+        // | - |            |           |          |          |         |  |    -    |  |         |          |            |           |            | - |
         // |---|------------|-----------|----------|----------|---------|  |    -    |  |---------|----------|------------|-----------|------------|---|
         // | - |            |           |          |          |         |  |    -    |  |         |          |            |           |            | - |
         // -----------------------------|----------|----------|---------|  |    -    |  |---------|----------|------------|-----------------------------
         //                              |          |          |         |  |    -    |  |         |          |            |
         //                              -----------------------------------------------------------------------------------
-        bluetooth {
-            display-name = "bluetooth";
+        multigrams {
+            display-name = "multigrams";
             bindings = <
                 &none &bt BT_CLR   &to L_DEF    &to L_DEF    &to L_DEF    &to L_DEF     &to L_DEF &to L_DEF &to L_DEF  &to L_DEF &to L_DEF &none
                 &none &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4  &to L_DEF &to L_DEF &to L_DEF  &to L_DEF &to L_DEF &none
