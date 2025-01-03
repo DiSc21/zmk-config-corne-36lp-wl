@@ -136,7 +136,7 @@ parse_config:
     '&to L_DEF': ''
 
     # ctrl-tabdance
-    '&td_ctrl_dot':
+    '&tdm_ctrl_dot':
       tap: "💃."
 
     # Mouse emo
