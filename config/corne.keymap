@@ -239,21 +239,19 @@
     macros {
         key_space: key_space {
             compatible = "zmk,behavior-macro-one-param";
-            wait-ms = <0>;
-            tap-ms = <0>;
             #binding-cells = <1>;
             bindings
                 = <&macro_param_1to1>, <&macro_tap &kp MACRO_PLACEHOLDER>
-                , <&macro_tap &kp SPACE>;
+                , <&macro_tap &kp SPACE>
+                ;
         };
         key_space_sticky_shift: key_space_sticky_shift {
             compatible = "zmk,behavior-macro-one-param";
-            wait-ms = <0>;
-            tap-ms = <0>;
             #binding-cells = <1>;
             bindings
                 = <&macro_param_1to1>, <&macro_tap &kp MACRO_PLACEHOLDER>
-                , <&macro_tap &kp SPACE &sk LSHIFT>;
+                , <&macro_tap &kp SPACE &sk LSHIFT>
+                ;
         };
 
         /**
@@ -337,17 +335,23 @@
             bindings = <&key_space DOT>, <&key_space_sticky_shift DOT>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
+        tdm_ctrl_dot: tdm_ctrl_dot {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp DOT>, <&morph_ctrl_shift_dot>;
+            mods = <(MOD_LCTL|MOD_RCTL)>;
+        };
         td_ctrl_dot: td_ctrl_dot {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <150>;
-            bindings = <&kp DOT>, <&morph_ctrl_shift_dot>;
+            bindings = <&kp DOT>, <&tdm_ctrl_dot>;
         };
-        tdm_ctrl_dot: tdm_ctrl_dot {
-            compatible = "zmk,behavior-mod-morph";
+        td_test: td_test {
+            compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            bindings = <&kp DOT>, <&td_ctrl_dot>;
-            mods = <(MOD_LCTL|MOD_RCTL)>;
+            tapping-term-ms = <150>;
+            bindings = <&kp DOT>, <&key_space_sticky_shift DOT>;
         };
 
 
@@ -564,7 +568,7 @@
             bindings = <
                 &none &kp Q                &kp W         &kp E             &kp R            &kp T                &kp Y            &kp U              &kp I            &kp O         &kp P                   &none
                 &none &hm_shift_l LSHIFT A &hm_l LCTRL S &hm_l LGUI D      &hm_l LALT F     &kp G                &kp H            &hm_r RALT J       &hm_r RGUI K     &hm_r RCTRL L &hm_shift_r RSHIFT SEMI &none
-                &none &kp Z                &kp X         &kp C             &kp V            &kp B                &kp N            &kp M              &kp COMMA        &tdm_ctrl_dot  &kp FSLH                &none
+                &none &kp Z                &kp X         &kp C             &kp V            &kp B                &kp N            &kp M              &kp COMMA        &td_test  &kp FSLH                &none
                                                          &lt_rl L_NAV BSPC &lt_bl L_BRC RET &lt_pl L_NUM TAB     &lt_pr L_NUM ESC &lt_br L_BRC SPACE &lt_rr L_NAV DEL
             >;
         };
