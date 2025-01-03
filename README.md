@@ -47,7 +47,7 @@
 </style>
 <g>
   <image x="0"   y="20" width="100%" height="100%" href="./keymap/fancy/corne_default.svg" />
-  <image x="20"  y="0"  width="100%" height="100%" href="./keymap/fancy/corne_braces.svg" />
+  <image x="20"  y="0"  width="100%" height="100%" href="./keymap/fancy/corne_signs.svg" />
   <image x="-18" y="0"  width="100%" height="100%" href="./keymap/fancy/corne_numbers.svg" />
   <image x="-18" y="40" width="100%" height="100%" href="./keymap/fancy/corne_navigation.svg" />
 </g>
