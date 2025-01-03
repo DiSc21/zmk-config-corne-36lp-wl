@@ -38,7 +38,7 @@ declare -A layers
 
 layers["${base_layer}"]="default"
 layers["numbers"]="orange"
-layers["braces"]="orangered"
+layers["signs"]="orangered"
 layers["navigation"]="gold"
 
 #
@@ -87,8 +87,6 @@ create_layer() {
   fi
 
   cat "${parse_config_templ}" >> "${config_yaml}"
-
-  cat "${config_yaml}"
 
   out_svg="${SH_PATH}/${icon_style}/corne_${key}.svg"
   out_yaml="${SH_PATH}/${icon_style}/corne_${key}.yaml"

@@ -11,6 +11,19 @@
   - [x] Github workflow for auto updates
 * [x] Playful GitHub actions addition of 'shellcheck' with auto comments on issues
 
+#### Noteable Customizations:
+
+* Ctrl-Tabdances
+  - Add `SPACE` for `ctrl`-tapdance on `.`
+  - Add `SPACE+StickyCaps` for `ctrl`-`shift`-tapdance on `.`
+* Layer-Combos:
+  - * Capsword on `A-S`-Combo
+  - * Toggle default layer on `O-P`-Combo
+  - * Toggle navigation layer on `G-H`-Combo
+  - * Toggle numbers layer on `C-V`-Combo
+  - * Sticky rgb layer on `B-N`-Combo
+  - * Sticky bluetooth layer on `T-Y`-Combo
+
 #### Missing Features:
 
 * [ ] BT Shortcuts
@@ -34,7 +47,7 @@
 </style>
 <g>
   <image x="0"   y="20" width="100%" height="100%" href="./keymap/fancy/corne_default.svg" />
-  <image x="20"  y="0"  width="100%" height="100%" href="./keymap/fancy/corne_braces.svg" />
+  <image x="20"  y="0"  width="100%" height="100%" href="./keymap/fancy/corne_signs.svg" />
   <image x="-18" y="0"  width="100%" height="100%" href="./keymap/fancy/corne_numbers.svg" />
   <image x="-18" y="40" width="100%" height="100%" href="./keymap/fancy/corne_navigation.svg" />
 </g>
