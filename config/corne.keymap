@@ -344,7 +344,7 @@
         td_ctrl_dot: td_ctrl_dot {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            tapping-term-ms = <150>;
+            tapping-term-ms = <250>;
             bindings = <&kp DOT>, <&tdm_ctrl_dot>;
         };
         td_test: td_test {
@@ -573,8 +573,8 @@
             display-name = "default";
             bindings = <
                 &none &kp Q                &kp W         &kp E             &kp R            &kp T                &kp Y            &kp U              &kp I            &kp O         &kp P                   &none
-                &none &hm_shift_l LSHIFT A &hm_l LCTRL S &hm_l LGUI D      &hm_l LALT F     &kp G                &td_free_test &hm_r RALT J       &hm_r RGUI K     &hm_r RCTRL L &hm_shift_r RSHIFT SEMI &none
-                &none &kp Z                &kp X         &kp C             &kp V            &kp B                &kp N            &kp M              &kp COMMA        &td_test  &kp FSLH                &none
+                &none &hm_shift_l LSHIFT A &hm_l LCTRL S &hm_l LGUI D      &hm_l LALT F     &kp G                &kp h            &hm_r RALT J       &hm_r RGUI K     &hm_r RCTRL L &hm_shift_r RSHIFT SEMI &none
+                &none &kp Z                &kp X         &kp C             &kp V            &kp B                &kp N            &kp M              &kp COMMA        &td_ctrl_dot  &kp FSLH                &none
                                                          &lt_rl L_NAV BSPC &lt_bl L_BRC RET &lt_pl L_NUM TAB     &lt_pr L_NUM ESC &lt_br L_BRC SPACE &lt_rr L_NAV DEL
             >;
         };
