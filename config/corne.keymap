@@ -19,6 +19,7 @@
 
 /* shared defines for key nums, layers and timings */
 #include "shared.dtsi"
+#include "behaviors_ctrl_space.dtsi"
 
 
 &led_strip {
@@ -27,7 +28,6 @@
 
 / {
 
-    #include "behaviors_ctrl_space.dtsi"
     #include "combos.dtsi"
 
     macros {
