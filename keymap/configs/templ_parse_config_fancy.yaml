@@ -231,7 +231,7 @@ parse_config:
       shifted: 𝟓
 
   zmk_combos:
-    combo_sticky_led: {'k': 📌LED}
+    combo_sticky_bt_led: {'k': 📌LED}
     combo_to_default: {'k': 🌐}
     combo_to_numbers: {'k': 🔘🔢}
     combo_to_navigation: {'k': 🔘🧭}
