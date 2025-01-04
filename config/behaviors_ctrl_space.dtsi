@@ -42,10 +42,18 @@
 
 #include "shared.dtsi"
 
+#define TABDANCE_TERM_MS 200
+#define TABDANCE_TERM_SLOW_MS 250
+
+#define KEY_SEQ_MACRO_WAIT_MS 30
+#define KEY_SEQ_MACRO_TAP_MS 30
+
 / {
     macros {
         /omit-if-no-ref/ add_space: add_space {
             compatible = "zmk,behavior-macro-one-param";
+            wait-ms = <KEY_SEQ_MACRO_WAIT_MS>;
+            tap-ms = <KEY_SEQ_MACRO_TAP_MS>;
             #binding-cells = <1>;
             bindings
                 = <&macro_param_1to1>, <&macro_tap &kp MACRO_PLACEHOLDER>
@@ -54,10 +62,13 @@
         };
         /omit-if-no-ref/ add_space_sticky_shift: add_space_sticky_shift {
             compatible = "zmk,behavior-macro-one-param";
+            wait-ms = <KEY_SEQ_MACRO_WAIT_MS>;
+            tap-ms = <KEY_SEQ_MACRO_TAP_MS>;
             #binding-cells = <1>;
             bindings
                 = <&macro_param_1to1>, <&macro_tap &kp MACRO_PLACEHOLDER>
-                , <&macro_tap &kp SPACE &sk LSHIFT>
+                , <&macro_tap &kp SPACE>
+                , <&macro_tap &sk LSHIFT>
                 ;
         };
     };
