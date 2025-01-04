@@ -1,15 +1,26 @@
 ## ZMK CORNE 36 LED
 
+
+
 #### Features:
 
-* [x] LED Layer Indicators
-* [x] Combo Keys for Backspace/ESC/...
-* [x] [Urob's awesome homerow mods](https://github.com/urob/zmk-config)
+* [x] LED-color layer indicators:
+* [x] Couple of combo keys (see keymaps)
+* [x] [Urob's timerless homerow mods](https://github.com/urob/zmk-config)
+* [x] "CTRL-space-(stickyshif)-tabdance":
+  Double-tab with active ctrl-mod adds punctuation mark, space and (not for comma) stickyshift
+  | Key           | Layer         | Tap | Dance        | Stickyshift |
+  | ------------- |:-------------:| ---:| ------------:|:-----------:|
+  | `.`           | `default`     | `.` |  `.`+`SPACE` |          ✅ |
+  | `,`           | `default`     | `,` |  `,`+`SPACE` |          ⛔ |
+  | `Q`           | `default`     | `Q` |  `!`+`SPACE` |          ✅ |
+  | `/`           | `default`     | `/` |  `?`+`SPACE` |          ✅ |
+
 * [x] Keymap image generator helpers and actions
   - [x] [Keymap image generator](https://github.com/caksoylar/keymap-drawer?tab=readme-ov-file)
   - [x] Script to create layer overlays
-  - [x] Github workflow for auto updates
-* [x] Playful GitHub actions addition of 'shellcheck' with auto comments on issues
+  - [x] (Dirty) Github workflow for auto updates
+  - [x] Playful GitHub actions addition of `shellcheck` with auto comments on issues
 
 #### Noteable Customizations:
 
