@@ -27,26 +27,10 @@
 
 / {
 
+    #include "behaviors_ctrl_space.dtsi"
     #include "combos.dtsi"
 
     macros {
-        key_space: key_space {
-            compatible = "zmk,behavior-macro-one-param";
-            #binding-cells = <1>;
-            bindings
-                = <&macro_param_1to1>, <&macro_tap &kp MACRO_PLACEHOLDER>
-                , <&macro_tap &kp SPACE>
-                ;
-        };
-        key_space_sticky_shift: key_space_sticky_shift {
-            compatible = "zmk,behavior-macro-one-param";
-            #binding-cells = <1>;
-            bindings
-                = <&macro_param_1to1>, <&macro_tap &kp MACRO_PLACEHOLDER>
-                , <&macro_tap &kp SPACE &sk LSHIFT>
-                ;
-        };
-
         /**
          * Layer + underglow color
          * Triggers a different underglow when the macro is pressed, and when it is released,
@@ -111,39 +95,6 @@
     };
 
     behaviors {
-        /*
-         * CTRL-Tapdance Character Additions
-         * ---------------------------------
-         *
-         * Enable tabledance if ctrl modifier is active
-         *
-         * Mod-Morphs for common completions, i.e.
-         * - add space to ,.!?;:
-         * - add space+shift to .;!?
-         * - t -> th/Th/the/The
-         */
-        //morph_ctrl_shift_dot: morph_ctrl_shift_dot {
-        //    compatible = "zmk,behavior-mod-morph";
-        //    #binding-cells = <0>;
-        //    bindings = <&key_space DOT>, <&key_space_sticky_shift DOT>;
-        //    mods = <(MOD_LSFT|MOD_RSFT)>;
-        //};
-        tdm_ctrl_dot: tdm_ctrl_dot {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&kp DOT>, <&key_space_sticky_shift DOT>;
-            mods = <(MOD_LCTL|MOD_RCTL)>;
-        };
-        td_ctrl_dot: td_ctrl_dot {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <TABDANCE_TERM_MS>;
-            bindings = <&kp DOT>, <&tdm_ctrl_dot>;
-        };
-
-
-
-
         lt_rl: lt_rl {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;

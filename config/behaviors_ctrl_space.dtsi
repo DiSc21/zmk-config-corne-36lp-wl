@@ -27,3 +27,47 @@
 */
 
 #include "shared.dtsi"
+
+macros {
+    key_space: key_space {
+        compatible = "zmk,behavior-macro-one-param";
+        #binding-cells = <1>;
+        bindings
+            = <&macro_param_1to1>, <&macro_tap &kp MACRO_PLACEHOLDER>
+            , <&macro_tap &kp SPACE>
+            ;
+    };
+    key_space_sticky_shift: key_space_sticky_shift {
+        compatible = "zmk,behavior-macro-one-param";
+        #binding-cells = <1>;
+        bindings
+            = <&macro_param_1to1>, <&macro_tap &kp MACRO_PLACEHOLDER>
+            , <&macro_tap &kp SPACE &sk LSHIFT>
+            ;
+    };
+};
+
+behaviors {
+    /*
+     * CTRL-Tapdance Character Additions
+     * ---------------------------------
+     *
+     * Enable tabledance if ctrl modifier is active
+     *
+     * Mod-Morphs for common completions, i.e.
+     * - add space to ,
+     * - add space+shift to .;!?
+     */
+    tdm_ctrl_dot: tdm_ctrl_dot {
+        compatible = "zmk,behavior-mod-morph";
+        #binding-cells = <0>;
+        bindings = <&kp DOT>, <&key_space_sticky_shift DOT>;
+        mods = <(MOD_LCTL|MOD_RCTL)>;
+    };
+    td_ctrl_dot: td_ctrl_dot {
+        compatible = "zmk,behavior-tap-dance";
+        #binding-cells = <0>;
+        tapping-term-ms = <TABDANCE_TERM_MS>;
+        bindings = <&kp DOT>, <&tdm_ctrl_dot>;
+    };
+};
