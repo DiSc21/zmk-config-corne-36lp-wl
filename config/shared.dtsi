@@ -110,6 +110,5 @@
 #define HM_PRIOR_IDLE 150
 
 #define LAYER_QUICK_TAP_MS 175
-#define TABDANCE_TERM_MS 250
 
 

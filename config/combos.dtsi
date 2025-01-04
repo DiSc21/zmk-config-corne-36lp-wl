@@ -48,6 +48,15 @@
 #define COMBO_TAP_TIME_FAST 35
 #define COMBO_TAP_TIME 50
 
+
+///
+/// @brief auxiliary macro for the creation of combos
+///
+/// @param name: name of the combo as used in keymap
+/// @param combo_binding: key events on combo execution
+/// @param combo_keys: keys forming the combo
+/// @param combo_timeout: time out for the combo, i.e. time interval considered as "at the same time"
+///
 #define COMBO_MACRO(name, combo_binding, combo_keys, combo_timeout) \
     name { \
         timeout-ms = <combo_timeout>; \

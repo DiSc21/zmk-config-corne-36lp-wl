@@ -47,6 +47,16 @@
 
 #include "shared.dtsi"
 
+///
+/// @brief auxiliary macro for the creational aux macro used for the creation of homerow mods
+///
+/// @param hm_flavor: hold-tap basic behavior
+/// @param hm_tapping_term: the time a key is tapped
+/// @param hm_quick_tap_ms: quick tap threshold
+/// @param hm_prior_idle_ms: expected pre-idel-time
+///
+/// @note this is just an auxiliray macro for the creational macros for left and right hmrs
+///
 #define HRM_CORE_MACRO(hm_flavor, hm_tapping_term, hm_quick_tap_ms, hm_prior_idle_ms) \
     compatible = "zmk,behavior-hold-tap"; \
     #binding-cells = <2>; \
@@ -56,10 +66,26 @@
     quick-tap-ms = <hm_quick_tap_ms>; \
     require-prior-idle-ms = <hm_prior_idle_ms>;
 
+///
+/// @brief auxiliary macro for the creation of right-hand homerow mods
+///
+/// @param hm_flavor: hold-tap basic behavior
+/// @param hm_tapping_term: the time a key is tapped
+/// @param hm_quick_tap_ms: quick tap threshold
+/// @param hm_prior_idle_ms: expected pre-idel-time
+///
 #define HRM_RIGHT_MACRO(hm_flavor, hm_tapping_term, hm_quick_tap_ms, hm_prior_idle_ms) \
     HRM_CORE_MACRO(hm_flavor, hm_tapping_term, hm_quick_tap_ms, hm_prior_idle_ms) \
     hold-trigger-key-positions = <KEYS_L KEYS_THUMBS>;
 
+///
+/// @brief auxiliary macro for the creation of left-hand homerow mods
+///
+/// @param hm_flavor: hold-tap basic behavior
+/// @param hm_tapping_term: the time a key is tapped
+/// @param hm_quick_tap_ms: quick tap threshold
+/// @param hm_prior_idle_ms: expected pre-idel-time
+///
 #define HRM_LEFT_MACRO(hm_flavor, hm_tapping_term, hm_quick_tap_ms, hm_prior_idle_ms) \
     HRM_CORE_MACRO(hm_flavor, hm_tapping_term, hm_quick_tap_ms, hm_prior_idle_ms) \
     hold-trigger-key-positions = <KEYS_R KEYS_THUMBS>;
