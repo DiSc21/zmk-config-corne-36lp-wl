@@ -63,13 +63,13 @@
     };
 
     behaviors {
-        /omit-if-no-ref/ tdm_cdot: tdm_ctrl_dot {
+        /omit-if-no-ref/ tdm_cdot: tdm_cdot {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&kp DOT>, <&key_space_sticky_shift DOT>;
             mods = <(MOD_LCTL|MOD_RCTL)>;
         };
-        /omit-if-no-ref/ td_cdot: td_ctrl_dot {
+        /omit-if-no-ref/ td_cdot: td_cdot {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <TABDANCE_TERM_MS>;
