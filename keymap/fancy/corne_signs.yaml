@@ -156,7 +156,7 @@ layers:
   - ['', '']
 combos:
 - p: [5, 6]
-  k: {t: bt-lighting, h: sticky}
+  k: 📌LED
 - p: [17, 18]
   k: 🔘🧭
 - p: [1, 2]

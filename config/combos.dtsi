@@ -1,0 +1,95 @@
+/*
+╭───────────────────────────────────────────────────────╮
+│         ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡆⠀⠀⠀⠀⠀⠀⠀⣆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀│
+│ @author:⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣾⡇⠀⠀⠀⠀⠀⠀⠀⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀│
+│ -⠀TheDirkKnight  ⠀⠀⠀⠀⠀⣿⡇⠀⠀⠀⠀⠀⠀⠀⡿⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀│
+│ ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⠀⠀⠀⠀⠀⠀⠀⠃⣿⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀│
+│ @contact:⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⣿⣿⣿⣿⣿⣿⣷⣼⣿⣇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀│
+│ -⠀github.com/DiSc21⠀⠀⢸⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀│
+│ ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⣠⣼⣿⣿⣿⣿⣿⣿⣿⣿⡏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀│
+│ @creation:⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢙⡻⢿⣿⡿⡟⣿⡿⠟⣛⠁⠀⠀⠀⠀⠀⠀ ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀│
+│ -⠀2025/01/04           ⠉⠓⠂⠁⡀⠀⠐⠛⠁⠀⠀⠀⠀⠀⠀⠀ ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀│
+│          ⠀⠀⠀⠀⠀⣀⣠⣴⡾⠛⠉⠀     ⢠⡇⠀⠀⠀⠀⠀⠀⣸⣿⣦⣄⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀│
+│ ⠀ ⠀⠀⠀⠀⠀⢀⣀⣀⣤⣤⣶⣿⣿⣿⣿⣿⣷⣆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⣻⣿⣿⣿⣷⣶⣤⣤⣤⣄⣀⠀⠀⠀⠀⠀⠀⠀│
+│ ⠀ ⠀⠀⢀⣴⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣶⡄⠀⠀⠀⠀│
+│ ⠀ ⠀⡾⣿⣿⣿⣿⠿⠋⢁⣿⣿⣿⣿⣿⣿⣟⣥⣶⢿⡛⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⢙⡻⢷⣿⣿⣿⣿⣿⣿⣿⡟⠿⠿⣿⣿⣿⣿⠀⠀⠀⠀│
+│ ⠀ ⠀⠀⣿⣿⠟⠁⠀⢠⣿⣿⣿⣿⣿⣿⡿⢟⣭⣶⣿⣷⣄⠀⠀⠀⣤⣀⡄⠀⠀⢀⣴⣿⣿⣷⣝⡻⣿⣿⣿⣿⣿⣿⣦⡀⠀⠉⠛⢿⠀⠀⠀⠀│
+│ ⠀ ⠀⠀⠿⠁⠀⠀⠀⠋⠁⣿⣿⣿⡿⢋⣴⣿⣿⣿⣿⣿⣿⣿⣶⣾⣿⣿⣿⣶⣿⣿⣿⣿⣿⣿⣿⣿⣮⡻⣿⣿⣿⠯⠉⠙⠀⠀⠀⠀⠀⠀⠀⠀│
+│ ⠀ ⠀⠀⠀⠀⠀⠀⠀⠀⠘⠁⠽⠋⠠⠿⠿⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠿⠷⠌⠻⠟⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀│
+│ ⠀ ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡟⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀ │
+│ ⠀ ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠻⣿⣿⠟⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀│
+│ ⠀  ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⠏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀│
+│ @copyright: 2024 TheDirkKnight                        │
+│ @License-Identifier: MIT                              │
+│_______________________________________________________│
+│                                                       │
+│ @brief: ZMK devicetree file for key combos.           │
+│                                                       │
+│ @depends: shared.dtsi for key positions.              │
+│_________________________     _________________________│
+│ | __|__  __|__  __|__ | |###| | __|__  __|__  __|__ | │
+│ ||_ESC_||__A__||__T__||-StBT--||__Y__||_BSP_||_To0_|| │
+│_|___|______|______|___|_|###|_|___|______|______|___|_│
+│ | __|__  __|__  __|__ | |###| | _____  _____  _____ | │
+│ ||_CAP_||_NTE_||_INS_||-StNum-||__-__||__=__||__'__|| │
+│_|___|______|______|___|_|###|_|___|______|______|___|_│
+│ | __|__  __|__  __|__ | |###| | __|__  __|__  __|__ | │
+│ ||_HOM_||_END_||_ToN_|| |###| ||__N__||__,__||__\__|| │
+│_|___|______|______|___|_|###|_|___|______|______|___|_│
+│            |      |   | |###| |   |      |            │
+│            |______|___|_|###|_|___|______|            │
+╰───────────────────────────────────────────────────────╯
+
+*/
+
+#include "shared.dtsi"
+
+/* Timing defaults */
+#define COMBO_TAP_TIME_FAST 35
+#define COMBO_TAP_TIME 50
+
+#define COMBO_MACRO(name, combo_binding, combo_keys, combo_timeout) \
+    name { \
+        timeout-ms = <combo_timeout>; \
+        key-positions = <combo_keys>; \
+        bindings = <combo_binding>; \
+    };
+
+combos {
+    compatible = "zmk,combos";
+
+    // CrossSide Combos
+    // ----------------
+    COMBO_MACRO(combo_sticky_bt_led, &sl L_BT_LED,     LT5 RT0, COMBO_TAP_TIME_FAST)
+    COMBO_MACRO(combo_to_navigation, &to L_NAV,        LM5 RM0, COMBO_TAP_TIME_FAST)
+
+    // TopRow Combos
+    // -------------
+    COMBO_MACRO(combo_esc,           &kp ESC,          LT1 LT2, COMBO_TAP_TIME_FAST)
+    COMBO_MACRO(combo_tab,           &kp TAB,          LT2 LT3, COMBO_TAP_TIME_FAST)
+    COMBO_MACRO(combo_key_t,         &kp T,            LT3 LT4, COMBO_TAP_TIME_FAST)
+    COMBO_MACRO(combo_key_y,         &kp Y,            RT1 RT2, COMBO_TAP_TIME_FAST)
+    COMBO_MACRO(combo_bspc,          &kp BSPC,         RT2 RT3, COMBO_TAP_TIME_FAST)
+    COMBO_MACRO(combo_to_default,    &to L_DEF,        RT3 RT4, COMBO_TAP_TIME_FAST)
+
+    // MiddleRow Combos
+    // ----------------
+    COMBO_MACRO(combo_caps_word,     &caps_word,       LM1 LM2, COMBO_TAP_TIME_FAST)
+    COMBO_MACRO(combo_space,         &kp SPACE,        LM2 LM3, COMBO_TAP_TIME_FAST)
+    COMBO_MACRO(combo_insert,        &kp INSERT,       LM3 LM4, COMBO_TAP_TIME_FAST)
+    COMBO_MACRO(combo_minus,         &kp MINUS,        RM1 RM2, COMBO_TAP_TIME_FAST)
+    COMBO_MACRO(combo_equal,         &kp EQUAL,        RM2 RM3, COMBO_TAP_TIME_FAST)
+    COMBO_MACRO(combo_quote,         &kp SINGLE_QUOTE, RM3 RM4, COMBO_TAP_TIME_FAST)
+
+    // BottomRow Combos
+    // ----------------
+    COMBO_MACRO(combo_home,          &kp HOME,         LB1 LB2, COMBO_TAP_TIME_FAST)
+    COMBO_MACRO(combo_end,           &kp END,          LB2 LB3, COMBO_TAP_TIME_FAST)
+    COMBO_MACRO(combo_to_numbers,    &to L_NUM,        LB3 LB4, COMBO_TAP_TIME_FAST)
+    COMBO_MACRO(combo_comma,         &kp COMMA,        RB1 RB2, COMBO_TAP_TIME_FAST)
+    COMBO_MACRO(combo_dot,           &kp DOT,          RB2 RB3, COMBO_TAP_TIME_FAST)
+    COMBO_MACRO(combo_bslh,          &kp BSLH,         RB3 RB4, COMBO_TAP_TIME_FAST)
+};
+
+
+
