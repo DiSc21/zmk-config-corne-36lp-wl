@@ -31,6 +31,21 @@
 / {
     #include "combos.dtsi"
 
+    behaviors {
+        mmnr_del: mmnr_del {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&lt_red_r L_NAV DEL>, <&kp BSPC>;
+            mods = <(MOD_LCTL|MOD_RCTL)>;
+        };
+        mmnl_bsp: mmnl_bsp {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&lt_red_l L_NAV BSPC>, <&kp DEL>;
+            mods = <(MOD_LCTL|MOD_RCTL)>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -47,10 +62,10 @@
         default {
             display-name = "default";
             bindings = <
-                &none &kp Q                &kp W         &kp E                &kp R               &kp T                 &kp Y               &kp U                 &kp I        &kp O         &kp P                   &none
-                &none &hm_shift_l LSHIFT A &hm_l LCTRL S &hm_l LGUI D         &hm_l LALT F        &kp G                 &kp H               &hm_r RALT J          &hm_r RGUI K &hm_r RCTRL L &hm_shift_r RSHIFT SEMI &none
-                &none &kp Z                &kp X         &kp C                &kp V               &kp B                 &kp N               &kp M                 &kp COMMA    &td_cdot      &kp FSLH                &none
-                                                         &lt_red_l L_NAV BSPC &lt_blu_l L_BRC RET &lt_pur_l L_NUM TAB   &lt_pur_r L_NUM ESC &lt_blu_r L_BRC SPACE &lt_red_r L_NAV DEL
+                &none &tdc_excl            &kp W         &kp E        &kp R               &kp T                 &kp Y               &kp U                 &kp I        &kp O         &kp P                   &none
+                &none &hm_shift_l LSHIFT A &hm_l LCTRL S &hm_l LGUI D &hm_l LALT F        &kp G                 &kp H               &hm_r RALT J          &hm_r RGUI K &hm_r RCTRL L &hm_shift_r RSHIFT SEMI &none
+                &none &kp Z                &kp X         &kp C        &kp V               &kp B                 &kp N               &kp M                 &tdc_com     &tdc_dot      &tdc_ques               &none
+                                                         &mmnl_bsp    &lt_blu_l L_BRC RET &lt_pur_l L_NUM TAB   &lt_pur_r L_NUM ESC &lt_blu_r L_BRC SPACE &mmnr_del
             >;
         };
 

@@ -136,10 +136,15 @@ parse_config:
     '&to L_DEF': ''
 
     # ctrl-tabdance
-    '&td_cdot':
+    '&tdc_dot':
       tap: "💃."
-    '&td_test':
-      tap: ".💃"
+    '&tdc_com':
+      tap: "💃,"
+    '&tdc_excl':
+      tap: "💃Q"
+    '&tdc_ques':
+      tap: "💃/"
+
 
     # Mouse emo
     '&msc SCRL_LEFT':
