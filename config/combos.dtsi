@@ -1,14 +1,14 @@
 /*_______________________________________________________⠀
- | @author:⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡆⠀⠀⠀⠀⠀⠀⠀⣆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀|
- | -⠀TheDirkKnight  ⠀⠀⠀⠀⠀⠀⣾⡇⠀⠀⠀⠀⠀⠀⠀⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀|
- | ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⡇⠀⠀⠀⠀⠀⠀⠀⡿⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀|
- | @creation:⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⠀⠀⠀⠀⠀⠀⠀⠃⣿⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀|
- | -⠀2025/01/04⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⣿⣿⣿⣿⣿⣿⣷⣼⣿⣇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀|
- | ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀|
- | @contact:⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⣠⣼⣿⣿⣿⣿⣿⣿⣿⣿⡏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀|
- | -⠀github.com/DiSc21⠀⠀ ⠀⢙⡻⢿⣿⡿⡟⣿⡿⠟⣛⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀|
- | ⠀                       ⠉⠓⠂⠁⡀⠀⠐⠛⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀|
- | @batbash ⠀⠀⠀⠀⠀⣀⣠⣴⡾⠛⠉⠀⠀     ⢠⡇⠀⠀⠀⠀⠀⠀⣸⣿⣦⣄⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀|
+ |         ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡆⠀⠀⠀⠀⠀⠀⠀⣆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀|
+ | @author:⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣾⡇⠀⠀⠀⠀⠀⠀⠀⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀|
+ | -⠀TheDirkKnight  ⠀⠀⠀⠀⠀⣿⡇⠀⠀⠀⠀⠀⠀⠀⡿⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀|
+ | ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⠀⠀⠀⠀⠀⠀⠀⠃⣿⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀|
+ | @contact:⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⣿⣿⣿⣿⣿⣿⣷⣼⣿⣇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀|
+ | -⠀github.com/DiSc21⠀⠀⢸⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀|
+ | ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⣠⣼⣿⣿⣿⣿⣿⣿⣿⣿⡏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀|
+ | @creation:⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢙⡻⢿⣿⡿⡟⣿⡿⠟⣛⠁⠀⠀⠀⠀⠀⠀ ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀|
+ | -⠀2025/01/04           ⠉⠓⠂⠁⡀⠀⠐⠛⠁⠀⠀⠀⠀⠀⠀⠀ ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀|
+ |          ⠀⠀⠀⠀⠀⣀⣠⣴⡾⠛⠉⠀     ⢠⡇⠀⠀⠀⠀⠀⠀⣸⣿⣦⣄⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀|
  | ⠀ ⠀⠀⠀⠀⠀⢀⣀⣀⣤⣤⣶⣿⣿⣿⣿⣿⣷⣆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⣻⣿⣿⣿⣷⣶⣤⣤⣤⣄⣀⠀⠀⠀⠀⠀⠀⠀|
  | ⠀ ⠀⠀⢀⣴⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣶⡄⠀⠀⠀⠀|
  | ⠀ ⠀⡾⣿⣿⣿⣿⠿⠋⢁⣿⣿⣿⣿⣿⣿⣟⣥⣶⢿⡛⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⢙⡻⢷⣿⣿⣿⣿⣿⣿⣿⡟⠿⠿⣿⣿⣿⣿⠀⠀⠀⠀|
@@ -18,149 +18,77 @@
  | ⠀ ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡟⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀|
  | ⠀ ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠻⣿⣿⠟⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀|
  | ⠀  ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⠏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀|
+ | @copyright: 2024 TheDirkKnight                        |
+ | @License-Identifier: MIT                              |
  |_______________________________________________________|
  |                                                       |
  | @brief: ZMK devicetree file for key combos.           |
  |                                                       |
  | @depends: shared.dtsi for key positions.              |
+ |                                                       |
+ | @graph:                                               |
+ |_________________________     _________________________|
+ | | __|__  __|__  __|__ | |###| | __|__  __|__  __|__ | |
+ | ||_ESC_||__A__||__T__||-StBT--||__Y__||_BSP_||_To0_|| |
+ |_|___|______|______|___|_|###|_|___|______|______|___|_|
+ | | __|__  __|__  __|__ | |###| | _____  _____  _____ | |
+ | ||_CAP_||_NTE_||_INS_||-StNum-||__-__||__=__||__'__|| |
+ |_|___|______|______|___|_|###|_|___|______|______|___|_|
+ | | __|__  __|__  __|__ | |###| | __|__  __|__  __|__ | |
+ | ||_HOM_||_END_||_ToN_|| |###| ||__N__||__,__||__\__|| |
+ |_|___|______|______|___|_|###|_|___|______|______|___|_|
+ |            |      |   | |###| |   |      |            |
+ |            |______|___|_|###|_|___|______|            |
  |_______________________________________________________|
-*/
-
-/* Combo Keys All Layers ATM:
-   --------------------------
- _____________________________         _____________________________
-| |  __|__  __|__  __|__  |   |#######|   |  __|__  __|__  __|__  | |
-| | |_ESC_||__A__||__T__| | --StickyBT--- | |__Y__||_BSP_||_To0_| | |
-|_|____|______|______|____|___|#######|___|____|______|______|____|_|
-| |  __|__  __|__  __|__  |   |#######|   |  _____  _____  _____  | |
-| | |_CAP_||_NTE_||_INS_| | --StickyNum-- | |__-__||__=__||__'__| | |
-|_|____|______|______|____|___|#######|___|____|______|______|____|_|
-| |  __|__  __|__  __|__  |   |#######|   |  __|__  __|__  __|__  | |
-| | |_HOM_||_END_||_ToN_| |   |#######|   | |__N__||__,__||__\__| | |
-|_|____|______|______|____|___|#######|___|____|______|______|____|_|
-              |      |    |   |#######|   |    |      |
-              |______|____|___|#######|___|____|______|
 */
 
 #include "shared.dtsi"
 
 /* Timing defaults */
-#define COMBO_TAPPING_TIME 50
-#define COMBO_TAPPING_TIME_FAST 35
+#define COMBO_TAP_TIME_FAST 35
+#define COMBO_TAP_TIME 50
+
+#define COMBO_MACRO(name, combo_binding, combo_keys, combo_timeout) \
+    name { \
+        timeout-ms = <combo_timeout>; \
+        key-positions = <combo_keys>; \
+        bindings = <combo_binding>; \
+    };
 
 combos {
     compatible = "zmk,combos";
 
     // CrossSide Combos
     // ----------------
-    combo_sticky_bt_led {
-        timeout-ms = <COMBO_TAPPING_TIME_FAST>;
-        key-positions = <LT5 RT0>;
-        bindings = <&sl L_BT_LED>;
-    };
-    combo_to_navigation {
-        timeout-ms = <COMBO_TAPPING_TIME_FAST>;
-        key-positions = <LM5 RM0>;
-        bindings = <&to L_NAV>;
-    };
+    COMBO_MACRO(combo_sticky_bt_led, &sl L_BT_LED,     LT5 RT0, COMBO_TAP_TIME_FAST)
+    COMBO_MACRO(combo_to_navigation, &to L_NAV,        LM5 RM0, COMBO_TAP_TIME_FAST)
+
     // TopRow Combos
     // -------------
-    combo_esc {
-        timeout-ms = <COMBO_TAPPING_TIME_FAST>;
-        key-positions = <LT1 LT2>;
-        bindings = <&kp ESC>;
-    };
-    combo_tab {
-        timeout-ms = <COMBO_TAPPING_TIME_FAST>;
-        key-positions = <LT2 LT3>;
-        bindings = <&kp TAB>;
-    };
-    combo_key_t {
-        timeout-ms = <COMBO_TAPPING_TIME_FAST>;
-        key-positions = <LT3 LT4>;
-        bindings = <&kp T>;
-    };
-    combo_key_y {
-        timeout-ms = <COMBO_TAPPING_TIME_FAST>;
-        key-positions = <RT1 RT2>;
-        bindings = <&kp Y>;
-    };
-    combo_bspc {
-        timeout-ms = <COMBO_TAPPING_TIME_FAST>;
-        key-positions = <RT2 RT3>;
-        bindings = <&kp BSPC>;
-    };
-    combo_to_default {
-        timeout-ms = <COMBO_TAPPING_TIME_FAST>;
-        key-positions = <RT3 RT4>;
-        bindings = <&to L_DEF>;
-    };
+    COMBO_MACRO(combo_esc,           &kp ESC,          LT1 LT2, COMBO_TAP_TIME_FAST)
+    COMBO_MACRO(combo_tab,           &kp TAB,          LT2 LT3, COMBO_TAP_TIME_FAST)
+    COMBO_MACRO(combo_key_t,         &kp T,            LT3 LT4, COMBO_TAP_TIME_FAST)
+    COMBO_MACRO(combo_key_y,         &kp Y,            RT1 RT2, COMBO_TAP_TIME_FAST)
+    COMBO_MACRO(combo_bspc,          &kp BSPC,         RT2 RT3, COMBO_TAP_TIME_FAST)
+    COMBO_MACRO(combo_to_default,    &to L_DEF,        RT3 RT4, COMBO_TAP_TIME_FAST)
 
     // MiddleRow Combos
     // ----------------
-    combo_caps_word {
-        timeout-ms = <COMBO_TAPPING_TIME_FAST>;
-        key-positions = <LM1 LM2>;
-        bindings = <&caps_word>;
-    };
-    combo_space {
-        timeout-ms = <COMBO_TAPPING_TIME_FAST>;
-        key-positions = <LM2 LM3>;
-        bindings = <&kp SPACE>;
-    };
-    combo_insert {
-        timeout-ms = <COMBO_TAPPING_TIME_FAST>;
-        key-positions = <LM3 LM4>;
-        bindings = <&kp INSERT>;
-    };
-    combo_minus {
-        timeout-ms = <COMBO_TAPPING_TIME_FAST>;
-        key-positions = <RM1 RM2>;
-        bindings = <&kp MINUS>;
-    };
-    combo_equal {
-        timeout-ms = <COMBO_TAPPING_TIME_FAST>;
-        key-positions = <RM2 RM3>;
-        bindings = <&kp EQUAL>;
-    };
-    combo_quote {
-        timeout-ms = <COMBO_TAPPING_TIME_FAST>;
-        key-positions = <RM3 RM4>;
-        bindings = <&kp SINGLE_QUOTE>;
-    };
+    COMBO_MACRO(combo_caps_word,     &caps_word,       LM1 LM2, COMBO_TAP_TIME_FAST)
+    COMBO_MACRO(combo_space,         &kp SPACE,        LM2 LM3, COMBO_TAP_TIME_FAST)
+    COMBO_MACRO(combo_insert,        &kp INSERT,       LM3 LM4, COMBO_TAP_TIME_FAST)
+    COMBO_MACRO(combo_minus,         &kp MINUS,        RM1 RM2, COMBO_TAP_TIME_FAST)
+    COMBO_MACRO(combo_equal,         &kp EQUAL,        RM2 RM3, COMBO_TAP_TIME_FAST)
+    COMBO_MACRO(combo_quote,         &kp SINGLE_QUOTE, RM3 RM4, COMBO_TAP_TIME_FAST)
 
     // BottomRow Combos
     // ----------------
-    combo_home {
-        timeout-ms = <COMBO_TAPPING_TIME_FAST>;
-        key-positions = <LB1 LB2>;
-        bindings = <&kp HOME>;
-    };
-    combo_end {
-        timeout-ms = <COMBO_TAPPING_TIME_FAST>;
-        key-positions = <LB2 LB3>;
-        bindings = <&kp END>;
-    };
-    combo_to_numbers {
-        timeout-ms = <COMBO_TAPPING_TIME_FAST>;
-        key-positions = <LB3 LB4>;
-        bindings = <&to L_NUM>;
-    };
-    combo_comma {
-        timeout-ms = <COMBO_TAPPING_TIME_FAST>;
-        key-positions = <RB1 RB2>;
-        bindings = <&kp COMMA>;
-    };
-    combo_dot {
-        timeout-ms = <COMBO_TAPPING_TIME_FAST>;
-        key-positions = <RB2 RB3>;
-        bindings = <&kp DOT>;
-    };
-    combo_bslh {
-        timeout-ms = <COMBO_TAPPING_TIME_FAST>;
-        key-positions = <RB3 RB4>;
-        bindings = <&kp BSLH>;
-    };
+    COMBO_MACRO(combo_home,          &kp HOME,         LB1 LB2, COMBO_TAP_TIME_FAST)
+    COMBO_MACRO(combo_end,           &kp END,          LB2 LB3, COMBO_TAP_TIME_FAST)
+    COMBO_MACRO(combo_to_numbers,    &to L_NUM,        LB3 LB4, COMBO_TAP_TIME_FAST)
+    COMBO_MACRO(combo_comma,         &kp COMMA,        RB1 RB2, COMBO_TAP_TIME_FAST)
+    COMBO_MACRO(combo_dot,           &kp DOT,          RB2 RB3, COMBO_TAP_TIME_FAST)
+    COMBO_MACRO(combo_bslh,          &kp BSLH,         RB3 RB4, COMBO_TAP_TIME_FAST)
 };
 
 
