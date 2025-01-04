@@ -34,6 +34,13 @@
 
 #include "shared.dtsi"
 
+#define RGB_DEF RGB_COLOR_HSB(0,10,2)
+#define RGB_RED RGB_COLOR_HSB(0,100,100)
+#define RGB_YEL RGB_COLOR_HSB(60,100,100)
+#define RGB_GRE RGB_COLOR_HSB(120,100,100)
+#define RGB_BLU RGB_COLOR_HSB(210,100,100)
+#define RGB_PUR RGB_COLOR_HSB(270,100,100)
+
 #define LED_BASE_MACRO(led_name, led_color) \
     macros { \
         led_name: led_name { \
@@ -46,7 +53,7 @@
                 , <&macro_tap &rgb_ug led_color> \
                 , <&macro_pause_for_release> \
                 , <&macro_param_1to1>, <&macro_release &mo MACRO_PLACEHOLDER> \
-                , <&macro_tap &rgb_ug RGB_COLOR_HSB(0,10,2)>; \
+                , <&macro_tap &rgb_ug RGB_DEF>; \
         }; \
     }; \
 
@@ -74,12 +81,8 @@
         }; \
     }; \
 
-#define RGB_RED RGB_COLOR_HSB(0,100,100)
-#define RGB_YEL RGB_COLOR_HSB(60,100,100)
-#define RGB_GRE RGB_COLOR_HSB(120,100,100)
-#define RGB_BLU RGB_COLOR_HSB(210,100,100)
-#define RGB_PUR RGB_COLOR_HSB(270,100,100)
 
+LT_LED_MACRO(led_def, &led_def, lt_def_l, lt_def_r, RGB_DEF, "balanced", HM_TAPPING_TERM, LAYER_QUICK_TAP_MS, HM_PRIOR_IDLE)
 LT_LED_MACRO(led_red, &led_red, lt_red_l, lt_red_r, RGB_RED, "balanced", HM_TAPPING_TERM, LAYER_QUICK_TAP_MS, HM_PRIOR_IDLE)
 LT_LED_MACRO(led_yel, &led_yel, lt_yel_l, lt_yel_r, RGB_YEL, "balanced", HM_TAPPING_TERM, LAYER_QUICK_TAP_MS, HM_PRIOR_IDLE)
 LT_LED_MACRO(led_gre, &led_gre, lt_gre_l, lt_gre_r, RGB_GRE, "balanced", HM_TAPPING_TERM, LAYER_QUICK_TAP_MS, HM_PRIOR_IDLE)
