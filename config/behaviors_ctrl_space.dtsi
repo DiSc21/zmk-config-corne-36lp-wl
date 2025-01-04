@@ -63,19 +63,18 @@
     };
 
 
-#define AMP &
-
 ///
 /// @brief auxiliary macro for the creation of ctrl-tapdances.
 ///
 /// @param td_name: name of the created tabdance, use '&td_name' in keymap
 /// @param mm_name: name of the created ctrl-mod-morph sent in case of of a positiv tabdance
+/// @param td_binding: must be '&'+param mm_name; aux cause I'm too stupid for macro concatenation
 /// @param tap_binding: the key behavior bound to key-taps
 /// @param morph_binding: the morph behavior bound to tapdances
 ///
 /// @note this macro can easily be generalized to also allow defining of mod keys or other props
 ///
-#define CREATE_CTRL_SPACE_MACRO(td_name, mm_name, tap_binding, morph_binding) \
+#define CREATE_CTRL_SPACE_MACRO(td_name, mm_name, td_binding, tap_binding, morph_binding) \
     /omit-if-no-ref/ mm_name: mm_name { \
         compatible = "zmk,behavior-mod-morph"; \
         #binding-cells = <0>; \
@@ -86,13 +85,13 @@
         compatible = "zmk,behavior-tap-dance"; \
         #binding-cells = <0>; \
         tapping-term-ms = <TABDANCE_TERM_MS>; \
-        bindings = <&kp tap_binding>, <&kp tap_binding>; \
+        bindings = <&kp tap_binding>, <td_binding>; \
     };
 
     behaviors {
-        CREATE_CTRL_SPACE_MACRO(tdc_com,  mmc_com,  &kp COMMA,   &add_space COMMA)
-        CREATE_CTRL_SPACE_MACRO(tdc_dot,  mmc_dot,  &kp DOT,     &add_space_sticky_stift DOT)
-        CREATE_CTRL_SPACE_MACRO(tdc_excl, mmc_excl, &kp Q,       &add_space_sticky_stift EXCL)
-        CREATE_CTRL_SPACE_MACRO(tdc_ques, mmc_ques, &kp FSLH,    &add_space_sticky_stift QMARK)
+        CREATE_CTRL_SPACE_MACRO(tdc_com,  mmc_com,  &mmc_com,  &kp COMMA,   &add_space COMMA)
+        CREATE_CTRL_SPACE_MACRO(tdc_dot,  mmc_dot,  &mmc_dot,  &kp DOT,     &add_space_sticky_shift DOT)
+        CREATE_CTRL_SPACE_MACRO(tdc_excl, mmc_excl, &mmc_excl, &kp Q,       &add_space_sticky_shift EXCL)
+        CREATE_CTRL_SPACE_MACRO(tdc_ques, mmc_ques, &mmc_ques, &kp FSLH,    &add_space_sticky_shift QMARK)
     };
 };
