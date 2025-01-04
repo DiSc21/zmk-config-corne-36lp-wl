@@ -1,4 +1,4 @@
-#include <shared.dtsi>
+#include "shared.dtsi"
 
 //  Combo Keys All Layers ATM:
 //  --------------------------
@@ -7,127 +7,132 @@
 // | - |    |_ESC_| |__A__| |__T__|    |   -----StickyBT------   |    |__Y__| |_BSP_| |_To0_|    | - |
 // |___|_______|_______|_______|_______|_______|#########|_______|_______|_______|_______|_______|___|
 // |   |     __|__   __|__   __|__     |       |#########|       |     _____   _____   _____     |   |
-// | - |    |-CAP-| |-NTE-| |_INS_|    |   -----StickyLed-----   |    |__-__| |__=__| |__'__|    | - |
+// | - |    |_CAP_| |_NTE_| |_INS_|    |   -----StickyLed-----   |    |__-__| |__=__| |__'__|    | - |
 // |___|_______|_______|_______|_______|_______|#########|_______|_______|_______|_______|_______|___|
 // |   |     __|__   __|__   __|__     |       |#########|       |     __|__   __|__   __|__     |   |
 // | - |    |_HOM_| |_END_| |_ToN_|    |       |#########|       |    |__N__| |__,__| |__\__|    | - |
 // |___|_______|_______|_______|_______|_______|#########|_______|_______|_______|_______|_______|___|
 //                     |       |       |       |#########|       |       |       |
 //                     |_______|_______|_______|#########|_______|_______|_______|
-    combos {
-        compatible = "zmk,combos";
 
-        // CrossSide Combos
-        // ----------------
-        combo_sticky_bt_led {
-            timeout-ms = <COMBO_TAPPING_TIME_FAST>;
-            key-positions = <LT5 RT0>;
-            bindings = <&sl L_BT_LED>;
-        };
-        combo_to_navigation {
-            timeout-ms = <COMBO_TAPPING_TIME_FAST>;
-            key-positions = <LM5 RM0>;
-            bindings = <&to L_NAV>;
-        };
-        // TopRow Combos
-        // -------------
-        combo_esc {
-            timeout-ms = <COMBO_TAPPING_TIME_FAST>;
-            key-positions = <LT1 LT2>;
-            bindings = <&kp ESC>;
-        };
-        combo_tab {
-            timeout-ms = <COMBO_TAPPING_TIME_FAST>;
-            key-positions = <LT2 LT3>;
-            bindings = <&kp TAB>;
-        };
-        combo_key_t {
-            timeout-ms = <COMBO_TAPPING_TIME_FAST>;
-            key-positions = <LT3 LT4>;
-            bindings = <&kp T>;
-        };
-        combo_key_y {
-            timeout-ms = <COMBO_TAPPING_TIME_FAST>;
-            key-positions = <RT1 RT2>;
-            bindings = <&kp Y>;
-        };
-        combo_bspc {
-            timeout-ms = <COMBO_TAPPING_TIME_FAST>;
-            key-positions = <RT2 RT3>;
-            bindings = <&kp BSPC>;
-        };
-        combo_to_default {
-            timeout-ms = <COMBO_TAPPING_TIME_FAST>;
-            key-positions = <RT3 RT4>;
-            bindings = <&to L_DEF>;
-        };
+/* Timing defaults */
+#define COMBO_TAPPING_TIME 50
+#define COMBO_TAPPING_TIME_FAST 35
 
-        // MiddleRow Combos
-        // ----------------
-        combo_caps_word {
-            timeout-ms = <COMBO_TAPPING_TIME_FAST>;
-            key-positions = <LM1 LM2>;
-            bindings = <&caps_word>;
-        };
-        combo_space {
-            timeout-ms = <COMBO_TAPPING_TIME_FAST>;
-            key-positions = <LM2 LM3>;
-            bindings = <&kp SPACE>;
-        };
-        combo_insert {
-            timeout-ms = <COMBO_TAPPING_TIME_FAST>;
-            key-positions = <LM3 LM4>;
-            bindings = <&kp INSERT>;
-        };
-        combo_minus {
-            timeout-ms = <COMBO_TAPPING_TIME_FAST>;
-            key-positions = <RM1 RM2>;
-            bindings = <&kp MINUS>;
-        };
-        combo_equal {
-            timeout-ms = <COMBO_TAPPING_TIME_FAST>;
-            key-positions = <RM2 RM3>;
-            bindings = <&kp EQUAL>;
-        };
-        combo_quote {
-            timeout-ms = <COMBO_TAPPING_TIME_FAST>;
-            key-positions = <RM3 RM4>;
-            bindings = <&kp SINGLE_QUOTE>;
-        };
+combos {
+    compatible = "zmk,combos";
 
-        // BottomRow Combos
-        // ----------------
-        combo_home {
-            timeout-ms = <COMBO_TAPPING_TIME_FAST>;
-            key-positions = <LB1 LB2>;
-            bindings = <&kp HOME>;
-        };
-        combo_end {
-            timeout-ms = <COMBO_TAPPING_TIME_FAST>;
-            key-positions = <LB2 LB3>;
-            bindings = <&kp END>;
-        };
-        combo_to_numbers {
-            timeout-ms = <COMBO_TAPPING_TIME_FAST>;
-            key-positions = <LB3 LB4>;
-            bindings = <&to L_NUM>;
-        };
-        combo_comma {
-            timeout-ms = <COMBO_TAPPING_TIME_FAST>;
-            key-positions = <RB1 RB2>;
-            bindings = <&kp COMMA>;
-        };
-        combo_dot {
-            timeout-ms = <COMBO_TAPPING_TIME_FAST>;
-            key-positions = <RB2 RB3>;
-            bindings = <&kp DOT>;
-        };
-        combo_bslh {
-            timeout-ms = <COMBO_TAPPING_TIME_FAST>;
-            key-positions = <RB3 RB4>;
-            bindings = <&kp BSLH>;
-        };
+    // CrossSide Combos
+    // ----------------
+    combo_sticky_bt_led {
+        timeout-ms = <COMBO_TAPPING_TIME_FAST>;
+        key-positions = <LT5 RT0>;
+        bindings = <&sl L_BT_LED>;
     };
+    combo_to_navigation {
+        timeout-ms = <COMBO_TAPPING_TIME_FAST>;
+        key-positions = <LM5 RM0>;
+        bindings = <&to L_NAV>;
+    };
+    // TopRow Combos
+    // -------------
+    combo_esc {
+        timeout-ms = <COMBO_TAPPING_TIME_FAST>;
+        key-positions = <LT1 LT2>;
+        bindings = <&kp ESC>;
+    };
+    combo_tab {
+        timeout-ms = <COMBO_TAPPING_TIME_FAST>;
+        key-positions = <LT2 LT3>;
+        bindings = <&kp TAB>;
+    };
+    combo_key_t {
+        timeout-ms = <COMBO_TAPPING_TIME_FAST>;
+        key-positions = <LT3 LT4>;
+        bindings = <&kp T>;
+    };
+    combo_key_y {
+        timeout-ms = <COMBO_TAPPING_TIME_FAST>;
+        key-positions = <RT1 RT2>;
+        bindings = <&kp Y>;
+    };
+    combo_bspc {
+        timeout-ms = <COMBO_TAPPING_TIME_FAST>;
+        key-positions = <RT2 RT3>;
+        bindings = <&kp BSPC>;
+    };
+    combo_to_default {
+        timeout-ms = <COMBO_TAPPING_TIME_FAST>;
+        key-positions = <RT3 RT4>;
+        bindings = <&to L_DEF>;
+    };
+
+    // MiddleRow Combos
+    // ----------------
+    combo_caps_word {
+        timeout-ms = <COMBO_TAPPING_TIME_FAST>;
+        key-positions = <LM1 LM2>;
+        bindings = <&caps_word>;
+    };
+    combo_space {
+        timeout-ms = <COMBO_TAPPING_TIME_FAST>;
+        key-positions = <LM2 LM3>;
+        bindings = <&kp SPACE>;
+    };
+    combo_insert {
+        timeout-ms = <COMBO_TAPPING_TIME_FAST>;
+        key-positions = <LM3 LM4>;
+        bindings = <&kp INSERT>;
+    };
+    combo_minus {
+        timeout-ms = <COMBO_TAPPING_TIME_FAST>;
+        key-positions = <RM1 RM2>;
+        bindings = <&kp MINUS>;
+    };
+    combo_equal {
+        timeout-ms = <COMBO_TAPPING_TIME_FAST>;
+        key-positions = <RM2 RM3>;
+        bindings = <&kp EQUAL>;
+    };
+    combo_quote {
+        timeout-ms = <COMBO_TAPPING_TIME_FAST>;
+        key-positions = <RM3 RM4>;
+        bindings = <&kp SINGLE_QUOTE>;
+    };
+
+    // BottomRow Combos
+    // ----------------
+    combo_home {
+        timeout-ms = <COMBO_TAPPING_TIME_FAST>;
+        key-positions = <LB1 LB2>;
+        bindings = <&kp HOME>;
+    };
+    combo_end {
+        timeout-ms = <COMBO_TAPPING_TIME_FAST>;
+        key-positions = <LB2 LB3>;
+        bindings = <&kp END>;
+    };
+    combo_to_numbers {
+        timeout-ms = <COMBO_TAPPING_TIME_FAST>;
+        key-positions = <LB3 LB4>;
+        bindings = <&to L_NUM>;
+    };
+    combo_comma {
+        timeout-ms = <COMBO_TAPPING_TIME_FAST>;
+        key-positions = <RB1 RB2>;
+        bindings = <&kp COMMA>;
+    };
+    combo_dot {
+        timeout-ms = <COMBO_TAPPING_TIME_FAST>;
+        key-positions = <RB2 RB3>;
+        bindings = <&kp DOT>;
+    };
+    combo_bslh {
+        timeout-ms = <COMBO_TAPPING_TIME_FAST>;
+        key-positions = <RB3 RB4>;
+        bindings = <&kp BSLH>;
+    };
+};
 
 
 

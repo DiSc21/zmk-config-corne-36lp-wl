@@ -18,8 +18,7 @@
 #include <behaviors/num_word.dtsi>
 
 /* shared defines for key nums, layers and timings */
-#include <shared.dtsi>
-#include <combos.dtsi>
+#include "shared.dtsi"
 
 
 &led_strip {
@@ -27,6 +26,8 @@
 };
 
 / {
+
+    #include "combos.dtsi"
 
     macros {
         key_space: key_space {

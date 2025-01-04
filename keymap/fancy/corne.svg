@@ -268,9 +268,7 @@ path.combo { stroke: #7f7f7f; }
 <path d="M458,46 l-102,0" class="combo"/>
 <path d="M458,46 l102,0" class="combo"/>
 <rect rx="6" ry="6" x="442" y="38" width="30" height="15" class="combo"/>
-<a href="#bt-lighting">
-<text x="458" y="46" class="combo tap layer-activator"><tspan style="font-size: 64%">bt-lighting</tspan></text>
-</a><text x="458" y="51" class="combo hold">sticky</text>
+<text x="458" y="46" class="combo tap">📌LED</text>
 </g>
 <g class="combo combopos-1">
 <path d="M458,107 l-102,0" class="combo"/>
@@ -518,9 +516,7 @@ path.combo { stroke: #7f7f7f; }
 <path d="M458,46 l-102,0" class="combo"/>
 <path d="M458,46 l102,0" class="combo"/>
 <rect rx="6" ry="6" x="442" y="38" width="30" height="15" class="combo"/>
-<a href="#bt-lighting">
-<text x="458" y="46" class="combo tap layer-activator"><tspan style="font-size: 64%">bt-lighting</tspan></text>
-</a><text x="458" y="51" class="combo hold">sticky</text>
+<text x="458" y="46" class="combo tap">📌LED</text>
 </g>
 <g class="combo combopos-1">
 <path d="M458,107 l-102,0" class="combo"/>
@@ -765,9 +761,7 @@ path.combo { stroke: #7f7f7f; }
 <path d="M458,46 l-102,0" class="combo"/>
 <path d="M458,46 l102,0" class="combo"/>
 <rect rx="6" ry="6" x="442" y="38" width="30" height="15" class="combo"/>
-<a href="#bt-lighting">
-<text x="458" y="46" class="combo tap layer-activator"><tspan style="font-size: 64%">bt-lighting</tspan></text>
-</a><text x="458" y="51" class="combo hold">sticky</text>
+<text x="458" y="46" class="combo tap">📌LED</text>
 </g>
 <g class="combo combopos-1">
 <path d="M458,107 l-102,0" class="combo"/>
@@ -1002,9 +996,7 @@ path.combo { stroke: #7f7f7f; }
 <path d="M458,46 l-102,0" class="combo"/>
 <path d="M458,46 l102,0" class="combo"/>
 <rect rx="6" ry="6" x="442" y="38" width="30" height="15" class="combo"/>
-<a href="#bt-lighting">
-<text x="458" y="46" class="combo tap layer-activator"><tspan style="font-size: 64%">bt-lighting</tspan></text>
-</a><text x="458" y="51" class="combo hold">sticky</text>
+<text x="458" y="46" class="combo tap">📌LED</text>
 </g>
 <g class="combo combopos-1">
 <path d="M458,107 l-102,0" class="combo"/>
@@ -1252,9 +1244,7 @@ path.combo { stroke: #7f7f7f; }
 <path d="M458,46 l-102,0" class="combo"/>
 <path d="M458,46 l102,0" class="combo"/>
 <rect rx="6" ry="6" x="442" y="38" width="30" height="15" class="combo"/>
-<a href="#bt-lighting">
-<text x="458" y="46" class="combo tap layer-activator"><tspan style="font-size: 64%">bt-lighting</tspan></text>
-</a><text x="458" y="51" class="combo hold">sticky</text>
+<text x="458" y="46" class="combo tap">📌LED</text>
 </g>
 <g class="combo combopos-1">
 <path d="M458,107 l-102,0" class="combo"/>
@@ -1481,9 +1471,7 @@ path.combo { stroke: #7f7f7f; }
 <path d="M458,46 l-102,0" class="combo"/>
 <path d="M458,46 l102,0" class="combo"/>
 <rect rx="6" ry="6" x="442" y="38" width="30" height="15" class="combo"/>
-<a href="#bt-lighting">
-<text x="458" y="46" class="combo tap layer-activator"><tspan style="font-size: 64%">bt-lighting</tspan></text>
-</a><text x="458" y="51" class="combo hold">sticky</text>
+<text x="458" y="46" class="combo tap">📌LED</text>
 </g>
 <g class="combo combopos-1">
 <path d="M458,107 l-102,0" class="combo"/>
