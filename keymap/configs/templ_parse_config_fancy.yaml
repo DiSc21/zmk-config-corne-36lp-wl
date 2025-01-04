@@ -136,7 +136,7 @@ parse_config:
     '&to L_DEF': ''
 
     # ctrl-tabdance
-    '&td_ctrl_dot':
+    '&td_cdot':
       tap: "💃."
     '&td_test':
       tap: ".💃"
