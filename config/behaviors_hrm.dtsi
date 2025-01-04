@@ -23,7 +23,7 @@
 │ @License-Identifier: MIT                                │
 │_________________________________________________________│
 │                                                         │
-│ @brief: ZMK devicetree file for ctrl-space tabdances.   │
+│ @brief: ZMK devicetree file for custom homerow mods.    │
 │                                                         │
 │ @depends: shared.dtsi for key positions.                │
 │                                                         │
@@ -47,38 +47,39 @@
 
 #include "shared.dtsi"
 
-#define HRM_CORE_MACRO(hm_flavor, hm_tapping_term, ms_quick_tap_ms, hm_prior_idle_ms) \
+#define HRM_CORE_MACRO(hm_flavor, hm_tapping_term, hm_quick_tap_ms, hm_prior_idle_ms) \
     compatible = "zmk,behavior-hold-tap"; \
     #binding-cells = <2>; \
     bindings = <&kp>, <&kp>; \
     flavor = hm_flavor; \
     tapping-term-ms = <hm_tapping_term>; \
-    quick-tap-ms = <ms_quick_tap_ms>; \
+    quick-tap-ms = <hm_quick_tap_ms>; \
     require-prior-idle-ms = <hm_prior_idle_ms>;
 
-#define HRM_RIGHT_MACRO(hm_flavor, hm_tapping_term, ms_quick_tap_ms, hm_prior_idle_ms) \
-    HRM_CORE_MACRO(hm_flavor, hm_tapping_term, ms_quick_tap_ms, hm_prior_idle_ms) \
+#define HRM_RIGHT_MACRO(hm_flavor, hm_tapping_term, hm_quick_tap_ms, hm_prior_idle_ms) \
+    HRM_CORE_MACRO(hm_flavor, hm_tapping_term, hm_quick_tap_ms, hm_prior_idle_ms) \
     hold-trigger-key-positions = <KEYS_L KEYS_THUMBS>;
 
-#define HRM_LEFT_MACRO(hm_flavor, hm_tapping_term, ms_quick_tap_ms, hm_prior_idle_ms) \
-    HRM_CORE_MACRO(hm_flavor, hm_tapping_term, ms_quick_tap_ms, hm_prior_idle_ms) \
+#define HRM_LEFT_MACRO(hm_flavor, hm_tapping_term, hm_quick_tap_ms, hm_prior_idle_ms) \
+    HRM_CORE_MACRO(hm_flavor, hm_tapping_term, hm_quick_tap_ms, hm_prior_idle_ms) \
     hold-trigger-key-positions = <KEYS_R KEYS_THUMBS>;
 
 / {
     behaviors {
-        hm_l: hm_l {
+        /omit-if-no-ref/ hm_shift_l: hm_shift_l {
+            HRM_LEFT_MACRO("balanced", HM_TAPPING_TERM, LAYER_QUICK_TAP_MS, HM_PRIOR_IDLE) \
+        };
+        /omit-if-no-ref/ hm_l: hm_l {
             HRM_LEFT_MACRO("balanced", HM_TAPPING_TERM, LAYER_QUICK_TAP_MS, HM_PRIOR_IDLE) \
             hold-trigger-on-release;
         };
-        hm_r: hm_r {
+
+        /omit-if-no-ref/ hm_shift_r: hm_shift_r {
+            HRM_RIGHT_MACRO("balanced", HM_TAPPING_TERM, LAYER_QUICK_TAP_MS, HM_PRIOR_IDLE) \
+        };
+        /omit-if-no-ref/ hm_r: hm_r {
             HRM_RIGHT_MACRO("balanced", HM_TAPPING_TERM, LAYER_QUICK_TAP_MS, HM_PRIOR_IDLE) \
             hold-trigger-on-release;
-        };
-        hm_shift_l: hm_shift_l {
-            HRM_LEFT_MACRO("balanced", HM_TAPPING_TERM, LAYER_QUICK_TAP_MS, HM_PRIOR_IDLE) \
-        };
-        hm_shift_r: hm_shift_r {
-            HRM_RIGHT_MACRO("balanced", HM_TAPPING_TERM, LAYER_QUICK_TAP_MS, HM_PRIOR_IDLE) \
         };
     };
 };
