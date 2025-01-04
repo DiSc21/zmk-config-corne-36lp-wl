@@ -99,10 +99,10 @@
         bindings = <tap_binding>, <td_binding>; \
     };
 
-    behaviors {
-        CREATE_CTRL_SPACE_MACRO(tdc_com,  mmc_com,  &mmc_com,  &kp COMMA,   &add_space COMMA)
-        CREATE_CTRL_SPACE_MACRO(tdc_dot,  mmc_dot,  &mmc_dot,  &kp DOT,     &add_space_sticky_shift DOT)
-        CREATE_CTRL_SPACE_MACRO(tdc_excl, mmc_excl, &mmc_excl, &kp Q,       &add_space_sticky_shift EXCL)
-        CREATE_CTRL_SPACE_MACRO(tdc_ques, mmc_ques, &mmc_ques, &kp FSLH,    &add_space_sticky_shift QMARK)
-    };
+    //behaviors {
+    //    CREATE_CTRL_SPACE_MACRO(tdc_com,  mmc_com,  &mmc_com,  &kp COMMA,   &add_space COMMA)
+    //    CREATE_CTRL_SPACE_MACRO(tdc_dot,  mmc_dot,  &mmc_dot,  &kp DOT,     &add_space_sticky_shift DOT)
+    //    CREATE_CTRL_SPACE_MACRO(tdc_excl, mmc_excl, &mmc_excl, &kp Q,       &add_space_sticky_shift EXCL)
+    //    CREATE_CTRL_SPACE_MACRO(tdc_ques, mmc_ques, &mmc_ques, &kp FSLH,    &add_space_sticky_shift QMARK)
+    //};
 };
