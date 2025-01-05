@@ -79,7 +79,7 @@
         // CrossRow Combos
         // ---------------
         COMBO_MACRO(combo_numbers_left,  &mo L_NUM,        LT3 LM4, COMBO_TAP_TIME_FAST)
-        COMBO_MACRO(combo_numbers_left,  &mo L_MG_ARR,     LT4 LM5, COMBO_TAP_TIME_FAST)
+        COMBO_MACRO(combo_mg_arr_left,   &mo L_MG_ARR,     LT4 LM5, COMBO_TAP_TIME_FAST)
 
         // TopRow Combos
         // -------------
