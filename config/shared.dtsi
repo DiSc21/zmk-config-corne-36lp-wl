@@ -103,6 +103,7 @@
 #define L_BRC 2
 #define L_NAV 3
 #define L_BT_LED 4
+#define L_MG_ARR 5
 
 /* Timing defaults */
 #define HM_TAPPING_TERM 300

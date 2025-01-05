@@ -45,7 +45,7 @@
 #define TABDANCE_TERM_MS 200
 #define TABDANCE_TERM_SLOW_MS 250
 
-#define KEY_SEQ_MACRO_WAIT_MS 30
+#define KEY_SEQ_MACRO_WAIT_MS 40
 #define KEY_SEQ_MACRO_TAP_MS 30
 
 / {
@@ -99,6 +99,17 @@
         bindings = <tap_binding>, <td_binding>; \
     };
 
+    /omit-if-no-ref/ add_spsh: add_spsh { \
+            compatible = "zmk,behavior-macro-one-param";
+            wait-ms = <KEY_SEQ_MACRO_WAIT_MS>;
+            tap-ms = <KEY_SEQ_MACRO_TAP_MS>;
+            #binding-cells = <1>;
+            bindings
+                = <&macro_param_1to1>, <&macro_tap &kp MACRO_PLACEHOLDER>
+                , <&macro_tap &kp SPACE>
+                , <&macro_tap &sk LSHIFT>
+                ;
+    }; \
     behaviors {
         CREATE_CTRL_SPACE_MACRO(tdc_com,  mmc_com,  &mmc_com,  &kp COMMA,   &add_space COMMA)
         CREATE_CTRL_SPACE_MACRO(tdc_dot,  mmc_dot,  &mmc_dot,  &kp DOT,     &add_space_sticky_shift DOT)
