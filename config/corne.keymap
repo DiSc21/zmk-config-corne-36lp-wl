@@ -51,13 +51,13 @@
 #include "behaviors_led.dtsi"
 #include "behaviors_ctrl_space.dtsi"
 
+#include "combos.dtsi"
 
 &led_strip {
     chain-length = <24>;
 };
 
 / {
-    #include "combos.dtsi"
 
     behaviors {
         mmnr_del: mmnr_del {
