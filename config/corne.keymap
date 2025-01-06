@@ -31,6 +31,7 @@
 ╭───────────────────────────────────────────────────────╮
 │ @brief:                                               │
 │ @depends: shared_defs.dtsi for key positions.         │
+│ @depends: shared_macros.dtsi for different of macros. │
 ╰───────────────────────────────────────────────────────╯
 */
 
@@ -48,6 +49,7 @@
 
 /* shared defines for key nums, layers and timings */
 #include "shared_defs.dtsi"
+#include "shared_macros.dtsi"
 #include "behaviors_hrm.dtsi"
 #include "behaviors_led.dtsi"
 

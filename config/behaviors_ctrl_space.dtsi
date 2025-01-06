@@ -25,7 +25,7 @@
 ╭───────────────────────────────────────────────────────╮
 │ @brief: ZMK devicetree file for ctrl-space tabdances. │
 │                                                       │
-│ @depends: shared_defs.dtsi for key positions.         │
+│ @depends: shared.dtsi for key positions.              │
 │                                                       │
 │ @details:                                             │
 │ Tabledance on Ctrl mod-morph for punctuation marks.   │
@@ -37,83 +37,83 @@
 ╰───────────────────────────────────────────────────────╯
 */
 
-#include <behaviors.dtsi>
-#include <dt-bindings/zmk/keys.h>
-
-#include "shared_defs.dtsi"
-
-#define TABDANCE_TERM_MS 200
-#define TABDANCE_TERM_SLOW_MS 250
-
-#define KEY_SEQ_MACRO_WAIT_MS 40
-#define KEY_SEQ_MACRO_TAP_MS 30
-
-// / {
-//     macros {
-//         /omit-if-no-ref/ add_space: add_space {
-//             compatible = "zmk,behavior-macro-one-param";
-//             wait-ms = <KEY_SEQ_MACRO_WAIT_MS>;
-//             tap-ms = <KEY_SEQ_MACRO_TAP_MS>;
-//             #binding-cells = <1>;
-//             bindings
-//                 = <&macro_param_1to1>, <&macro_tap &kp MACRO_PLACEHOLDER>
-//                 , <&macro_tap &kp SPACE>
-//                 ;
-//         };
-//         /omit-if-no-ref/ add_space_sticky_shift: add_space_sticky_shift {
-//             compatible = "zmk,behavior-macro-one-param";
-//             wait-ms = <KEY_SEQ_MACRO_WAIT_MS>;
-//             tap-ms = <KEY_SEQ_MACRO_TAP_MS>;
-//             #binding-cells = <1>;
-//             bindings
-//                 = <&macro_param_1to1>, <&macro_tap &kp MACRO_PLACEHOLDER>
-//                 , <&macro_tap &kp SPACE>
-//                 , <&macro_tap &sk LSHIFT>
-//                 ;
-//         };
-//     };
-// 
-// 
-// ///
-// /// @brief auxiliary macro for the creation of ctrl-tapdances.
-// ///
-// /// @param td_name: name of the created tabdance, use '&td_name' in keymap
-// /// @param mm_name: name of the created ctrl-mod-morph sent in case of of a positiv tabdance
-// /// @param td_binding: must be '&'+param mm_name; aux cause I'm too stupid for macro concatenation
-// /// @param tap_binding: the key behavior bound to key-taps
-// /// @param morph_binding: the morph behavior bound to tapdances
-// ///
-// /// @note this macro can easily be generalized to also allow defining of mod keys or other props
-// ///
-// #define CREATE_CTRL_SPACE_MACRO(td_name, mm_name, td_binding, tap_binding, morph_binding) \
-//     /omit-if-no-ref/ mm_name: mm_name { \
-//         compatible = "zmk,behavior-mod-morph"; \
-//         #binding-cells = <0>; \
-//         bindings = <tap_binding>, <morph_binding>; \
-//         mods = <(MOD_LCTL|MOD_RCTL)>; \
-//     }; \
-//     /omit-if-no-ref/ td_name: td_name { \
-//         compatible = "zmk,behavior-tap-dance"; \
-//         #binding-cells = <0>; \
-//         tapping-term-ms = <TABDANCE_TERM_MS>; \
-//         bindings = <tap_binding>, <td_binding>; \
-//     };
-// 
-//     /omit-if-no-ref/ add_spsh: add_spsh { \
-//             compatible = "zmk,behavior-macro-one-param";
-//             wait-ms = <KEY_SEQ_MACRO_WAIT_MS>;
-//             tap-ms = <KEY_SEQ_MACRO_TAP_MS>;
-//             #binding-cells = <1>;
-//             bindings
-//                 = <&macro_param_1to1>, <&macro_tap &kp MACRO_PLACEHOLDER>
-//                 , <&macro_tap &kp SPACE>
-//                 , <&macro_tap &sk LSHIFT>
-//                 ;
-//     }; \
-//     behaviors {
-//         CREATE_CTRL_SPACE_MACRO(tdc_com,  mmc_com,  &mmc_com,  &kp COMMA,   &add_space COMMA)
-//         CREATE_CTRL_SPACE_MACRO(tdc_dot,  mmc_dot,  &mmc_dot,  &kp DOT,     &add_space_sticky_shift DOT)
-//         CREATE_CTRL_SPACE_MACRO(tdc_excl, mmc_excl, &mmc_excl, &kp Q,       &add_space_sticky_shift EXCLAMATION)
-//         CREATE_CTRL_SPACE_MACRO(tdc_ques, mmc_ques, &mmc_ques, &kp FSLH,    &add_space_sticky_shift QMARK)
-//     };
-// };
+//#include <behaviors.dtsi>
+//#include <dt-bindings/zmk/keys.h>
+//
+//#include "shared.dtsi"
+//
+//#define TABDANCE_TERM_MS 200
+//#define TABDANCE_TERM_SLOW_MS 250
+//
+//#define KEY_SEQ_MACRO_WAIT_MS 40
+//#define KEY_SEQ_MACRO_TAP_MS 30
+//
+/// {
+//    macros {
+//        /omit-if-no-ref/ add_space: add_space {
+//            compatible = "zmk,behavior-macro-one-param";
+//            wait-ms = <KEY_SEQ_MACRO_WAIT_MS>;
+//            tap-ms = <KEY_SEQ_MACRO_TAP_MS>;
+//            #binding-cells = <1>;
+//            bindings
+//                = <&macro_param_1to1>, <&macro_tap &kp MACRO_PLACEHOLDER>
+//                , <&macro_tap &kp SPACE>
+//                ;
+//        };
+//        /omit-if-no-ref/ add_space_sticky_shift: add_space_sticky_shift {
+//            compatible = "zmk,behavior-macro-one-param";
+//            wait-ms = <KEY_SEQ_MACRO_WAIT_MS>;
+//            tap-ms = <KEY_SEQ_MACRO_TAP_MS>;
+//            #binding-cells = <1>;
+//            bindings
+//                = <&macro_param_1to1>, <&macro_tap &kp MACRO_PLACEHOLDER>
+//                , <&macro_tap &kp SPACE>
+//                , <&macro_tap &sk LSHIFT>
+//                ;
+//        };
+//    };
+//
+//
+/////
+///// @brief auxiliary macro for the creation of ctrl-tapdances.
+/////
+///// @param td_name: name of the created tabdance, use '&td_name' in keymap
+///// @param mm_name: name of the created ctrl-mod-morph sent in case of of a positiv tabdance
+///// @param td_binding: must be '&'+param mm_name; aux cause I'm too stupid for macro concatenation
+///// @param tap_binding: the key behavior bound to key-taps
+///// @param morph_binding: the morph behavior bound to tapdances
+/////
+///// @note this macro can easily be generalized to also allow defining of mod keys or other props
+/////
+//#define CREATE_CTRL_SPACE_MACRO(td_name, mm_name, td_binding, tap_binding, morph_binding) \
+//    /omit-if-no-ref/ mm_name: mm_name { \
+//        compatible = "zmk,behavior-mod-morph"; \
+//        #binding-cells = <0>; \
+//        bindings = <tap_binding>, <morph_binding>; \
+//        mods = <(MOD_LCTL|MOD_RCTL)>; \
+//    }; \
+//    /omit-if-no-ref/ td_name: td_name { \
+//        compatible = "zmk,behavior-tap-dance"; \
+//        #binding-cells = <0>; \
+//        tapping-term-ms = <TABDANCE_TERM_MS>; \
+//        bindings = <tap_binding>, <td_binding>; \
+//    };
+//
+//    /omit-if-no-ref/ add_spsh: add_spsh { \
+//            compatible = "zmk,behavior-macro-one-param";
+//            wait-ms = <KEY_SEQ_MACRO_WAIT_MS>;
+//            tap-ms = <KEY_SEQ_MACRO_TAP_MS>;
+//            #binding-cells = <1>;
+//            bindings
+//                = <&macro_param_1to1>, <&macro_tap &kp MACRO_PLACEHOLDER>
+//                , <&macro_tap &kp SPACE>
+//                , <&macro_tap &sk LSHIFT>
+//                ;
+//    }; \
+//    behaviors {
+//        CREATE_CTRL_SPACE_MACRO(tdc_com,  mmc_com,  &mmc_com,  &kp COMMA,   &add_spc COMMA)
+//        CREATE_CTRL_SPACE_MACRO(tdc_dot,  mmc_dot,  &mmc_dot,  &kp DOT,     &add_spc_sticky_shift DOT)
+//        CREATE_CTRL_SPACE_MACRO(tdc_excl, mmc_excl, &mmc_excl, &kp Q,       &add_spc_sticky_shift EXCLAMATION)
+//        CREATE_CTRL_SPACE_MACRO(tdc_ques, mmc_ques, &mmc_ques, &kp FSLH,    &add_spc_sticky_shift QMARK)
+//    };
+//};

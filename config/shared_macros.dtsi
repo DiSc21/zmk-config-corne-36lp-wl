@@ -32,3 +32,27 @@
 #include <dt-bindings/zmk/keys.h>
 
 #include "shared_defs.dtsi"
+
+/ {
+    macros {
+        /omit-if-no-ref/ add_spc: add_spc {
+            compatible = "zmk,behavior-macro-one-param";
+            wait-ms = <KEY_SEQ_MACRO_WAIT_MS>;
+            tap-ms = <KEY_SEQ_MACRO_TAP_MS>;
+            #binding-cells = <1>;
+            bindings = <&macro_param_1to1>, <&macro_tap &kp MACRO_PLACEHOLDER>
+                     , <&macro_tap &kp SPACE>
+                     ;
+        };
+        /omit-if-no-ref/ add_spsh: add_spsh {
+            compatible = "zmk,behavior-macro-one-param";
+            wait-ms = <KEY_SEQ_MACRO_WAIT_MS>;
+            tap-ms = <KEY_SEQ_MACRO_TAP_MS>;
+            #binding-cells = <1>;
+            bindings = <&macro_param_1to1>, <&macro_tap &kp MACRO_PLACEHOLDER>
+                     , <&macro_tap &kp SPACE>
+                     , <&macro_tap &sk LSHIFT>
+                     ;
+        };
+    };
+
