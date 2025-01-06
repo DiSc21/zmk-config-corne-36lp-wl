@@ -35,11 +35,11 @@
 #include "shared_macros.dtsi"
 
 
-#define CREATE_MOD_MORPH(name) \
+#define CREATE_MOD_MORPH(name, raw_bind, mod_bind) \
         name: name { \
             compatible = "zmk,behavior-mod-morph"; \
             #binding-cells = <0>; \
-            bindings = <&none>, <&none>; \
+            bindings = <raw_bind>, <mod_bind>; \
             mods = <(MOD_LCTL|MOD_RCTL)>; \
     }; \
 
@@ -90,7 +90,7 @@
 
 / {
     behaviors {
-        CREATE_MOD_MORPH(mumo_th)
+        CREATE_MOD_MORPH(mumo_th, &none, &nopasa_th)
     };
 };
 
