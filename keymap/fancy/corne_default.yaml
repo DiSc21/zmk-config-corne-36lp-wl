@@ -145,7 +145,7 @@ layers:
     - ''
     - ''
     - {type: held}
-    - '&mumo_th'
+    - {t: '&mmb_th', s: '&mod_space_th'}
     - ''
     - ''
     - ''
