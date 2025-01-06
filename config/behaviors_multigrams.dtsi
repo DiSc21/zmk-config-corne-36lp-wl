@@ -72,12 +72,9 @@
             CREATE_MOD_MORPH(mumo_ ## name, &ms_ ## name,        &mas_ ## name,            (MOD_LALT|MOD_RALT)) \
         }; \
         \
-    }; \
+    };
 
-CREATE_MULTI_MOD_MORPH_MACRO(th, &kp T &kp H
-                               , &kp T &kp H &kp E
-                               , &kp T &kp E &kp R
-                               , &kp T &kp H &kp A &kp T)
+CREATE_MULTI_MOD_MORPH_MACRO(th, &kp T &kp H, &kp T &kp H &kp E, &kp T &kp E &kp R, &kp T &kp H &kp A &kp T)
 
 
 /////
