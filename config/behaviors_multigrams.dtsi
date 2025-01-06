@@ -71,14 +71,17 @@
     }; \
 
 //CREATE_MULTI_MOD_MORPH_MACRO(th, &kp T &kp H, &kp T &kp H &kp E, &kp T &kp E &kp R, &kp T &kp H &kp A &kp T)
+//CREATE_MULTI_MOD_MORPH_MACRO(at, &kp A &kp T, &kp A &kp R &kp E, &kp A &kp V &kp E, &kp T &kp H &kp A &kp T)
 
 / {
     macros {
-        NO_PARAM_SANDWICH(nopasa_th, &none, &kp T &kp H, &none)
+        NO_PARAM_SANDWICH(mumo_th, &none, &kp T &kp H, &none)
     };
-    behaviors {
-        CREATE_MOD_MORPH(mumo_th, &none, &nopasa_th, "ALT")
-    };
+//};
+/// {
+//    behaviors {
+//        CREATE_MOD_MORPH(mumo_th, &none, &nopasa_th, "ALT")
+//    };
 };
 
 
