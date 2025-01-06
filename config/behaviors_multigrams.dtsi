@@ -34,12 +34,13 @@
 #include "shared_defs.dtsi"
 #include "shared_macros.dtsi"
 
+
 #define CREATE_MOD_MORPH(name, raw_binding, mod_binding, mods) \
     /omit-if-no-ref/ name: name { \
         compatible = "zmk,behavior-mod-morph"; \
         #binding-cells = <0>; \
         bindings = <raw_binding>, <mod_binding>; \
-        mods = <(MOD_L ## mods|MOD_R ## mods)>; \
+        mods = <mods>; \
     }; \
 
 
@@ -85,10 +86,11 @@
     };
 };
 
+#define MODS_LR_ALT() (MOD_LALT|MOD_RALT)
 
 / {
     behaviors {
-        CREATE_MOD_MORPH(mumo_th, &none, &nopasa_th, "ALT")
+        CREATE_MOD_MORPH(mumo_th, &none, &nopasa_th, MODS_LR_ALT)
     };
 };
 
