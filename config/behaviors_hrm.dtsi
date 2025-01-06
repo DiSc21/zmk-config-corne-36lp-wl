@@ -1,42 +1,42 @@
 /*
+╭──────────────────────────────────────────────────────────╮
+│ @Author:  TheDirkKnight     @Contact:  github.com/DiSc21 │
+│ @License: MIT             @copyright: 2024 TheDirkKnight │
+│ @Data:    2025/01/04                                     │
+╰──────────────────────────────────────────────────────────╯
+ ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡆⠀⠀⠀⠀⠀⠀⠀⣆              ⠀⠀⠀⣶⡀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣾⡇⠀⠀⠀⠀⠀⠀⠀⣿⡇               ⣼⣿⣧
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⡇⠀⠀⠀⠀⠀⠀⠀⡿⣿             ⠀⣰⣿⣿⣿⣆
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⠀⠀⠀⠀⠀⠀⠀⠃⣿⡄           ⠀⢠⣿⣿⣿⣿⣿⣆
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⣿⣿⣿⣿⣿⣿⣷⣼⣿⡇           ⣰⣿⣿⣿⣿⣿⣿⣿⣆
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⡇⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿           ⣰⣿⣿⣿⠋⠉⠙⣿⣿⣿⣆
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣼⣿⣿⣿⣿⣿⣿⣿⣿⡏          ⣰⣿⣿⣿⡇⠀⠀⠀⢸⣿⣿⣟⣆
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢙⡻⢿⣿⡿⡟⣿⡿⠟⣛⠁        ⠀⣴⣿⠿⠛⠋⠁⠀⠀⠀⠈⠙⠛⠿⣿⣦
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣠⣴⡾⠛⠉⠀⠀⠀⠉⠓⠂ ⡀⠀⠐⠛⠁⠀⠀⠀⣸⣿⣦⣄⡀⠀⠈⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠁
+⠀⠀⠀⠀⠀⠀⢀⣀⣀⣤⣤⣶⣿⣿⣿⣿⣿⣷⣆⠀⠀⠀⠀⠀⠀⢠⡇⠀⠀⠀⠀⠀⠀⠀⠈⣻⣿⣿⣿⣷⣶⣤⣤⣤⣄⣀
+⠀⠀⠀⢀⣴⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠁⠀⠀⠀⠀ ⣀⣀  ⠀⠀⠀⠀⠀⠀⠀⠙⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣶⡄
+⠀⠀⡾⣿⣿⣿⣿⠿⠋⢁⣿⣿⣿⣿⣿⣿⣟⣥⣶⢿⡛⠉⠀⠀⠈⠀⠀⠁⠀⠀⠀⠈⢙⡻⢷⣿⣿⣿⣿⣿⣿⣿⡟⠿⠿⣿⣿⣿⣿
+⠀⠀⠀⣿⣿⠟⠁⠀⢠⣿⣿⣿⣿⣿⣿⡿⢟⣭⣶⣿⣷⣄⠀⠀⠀⣄⣀⡄⠀⠀⢀⣴⣿⣿⣷⣝⡻⣿⣿⣿⣿⣿⣿⣦⡀⠀⠉⠛⢿
+⠀⠀⠀⠿⠁⠀⠀⠀⠋⠁⣿⣿⣿⡿⢋⣴⣿⣿⣿⣿⣿⣿⣿⣶⣾⣿⣿⣿⣶⣿⣿⣿⣿⣿⣿⣿⣿⣮⡻⣿⣿⣿⠯⠉⠙
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⠁⠽⠋⠠⠿⠿⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠿⠷⠌⠻⠟
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠻⠿⠿⠿⣿⣿⣿⣿⣿⣿⡿⠿⠿⠿⠟⠁
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠻⠋
+╭───────────────────────────────────────────────────────╮
+│ @brief: ZMK devicetree file for custom homerow mods.  │
+│                                                       │
+│ @depends: shared_defs.dtsi for key positions.         │
+│                                                       │
+│ @details:                                             │
+│ Positional Homerow mods                               │
+│ Homerow mods that prevent accidental activations when │
+│ rolling keys, such as when typing `st` or `ne` on     │
+│ colemak-dh layouts or `as` on qwerty.                 │
+│                                                       │
+│ Only allowing mods to activate within tapping-term if │
+│ it's on the opposite side of the keyboard or on the   │
+│ same keys.                                            │
+╰───────────────────────────────────────────────────────╯
 ╭─────────────────────────────────────────────────────────╮
-│         ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡆⠀⠀⠀⠀⠀⠀⠀⣆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀│
-│ @author:⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣾⡇⠀⠀⠀⠀⠀⠀⠀⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀│
-│ -⠀TheDirkKnight  ⠀⠀⠀⠀⠀⣿⡇⠀⠀⠀⠀⠀⠀⠀⡿⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀│
-│ ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⠀⠀⠀⠀⠀⠀⠀⠃⣿⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀│
-│ @contact:⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⣿⣿⣿⣿⣿⣿⣷⣼⣿⣇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀│
-│ -⠀github.com/DiSc21⠀⠀⢸⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀│
-│ ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⣠⣼⣿⣿⣿⣿⣿⣿⣿⣿⡏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀│
-│ @creation:⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢙⡻⢿⣿⡿⡟⣿⡿⠟⣛⠁⠀⠀⠀⠀⠀⠀ ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀│
-│ -⠀2025/01/04           ⠉⠓⠂⠁⡀⠀⠐⠛⠁⠀⠀⠀⠀⠀⠀⠀ ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀│
-│          ⠀⠀⠀⠀⠀⣀⣠⣴⡾⠛⠉⠀     ⢠⡇⠀⠀⠀⠀⠀⠀⣸⣿⣦⣄⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀│
-│ ⠀ ⠀⠀⠀⠀⠀⢀⣀⣀⣤⣤⣶⣿⣿⣿⣿⣿⣷⣆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⣻⣿⣿⣿⣷⣶⣤⣤⣤⣄⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀│
-│ ⠀ ⠀⠀⢀⣴⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣶⡄⠀⠀⠀⠀⠀⠀│
-│ ⠀ ⠀⡾⣿⣿⣿⣿⠿⠋⢁⣿⣿⣿⣿⣿⣿⣟⣥⣶⢿⡛⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⢙⡻⢷⣿⣿⣿⣿⣿⣿⣿⡟⠿⠿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀│
-│ ⠀ ⠀⠀⣿⣿⠟⠁⠀⢠⣿⣿⣿⣿⣿⣿⡿⢟⣭⣶⣿⣷⣄⠀⠀⠀⣤⣀⡄⠀⠀⢀⣴⣿⣿⣷⣝⡻⣿⣿⣿⣿⣿⣿⣦⡀⠀⠉⠛⢿⠀⠀⠀⠀⠀⠀│
-│ ⠀ ⠀⠀⠿⠁⠀⠀⠀⠋⠁⣿⣿⣿⡿⢋⣴⣿⣿⣿⣿⣿⣿⣿⣶⣾⣿⣿⣿⣶⣿⣿⣿⣿⣿⣿⣿⣿⣮⡻⣿⣿⣿⠯⠉⠙⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀│
-│ ⠀ ⠀⠀⠀⠀⠀⠀⠀⠀⠘⠁⠽⠋⠠⠿⠿⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠿⠷⠌⠻⠟⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀│
-│ ⠀ ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡟⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀   │
-│ ⠀ ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠻⣿⣿⠟⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀│
-│ ⠀  ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⠏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀│
-│ @copyright: 2024 TheDirkKnight                          │
-│ @License-Identifier: MIT                                │
-│_________________________________________________________│
-│                                                         │
-│ @brief: ZMK devicetree file for custom homerow mods.    │
-│                                                         │
-│ @depends: shared.dtsi for key positions.                │
-│                                                         │
-│ @details:                                               │
-│ Positional Homerow mods                                 │
-│ Homerow mods that prevent accidental activations when   │
-│ rolling keys, such as when typing `st` or `ne` on       │
-│ colemak-dh layouts or `as` on qwerty.                   │
-│                                                         │
-│ Only allowing mods to activate within tapping-term if   │
-│ it's on the opposite side of the keyboard or on the     │
-│ same keys.                                              │
-│                                                         │
 │ Using urob's timeless homerow mods method:              │
 │ https://github.com/urob/zmk-config#timeless-homerow-mods│
 ╰─────────────────────────────────────────────────────────╯
@@ -45,8 +45,18 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 
-#include "shared.dtsi"
+#include "shared_defs.dtsi"
 
+///
+/// @brief auxiliary macro for the creational aux macro used for the creation of homerow mods
+///
+/// @param hm_flavor: hold-tap basic behavior
+/// @param hm_tapping_term: the time a key is tapped
+/// @param hm_quick_tap_ms: quick tap threshold
+/// @param hm_prior_idle_ms: expected pre-idel-time
+///
+/// @note this is just an auxiliray macro for the creational macros for left and right hmrs
+///
 #define HRM_CORE_MACRO(hm_flavor, hm_tapping_term, hm_quick_tap_ms, hm_prior_idle_ms) \
     compatible = "zmk,behavior-hold-tap"; \
     #binding-cells = <2>; \
@@ -56,10 +66,26 @@
     quick-tap-ms = <hm_quick_tap_ms>; \
     require-prior-idle-ms = <hm_prior_idle_ms>;
 
+///
+/// @brief auxiliary macro for the creation of right-hand homerow mods
+///
+/// @param hm_flavor: hold-tap basic behavior
+/// @param hm_tapping_term: the time a key is tapped
+/// @param hm_quick_tap_ms: quick tap threshold
+/// @param hm_prior_idle_ms: expected pre-idel-time
+///
 #define HRM_RIGHT_MACRO(hm_flavor, hm_tapping_term, hm_quick_tap_ms, hm_prior_idle_ms) \
     HRM_CORE_MACRO(hm_flavor, hm_tapping_term, hm_quick_tap_ms, hm_prior_idle_ms) \
     hold-trigger-key-positions = <KEYS_L KEYS_THUMBS>;
 
+///
+/// @brief auxiliary macro for the creation of left-hand homerow mods
+///
+/// @param hm_flavor: hold-tap basic behavior
+/// @param hm_tapping_term: the time a key is tapped
+/// @param hm_quick_tap_ms: quick tap threshold
+/// @param hm_prior_idle_ms: expected pre-idel-time
+///
 #define HRM_LEFT_MACRO(hm_flavor, hm_tapping_term, hm_quick_tap_ms, hm_prior_idle_ms) \
     HRM_CORE_MACRO(hm_flavor, hm_tapping_term, hm_quick_tap_ms, hm_prior_idle_ms) \
     hold-trigger-key-positions = <KEYS_R KEYS_THUMBS>;

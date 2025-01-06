@@ -1,7 +1,7 @@
 layout: {qmk_keyboard: corne_rotated, layout_name: LAYOUT_split_3x6_3}
 layers:
   default:
-  - ['', 💃Q, W, E, R, T, Y, U, I, O]
+  - ['', Q, W, E, R, T, Y, U, I, O]
   - - P
     - ''
     - ''
@@ -24,9 +24,9 @@ layers:
     - B
   - - N
     - M
-    - 💃,
-    - 💃.
-    - 💃/
+    - ','
+    - .
+    - /
     - ''
     - {t: ✂️, h: NAV, s: 🗑️}
     - {t: ╰┈➤, h: SIGNS}
@@ -35,14 +35,23 @@ layers:
   - - {t: 🪐, h: SIGNS}
     - {t: 🗑️, h: NAV, s: ✂️}
   numbers:
-  - ['', F1, F2, F3, F4, '', '', '7', '8', '9']
+  - - ''
+    - F1
+    - F2
+    - {t: F3, type: held}
+    - F4
+    - ''
+    - ''
+    - '7'
+    - '8'
+    - '9'
   - - '*'
     - ''
     - ''
     - {t: F5, h: ⏏}
     - {t: F6, h: 🕹️}
     - {t: F7, h: 🐧}
-    - {t: F8, h: ☯︎}
+    - {t: F8, h: ☯︎, type: held}
     - ''
     - '0'
     - {t: '4', h: ☯︎}
@@ -130,35 +139,41 @@ layers:
     - ''
     - ''
   - ['', '']
-  multigrams:
-  - - ''
-    - {t: 📡, s: 🗑️}
-    - ''
-    - ''
-    - ''
-    - ''
-    - ''
-    - ''
-    - ''
-    - ''
+  MG-Arrows:
   - - ''
     - ''
     - ''
-    - {t: 📡, s: 𝟎}
-    - {t: 📡, s: 𝟏}
-    - {t: 📡, s: 𝟐}
-    - {t: 📡, s: 𝟑}
-    - {t: 📡, s: 𝟒}
+    - {t: '&mmb_er', s: '&mod_space_er'}
+    - {type: held}
+    - {t: '&mmb_th', s: '&mod_space_th'}
+    - ''
+    - {t: '&mmb_un', s: '&mod_space_un', type: held alternate}
+    - {t: '&mmb_in', s: '&mod_space_in'}
+    - {t: '&mmb_or', s: '&mod_space_or'}
+  - - ''
     - ''
     - ''
-  - ['', '', '', '', '', '', '', '', '', '']
-  - ['', '', '', '', '', '', '', '', '', '']
+    - {t: A, h: ⏏}
+    - {t: S, h: 🕹️}
+    - {t: D, h: 🐧}
+    - {t: F, h: ☯︎}
+    - {type: held}
+    - {t: 🡄, type: held alternate}
+    - 🡇
+  - [🡅, 🡆, '', '', '', '', '', '', '', '']
+  - ['', '', '', '&add_spsh DOT', '', '', '', '', '', '']
   - ['', '']
 combos:
 - p: [5, 6]
   k: 📌LED
 - p: [17, 18]
   k: 🔘🧭
+- p: [3, 16]
+  k: numbers
+- p: [4, 17]
+  k: MG-Arrows
+- p: [7, 18]
+  k: MG-Arrows
 - p: [1, 2]
   k: ☢️
 - p: [2, 3]
