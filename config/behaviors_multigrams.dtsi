@@ -74,7 +74,7 @@
 
 / {
     macros {
-        NO_PARAM_SANDWICH(nopasa_th, &none, &kp T, &none)
+        NO_PARAM_SANDWICH(nopasa_th, &none, &kp T &kp H, &none)
     };
     behaviors {
         CREATE_MOD_MORPH(mumo_th, &none, &nopasa_th, ALT)

@@ -52,7 +52,7 @@
             tap-ms = <KEY_SEQ_MACRO_TAP_MS>; \
             #binding-cells = <0>; \
             bindings = <&macro_tap pre_bind> \
-                     , <&macro_param_1to1>, <&macro_tap tap_bind> \
+                     , <&macro_tap tap_bind> \
                      , <&macro_tap post_bind> \
                      ; \
         };
