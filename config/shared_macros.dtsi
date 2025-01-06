@@ -33,6 +33,13 @@
 
 #include "shared_defs.dtsi"
 
+///
+/// @brief create single-arg &kp-style with some pre and post command
+///
+/// @param name: name of the created mod-morph
+/// @param pre_bind: unmodified binding
+/// @param post_bind: the modified behavior
+///
 #define SINGLE_PARAM_SANDWICH(name, pre_bind, post_bind) \
         /omit-if-no-ref/ name: name { \
             compatible = "zmk,behavior-macro-one-param"; \
@@ -45,6 +52,14 @@
                      ; \
         };
 
+///
+/// @brief create no-arg triple-behavior sequence
+///
+/// @param name: name of the created mod-morph
+/// @param pre_bind: initial binding, e.g. sticky-shift or leading SPACE
+/// @param tap_bind: base behavior sandwiched by param pre_bind and post_bind
+/// @param pre_bind: end binding, e.g. sticky-shift, leading SPACE or both
+///
 #define NO_PARAM_SANDWICH(name, pre_bind, tap_bind, post_bind) \
         /omit-if-no-ref/ name: name { \
             compatible = "zmk,behavior-macro"; \
@@ -57,11 +72,47 @@
                      ; \
         };
 
-/ {
-    macros {
-        SINGLE_PARAM_SANDWICH(add_spc,  &none, &kp SPACE)
-        SINGLE_PARAM_SANDWICH(add_spsh, &none, &kp SPACE &sk LSHIFT)
-        SINGLE_PARAM_SANDWICH(pre_caps, &sk LSHIFT, &kp SPACE)
+///
+/// @brief auxiliary macro for the creation of nested mod-morphes
+///
+/// @param name: name of the created mod-morph
+/// @param raw_binding: unmodified binding
+/// @param mod_binding: the modified behavior
+///
+/// @note this is just the main body used in the following explicit mod macros
+///
+#define CREATE_MOD_MORPH_BASE(name, raw_bind, mod_bind) \
+    /omit-if-no-ref/ name: name { \
+            compatible = "zmk,behavior-mod-morph"; \
+            #binding-cells = <0>; \
+            bindings = <raw_bind>, <mod_bind>; \
+
+///
+/// @brief macro for the creation of CTRL mod-morphes
+///
+/// @param name: name of the created mod-morph
+/// @param raw_binding: unmodified binding
+/// @param mod_binding: the modified behavior
+///
+#define CREATE_MOD_MORPH_CTL(name, raw_bind, mod_bind) \
+    CREATE_MOD_MORPH_BASE(name, raw_bind, mod_bind) \
+        mods = <(MOD_LCTL|MOD_RCTL)>; \
     };
-};
+/// @brief macro for the creation of ALT mod-morphes
+#define CREATE_MOD_MORPH_ALT(name, raw_bind, mod_bind) \
+    CREATE_MOD_MORPH_BASE(name, raw_bind, mod_bind) \
+        mods = <(MOD_LALT|MOD_RALT)>; \
+    };
+/// @brief macro for the creation of SHIFT mod-morphes
+#define CREATE_MOD_MORPH_SFT(name, raw_bind, mod_bind) \
+    CREATE_MOD_MORPH_BASE(name, raw_bind, mod_bind) \
+        mods = <(MOD_LSFT|MOD_RSFT)>; \
+    };
+/// @brief macro for the creation of GUI mod-morphes
+#define CREATE_MOD_MORPH_GUI(name, raw_bind, mod_bind) \
+    CREATE_MOD_MORPH_BASE(name, raw_bind, mod_bind) \
+        mods = <(MOD_LGUI|MOD_RGUI)>; \
+    };
+
+
 

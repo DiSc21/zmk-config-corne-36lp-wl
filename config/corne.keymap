@@ -62,6 +62,12 @@
 
 / {
 
+    macros {
+        SINGLE_PARAM_SANDWICH(add_spc,  &none, &kp SPACE)
+        SINGLE_PARAM_SANDWICH(add_spsh, &none, &kp SPACE &sk LSHIFT)
+        SINGLE_PARAM_SANDWICH(pre_caps, &sk LSHIFT, &kp SPACE)
+    };
+
     behaviors {
         mmnr_del: mmnr_del {
             compatible = "zmk,behavior-mod-morph";
@@ -193,7 +199,7 @@
         multigrams {
             display-name = "MG-Arrows";
             bindings = <
-                &none &none          &none         &none        &none        &mumo_th    &none     &none     &none      &none         &none     &none
+                &none &none          &none         &mumo_er     &none        &mumo_th    &none     &mumo_un  &mumo_in   &mumo_or      &none     &none
                 &none &hm_l LSHIFT A &hm_l LCTRL S &hm_l LGUI D &hm_l LALT F &none       &kp LEFT  &kp DOWN  &kp  UP    &kp RIGHT     &trans    &none
                 &none &none          &none         &none        &none        &none       &none     &none     &none      &add_spsh DOT &none     &none
                                                    &none        &none        &none       &none     &none     &none

@@ -24,7 +24,9 @@
 ╭──────────────────────────────────────────────────────────╮
 │ @brief: ZMK devicetree file for led-layer-indicators.    │
 │                                                          │
-│ @depends: shared_defs.dtsi for key positions.            │
+│ @depends:                                                │
+│ - shared_defs.dtsi (key positions)                       │
+│ - shared_macros.dtsi (some aux macros).                  │
 ╰──────────────────────────────────────────────────────────╯
 */
 
@@ -34,48 +36,6 @@
 #include "shared_defs.dtsi"
 #include "shared_macros.dtsi"
 
-
-///
-/// @brief auxiliary macro for the creation of nested mod-morphes
-///
-/// @param name: name of the created mod-morph
-/// @param raw_binding: unmodified binding
-/// @param mod_binding: the modified behavior
-///
-/// @note this macro is just the main body used in the following explicit mod macros
-///
-#define CREATE_MOD_MORPH_BASE(name, raw_bind, mod_bind) \
-    /omit-if-no-ref/ name: name { \
-            compatible = "zmk,behavior-mod-morph"; \
-            #binding-cells = <0>; \
-            bindings = <raw_bind>, <mod_bind>; \
-
-///
-/// @brief macro for the creation of CTRL mod-morphes
-///
-/// @param name: name of the created mod-morph
-/// @param raw_binding: unmodified binding
-/// @param mod_binding: the modified behavior
-///
-#define CREATE_MOD_MORPH_CTL(name, raw_bind, mod_bind) \
-    CREATE_MOD_MORPH_BASE(name, raw_bind, mod_bind) \
-        mods = <(MOD_LCTL|MOD_RCTL)>; \
-    };
-/// @brief macro for the creation of ALT mod-morphes
-#define CREATE_MOD_MORPH_ALT(name, raw_bind, mod_bind) \
-    CREATE_MOD_MORPH_BASE(name, raw_bind, mod_bind) \
-        mods = <(MOD_LALT|MOD_RALT)>; \
-    };
-/// @brief macro for the creation of SHIFT mod-morphes
-#define CREATE_MOD_MORPH_SFT(name, raw_bind, mod_bind) \
-    CREATE_MOD_MORPH_BASE(name, raw_bind, mod_bind) \
-        mods = <(MOD_LSFT|MOD_RSFT)>; \
-    };
-/// @brief macro for the creation of GUI mod-morphes
-#define CREATE_MOD_MORPH_GUI(name, raw_bind, mod_bind) \
-    CREATE_MOD_MORPH_BASE(name, raw_bind, mod_bind) \
-        mods = <(MOD_LGUI|MOD_RGUI)>; \
-    };
 
 ///
 /// @brief macro for the creation of nested mod-morphes
@@ -124,37 +84,8 @@
 CREATE_MULTI_MOD_MORPH_MACRO(th, &kp T &kp H, &kp T &kp H &kp E, &kp T &kp E &kp R, &kp T &kp H &kp A &kp T)
 
 CREATE_MULTI_MOD_MORPH_MACRO(at, &kp A &kp T, &kp A &kp R &kp E, &kp A &kp V &kp E, &kp A &kp N &kp G &kp T)
-CREATE_MULTI_MOD_MORPH_MACRO(er, &kp E &kp T, &kp E &kp R &kp E, &kp E &kp V &kp E, &kp E &kp N &kp G &kp T)
-CREATE_MULTI_MOD_MORPH_MACRO(is, &kp I &kp T, &kp I &kp R &kp E, &kp I &kp V &kp E, &kp I &kp N &kp G &kp T)
-CREATE_MULTI_MOD_MORPH_MACRO(or, &kp O &kp T, &kp O &kp R &kp E, &kp O &kp V &kp E, &kp O &kp N &kp G &kp T)
-CREATE_MULTI_MOD_MORPH_MACRO(ur, &kp U &kp T, &kp U &kp R &kp E, &kp U &kp V &kp E, &kp U &kp N &kp G &kp T)
+CREATE_MULTI_MOD_MORPH_MACRO(er, &kp E &kp R, &kp E &kp R &kp E, &kp E &kp V &kp E, &kp E &kp N &kp G &kp T)
+CREATE_MULTI_MOD_MORPH_MACRO(or, &kp O &kp R, &kp O &kp R &kp E, &kp O &kp V &kp E, &kp O &kp N &kp G &kp T)
+CREATE_MULTI_MOD_MORPH_MACRO(in, &kp I &kp N, &kp I &kp R &kp E, &kp I &kp V &kp E, &kp I &kp N &kp G &kp T)
+CREATE_MULTI_MOD_MORPH_MACRO(un, &kp U &kp N, &kp U &kp R &kp E, &kp U &kp V &kp E, &kp U &kp N &kp G &kp T)
 
-/// {
-//    macros {
-//        NO_PARAM_SANDWICH(nopasa_th, &none, &kp T &kp H, &none)
-//    };
-//};
-//
-////#define MODS_LR_ALT <(MOD_LALT|MOD_RALT)>
-//
-/// {
-//    behaviors {
-//        CREATE_MOD_MORPH_ALT(mumo_th, &none, &nopasa_th)
-//    };
-//};
-
-
-//#define CREATE_NESTED_MOD_MORPH(td_name, mm_name, td_binding, tap_binding, morph_binding) \
-//    /omit-if-no-ref/ mm_name: mm_name { \
-//        compatible = "zmk,behavior-mod-morph"; \
-//        #binding-cells = <0>; \
-//        bindings = <tap_binding>, <morph_binding>; \
-//        mods = <(MOD_LCTL|MOD_RCTL)>; \
-//    }; \
-//    /omit-if-no-ref/ td_name: td_name { \
-//        compatible = "zmk,behavior-tap-dance"; \
-//        #binding-cells = <0>; \
-//        tapping-term-ms = <TABDANCE_TERM_MS>; \
-//        bindings = <tap_binding>, <td_binding>; \
-//    };
-//
