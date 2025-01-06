@@ -35,15 +35,28 @@
 #include "shared_macros.dtsi"
 
 
-#define CREATE_MOD_MORPH(name, raw_bind, mod_bind) \
+#define CREATE_MOD_MORPH_BASE(name, raw_bind, mod_bind) \
     /omit-if-no-ref/ name: name { \
             compatible = "zmk,behavior-mod-morph"; \
             #binding-cells = <0>; \
             bindings = <raw_bind>, <mod_bind>; \
-            mods = <(MOD_LCTL|MOD_RCTL)>; \
-    }; \
 
-
+#define CREATE_MOD_MORPH_CTL(name, raw_bind, mod_bind) \
+    CREATE_MOD_MORPH_BASE(name, raw_bind, mod_bind) \
+        mods = <(MOD_LCTL|MOD_RCTL)>; \
+    };
+#define CREATE_MOD_MORPH_ALT(name, raw_bind, mod_bind) \
+    CREATE_MOD_MORPH_BASE(name, raw_bind, mod_bind) \
+        mods = <(MOD_LALT|MOD_RALT)>; \
+    };
+#define CREATE_MOD_MORPH_SFT(name, raw_bind, mod_bind) \
+    CREATE_MOD_MORPH_BASE(name, raw_bind, mod_bind) \
+        mods = <(MOD_LSFT|MOD_RSFT)>; \
+    };
+#define CREATE_MOD_MORPH_GUI(name, raw_bind, mod_bind) \
+    CREATE_MOD_MORPH_BASE(name, raw_bind, mod_bind) \
+        mods = <(MOD_LGUI|MOD_RGUI)>; \
+    };
 
 //#define CREATE_MULTI_MOD_MORPH_MACRO(name, mmb_bind, mmc_bind, mmg_bind, mmcg_bind) \
 //    / { \
@@ -54,9 +67,9 @@
 //            NO_PARAM_SANDWICH(mmcg_ ## name, &none, mmcg_bind, &none) \
 //        }; \
 //        behaviors { \
-//            CREATE_MOD_MORPH(mcg_ ## name, &mmc_ ## name, &mmcg_ ## name, GUI) \
-//            CREATE_MOD_MORPH(mg_ ## name,  &mmb_ ## name, &mmg_ ## name,  GUI) \
-//            CREATE_MOD_MORPH(mc_ ## name,  &mg_ ## name,  &mcg_ ## name,  CTL) \
+//            CREATE_MOD_MORPH_GUI(mcg_ ## name, &mmc_ ## name, &mmcg_ ## name) \
+//            CREATE_MOD_MORPH_GUI(mg_ ## name,  &mmb_ ## name, &mmg_ ## name) \
+//            CREATE_MOD_MORPH_CTL(mc_ ## name,  &mg_ ## name,  &mcg_ ## name) \
 //        }; \
 //    }; \
 //    / { \
@@ -66,9 +79,9 @@
 //            NO_PARAM_SANDWICH(mod_caps_space_ ## name, &sk LSHIFT, &mc_ ## name, &kp SPACE) \
 //        } \
 //        behaviors { \
-//            CREATE_MOD_MORPH(mas_ ## name,  &mod_space_ ## name, &mod_caps_space_ ## name, SFT) \
-//            CREATE_MOD_MORPH(ms_ ## name,   &mc_ ## name,        &mod_caps_ ## name,       SFT) \
-//            CREATE_MOD_MORPH(mumo_ ## name, &ms_ ## name,        &mas_ ## name,            ALT) \
+//            CREATE_MOD_MORPH_SFT(mas_ ## name,  &mod_space_ ## name, &mod_caps_space_ ## name) \
+//            CREATE_MOD_MORPH_SFT(ms_ ## name,   &mc_ ## name,        &mod_caps_ ## name) \
+//            CREATE_MOD_MORPH_ALT(mumo_ ## name, &ms_ ## name,        &mas_ ## name) \
 //        }; \
 //    }; \
 
@@ -90,7 +103,7 @@
 
 / {
     behaviors {
-        CREATE_MOD_MORPH(mumo_th, &none, &nopasa_th)
+        CREATE_MOD_MORPH_ALT(mumo_th, &none, &nopasa_th)
     };
 };
 
