@@ -285,9 +285,10 @@ path.combo { stroke: #7f7f7f; }
 </a></g>
 <g class="combo combopos-3">
 <rect rx="6" ry="6" x="290" y="65" width="30" height="15" class="combo"/>
-<a href="#MG-Arrows">
-<text x="305" y="72" class="combo tap layer-activator"><tspan style="font-size: 78%">MG-Arrows</tspan></text>
-</a></g>
+<text x="305" y="72" class="combo tap">
+<tspan x="305" dy="-0.6em">MG-</tspan><tspan x="305" dy="1.2em">Arrows</tspan>
+</text>
+</g>
 <g class="combo combopos-4">
 <rect rx="6" ry="6" x="107" y="38" width="30" height="15" class="combo"/>
 <text x="122" y="46" class="combo tap">☢️</text>
@@ -543,9 +544,10 @@ path.combo { stroke: #7f7f7f; }
 </a></g>
 <g class="combo combopos-3">
 <rect rx="6" ry="6" x="290" y="65" width="30" height="15" class="combo"/>
-<a href="#MG-Arrows">
-<text x="305" y="72" class="combo tap layer-activator"><tspan style="font-size: 78%">MG-Arrows</tspan></text>
-</a></g>
+<text x="305" y="72" class="combo tap">
+<tspan x="305" dy="-0.6em">MG-</tspan><tspan x="305" dy="1.2em">Arrows</tspan>
+</text>
+</g>
 <g class="combo combopos-4">
 <rect rx="6" ry="6" x="107" y="38" width="30" height="15" class="combo"/>
 <text x="122" y="46" class="combo tap">☢️</text>
@@ -798,9 +800,10 @@ path.combo { stroke: #7f7f7f; }
 </a></g>
 <g class="combo combopos-3">
 <rect rx="6" ry="6" x="290" y="65" width="30" height="15" class="combo"/>
-<a href="#MG-Arrows">
-<text x="305" y="72" class="combo tap layer-activator"><tspan style="font-size: 78%">MG-Arrows</tspan></text>
-</a></g>
+<text x="305" y="72" class="combo tap">
+<tspan x="305" dy="-0.6em">MG-</tspan><tspan x="305" dy="1.2em">Arrows</tspan>
+</text>
+</g>
 <g class="combo combopos-4">
 <rect rx="6" ry="6" x="107" y="38" width="30" height="15" class="combo"/>
 <text x="122" y="46" class="combo tap">☢️</text>
@@ -1043,9 +1046,10 @@ path.combo { stroke: #7f7f7f; }
 </a></g>
 <g class="combo combopos-3">
 <rect rx="6" ry="6" x="290" y="65" width="30" height="15" class="combo"/>
-<a href="#MG-Arrows">
-<text x="305" y="72" class="combo tap layer-activator"><tspan style="font-size: 78%">MG-Arrows</tspan></text>
-</a></g>
+<text x="305" y="72" class="combo tap">
+<tspan x="305" dy="-0.6em">MG-</tspan><tspan x="305" dy="1.2em">Arrows</tspan>
+</text>
+</g>
 <g class="combo combopos-4">
 <rect rx="6" ry="6" x="107" y="38" width="30" height="15" class="combo"/>
 <text x="122" y="46" class="combo tap">☢️</text>
@@ -1301,9 +1305,10 @@ path.combo { stroke: #7f7f7f; }
 </a></g>
 <g class="combo combopos-3">
 <rect rx="6" ry="6" x="290" y="65" width="30" height="15" class="combo"/>
-<a href="#MG-Arrows">
-<text x="305" y="72" class="combo tap layer-activator"><tspan style="font-size: 78%">MG-Arrows</tspan></text>
-</a></g>
+<text x="305" y="72" class="combo tap">
+<tspan x="305" dy="-0.6em">MG-</tspan><tspan x="305" dy="1.2em">Arrows</tspan>
+</text>
+</g>
 <g class="combo combopos-4">
 <rect rx="6" ry="6" x="107" y="38" width="30" height="15" class="combo"/>
 <text x="122" y="46" class="combo tap">☢️</text>
@@ -1541,9 +1546,10 @@ path.combo { stroke: #7f7f7f; }
 </a></g>
 <g class="combo combopos-3">
 <rect rx="6" ry="6" x="290" y="65" width="30" height="15" class="combo"/>
-<a href="#MG-Arrows">
-<text x="305" y="72" class="combo tap layer-activator"><tspan style="font-size: 78%">MG-Arrows</tspan></text>
-</a></g>
+<text x="305" y="72" class="combo tap">
+<tspan x="305" dy="-0.6em">MG-</tspan><tspan x="305" dy="1.2em">Arrows</tspan>
+</text>
+</g>
 <g class="combo combopos-4">
 <rect rx="6" ry="6" x="107" y="38" width="30" height="15" class="combo"/>
 <text x="122" y="46" class="combo tap">☢️</text>
