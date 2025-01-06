@@ -86,7 +86,7 @@
     };
 };
 
-#define MODS_LR_ALT() (MOD_LALT|MOD_RALT)
+#define MODS_LR_ALT <(MOD_LALT|MOD_RALT)>
 
 / {
     behaviors {
