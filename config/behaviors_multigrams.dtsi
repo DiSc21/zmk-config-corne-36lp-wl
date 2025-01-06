@@ -35,42 +35,42 @@
 #include "shared_macros.dtsi"
 
 
-#define CREATE_MOD_MORPH(name, raw_binding, mod_binding, mod_mods) \
+#define CREATE_MOD_MORPH(name, raw_binding, mod_binding) \
     /omit-if-no-ref/ name: name { \
         compatible = "zmk,behavior-mod-morph"; \
         #binding-cells = <0>; \
         bindings = <raw_binding>, <mod_binding>; \
-        mods = <mod_mods>; \
+        mods = <<(MOD_LALT|MOD_RALT)>; \
     }; \
 
 
 
-#define CREATE_MULTI_MOD_MORPH_MACRO(name, mmb_bind, mmc_bind, mmg_bind, mmcg_bind) \
-    / { \
-        macros { \
-            NO_PARAM_SANDWICH(mmb_ ## name,  &none, mmb_bind,  &none) \
-            NO_PARAM_SANDWICH(mmc_ ## name,  &none, mmc_bind,  &none) \
-            NO_PARAM_SANDWICH(mmg_ ## name,  &none, mmg_bind,  &none) \
-            NO_PARAM_SANDWICH(mmcg_ ## name, &none, mmcg_bind, &none) \
-        }; \
-        behaviors { \
-            CREATE_MOD_MORPH(mcg_ ## name, &mmc_ ## name, &mmcg_ ## name, GUI) \
-            CREATE_MOD_MORPH(mg_ ## name,  &mmb_ ## name, &mmg_ ## name,  GUI) \
-            CREATE_MOD_MORPH(mc_ ## name,  &mg_ ## name,  &mcg_ ## name,  CTL) \
-        }; \
-    }; \
-    / { \
-        macros { \
-            NO_PARAM_SANDWICH(mod_space_ ## name,      &none,      &mc_ ## name, &kp SPACE) \
-            NO_PARAM_SANDWICH(mod_caps_ ## name,       &sk LSHIFT, &mc_ ## name, &none) \
-            NO_PARAM_SANDWICH(mod_caps_space_ ## name, &sk LSHIFT, &mc_ ## name, &kp SPACE) \
-        } \
-        behaviors { \
-            CREATE_MOD_MORPH(mas_ ## name,  &mod_space_ ## name, &mod_caps_space_ ## name, SFT) \
-            CREATE_MOD_MORPH(ms_ ## name,   &mc_ ## name,        &mod_caps_ ## name,       SFT) \
-            CREATE_MOD_MORPH(mumo_ ## name, &ms_ ## name,        &mas_ ## name,            ALT) \
-        }; \
-    }; \
+//#define CREATE_MULTI_MOD_MORPH_MACRO(name, mmb_bind, mmc_bind, mmg_bind, mmcg_bind) \
+//    / { \
+//        macros { \
+//            NO_PARAM_SANDWICH(mmb_ ## name,  &none, mmb_bind,  &none) \
+//            NO_PARAM_SANDWICH(mmc_ ## name,  &none, mmc_bind,  &none) \
+//            NO_PARAM_SANDWICH(mmg_ ## name,  &none, mmg_bind,  &none) \
+//            NO_PARAM_SANDWICH(mmcg_ ## name, &none, mmcg_bind, &none) \
+//        }; \
+//        behaviors { \
+//            CREATE_MOD_MORPH(mcg_ ## name, &mmc_ ## name, &mmcg_ ## name, GUI) \
+//            CREATE_MOD_MORPH(mg_ ## name,  &mmb_ ## name, &mmg_ ## name,  GUI) \
+//            CREATE_MOD_MORPH(mc_ ## name,  &mg_ ## name,  &mcg_ ## name,  CTL) \
+//        }; \
+//    }; \
+//    / { \
+//        macros { \
+//            NO_PARAM_SANDWICH(mod_space_ ## name,      &none,      &mc_ ## name, &kp SPACE) \
+//            NO_PARAM_SANDWICH(mod_caps_ ## name,       &sk LSHIFT, &mc_ ## name, &none) \
+//            NO_PARAM_SANDWICH(mod_caps_space_ ## name, &sk LSHIFT, &mc_ ## name, &kp SPACE) \
+//        } \
+//        behaviors { \
+//            CREATE_MOD_MORPH(mas_ ## name,  &mod_space_ ## name, &mod_caps_space_ ## name, SFT) \
+//            CREATE_MOD_MORPH(ms_ ## name,   &mc_ ## name,        &mod_caps_ ## name,       SFT) \
+//            CREATE_MOD_MORPH(mumo_ ## name, &ms_ ## name,        &mas_ ## name,            ALT) \
+//        }; \
+//    }; \
 
 //CREATE_MULTI_MOD_MORPH_MACRO(th, &kp T &kp H, &kp T &kp H &kp E, &kp T &kp E &kp R, &kp T &kp H &kp A &kp T)
 
@@ -86,11 +86,11 @@
     };
 };
 
-#define MODS_LR_ALT <(MOD_LALT|MOD_RALT)>
+//#define MODS_LR_ALT <(MOD_LALT|MOD_RALT)>
 
 / {
     behaviors {
-        CREATE_MOD_MORPH(mumo_th, &none, &nopasa_th, MODS_LR_ALT)
+        CREATE_MOD_MORPH(mumo_th, &none, &nopasa_th)
     };
 };
 
