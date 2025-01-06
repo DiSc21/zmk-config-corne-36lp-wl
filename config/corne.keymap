@@ -52,6 +52,7 @@
 #include "shared_macros.dtsi"
 #include "behaviors_hrm.dtsi"
 #include "behaviors_led.dtsi"
+#include "behaviors_multigrams.dtsi"
 
 #include "combos.dtsi"
 
