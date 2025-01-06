@@ -1,7 +1,7 @@
 layout: {qmk_keyboard: corne_rotated, layout_name: LAYOUT_split_3x6_3}
 layers:
   default:
-  - ['', 💃Q, W, E, R, T, Y, U, I, O]
+  - ['', Q, W, E, R, T, Y, U, I, O]
   - - P
     - ''
     - ''
@@ -24,9 +24,9 @@ layers:
     - B
   - - N
     - M
-    - 💃,
-    - 💃.
-    - 💃/
+    - ','
+    - .
+    - /
     - ''
     - {t: ✂️, h: NAV, s: 🗑️}
     - {t: ╰┈➤, h: SIGNS}
