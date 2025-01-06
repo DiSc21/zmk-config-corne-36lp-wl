@@ -35,12 +35,12 @@
 #include "shared_macros.dtsi"
 
 
-#define CREATE_MOD_MORPH(name, raw_binding, mod_binding, mods) \
+#define CREATE_MOD_MORPH(name, raw_binding, mod_binding, mod_mods) \
     /omit-if-no-ref/ name: name { \
         compatible = "zmk,behavior-mod-morph"; \
         #binding-cells = <0>; \
         bindings = <raw_binding>, <mod_binding>; \
-        mods = <mods>; \
+        mods = <mod_mods>; \
     }; \
 
 
