@@ -25,7 +25,7 @@
 ╭───────────────────────────────────────────────────────╮
 │ @brief: ZMK devicetree file for ctrl-space tabdances. │
 │                                                       │
-│ @depends: shared.dtsi for key positions.              │
+│ @depends: shared_defs.dtsi for key positions.         │
 │                                                       │
 │ @details:                                             │
 │ Tabledance on Ctrl mod-morph for punctuation marks.   │
@@ -40,7 +40,7 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 
-#include "shared.dtsi"
+#include "shared_defs.dtsi"
 
 #define TABDANCE_TERM_MS 200
 #define TABDANCE_TERM_SLOW_MS 250

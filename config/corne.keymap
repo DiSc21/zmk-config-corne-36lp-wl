@@ -30,6 +30,7 @@
 ╰───────────────────────────────────────────────────────╯
 ╭───────────────────────────────────────────────────────╮
 │ @brief:                                               │
+│ @depends: shared_defs.dtsi for key positions.         │
 ╰───────────────────────────────────────────────────────╯
 */
 
@@ -46,7 +47,7 @@
 #include <behaviors/num_word.dtsi>
 
 /* shared defines for key nums, layers and timings */
-#include "shared.dtsi"
+#include "shared_defs.dtsi"
 #include "behaviors_hrm.dtsi"
 #include "behaviors_led.dtsi"
 #include "behaviors_ctrl_space.dtsi"

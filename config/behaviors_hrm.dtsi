@@ -25,7 +25,7 @@
 ╭─────────────────────────────────────────────────────────╮
 │ @brief: ZMK devicetree file for custom homerow mods.    │
 │                                                         │
-│ @depends: shared.dtsi for key positions.                │
+│ @depends: shared_defs.dtsi for key positions.           │
 │                                                         │
 │ @details:                                               │
 │ Positional Homerow mods                                 │
@@ -45,7 +45,7 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 
-#include "shared.dtsi"
+#include "shared_defs.dtsi"
 
 ///
 /// @brief auxiliary macro for the creational aux macro used for the creation of homerow mods

@@ -27,7 +27,7 @@
 │                                                       │
 │ @brief: ZMK devicetree file for key combos.           │
 │                                                       │
-│ @depends: shared.dtsi for key positions.              │
+│ @depends: shared_defs.dtsi for key positions.         │
 │_________________________     _________________________│
 │ | __|__  __|__  __|__ | |###| | __|__  __|__  __|__ | │
 │ ||_ESC_||__A__||__T__||-StBT--||__Y__||_BSP_||_To0_|| │
@@ -44,7 +44,7 @@
 
 */
 
-#include "shared.dtsi"
+#include "shared_defs.dtsi"
 #include "behaviors_led.dtsi"
 
 /* Timing defaults */

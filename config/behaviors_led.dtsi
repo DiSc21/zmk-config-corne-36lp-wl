@@ -25,14 +25,14 @@
 ╭───────────────────────────────────────────────────────╮
 │ @brief: ZMK devicetree file for led-layer-indicators. │
 │                                                       │
-│ @depends: shared.dtsi for key positions.              │
+│ @depends: shared_defs.dtsi for key positions.         │
 ╰───────────────────────────────────────────────────────╯
 */
 
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 
-#include "shared.dtsi"
+#include "shared_defs.dtsi"
 
 #define RGB_DEF RGB_COLOR_HSB(0,10,2)
 #define RGB_RED RGB_COLOR_HSB(0,100,100)
