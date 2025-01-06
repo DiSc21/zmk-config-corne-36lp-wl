@@ -58,34 +58,38 @@
         mods = <(MOD_LGUI|MOD_RGUI)>; \
     };
 
-//#define CREATE_MULTI_MOD_MORPH_MACRO(name, mmb_bind, mmc_bind, mmg_bind, mmcg_bind) \
-//    / { \
-//        macros { \
-//            NO_PARAM_SANDWICH(mmb_ ## name,  &none, mmb_bind,  &none) \
-//            NO_PARAM_SANDWICH(mmc_ ## name,  &none, mmc_bind,  &none) \
-//            NO_PARAM_SANDWICH(mmg_ ## name,  &none, mmg_bind,  &none) \
-//            NO_PARAM_SANDWICH(mmcg_ ## name, &none, mmcg_bind, &none) \
-//        }; \
-//        behaviors { \
-//            CREATE_MOD_MORPH_GUI(mcg_ ## name, &mmc_ ## name, &mmcg_ ## name) \
-//            CREATE_MOD_MORPH_GUI(mg_ ## name,  &mmb_ ## name, &mmg_ ## name) \
-//            CREATE_MOD_MORPH_CTL(mc_ ## name,  &mg_ ## name,  &mcg_ ## name) \
-//        }; \
-//    }; \
-//    / { \
-//        macros { \
-//            NO_PARAM_SANDWICH(mod_space_ ## name,      &none,      &mc_ ## name, &kp SPACE) \
-//            NO_PARAM_SANDWICH(mod_caps_ ## name,       &sk LSHIFT, &mc_ ## name, &none) \
-//            NO_PARAM_SANDWICH(mod_caps_space_ ## name, &sk LSHIFT, &mc_ ## name, &kp SPACE) \
-//        } \
-//        behaviors { \
-//            CREATE_MOD_MORPH_SFT(mas_ ## name,  &mod_space_ ## name, &mod_caps_space_ ## name) \
-//            CREATE_MOD_MORPH_SFT(ms_ ## name,   &mc_ ## name,        &mod_caps_ ## name) \
-//            CREATE_MOD_MORPH_ALT(mumo_ ## name, &ms_ ## name,        &mas_ ## name) \
-//        }; \
-//    }; \
+#define CREATE_MULTI_MOD_MORPH_MACRO(name, mmb_bind, mmc_bind, mmg_bind, mmcg_bind) \
+    / { \
+        macros { \
+            NO_PARAM_SANDWICH(mmb_ ## name,  &none, mmb_bind,  &none) \
+            NO_PARAM_SANDWICH(mmc_ ## name,  &none, mmc_bind,  &none) \
+            NO_PARAM_SANDWICH(mmg_ ## name,  &none, mmg_bind,  &none) \
+            NO_PARAM_SANDWICH(mmcg_ ## name, &none, mmcg_bind, &none) \
+        }; \
+    }; \
+    / { \
+        behaviors { \
+            CREATE_MOD_MORPH_GUI(mcg_ ## name, &mmc_ ## name, &mmcg_ ## name) \
+            CREATE_MOD_MORPH_GUI(mg_ ## name,  &mmb_ ## name, &mmg_ ## name) \
+            CREATE_MOD_MORPH_CTL(mc_ ## name,  &mg_ ## name,  &mcg_ ## name) \
+        }; \
+    }; \
+    / { \
+        macros { \
+            NO_PARAM_SANDWICH(mod_space_ ## name,      &none,      &mc_ ## name, &kp SPACE) \
+            NO_PARAM_SANDWICH(mod_caps_ ## name,       &sk LSHIFT, &mc_ ## name, &none) \
+            NO_PARAM_SANDWICH(mod_caps_space_ ## name, &sk LSHIFT, &mc_ ## name, &kp SPACE) \
+        }; \
+    }; \
+    / { \
+        behaviors { \
+            CREATE_MOD_MORPH_SFT(mas_ ## name,  &mod_space_ ## name, &mod_caps_space_ ## name) \
+            CREATE_MOD_MORPH_SFT(ms_ ## name,   &mc_ ## name,        &mod_caps_ ## name) \
+            CREATE_MOD_MORPH_ALT(mumo_ ## name, &ms_ ## name,        &mas_ ## name) \
+        }; \
+    };
 
-//CREATE_MULTI_MOD_MORPH_MACRO(th, &kp T &kp H, &kp T &kp H &kp E, &kp T &kp E &kp R, &kp T &kp H &kp A &kp T)
+CREATE_MULTI_MOD_MORPH_MACRO(th, &kp T &kp H, &kp T &kp H &kp E, &kp T &kp E &kp R, &kp T &kp H &kp A &kp T)
 
 //CREATE_MULTI_MOD_MORPH_MACRO(at, &kp A &kp T, &kp A &kp R &kp E, &kp A &kp V &kp E, &kp A &kp N &kp G &kp T)
 //CREATE_MULTI_MOD_MORPH_MACRO(er, &kp E &kp T, &kp E &kp R &kp E, &kp E &kp V &kp E, &kp E &kp N &kp G &kp T)
@@ -93,19 +97,19 @@
 //CREATE_MULTI_MOD_MORPH_MACRO(or, &kp O &kp T, &kp O &kp R &kp E, &kp O &kp V &kp E, &kp O &kp N &kp G &kp T)
 //CREATE_MULTI_MOD_MORPH_MACRO(ur, &kp U &kp T, &kp U &kp R &kp E, &kp U &kp V &kp E, &kp U &kp N &kp G &kp T)
 
-/ {
-    macros {
-        NO_PARAM_SANDWICH(nopasa_th, &none, &kp T &kp H, &none)
-    };
-};
-
-//#define MODS_LR_ALT <(MOD_LALT|MOD_RALT)>
-
-/ {
-    behaviors {
-        CREATE_MOD_MORPH_ALT(mumo_th, &none, &nopasa_th)
-    };
-};
+/// {
+//    macros {
+//        NO_PARAM_SANDWICH(nopasa_th, &none, &kp T &kp H, &none)
+//    };
+//};
+//
+////#define MODS_LR_ALT <(MOD_LALT|MOD_RALT)>
+//
+/// {
+//    behaviors {
+//        CREATE_MOD_MORPH_ALT(mumo_th, &none, &nopasa_th)
+//    };
+//};
 
 
 /////
