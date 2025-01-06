@@ -145,7 +145,7 @@ layers:
     - ''
     - ''
     - {type: held}
-    - {t: '&mmb_th', s: '&mod_space_th'}
+    - {s: '&nopasa_th'}
     - ''
     - ''
     - ''
