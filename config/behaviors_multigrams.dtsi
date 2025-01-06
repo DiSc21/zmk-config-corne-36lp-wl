@@ -33,6 +33,64 @@
 
 #include "shared_defs.dtsi"
 
+// #define CREATE_MOD_MORPH(mm_name, raw_binding, mod_binding, mods) \
+//     /omit-if-no-ref/ mm_name: mm_name { \
+//         compatible = "zmk,behavior-mod-morph"; \
+//         #binding-cells = <0>; \
+//         bindings = <raw_binding>, <mod_binding>; \
+//         mods = <mods>; \
+//     };
+// 
+// #define CREATE_MOD_MORPH_MACRO(mmm_name, macro_seq) \
+//     /omit-if-no-ref/ mmm_name: mmm_name { \
+//         compatible = "zmk,behavior-macro"; \
+//         wait-ms = <KEY_SEQ_MACRO_WAIT_MS>; \
+//         tap-ms = <KEY_SEQ_MACRO_TAP_MS>; \
+//         #binding-cells = <1>; \
+//         bindings = <&macro_param_1to1> \
+//                  , <&macro_tap macro_seq> \
+//                  ; \
+//     };
+// 
+// #define CREATE_MULTI_MOD_MORPH_MACRO(mult_name, mmb_name,  mmb_bind, \
+//                                                 mmc_name,  mmc_bind, \
+//                                                 mmg_name,  mmg_bind, \
+//                                                 mmcg_name, mmcg_bind) \
+//     CREATE_MOD_MORPH_MACRO(mmb_name,  mmb_bind) \
+//     CREATE_MOD_MORPH_MACRO(mmc_name,  mmc_bind) \
+//     CREATE_MOD_MORPH_MACRO(mmg_name,  mmg_bind) \
+//     CREATE_MOD_MORPH_MACRO(mmcg_name, mmcg_bind) \
+//     \
+//     CREATE_MOD_MORPH(mcg_name, &mmc_name, &mmcg_name) \
+//     CREATE_MOD_MORPH(mg_name,  &mmb_name, &mmg_name)  \
+//     \
+//     CREATE_MOD_MORPH(mc_name,  &mg_name,  &mcg_name)  \
+//     \
+//     \
+//     CREATE_MOD_MORPH_MACRO(mms_name,  &add_spc  &mc_mame) \
+//     CREATE_MOD_MORPH_MACRO(mma_name,  &capsed   &mc_mame) \
+//     CREATE_MOD_MORPH_MACRO(mmas_name, &add_stsh &mc_mame) \
+//     \
+//     CREATE_MOD_MORPH(mas_name, &mma_name, &mmas_name) \
+//     CREATE_MOD_MORPH(ms_name,  &mc_name,  &mms_name)  \
+//     \
+//     CREATE_MOD_MORPH(mult_name, &ms_name, &mas_name)  \
+// 
+// 
+// CREATE_MULTI_MOD_MORPH_MACRO(mult_t, mmb_t,  &kp T &kp H
+//                                    , mmc_t,  &kp T &kp H &kp E
+//                                    , mmg_t,  &kp T &kp E &kp R
+//                                    , mmcg_t, &kp T &kp H &kp A &kp T)
+// 
+// 
+// / {
+// 
+//     macros {
+//     };
+// };
+
+
+
 /////
 ///// @brief auxiliary macro for the creation of ctrl-tapdances.
 /////
@@ -42,9 +100,7 @@
 ///// @param tap_binding: the key behavior bound to key-taps
 ///// @param morph_binding: the morph behavior bound to tapdances
 /////
-///// @note this macro can easily be generalized to also allow defining of mod keys or other props
-/////
-//#define CREATE_CTRL_SPACE_MACRO(td_name, mm_name, td_binding, tap_binding, morph_binding) \
+//#define CREATE_NESTED_MOD_MORPH(td_name, mm_name, td_binding, tap_binding, morph_binding) \
 //    /omit-if-no-ref/ mm_name: mm_name { \
 //        compatible = "zmk,behavior-mod-morph"; \
 //        #binding-cells = <0>; \

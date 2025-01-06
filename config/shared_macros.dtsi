@@ -33,6 +33,18 @@
 
 #include "shared_defs.dtsi"
 
+#define SINGLE_ARG_SANDWICH_MACRO(name, pre_bind, post_bind) \
+        /omit-if-no-ref/ name: name { \
+            compatible = "zmk,behavior-macro-one-param"; \
+            wait-ms = <KEY_SEQ_MACRO_WAIT_MS>; \
+            tap-ms = <KEY_SEQ_MACRO_TAP_MS>; \
+            #binding-cells = <1>; \
+            bindings = <&macro_tap pre_bind> \
+                     , <&macro_param_1to1>, <&macro_tap &kp MACRO_PLACEHOLDER> \
+                     , <&macro_tap post_bind> \
+                     ; \
+        };
+
 / {
     macros {
         /omit-if-no-ref/ add_spc: add_spc {
@@ -44,16 +56,19 @@
                      , <&macro_tap &kp SPACE>
                      ;
         };
-        /omit-if-no-ref/ add_spsh: add_spsh {
-            compatible = "zmk,behavior-macro-one-param";
-            wait-ms = <KEY_SEQ_MACRO_WAIT_MS>;
-            tap-ms = <KEY_SEQ_MACRO_TAP_MS>;
-            #binding-cells = <1>;
-            bindings = <&macro_param_1to1>, <&macro_tap &kp MACRO_PLACEHOLDER>
-                     , <&macro_tap &kp SPACE>
-                     , <&macro_tap &sk LSHIFT>
-                     ;
-        };
+
+        SINGLE_ARG_SANDWICH_MACRO(add_spsh, &none, &kp SPACE &sk LSHIFT)
+
+        ///omit-if-no-ref/ add_spsh: add_spsh {
+        //    compatible = "zmk,behavior-macro-one-param";
+        //    wait-ms = <KEY_SEQ_MACRO_WAIT_MS>;
+        //    tap-ms = <KEY_SEQ_MACRO_TAP_MS>;
+        //    #binding-cells = <1>;
+        //    bindings = <&macro_param_1to1>, <&macro_tap &kp MACRO_PLACEHOLDER>
+        //             , <&macro_tap &kp SPACE>
+        //             , <&macro_tap &sk LSHIFT>
+        //             ;
+        //};
     };
 };
 
