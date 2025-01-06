@@ -35,29 +35,61 @@
 #include "shared_macros.dtsi"
 
 
+///
+/// @brief auxiliary macro for the creation of nested mod-morphes
+///
+/// @param name: name of the created mod-morph
+/// @param raw_binding: unmodified binding
+/// @param mod_binding: the modified behavior
+///
+/// @note this macro is just the main body used in the following explicit mod macros
+///
 #define CREATE_MOD_MORPH_BASE(name, raw_bind, mod_bind) \
     /omit-if-no-ref/ name: name { \
             compatible = "zmk,behavior-mod-morph"; \
             #binding-cells = <0>; \
             bindings = <raw_bind>, <mod_bind>; \
 
+///
+/// @brief macro for the creation of CTRL mod-morphes
+///
+/// @param name: name of the created mod-morph
+/// @param raw_binding: unmodified binding
+/// @param mod_binding: the modified behavior
+///
 #define CREATE_MOD_MORPH_CTL(name, raw_bind, mod_bind) \
     CREATE_MOD_MORPH_BASE(name, raw_bind, mod_bind) \
         mods = <(MOD_LCTL|MOD_RCTL)>; \
     };
+/// @brief macro for the creation of ALT mod-morphes
 #define CREATE_MOD_MORPH_ALT(name, raw_bind, mod_bind) \
     CREATE_MOD_MORPH_BASE(name, raw_bind, mod_bind) \
         mods = <(MOD_LALT|MOD_RALT)>; \
     };
+/// @brief macro for the creation of SHIFT mod-morphes
 #define CREATE_MOD_MORPH_SFT(name, raw_bind, mod_bind) \
     CREATE_MOD_MORPH_BASE(name, raw_bind, mod_bind) \
         mods = <(MOD_LSFT|MOD_RSFT)>; \
     };
+/// @brief macro for the creation of GUI mod-morphes
 #define CREATE_MOD_MORPH_GUI(name, raw_bind, mod_bind) \
     CREATE_MOD_MORPH_BASE(name, raw_bind, mod_bind) \
         mods = <(MOD_LGUI|MOD_RGUI)>; \
     };
 
+///
+/// @brief macro for the creation of nested mod-morphes
+///
+/// @param name: postfix of the created mod-morph, use as &mumo_name
+/// @param mmb_bind: unmodified base binding
+/// @param mmc_bind: ctrl binding
+/// @param mmg_bind: gui binding
+/// @param mmcg_bind: combined ctrl+gui binding
+///
+/// @note this macro creates a two-dimensional nested multi-mod-morph.
+/// ALT+SHIFT modify the bindings by appending space (ALT) and caps first letter (SHIFT)
+/// GUI+CTRL alternate the base binding defined by params mmb/mmc/mmg/mmcg_bind
+///
 #define CREATE_MULTI_MOD_MORPH_MACRO(name, mmb_bind, mmc_bind, mmg_bind, mmcg_bind) \
     / { \
         macros { \
@@ -91,11 +123,11 @@
 
 CREATE_MULTI_MOD_MORPH_MACRO(th, &kp T &kp H, &kp T &kp H &kp E, &kp T &kp E &kp R, &kp T &kp H &kp A &kp T)
 
-//CREATE_MULTI_MOD_MORPH_MACRO(at, &kp A &kp T, &kp A &kp R &kp E, &kp A &kp V &kp E, &kp A &kp N &kp G &kp T)
-//CREATE_MULTI_MOD_MORPH_MACRO(er, &kp E &kp T, &kp E &kp R &kp E, &kp E &kp V &kp E, &kp E &kp N &kp G &kp T)
-//CREATE_MULTI_MOD_MORPH_MACRO(is, &kp I &kp T, &kp I &kp R &kp E, &kp I &kp V &kp E, &kp I &kp N &kp G &kp T)
-//CREATE_MULTI_MOD_MORPH_MACRO(or, &kp O &kp T, &kp O &kp R &kp E, &kp O &kp V &kp E, &kp O &kp N &kp G &kp T)
-//CREATE_MULTI_MOD_MORPH_MACRO(ur, &kp U &kp T, &kp U &kp R &kp E, &kp U &kp V &kp E, &kp U &kp N &kp G &kp T)
+CREATE_MULTI_MOD_MORPH_MACRO(at, &kp A &kp T, &kp A &kp R &kp E, &kp A &kp V &kp E, &kp A &kp N &kp G &kp T)
+CREATE_MULTI_MOD_MORPH_MACRO(er, &kp E &kp T, &kp E &kp R &kp E, &kp E &kp V &kp E, &kp E &kp N &kp G &kp T)
+CREATE_MULTI_MOD_MORPH_MACRO(is, &kp I &kp T, &kp I &kp R &kp E, &kp I &kp V &kp E, &kp I &kp N &kp G &kp T)
+CREATE_MULTI_MOD_MORPH_MACRO(or, &kp O &kp T, &kp O &kp R &kp E, &kp O &kp V &kp E, &kp O &kp N &kp G &kp T)
+CREATE_MULTI_MOD_MORPH_MACRO(ur, &kp U &kp T, &kp U &kp R &kp E, &kp U &kp V &kp E, &kp U &kp N &kp G &kp T)
 
 /// {
 //    macros {
@@ -112,15 +144,6 @@ CREATE_MULTI_MOD_MORPH_MACRO(th, &kp T &kp H, &kp T &kp H &kp E, &kp T &kp E &kp
 //};
 
 
-/////
-///// @brief auxiliary macro for the creation of ctrl-tapdances.
-/////
-///// @param td_name: name of the created tabdance, use '&td_name' in keymap
-///// @param mm_name: name of the created ctrl-mod-morph sent in case of of a positiv tabdance
-///// @param td_binding: must be '&'+param mm_name; aux cause I'm too stupid for macro concatenation
-///// @param tap_binding: the key behavior bound to key-taps
-///// @param morph_binding: the morph behavior bound to tapdances
-/////
 //#define CREATE_NESTED_MOD_MORPH(td_name, mm_name, td_binding, tap_binding, morph_binding) \
 //    /omit-if-no-ref/ mm_name: mm_name { \
 //        compatible = "zmk,behavior-mod-morph"; \

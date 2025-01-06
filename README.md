@@ -16,14 +16,25 @@
 * [x] LED-color layer indicators
 * [x] Couple of combo keys (see keymaps)
 * [x] [Urob's timerless homerow mods](https://github.com/urob/zmk-config)
-* [x] "CTRL-space-(stickyshif)-tabdance":
-  Double-tab with active ctrl-mod adds punctuation mark, space and (not for comma) stickyshift
-  | Key           | Layer         | Tap | Dance        | Stickyshift |
-  | ------------- |:-------------:| ---:| ------------:|:-----------:|
-  | `.`           | `default`     | `.` |  `.`+`SPACE` |          ✅ |
-  | `,`           | `default`     | `,` |  `,`+`SPACE` |          ⛔ |
-  | `Q`           | `default`     | `Q` |  `!`+`SPACE` |          ✅ |
-  | `/`           | `default`     | `/` |  `?`+`SPACE` |          ✅ |
+* [ ] Multigram Layer Punctuation:
+  |Key          |       OUTPUT | Stickyshift |
+  |-------------| ------------:|:-----------:|
+  |`,`          |  `,`+`SPACE` |          ⛔ |
+  |`.`          |  `.`+`SPACE` |          ✅ |
+  |`Q`          |  `!`+`SPACE` |          ✅ |
+  |`/`          |  `?`+`SPACE` |          ✅ |
+
+* [ ] Multigram Layer Vocals:
+  - On `ALT` a `SPACE` is appended
+  - On `SHIFT` the initial character is Caps
+  - On `ALT+SHIFT` the initial character is Caps and a `SPACE` is appended
+  | Key           | Raw  | Ctrl | GUI | CTRL+GUI     |
+  | ------------- |-----:|-----:| ---:| ------------:|
+  | `a`           |   at |  are | ave |          ang |
+  | `e`           |   er |  ere | eve |          eng |
+  | `o`           |   or |  ore | ove |          ong |
+  | `i`           |   in |  ire | ive |          ing |
+  | `u`           |   un |  ure | uve |          ung |
 
 * [x] Keymap image generator helpers and actions
   - [x] [Keymap image generator](https://github.com/caksoylar/keymap-drawer?tab=readme-ov-file)
