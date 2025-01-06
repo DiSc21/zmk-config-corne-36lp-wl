@@ -33,54 +33,47 @@
 
 #include "shared_defs.dtsi"
 
-// #define CREATE_MOD_MORPH(mm_name, raw_binding, mod_binding, mods) \
-//     /omit-if-no-ref/ mm_name: mm_name { \
-//         compatible = "zmk,behavior-mod-morph"; \
-//         #binding-cells = <0>; \
-//         bindings = <raw_binding>, <mod_binding>; \
-//         mods = <mods>; \
-//     };
-// 
-// #define CREATE_MOD_MORPH_MACRO(mmm_name, macro_seq) \
-//     /omit-if-no-ref/ mmm_name: mmm_name { \
-//         compatible = "zmk,behavior-macro"; \
-//         wait-ms = <KEY_SEQ_MACRO_WAIT_MS>; \
-//         tap-ms = <KEY_SEQ_MACRO_TAP_MS>; \
-//         #binding-cells = <1>; \
-//         bindings = <&macro_param_1to1> \
-//                  , <&macro_tap macro_seq> \
-//                  ; \
-//     };
-// 
-// #define CREATE_MULTI_MOD_MORPH_MACRO(mult_name, mmb_name,  mmb_bind, \
-//                                                 mmc_name,  mmc_bind, \
-//                                                 mmg_name,  mmg_bind, \
-//                                                 mmcg_name, mmcg_bind) \
-//     CREATE_MOD_MORPH_MACRO(mmb_name,  mmb_bind) \
-//     CREATE_MOD_MORPH_MACRO(mmc_name,  mmc_bind) \
-//     CREATE_MOD_MORPH_MACRO(mmg_name,  mmg_bind) \
-//     CREATE_MOD_MORPH_MACRO(mmcg_name, mmcg_bind) \
-//     \
-//     CREATE_MOD_MORPH(mcg_name, &mmc_name, &mmcg_name) \
-//     CREATE_MOD_MORPH(mg_name,  &mmb_name, &mmg_name)  \
-//     \
-//     CREATE_MOD_MORPH(mc_name,  &mg_name,  &mcg_name)  \
-//     \
-//     \
-//     CREATE_MOD_MORPH_MACRO(mms_name,  &add_spc  &mc_mame) \
-//     CREATE_MOD_MORPH_MACRO(mma_name,  &capsed   &mc_mame) \
-//     CREATE_MOD_MORPH_MACRO(mmas_name, &add_stsh &mc_mame) \
-//     \
-//     CREATE_MOD_MORPH(mas_name, &mma_name, &mmas_name) \
-//     CREATE_MOD_MORPH(ms_name,  &mc_name,  &mms_name)  \
-//     \
-//     CREATE_MOD_MORPH(mult_name, &ms_name, &mas_name)  \
-// 
-// 
-// CREATE_MULTI_MOD_MORPH_MACRO(mult_t, mmb_t,  &kp T &kp H
-//                                    , mmc_t,  &kp T &kp H &kp E
-//                                    , mmg_t,  &kp T &kp E &kp R
-//                                    , mmcg_t, &kp T &kp H &kp A &kp T)
+#define CREATE_MOD_MORPH(name, raw_binding, mod_binding, mods) \
+    /omit-if-no-ref/ mm_ ## name: mm_ ## name { \
+        compatible = "zmk,behavior-mod-morph"; \
+        #binding-cells = <0>; \
+        bindings = <raw_binding>, <mod_binding>; \
+        mods = <mods>; \
+    };
+
+
+#define CREATE_MULTI_MOD_MORPH_MACRO(name, mmb_bind, \
+                                           mmc_bind, \
+                                           mmg_bind, \
+                                           mmcg_bind) \
+    NO_PARAM_SANDWICH(mmb_ ## name,  &none, mmb_bind,  &none) \
+    NO_PARAM_SANDWICH(mmc_ ## name,  &none, mmc_bind,  &none) \
+    NO_PARAM_SANDWICH(mmg_ ## name,  &none, mmg_bind,  &none) \
+    NO_PARAM_SANDWICH(mmcg_ ## name, &none, mmcg_bind, &none) \
+    \
+    CREATE_MOD_MORPH(mcg_ ## name, &mmc_ ## name, &mmcg_ ## name, (MOD_LGUI|MOD_RGUI)) \
+    CREATE_MOD_MORPH(mg_ ## name,  &mmb_ ## name, &mmg_ ## name,  (MOD_LGUI|MOD_RGUI)) \
+    \
+    CREATE_MOD_MORPH(mc_ ## name,  &mg_ ## name,  &mcg_ ## name,  (MOD_LCTL|MOD_RCTL)) \
+    \
+    \
+    NO_PARAM_SANDWICH(mod_space_ ## name,      &none,      &mc_ ## name, &kp SPACE) \
+    NO_PARAM_SANDWICH(mod_caps_ ## name,       &sk LSHIFT, &mc_ ## name, &none) \
+    NO_PARAM_SANDWICH(mod_caps_space_ ## name, &sk LSHIFT, &mc_ ## name, &kp SPACE) \
+    \
+    CREATE_MOD_MORPH(mas_ ## name,  &mod_space_ ## name, &mod_caps_space_ ## name, (MOD_LSFT|MOD_RSFT)) \
+    CREATE_MOD_MORPH(ms_ ## name,   &mc_ ## name,        &mod_caps_ ## name,       (MOD_LSFT|MOD_RSFT))  \
+    \
+    CREATE_MOD_MORPH(mumo_ ## name, &ms_ ## name,        &mas_## name,             (MOD_LALT|MOD_RALT))
+
+/ {
+    macros {
+        CREATE_MULTI_MOD_MORPH_MACRO(th, &kp T &kp H
+                                       , &kp T &kp H &kp E
+                                       , &kp T &kp E &kp R
+                                       , &kp T &kp H &kp A &kp T)
+    };
+};
 // 
 // 
 // / {
