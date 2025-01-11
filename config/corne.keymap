@@ -72,14 +72,14 @@
         mmnr_del: mmnr_del {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&lt_red_r L_NAV DEL>, <&kp BSPC>;
-            mods = <(MOD_LCTL|MOD_RCTL)>;
+            bindings = <&lt_red_r L_MG_ARR DEL>, <&kp BSPC>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
         };
         mmnl_bsp: mmnl_bsp {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&lt_red_l L_NAV BSPC>, <&kp DEL>;
-            mods = <(MOD_LCTL|MOD_RCTL)>;
+            bindings = <&lt_red_l L_MG_ARR BSPC>, <&kp DEL>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
         };
     };
 
@@ -146,23 +146,23 @@
             >;
         };
 
-        // [NAV] LAYER
-        // ----------------------------------------------------------------------------------------------------------------------------------------------------
-        // | - |            |           |          |          ||         |  |    -    |  | M-Scroll-L || M-LCKL     | M-MIDDLE   | M-Scroll-R | P-UP       | - |
-        // |---|------------|-----------|----------|----------||---------|  |    -    |  |------------||------------|------------|------------|------------|---|
-        // | - |    [SHIFT] | M2 [CTRL] | M3 [WIN] | M1 [ALT] || M-DBL   |  |    -    |  | <-         || DOWN       | UP         | ->         | M-RCKL     | - |
-        // |---|------------|-----------|----------|----------||---------|  |    -    |  |------------||------------|------------|------------|------------|---|
-        // | - |            |           |          |          ||         |  |    -    |  | <-MOUSE    || M-DOWN     | M-UP       | ->MOUSE    | P-DOWN     | - |
-        // -----------------------------|----------|----------||---------|  |    -    |  |------------||------------|------------|------------------------------
-        //                              | **BSPC** | RET      || TAB     |  |    -    |  | ESC        || SPC        | **ENTF**   |
-        //                              ------------------------------------------------------------------------------------------
-        navigation {
-            display-name = "navigation";
+        // [KeyCombos] LAYER
+        // -----------------------------------------------------------------------------------------------------------------------------------------
+        // | - |           |          | E       | R       | T       |  |    -    |  |         | U        | I          | O         |            | - |
+        // |---|-----------|----------|---------|---------|---------|  |    -    |  |---------|----------|------------|-----------|------------|---|
+        // | - | A [SHIFT] | S [CTRL] | D [WIN] | F [ALT] |         |  |    -    |  | LEFT    | DOWN     | UP         | RIGHT     | ;          | - |
+        // |---|-----------|----------|---------|---------|---------|  |    -    |  |---------|----------|------------|-----------|------------|---|
+        // | - |           |          |         |         |         |  |    -    |  |         |          | ,          | .         | /          | - |
+        // ---------------------------|---------|---------|---------|  |    -    |  |---------|----------|------------|-----------------------------
+        //                            |         |         |         |  |    -    |  |         |          |            |
+        //                            ---------------------------------------------------------------------------------
+        multigrams {
+            display-name = "mg-arrows";
             bindings = <
-                &none &msc SCRL_UP   &mkp RCLK      &mmv MOVE_UP   &mkp LCLK       &trans             &trans   &mkp LCLK &mkp MCLK &mkp RCLK &kp PG_UP &none
-                &none &msc SCRL_LEFT &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT &msc SCRL_RIGHT    &kp LEFT &kp DOWN  &kp  UP   &kp RIGHT &trans    &none
-                &none &msc SCRL_DOWN &trans         &mkp MCLK      &trans          &trans             &trans   &trans    &trans    &trans    &kp PG_DN &none
-                                                    &trans         &trans          &trans             &trans   &trans    &trans
+                &none &none          &none         &mumo_er     &none        &mumo_th       &none    &mumo_un        &mumo_in       &mumo_or          &none             &none
+                &none &hm_l LSHIFT A &hm_l LCTRL S &hm_l LGUI D &hm_l LALT F &none          &kp LEFT &hm_r RALT DOWN &hm_r RGUI UP  &hm_r RCTRL RIGHT &hm_r RSHIFT SEMI &none
+                &none &none          &none         &none        &none        &none          &none    &none           &add_spc COMMA &add_spsh DOT     &none             &none
+                                                   &trans       &trans       &trans         &trans   &trans          &trans
             >;
         };
 
@@ -186,25 +186,25 @@
             >;
         };
 
-        // [KeyCombos] LAYER
-        // -----------------------------------------------------------------------------------------------------------------------------------------
-        // | - |           |          | E       | R       | T       |  |    -    |  |         | U        | I          | O         |            | - |
-        // |---|-----------|----------|---------|---------|---------|  |    -    |  |---------|----------|------------|-----------|------------|---|
-        // | - | A [SHIFT] | S [CTRL] | D [WIN] | F [ALT] |         |  |    -    |  | LEFT    | DOWN     | UP         | RIGHT     | ;          | - |
-        // |---|-----------|----------|---------|---------|---------|  |    -    |  |---------|----------|------------|-----------|------------|---|
-        // | - |           |          |         |         |         |  |    -    |  |         |          | ,          | .         | /          | - |
-        // ---------------------------|---------|---------|---------|  |    -    |  |---------|----------|------------|-----------------------------
-        //                            |         |         |         |  |    -    |  |         |          |            |
-        //                            ---------------------------------------------------------------------------------
-        multigrams {
-            display-name = "MG-Arrows";
+        // [NAV] LAYER
+        // ----------------------------------------------------------------------------------------------------------------------------------------------------
+        // | - |            |           |          |          ||         |  |    -    |  | M-Scroll-L || M-LCKL     | M-MIDDLE   | M-Scroll-R | P-UP       | - |
+        // |---|------------|-----------|----------|----------||---------|  |    -    |  |------------||------------|------------|------------|------------|---|
+        // | - |    [SHIFT] | M2 [CTRL] | M3 [WIN] | M1 [ALT] || M-DBL   |  |    -    |  | <-         || DOWN       | UP         | ->         | M-RCKL     | - |
+        // |---|------------|-----------|----------|----------||---------|  |    -    |  |------------||------------|------------|------------|------------|---|
+        // | - |            |           |          |          ||         |  |    -    |  | <-MOUSE    || M-DOWN     | M-UP       | ->MOUSE    | P-DOWN     | - |
+        // -----------------------------|----------|----------||---------|  |    -    |  |------------||------------|------------|------------------------------
+        //                              | **BSPC** | RET      || TAB     |  |    -    |  | ESC        || SPC        | **ENTF**   |
+        //                              ------------------------------------------------------------------------------------------
+        navigation {
+            display-name = "navigation";
             bindings = <
-                &none &none          &none         &mumo_er     &none        &mumo_th    &none     &mumo_un  &mumo_in   &mumo_or      &none     &none
-                &none &hm_l LSHIFT A &hm_l LCTRL S &hm_l LGUI D &hm_l LALT F &none       &kp LEFT  &kp DOWN  &kp  UP    &kp RIGHT     &trans    &none
-                &none &none          &none         &none        &none        &none       &none     &none     &none      &add_spsh DOT &none     &none
-                                                   &none        &none        &none       &none     &none     &none
-                        >;
-                };
+                &none &msc SCRL_UP   &mkp RCLK      &mmv MOVE_UP   &mkp LCLK       &trans             &trans   &mkp LCLK &mkp MCLK &mkp RCLK &kp PG_UP &none
+                &none &msc SCRL_LEFT &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT &msc SCRL_RIGHT    &kp LEFT &kp DOWN  &kp  UP   &kp RIGHT &trans    &none
+                &none &msc SCRL_DOWN &trans         &mkp MCLK      &trans          &trans             &trans   &trans    &trans    &trans    &kp PG_DN &none
+                                                    &trans         &trans          &trans             &trans   &trans    &trans
+            >;
         };
+    };
 };
 
