@@ -112,4 +112,6 @@
 
 #define LAYER_QUICK_TAP_MS 175
 
+#define TAPDANCE_MS 175
+
 

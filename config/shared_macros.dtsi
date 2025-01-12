@@ -116,3 +116,56 @@
 
 
 
+
+
+
+///
+/// @brief 
+///
+/// @param 
+/// @param 
+/// @param 
+/// @param 
+///
+#define SHIFT_CAPS_MACRO(name, first_key, post_bind) \
+        /omit-if-no-ref/ mg_shft_ ## name: mg_shft_ ## name { \
+            compatible = "zmk,behavior-macro"; \
+            wait-ms = <KEY_SEQ_MACRO_WAIT_MS>; \
+            tap-ms = <KEY_SEQ_MACRO_TAP_MS>; \
+            #binding-cells = <0>; \
+            bindings = <&macro_tap &kp LS(first_key) post_bind>; \
+        }; \
+        /omit-if-no-ref/ mg_raw_ ## name: mg_raw_ ## name { \
+            compatible = "zmk,behavior-macro"; \
+            wait-ms = <KEY_SEQ_MACRO_WAIT_MS>; \
+            tap-ms = <KEY_SEQ_MACRO_TAP_MS>; \
+            #binding-cells = <0>; \
+            bindings = <&macro_tap &kp first_key post_bind>; \
+        };
+
+///
+/// @brief macro for the creation of CTRL mod-morphes
+///
+/// @param name: name of the created mod-morph
+/// @param raw_binding: unmodified binding
+/// @param mod_binding: the modified behavior
+///
+#define CREATE_SHIFT_MOD_MACRO(name, first_key, post_bind) \
+    SHIFT_CAPS_MACRO(name, first_key, post_bind) \
+    CREATE_MOD_MORPH_SFT(mms_ ## name, &mg_raw_ ## name, &mg_shft_ ## name) \
+
+///
+/// @brief macro for the creation of CTRL mod-morphes
+///
+/// @param name: name of the created mod-morph
+/// @param raw_binding: unmodified binding
+/// @param mod_binding: the modified behavior
+///
+#define CREATE_TABDANCE_TWO(name, single_bind, double_bind) \
+    /omit-if-no-ref/ td_ ## name: td_ ## name { \
+        compatible = "zmk,behavior-tap-dance"; \
+        #binding-cells = <0>; \
+        tapping-term-ms = <TAPDANCE_MS>; \
+        bindings = <single_bind>, <double_bind>; \
+    };
+

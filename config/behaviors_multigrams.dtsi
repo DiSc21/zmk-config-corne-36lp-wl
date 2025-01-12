@@ -63,6 +63,7 @@
         behaviors { \
             CREATE_MOD_MORPH_GUI(mcg_ ## name, &mmc_ ## name, &mmcg_ ## name) \
             CREATE_MOD_MORPH_GUI(mg_ ## name,  &mmb_ ## name, &mmg_ ## name) \
+            \
             CREATE_MOD_MORPH_CTL(mc_ ## name,  &mg_ ## name,  &mcg_ ## name) \
         }; \
     }; \
@@ -77,15 +78,39 @@
         behaviors { \
             CREATE_MOD_MORPH_SFT(mas_ ## name,  &mod_space_ ## name, &mod_caps_space_ ## name) \
             CREATE_MOD_MORPH_SFT(ms_ ## name,   &mc_ ## name,        &mod_caps_ ## name) \
+            \
             CREATE_MOD_MORPH_ALT(mumo_ ## name, &ms_ ## name,        &mas_ ## name) \
         }; \
     };
 
-CREATE_MULTI_MOD_MORPH_MACRO(th, &kp T &kp H, &kp T &kp H &kp E, &kp T &kp E &kp R, &kp T &kp H &kp A &kp T)
+/ {
+    behaviors {
+        // Shift-ModMorph
+        CREATE_SHIFT_MOD_MACRO(th, T, &kp H)
+        CREATE_SHIFT_MOD_MACRO(gh, T, &kp H)
 
-CREATE_MULTI_MOD_MORPH_MACRO(at, &kp A &kp T, &kp A &kp R &kp E, &kp A &kp V &kp E, &kp A &kp N &kp G)
-CREATE_MULTI_MOD_MORPH_MACRO(er, &kp E &kp R, &kp E &kp R &kp E, &kp E &kp V &kp E, &kp E &kp N &kp G)
-CREATE_MULTI_MOD_MORPH_MACRO(or, &kp O &kp R, &kp O &kp R &kp E, &kp O &kp V &kp E, &kp O &kp N &kp G)
-CREATE_MULTI_MOD_MORPH_MACRO(in, &kp I &kp N, &kp I &kp R &kp E, &kp I &kp V &kp E, &kp I &kp N &kp G)
-CREATE_MULTI_MOD_MORPH_MACRO(un, &kp U &kp N, &kp U &kp R &kp E, &kp U &kp V &kp E, &kp U &kp N &kp G)
+        CREATE_SHIFT_MOD_MACRO(at, A, &kp T)
+        CREATE_SHIFT_MOD_MACRO(in, I, &kp N)
+        CREATE_SHIFT_MOD_MACRO(un, U, &kp N)
+
+        // [E] Tabdance-Shift-ModMorph
+        CREATE_SHIFT_MOD_MACRO(er, E, &kp R)
+        CREATE_SHIFT_MOD_MACRO(ed, E, &kp D)
+        CREATE_TABDANCE_TWO(mms_e, &mms_er, &mms_ed)
+
+        // [O] Tabdance-Shift-ModMorph
+        CREATE_SHIFT_MOD_MACRO(or, O, &kp R)
+        CREATE_SHIFT_MOD_MACRO(on, O, &kp N)
+        CREATE_TABDANCE_TWO(mms_o, &mms_or, &mms_on)
+    };
+};
+
+
+//CREATE_MULTI_MOD_MORPH_MACRO(th, &kp T &kp H, &kp T &kp H &kp E, &kp T &kp E &kp R, &kp T &kp H &kp A &kp T)
+//
+//CREATE_MULTI_MOD_MORPH_MACRO(at, &kp A &kp T, &kp A &kp R &kp E, &kp A &kp V &kp E, &kp A &kp N &kp G)
+//CREATE_MULTI_MOD_MORPH_MACRO(er, &kp E &kp R, &kp E &kp R &kp E, &kp E &kp V &kp E, &kp E &kp N &kp G)
+//CREATE_MULTI_MOD_MORPH_MACRO(or, &kp O &kp R, &kp O &kp R &kp E, &kp O &kp V &kp E, &kp O &kp N &kp G)
+//CREATE_MULTI_MOD_MORPH_MACRO(in, &kp I &kp N, &kp I &kp R &kp E, &kp I &kp V &kp E, &kp I &kp N &kp G)
+//CREATE_MULTI_MOD_MORPH_MACRO(un, &kp U &kp N, &kp U &kp R &kp E, &kp U &kp V &kp E, &kp U &kp N &kp G)
 
