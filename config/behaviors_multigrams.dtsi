@@ -58,8 +58,29 @@
 ///
 #define CREATE_MULTI_MOD_MORPH_MACRO(name, first_key, mmb_bind, mmc_bind, mmg_bind, mmcg_bind, mma_bind, mmac_bind, mmag_bind, mmacg_bind) \
     / { \
+        macros { \
+            SEQUENCE_SIMPLE(mmb_ ## name,   mmb_bind) \
+            SEQUENCE_SIMPLE(mmc_ ## name,   mmc_bind) \
+            SEQUENCE_SIMPLE(mmg_ ## name,   mmg_bind) \
+            SEQUENCE_SIMPLE(mmcg_ ## name,  mmcg_bind) \
+            \
+            SEQUENCE_SIMPLE(mma_ ## name,   mma_bind) \
+            SEQUENCE_SIMPLE(mmac_ ## name,  mmac_bind) \
+            SEQUENCE_SIMPLE(mmag_ ## name,  mmag_bind) \
+            SEQUENCE_SIMPLE(mmacg_ ## name, mmacg_bind) \
+        }; \
+    }; \
+    / { \
         behaviors { \
-            CREATE_MOD_MORPH_ALT(m_alt_ ## name, &kp I, &kp I) \
+            CREATE_MOD_MORPH_GUI(m_gui_ ## name,         &mmb_ ## name,       &mmg_ ## name) \
+            CREATE_MOD_MORPH_GUI(m_ctl_gui_ ## name,     &mmc_ ## name,       &mmcg_ ## name) \
+            CREATE_MOD_MORPH_GUI(m_alt_gui_ ## name,     &mma_ ## name,       &mmag_ ## name) \
+            CREATE_MOD_MORPH_GUI(m_alt_ctl_gui_ ## name, &mmac_ ## name,      &mmacg_ ## name) \
+            \
+            CREATE_MOD_MORPH_CTL(m_ctl_ ## name,         &m_gui_ ## name,     &m_ctl_gui_ ## name) \
+            CREATE_MOD_MORPH_CTL(m_alt_ctl_ ## name,     &m_alt_gui_ ## name, &m_alt_ctl_gui_ ## name) \
+            \
+            CREATE_MOD_MORPH_ALT(m_alt_ ## name,         &m_ctl_ ## name,     &m_alt_ctl_ ## name) \
         }; \
     }; \
     / { \
