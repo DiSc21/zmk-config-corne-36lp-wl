@@ -33,7 +33,7 @@
 
 #include "shared_defs.dtsi"
 
-#define KEY_SEQ_MACRO_WAIT_MS 40
+#define KEY_SEQ_MACRO_WAIT_MS 35
 #define KEY_SEQ_MACRO_TAP_MS 30
 
 ///
@@ -178,7 +178,7 @@
 /// @param raw_binding: unmodified binding
 /// @param mod_binding: the modified behavior
 ///
-#define CREATE_DOUBLE_TABDANCE(name, single_bind, double_bind) \
+#define CREATE_DOUBLE_TAPDANCE(name, single_bind, double_bind) \
     /omit-if-no-ref/ td_ ## name: td_ ## name { \
         compatible = "zmk,behavior-tap-dance"; \
         #binding-cells = <0>; \

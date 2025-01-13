@@ -51,24 +51,36 @@
 
 / {
     behaviors {
-
         MOD_MORPH_IGNORE_MODS(a, &kp A)
         MOD_MORPH_IGNORE_MODS(b, &kp B)
         MOD_MORPH_IGNORE_MODS(c, &kp C)
         MOD_MORPH_IGNORE_MODS(d, &kp D)
         MOD_MORPH_IGNORE_MODS(e, &kp E)
 
+        MOD_MORPH_IGNORE_MODS(f, &kp F)
         MOD_MORPH_IGNORE_MODS(g, &kp G)
         MOD_MORPH_IGNORE_MODS(h, &kp H)
         MOD_MORPH_IGNORE_MODS(i, &kp I)
+        MOD_MORPH_IGNORE_MODS(j, &kp J)
+
         MOD_MORPH_IGNORE_MODS(k, &kp K)
         MOD_MORPH_IGNORE_MODS(l, &kp L)
+        MOD_MORPH_IGNORE_MODS(m, &kp M)
         MOD_MORPH_IGNORE_MODS(n, &kp N)
         MOD_MORPH_IGNORE_MODS(o, &kp O)
+
+        MOD_MORPH_IGNORE_MODS(p, &kp P)
+        MOD_MORPH_IGNORE_MODS(q, &kp Q)
         MOD_MORPH_IGNORE_MODS(r, &kp R)
-        MOD_MORPH_IGNORE_MODS(u, &kp U)
-        MOD_MORPH_IGNORE_MODS(v, &kp V)
         MOD_MORPH_IGNORE_MODS(s, &kp S)
         MOD_MORPH_IGNORE_MODS(t, &kp T)
+
+        MOD_MORPH_IGNORE_MODS(u, &kp U)
+        MOD_MORPH_IGNORE_MODS(v, &kp V)
+        MOD_MORPH_IGNORE_MODS(w, &kp W)
+        MOD_MORPH_IGNORE_MODS(x, &kp X)
+        MOD_MORPH_IGNORE_MODS(y, &kp Y)
+
+        MOD_MORPH_IGNORE_MODS(z, &kp Z)
     };
 };
