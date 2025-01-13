@@ -28,10 +28,21 @@
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠻⠿⠿⠿⣿⣿⣿⣿⣿⣿⡿⠿⠿⠿⠟⠁
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠻⠋
 ╭───────────────────────────────────────────────────────╮
-│ @brief:                                               │
-│ @depends:                                             │
+│ @brief: ZMK keymap for corne 3x5                      │
+│                                                       │
+│ @depends (external and non-std):                      │
+│ - num_word (keeps caps until non-alpha tap)           │
+│                                                       │
+│ @depends (macros and defs):                           │
+│ - combos.dtsi (combos for signs on default layer)     │
 │ - shared_defs.dtsi (key positions)                    │
-│ - shared_macros.dtsi (some aux macros).               │
+│ - shared_macros.dtsi (some aux macros)                │
+│ - shared_nomod_morphs.dtsi (modifier-resistant-keys)  │
+│                                                       │
+│ @depends (custom behaviors):                          │
+│ - behaviors_hrm.dtsi (home-row-modifiers)             │
+│ - behaviors_led.dtsi (custom led-layer-hold-tabs)     │
+│ - behaviors_multigraphs.dtsi (multikey macros)        │
 ╰───────────────────────────────────────────────────────╯
 */
 
@@ -50,10 +61,14 @@
 /* shared defines for key nums, layers and timings */
 #include "shared_defs.dtsi"
 #include "shared_macros.dtsi"
+#include "shared_nomod_morphs.dtsi"
+
+/* some custom behavior definitions */
 #include "behaviors_hrm.dtsi"
 #include "behaviors_led.dtsi"
 #include "behaviors_multigrams.dtsi"
 
+/* custom combos */
 #include "combos.dtsi"
 
 &led_strip {
@@ -159,7 +174,7 @@
         multigrams {
             display-name = "mg-arrows";
             bindings = <
-                &none &none          &none         &td_mms_e    &none        &mms_th        &none    &mms_un         &mms_in       &td_mms_o         &none             &none
+                &none &none          &none         &td_mms_e    &none        &mms_th        &none    &mms_un         &mumo_in       &td_mms_o         &none             &none
                 &none &hm_l LSHIFT A &hm_l LCTRL S &hm_l LGUI D &hm_l LALT F &none          &kp LEFT &hm_r RALT DOWN &hm_r RGUI UP  &hm_r RCTRL RIGHT &hm_r RSHIFT SEMI &none
                 &none &none          &none         &none        &none        &none          &none    &none           &add_spc COMMA &add_spsh DOT     &none             &none
                                                    &trans       &trans       &trans         &trans   &trans          &trans

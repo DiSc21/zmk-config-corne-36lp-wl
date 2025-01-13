@@ -1,0 +1,65 @@
+/*
+╭──────────────────────────────────────────────────────────╮
+│ @Author:  TheDirkKnight     @Contact:  github.com/DiSc21 │
+│ @License: MIT             @copyright: 2024 TheDirkKnight │
+│ @Data:    2025/01/04                                     │
+╰──────────────────────────────────────────────────────────╯
+ ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡆⠀⠀⠀⠀⠀⠀⠀⣆              ⠀⠀⠀⣶⡀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣾⡇⠀⠀⠀⠀⠀⠀⠀⣿⡇               ⣼⣿⣧
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⡇⠀⠀⠀⠀⠀⠀⠀⡿⣿             ⠀⣰⣿⣿⣿⣆
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⠀⠀⠀⠀⠀⠀⠀⠃⣿⡄           ⠀⢠⣿⣿⣿⣿⣿⣆
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⣿⣿⣿⣿⣿⣿⣷⣼⣿⡇           ⣰⣿⣿⣿⣿⣿⣿⣿⣆
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⡇⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿           ⣰⣿⣿⣿⠋⠉⠙⣿⣿⣿⣆
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣼⣿⣿⣿⣿⣿⣿⣿⣿⡏          ⣰⣿⣿⣿⡇⠀⠀⠀⢸⣿⣿⣟⣆
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢙⡻⢿⣿⡿⡟⣿⡿⠟⣛⠁        ⠀⣴⣿⠿⠛⠋⠁⠀⠀⠀⠈⠙⠛⠿⣿⣦
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣠⣴⡾⠛⠉⠀⠀⠀⠉⠓⠂ ⡀⠀⠐⠛⠁⠀⠀⠀⣸⣿⣦⣄⡀⠀⠈⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠁
+⠀⠀⠀⠀⠀⠀⢀⣀⣀⣤⣤⣶⣿⣿⣿⣿⣿⣷⣆⠀⠀⠀⠀⠀⠀⢠⡇⠀⠀⠀⠀⠀⠀⠀⠈⣻⣿⣿⣿⣷⣶⣤⣤⣤⣄⣀
+⠀⠀⠀⢀⣴⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠁⠀⠀⠀⠀ ⣀⣀  ⠀⠀⠀⠀⠀⠀⠀⠙⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣶⡄
+⠀⠀⡾⣿⣿⣿⣿⠿⠋⢁⣿⣿⣿⣿⣿⣿⣟⣥⣶⢿⡛⠉⠀⠀⠈⠀⠀⠁⠀⠀⠀⠈⢙⡻⢷⣿⣿⣿⣿⣿⣿⣿⡟⠿⠿⣿⣿⣿⣿
+⠀⠀⠀⣿⣿⠟⠁⠀⢠⣿⣿⣿⣿⣿⣿⡿⢟⣭⣶⣿⣷⣄⠀⠀⠀⣄⣀⡄⠀⠀⢀⣴⣿⣿⣷⣝⡻⣿⣿⣿⣿⣿⣿⣦⡀⠀⠉⠛⢿
+⠀⠀⠀⠿⠁⠀⠀⠀⠋⠁⣿⣿⣿⡿⢋⣴⣿⣿⣿⣿⣿⣿⣿⣶⣾⣿⣿⣿⣶⣿⣿⣿⣿⣿⣿⣿⣿⣮⡻⣿⣿⣿⠯⠉⠙
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⠁⠽⠋⠠⠿⠿⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠿⠷⠌⠻⠟
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠻⠿⠿⠿⣿⣿⣿⣿⣿⣿⡿⠿⠿⠿⠟⠁
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠻⠋
+╭──────────────────────────────────────────────────────────╮
+│ @brief: ZMK dtsi file for key-taps ignoring modifiers.   │
+│                                                          │
+│ @depends:                                                │
+│ - shared_defs.dtsi (key positions)                       │
+╰──────────────────────────────────────────────────────────╯
+*/
+
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+
+#include "shared_defs.dtsi"
+
+///
+/// @brief create mod morph that is ignoring all modifiers
+///
+/// @param name: name-postfix of the created mod-morph
+/// @param cmd_bind: the behavior assigned to
+///
+#define MOD_MORPH_IGNORE_MODS(name, cmd_bind) \
+    /omit-if-no-ref/ kpr_ ## name: kpr_ ## name { \
+        compatible = "zmk,behavior-mod-morph"; \
+        #binding-cells = <0>; \
+        bindings = <cmd_bind>, <cmd_bind>; \
+        mods = <(MOD_LCTL|MOD_RCTL|MOD_LALT|MOD_RALT|MOD_LSFT|MOD_RSFT|MOD_LGUI|MOD_RGUI)>; \
+    }; \
+
+
+/ {
+    behaviors {
+
+        MOD_MORPH_IGNORE_MODS(a, &kp A)
+        MOD_MORPH_IGNORE_MODS(b, &kp B)
+
+        MOD_MORPH_IGNORE_MODS(e, &kp E)
+        MOD_MORPH_IGNORE_MODS(g, &kp G)
+        MOD_MORPH_IGNORE_MODS(i, &kp I)
+        MOD_MORPH_IGNORE_MODS(n, &kp N)
+        MOD_MORPH_IGNORE_MODS(r, &kp R)
+        MOD_MORPH_IGNORE_MODS(v, &kp V)
+    };
+};

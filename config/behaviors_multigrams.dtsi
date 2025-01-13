@@ -35,6 +35,7 @@
 
 #include "shared_defs.dtsi"
 #include "shared_macros.dtsi"
+#include "shared_nomod_morphs.dtsi"
 
 
 ///
@@ -85,6 +86,17 @@
 
 / {
     behaviors {
+        //&sk {
+        //    release-after-ms = <100>;
+        //    quick-release;
+        //};
+        //kt_off: key_toggle_off_only {
+        //    compatible = "zmk,behavior-key-toggle";
+        //    #binding-cells = <1>;
+        //    display-name = "Key Toggle On";
+        //    toggle-mode = "on";
+        //};
+
         // Shift-ModMorph
         CREATE_SHIFT_MOD_MACRO(th, T, &kp H)
         CREATE_SHIFT_MOD_MACRO(gh, T, &kp H)
@@ -105,12 +117,13 @@
     };
 };
 
+//CREATE_MULTI_MOD_MORPH_MACRO(at, A, &kp T, &kp R &kp E, &kp V &kp E, &kp N &kp G)
 
 //CREATE_MULTI_MOD_MORPH_MACRO(th, &kp T &kp H, &kp T &kp H &kp E, &kp T &kp E &kp R, &kp T &kp H &kp A &kp T)
 //
 //CREATE_MULTI_MOD_MORPH_MACRO(at, &kp A &kp T, &kp A &kp R &kp E, &kp A &kp V &kp E, &kp A &kp N &kp G)
 //CREATE_MULTI_MOD_MORPH_MACRO(er, &kp E &kp R, &kp E &kp R &kp E, &kp E &kp V &kp E, &kp E &kp N &kp G)
 //CREATE_MULTI_MOD_MORPH_MACRO(or, &kp O &kp R, &kp O &kp R &kp E, &kp O &kp V &kp E, &kp O &kp N &kp G)
-//CREATE_MULTI_MOD_MORPH_MACRO(in, &kp I &kp N, &kp I &kp R &kp E, &kp I &kp V &kp E, &kp I &kp N &kp G)
+CREATE_MULTI_MOD_MORPH_MACRO(in, &kpr_i &kpr_n,  &kpr_i &kpr_r &kpr_e, &kpr_i &kpr_v &kpr_e, &kpr_i &kpr_n &kpr_g)
 //CREATE_MULTI_MOD_MORPH_MACRO(un, &kp U &kp N, &kp U &kp R &kp E, &kp U &kp V &kp E, &kp U &kp N &kp G)
 
