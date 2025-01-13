@@ -42,61 +42,73 @@
 /// @brief macro for the creation of nested mod-morphes
 ///
 /// @param name: postfix of the created mod-morph, use as &mumo_name
+/// @param first_key: first key prepended to all bindings and reactive to SHIFT
 /// @param mmb_bind: unmodified base binding
-/// @param mmc_bind: ctrl binding
-/// @param mmg_bind: gui binding
-/// @param mmcg_bind: combined ctrl+gui binding
+/// @param mmc_bind: CTRL binding
+/// @param mmg_bind: GUI binding
+/// @param mmcg_bind: combined CTRL+GUI binding
+/// @param mma_bind: ALT base binding
+/// @param mmac_bind: ALT+CTRL binding
+/// @param mmag_bind: ALT+GUI binding
+/// @param mmacg_bind: combined ALT+CTRL+GUI binding
 ///
 /// @note this macro creates a two-dimensional nested multi-mod-morph.
 /// ALT+SHIFT modify the bindings by appending space (ALT) and caps first letter (SHIFT)
 /// GUI+CTRL alternate the base binding defined by params mmb/mmc/mmg/mmcg_bind
 ///
-#define CREATE_MULTI_MOD_MORPH_MACRO(name, mmb_bind, mmc_bind, mmg_bind, mmcg_bind) \
+#define CREATE_MULTI_MOD_MORPH_MACRO(name, first_key, mmb_bind, mmc_bind, mmg_bind, mmcg_bind, mma_bind, mmac_bind, mmag_bind, mmacg_bind) \
     / { \
         macros { \
-            NO_PARAM_SANDWICH(mmb_ ## name,  &none, mmb_bind,  &none) \
-            NO_PARAM_SANDWICH(mmc_ ## name,  &none, mmc_bind,  &none) \
-            NO_PARAM_SANDWICH(mmg_ ## name,  &none, mmg_bind,  &none) \
-            NO_PARAM_SANDWICH(mmcg_ ## name, &none, mmcg_bind, &none) \
+            SEQUENCE_SIMPLE(mmb_ ## name,   mmb_bind) \
+            SEQUENCE_SIMPLE(mmc_ ## name,   mmc_bind) \
+            SEQUENCE_SIMPLE(mmg_ ## name,   mmg_bind) \
+            SEQUENCE_SIMPLE(mmcg_ ## name,  mmcg_bind) \
+            \
+            SEQUENCE_SIMPLE(mma_ ## name,   mmab_bind) \
+            SEQUENCE_SIMPLE(mmac_ ## name,  mmac_bind) \
+            SEQUENCE_SIMPLE(mmag_ ## name,  mmag_bind) \
+            SEQUENCE_SIMPLE(mmacg_ ## name, mmacg_bind) \
         }; \
     }; \
     / { \
         behaviors { \
-            CREATE_MOD_MORPH_GUI(mcg_ ## name, &mmc_ ## name, &mmcg_ ## name) \
-            CREATE_MOD_MORPH_GUI(mg_ ## name,  &mmb_ ## name, &mmg_ ## name) \
+            CREATE_MOD_MORPH_GUI(m_gui_ ## name,         &mmb_ ## name,       &mmg_ ## name) \
+            CREATE_MOD_MORPH_GUI(m_ctl_gui_ ## name,     &mmc_ ## name,       &mmcg_ ## name) \
+            CREATE_MOD_MORPH_GUI(m_alt_gui_ ## name,     &mma_ ## name,       &mmag_ ## name) \
+            CREATE_MOD_MORPH_GUI(m_alt_ctl_gui_ ## name, &mmac_ ## name,      &mmacg_ ## name) \
             \
-            CREATE_MOD_MORPH_CTL(mc_ ## name,  &mg_ ## name,  &mcg_ ## name) \
+            CREATE_MOD_MORPH_CTL(m_ctl_ ## name,         &m_gui_ ## name,     &m_ctl_gui_ ## name) \
+            CREATE_MOD_MORPH_CTL(m_alt_ctl_ ## name,     &m_alt_gui_ ## name, &m_alt_ctl_gui_ ## name) \
+            \
+            CREATE_MOD_MORPH_ALT(m_alt_ ## name,         &m_ctl_ ## name,     &m_alt_ctl_ ## name) \
         }; \
     }; \
     / { \
         macros { \
-            NO_PARAM_SANDWICH(mod_space_ ## name,      &none,      &mc_ ## name, &kp SPACE) \
-            NO_PARAM_SANDWICH(mod_caps_ ## name,       &sk LSHIFT, &mc_ ## name, &none) \
-            NO_PARAM_SANDWICH(mod_caps_space_ ## name, &sk LSHIFT, &mc_ ## name, &kp SPACE) \
+            NO_PARAM_SANDWICH(m_shift_ ## name,    &kp LS(first_key), &m_alt_ ## name, &none) \
+            NO_PARAM_SANDWICH(m_no_shift_ ## name, &kp first_key,     &m_alt_ ## name, &none) \
         }; \
     }; \
     / { \
         behaviors { \
-            CREATE_MOD_MORPH_SFT(mas_ ## name,  &mod_space_ ## name, &mod_caps_space_ ## name) \
-            CREATE_MOD_MORPH_SFT(ms_ ## name,   &mc_ ## name,        &mod_caps_ ## name) \
-            \
-            CREATE_MOD_MORPH_ALT(mumo_ ## name, &ms_ ## name,        &mas_ ## name) \
+            CREATE_MOD_MORPH_SFT(mumo_ ## name, &m_no_shift_ ## name, &m_shift_ ## name) \
         }; \
-    };
+    }; \
+    / { \
+        macros { \
+            NO_PARAM_SANDWICH(td_spc_ ## name, &none, &mumo_ ## name, &kp SPACE) \
+            NO_PARAM_SANDWICH(td_raw_ ## name, &none, &mumo_ ## name, &none) \
+        }; \
+    }; \
+    / { \
+        behaviors { \
+            CREATE_DOUBLE_TABDANCE(tdmm_ ## name, &td_raw_ ## name, &td_spc_ ## name) \
+        }; \
+    }; \
+
 
 / {
     behaviors {
-        //&sk {
-        //    release-after-ms = <100>;
-        //    quick-release;
-        //};
-        //kt_off: key_toggle_off_only {
-        //    compatible = "zmk,behavior-key-toggle";
-        //    #binding-cells = <1>;
-        //    display-name = "Key Toggle On";
-        //    toggle-mode = "on";
-        //};
-
         // Shift-ModMorph
         CREATE_SHIFT_MOD_MACRO(th, T, &kp H)
         CREATE_SHIFT_MOD_MACRO(gh, T, &kp H)
@@ -108,14 +120,19 @@
         // [E] Tabdance-Shift-ModMorph
         CREATE_SHIFT_MOD_MACRO(er, E, &kp R)
         CREATE_SHIFT_MOD_MACRO(ed, E, &kp D)
-        CREATE_TABDANCE_TWO(mms_e, &mms_er, &mms_ed)
+        CREATE_DOUBLE_TABDANCE(mms_e, &mms_er, &mms_ed)
 
         // [O] Tabdance-Shift-ModMorph
         CREATE_SHIFT_MOD_MACRO(or, O, &kp R)
         CREATE_SHIFT_MOD_MACRO(on, O, &kp N)
-        CREATE_TABDANCE_TWO(mms_o, &mms_or, &mms_on)
+        CREATE_DOUBLE_TABDANCE(mms_o, &mms_or, &mms_on)
     };
 };
+
+
+CREATE_MULTI_MOD_MORPH_MACRO(in, I, &kpr_n,   &kpr_r &kpr_e,   &kpr_v &kpr_e,   &kpr_n &kpr_g,   &kpr_n &kpr_d,   &kpr_c &kpr_k,   &kpr_t &kpr_h,   &kpr_g &kpr_h &kpr_t)
+
+
 
 //CREATE_MULTI_MOD_MORPH_MACRO(at, A, &kp T, &kp R &kp E, &kp V &kp E, &kp N &kp G)
 
@@ -124,6 +141,39 @@
 //CREATE_MULTI_MOD_MORPH_MACRO(at, &kp A &kp T, &kp A &kp R &kp E, &kp A &kp V &kp E, &kp A &kp N &kp G)
 //CREATE_MULTI_MOD_MORPH_MACRO(er, &kp E &kp R, &kp E &kp R &kp E, &kp E &kp V &kp E, &kp E &kp N &kp G)
 //CREATE_MULTI_MOD_MORPH_MACRO(or, &kp O &kp R, &kp O &kp R &kp E, &kp O &kp V &kp E, &kp O &kp N &kp G)
-CREATE_MULTI_MOD_MORPH_MACRO(in, &kpr_i &kpr_n,  &kpr_i &kpr_r &kpr_e, &kpr_i &kpr_v &kpr_e, &kpr_i &kpr_n &kpr_g)
+//CREATE_MULTI_MOD_MORPH_MACRO(in, &kpr_i &kpr_n,  &kpr_i &kpr_r &kpr_e, &kpr_i &kpr_v &kpr_e, &kpr_i &kpr_n &kpr_g)
 //CREATE_MULTI_MOD_MORPH_MACRO(un, &kp U &kp N, &kp U &kp R &kp E, &kp U &kp V &kp E, &kp U &kp N &kp G)
+
+//#define CREATE_MULTI_MOD_MORPH_MACRO(name, mmb_bind, mmc_bind, mmg_bind, mmcg_bind) \
+//    / { \
+//        macros { \
+//            NO_PARAM_SANDWICH(mmb_ ## name,  &none, mmb_bind,  &none) \
+//            NO_PARAM_SANDWICH(mmc_ ## name,  &none, mmc_bind,  &none) \
+//            NO_PARAM_SANDWICH(mmg_ ## name,  &none, mmg_bind,  &none) \
+//            NO_PARAM_SANDWICH(mmcg_ ## name, &none, mmcg_bind, &none) \
+//        }; \
+//    }; \
+//    / { \
+//        behaviors { \
+//            CREATE_MOD_MORPH_GUI(mcg_ ## name, &mmc_ ## name, &mmcg_ ## name) \
+//            CREATE_MOD_MORPH_GUI(mg_ ## name,  &mmb_ ## name, &mmg_ ## name) \
+//            \
+//            CREATE_MOD_MORPH_CTL(mc_ ## name,  &mg_ ## name,  &mcg_ ## name) \
+//        }; \
+//    }; \
+//    / { \
+//        macros { \
+//            NO_PARAM_SANDWICH(mod_space_ ## name,      &none,      &mc_ ## name, &kp SPACE) \
+//            NO_PARAM_SANDWICH(mod_caps_ ## name,       &sk LSHIFT, &mc_ ## name, &none) \
+//            NO_PARAM_SANDWICH(mod_caps_space_ ## name, &sk LSHIFT, &mc_ ## name, &kp SPACE) \
+//        }; \
+//    }; \
+//    / { \
+//        behaviors { \
+//            CREATE_MOD_MORPH_SFT(mas_ ## name,  &mod_space_ ## name, &mod_caps_space_ ## name) \
+//            CREATE_MOD_MORPH_SFT(ms_ ## name,   &mc_ ## name,        &mod_caps_ ## name) \
+//            \
+//            CREATE_MOD_MORPH_ALT(mumo_ ## name, &ms_ ## name,        &mas_ ## name) \
+//        }; \
+//    };
 

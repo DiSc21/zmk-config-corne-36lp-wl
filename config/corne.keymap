@@ -174,7 +174,7 @@
         multigrams {
             display-name = "mg-arrows";
             bindings = <
-                &none &none          &none         &td_mms_e    &none        &mms_th        &none    &mms_un         &mumo_in       &td_mms_o         &none             &none
+                &none &none          &none         &td_mms_e    &none        &mms_th        &none    &mms_un         &tdmm_in       &td_mms_o         &none             &none
                 &none &hm_l LSHIFT A &hm_l LCTRL S &hm_l LGUI D &hm_l LALT F &none          &kp LEFT &hm_r RALT DOWN &hm_r RGUI UP  &hm_r RCTRL RIGHT &hm_r RSHIFT SEMI &none
                 &none &none          &none         &none        &none        &none          &none    &none           &add_spc COMMA &add_spsh DOT     &none             &none
                                                    &trans       &trans       &trans         &trans   &trans          &trans

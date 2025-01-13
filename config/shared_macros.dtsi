@@ -33,6 +33,23 @@
 
 #include "shared_defs.dtsi"
 
+#define KEY_SEQ_MACRO_WAIT_MS 40
+#define KEY_SEQ_MACRO_TAP_MS 30
+
+///
+/// @brief helper for creation of simple macro
+///
+/// @param tap_bind: behavior sequence processed on tap
+///
+#define SEQUENCE_SIMPLE(name, tap_bind) \
+        /omit-if-no-ref/ name: name { \
+            compatible = "zmk,behavior-macro"; \
+            wait-ms = <KEY_SEQ_MACRO_WAIT_MS>; \
+            tap-ms = <KEY_SEQ_MACRO_TAP_MS>; \
+            #binding-cells = <0>; \
+            bindings = <&macro_tap tap_bind>; \
+        };
+
 ///
 /// @brief create single-arg &kp-style with some pre and post command
 ///
@@ -161,7 +178,7 @@
 /// @param raw_binding: unmodified binding
 /// @param mod_binding: the modified behavior
 ///
-#define CREATE_TABDANCE_TWO(name, single_bind, double_bind) \
+#define CREATE_DOUBLE_TABDANCE(name, single_bind, double_bind) \
     /omit-if-no-ref/ td_ ## name: td_ ## name { \
         compatible = "zmk,behavior-tap-dance"; \
         #binding-cells = <0>; \
