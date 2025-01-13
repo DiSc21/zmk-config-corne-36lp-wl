@@ -58,40 +58,8 @@
 ///
 #define CREATE_MULTI_MOD_MORPH_MACRO(name, first_key, mmb_bind, mmc_bind, mmg_bind, mmcg_bind, mma_bind, mmac_bind, mmag_bind, mmacg_bind) \
     / { \
-        macros { \
-            SEQUENCE_SIMPLE(mmb_ ## name,   mmb_bind) \
-            SEQUENCE_SIMPLE(mmc_ ## name,   mmc_bind) \
-            SEQUENCE_SIMPLE(mmg_ ## name,   mmg_bind) \
-            SEQUENCE_SIMPLE(mmcg_ ## name,  mmcg_bind) \
-            \
-            SEQUENCE_SIMPLE(mma_ ## name,   mmab_bind) \
-            SEQUENCE_SIMPLE(mmac_ ## name,  mmac_bind) \
-            SEQUENCE_SIMPLE(mmag_ ## name,  mmag_bind) \
-            SEQUENCE_SIMPLE(mmacg_ ## name, mmacg_bind) \
-        }; \
-    }; \
-    / { \
         behaviors { \
-            CREATE_MOD_MORPH_GUI(m_gui_ ## name,         &mmb_ ## name,       &mmg_ ## name) \
-            CREATE_MOD_MORPH_GUI(m_ctl_gui_ ## name,     &mmc_ ## name,       &mmcg_ ## name) \
-            CREATE_MOD_MORPH_GUI(m_alt_gui_ ## name,     &mma_ ## name,       &mmag_ ## name) \
-            CREATE_MOD_MORPH_GUI(m_alt_ctl_gui_ ## name, &mmac_ ## name,      &mmacg_ ## name) \
-            \
-            CREATE_MOD_MORPH_CTL(m_ctl_ ## name,         &m_gui_ ## name,     &m_ctl_gui_ ## name) \
-            CREATE_MOD_MORPH_CTL(m_alt_ctl_ ## name,     &m_alt_gui_ ## name, &m_alt_ctl_gui_ ## name) \
-            \
-            CREATE_MOD_MORPH_ALT(m_alt_ ## name,         &m_ctl_ ## name,     &m_alt_ctl_ ## name) \
-        }; \
-    }; \
-    / { \
-        macros { \
-            NO_PARAM_SANDWICH(m_shift_ ## name,    &kp LS(first_key), &m_alt_ ## name, &none) \
-            NO_PARAM_SANDWICH(m_no_shift_ ## name, &kp first_key,     &m_alt_ ## name, &none) \
-        }; \
-    }; \
-    / { \
-        behaviors { \
-            CREATE_MOD_MORPH_SFT(mumo_ ## name, &m_no_shift_ ## name, &m_shift_ ## name) \
+            CREATE_MOD_MORPH_SFT(mumo_ ## name, &kp I, &kp I) \
         }; \
     }; \
     / { \
@@ -102,7 +70,7 @@
     }; \
     / { \
         behaviors { \
-            CREATE_DOUBLE_TABDANCE(tdmm_ ## name, &td_raw_ ## name, &td_spc_ ## name) \
+            CREATE_DOUBLE_TABDANCE(mm_ ## name, &td_raw_ ## name, &td_spc_ ## name) \
         }; \
     }; \
 
@@ -130,7 +98,7 @@
 };
 
 
-CREATE_MULTI_MOD_MORPH_MACRO(in, I, &kpr_n,   &kpr_r &kpr_e,   &kpr_v &kpr_e,   &kpr_n &kpr_g,   &kpr_n &kpr_d,   &kpr_c &kpr_k,   &kpr_t &kpr_h,   &kpr_g &kpr_h &kpr_t)
+CREATE_MULTI_MOD_MORPH_MACRO(i, I, &kpr_n,   &kpr_r &kpr_e,   &kpr_v &kpr_e,   &kpr_n &kpr_g,   &kpr_n &kpr_d,   &kpr_c &kpr_k,   &kpr_t &kpr_h,   &kpr_g &kpr_h &kpr_t)
 
 
 
