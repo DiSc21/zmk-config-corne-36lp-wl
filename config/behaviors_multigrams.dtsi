@@ -42,7 +42,8 @@
 /// @brief macro for the creation of nested mod-morphes
 ///
 /// @param name: postfix of the created mod-morph
-/// @param first_key: first key prepended to all bindings and reactive to SHIFT
+/// @param first_key:   first key prepended to all bindings if SHIFT modifier not active
+/// @param first_key_c: first key prepended to all bindings if SHIFT modifier is active
 /// @param mmb_bind: unmodified base binding
 /// @param mmc_bind: CTRL binding
 /// @param mmg_bind: GUI binding
@@ -59,7 +60,7 @@
 /// @usage 'mumo_##name' for multigram-mod-morph only, i.e. without tapdance-space-append
 /// @usage 'td_mm_##name' for multigram-mod-morph with tapdance-space-append
 ///
-#define CREATE_MULTI_MOD_MORPH_MACRO(name, first_key, mmb_bind, mmc_bind, mmg_bind, mmcg_bind, mma_bind, mmac_bind, mmag_bind, mmacg_bind) \
+#define CREATE_MULTI_MOD_MORPH_MACRO(name, first_key, first_key_c, mmb_bind, mmc_bind, mmg_bind, mmcg_bind, mma_bind, mmac_bind, mmag_bind, mmacg_bind) \
     / { \
         macros { \
             SEQUENCE_SIMPLE(mmb_ ## name,   mmb_bind) \
@@ -88,8 +89,8 @@
     }; \
     / { \
         macros { \
-            SEQUENCE_SIMPLE(m_shift_ ## name,    &kp LS(first_key) &m_alt_##name) \
-            SEQUENCE_SIMPLE(m_no_shift_ ## name, &kp first_key &m_alt_##name) \
+            SEQUENCE_SIMPLE(m_shift_ ## name,    &kp first_key_c &m_alt_ ## name) \
+            SEQUENCE_SIMPLE(m_no_shift_ ## name, &kp first_key &m_alt_ ## name) \
         }; \
     }; \
     / { \
@@ -99,8 +100,8 @@
     }; \
     / { \
         macros { \
-            SEQUENCE_SIMPLE(td_spc_ ## name, &mumo_##name &kp SPACE) \
-            SEQUENCE_SIMPLE(td_raw_ ## name, &mumo_##name) \
+            SEQUENCE_SIMPLE(td_spc_ ## name, &mumo_ ## name &kp SPACE) \
+            SEQUENCE_SIMPLE(td_raw_ ## name, &mumo_ ## name) \
         }; \
     }; \
     / { \
@@ -112,13 +113,13 @@
 
 
 
-CREATE_MULTI_MOD_MORPH_MACRO(t, T, &kpr_h,   &kpr_h &kpr_e,   &kpr_e &kpr_r,   &kpr_o &kpr_r,   &kpr_h &kpr_a &kpr_t,   &kpr_h &kpr_i &kpr_s,   &kpr_h &kpr_e &kpr_y,   &kpr_i &kpr_o &kpr_n)
+CREATE_MULTI_MOD_MORPH_MACRO(t, &kpr_t, &kpr_ct, &kpr_h,   &kpr_h &kpr_e,   &kpr_e &kpr_r,   &kpr_o &kpr_r,   &kpr_h &kpr_a &kpr_t,   &kpr_h &kpr_i &kpr_s,   &kpr_h &kpr_e &kpr_y,   &kpr_i &kpr_o &kpr_n)
 
-CREATE_MULTI_MOD_MORPH_MACRO(a, A, &kpr_t,   &kpr_r &kpr_e,   &kpr_v &kpr_e,   &kpr_n &kpr_g,   &kpr_n &kpr_d,   &kpr_c &kpr_k,   &kpr_t &kpr_h,   &kpr_t &kpr_i &kpr_o)
-CREATE_MULTI_MOD_MORPH_MACRO(e, E, &kpr_r,   &kpr_r &kpr_e,   &kpr_v &kpr_e,   &kpr_n &kpr_g,   &kpr_n &kpr_d,   &kpr_c &kpr_k,   &kpr_t &kpr_h,   &kpr_v &kpr_e &kpr_r)
-CREATE_MULTI_MOD_MORPH_MACRO(o, O, &kpr_r,   &kpr_r &kpr_e,   &kpr_v &kpr_e,   &kpr_n &kpr_g,   &kpr_n &kpr_d,   &kpr_c &kpr_k,   &kpr_t &kpr_h,   &kpr_u &kpr_l &kpr_d)
-CREATE_MULTI_MOD_MORPH_MACRO(i, I, &kpr_n,   &kpr_r &kpr_e,   &kpr_v &kpr_e,   &kpr_n &kpr_g,   &kpr_n &kpr_d,   &kpr_c &kpr_k,   &kpr_t &kpr_h,   &kpr_g &kpr_h &kpr_t)
-CREATE_MULTI_MOD_MORPH_MACRO(u, U, &kpr_n,   &kpr_r &kpr_e,   &kpr_v &kpr_e,   &kpr_n &kpr_g,   &kpr_n &kpr_d,   &kpr_c &kpr_k,   &kpr_t &kpr_h,   &kpr_s &kpr_e)
+CREATE_MULTI_MOD_MORPH_MACRO(a, &kpr_a, &kpr_ca, &kpr_t,   &kpr_r &kpr_e,   &kpr_v &kpr_e,   &kpr_n &kpr_g,   &kpr_n &kpr_d,   &kpr_c &kpr_k,   &kpr_t &kpr_h,   &kpr_t &kpr_i &kpr_o)
+CREATE_MULTI_MOD_MORPH_MACRO(e, &kpr_e, &kpr_ce, &kpr_r,   &kpr_r &kpr_e,   &kpr_v &kpr_e,   &kpr_n &kpr_g,   &kpr_n &kpr_d,   &kpr_c &kpr_k,   &kpr_t &kpr_h,   &kpr_v &kpr_e &kpr_r)
+CREATE_MULTI_MOD_MORPH_MACRO(o, &kpr_o, &kpr_co, &kpr_r,   &kpr_r &kpr_e,   &kpr_v &kpr_e,   &kpr_n &kpr_g,   &kpr_n &kpr_d,   &kpr_c &kpr_k,   &kpr_t &kpr_h,   &kpr_u &kpr_l &kpr_d)
+CREATE_MULTI_MOD_MORPH_MACRO(i, &kpr_i, &kpr_ci, &kpr_n,   &kpr_r &kpr_e,   &kpr_v &kpr_e,   &kpr_n &kpr_g,   &kpr_n &kpr_d,   &kpr_c &kpr_k,   &kpr_t &kpr_h,   &kpr_g &kpr_h &kpr_t)
+CREATE_MULTI_MOD_MORPH_MACRO(u, &kpr_u, &kpr_cu, &kpr_n,   &kpr_r &kpr_e,   &kpr_v &kpr_e,   &kpr_n &kpr_g,   &kpr_n &kpr_d,   &kpr_c &kpr_k,   &kpr_t &kpr_h,   &kpr_s &kpr_e)
 
 
 

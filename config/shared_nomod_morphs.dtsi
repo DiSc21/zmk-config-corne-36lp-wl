@@ -82,5 +82,38 @@
         MOD_MORPH_IGNORE_MODS(y, &kp Y)
 
         MOD_MORPH_IGNORE_MODS(z, &kp Z)
+
+
+        MOD_MORPH_IGNORE_MODS(ca, &kp LS(A))
+        MOD_MORPH_IGNORE_MODS(cb, &kp LS(B))
+        MOD_MORPH_IGNORE_MODS(cc, &kp LS(C))
+        MOD_MORPH_IGNORE_MODS(cd, &kp LS(D))
+        MOD_MORPH_IGNORE_MODS(ce, &kp LS(E))
+
+        MOD_MORPH_IGNORE_MODS(cf, &kp LS(F))
+        MOD_MORPH_IGNORE_MODS(cg, &kp LS(G))
+        MOD_MORPH_IGNORE_MODS(ch, &kp LS(H))
+        MOD_MORPH_IGNORE_MODS(ci, &kp LS(I))
+        MOD_MORPH_IGNORE_MODS(cj, &kp LS(J))
+
+        MOD_MORPH_IGNORE_MODS(ck, &kp LS(K))
+        MOD_MORPH_IGNORE_MODS(cl, &kp LS(L))
+        MOD_MORPH_IGNORE_MODS(cm, &kp LS(M))
+        MOD_MORPH_IGNORE_MODS(cn, &kp LS(N))
+        MOD_MORPH_IGNORE_MODS(co, &kp LS(O))
+
+        MOD_MORPH_IGNORE_MODS(cp, &kp LS(P))
+        MOD_MORPH_IGNORE_MODS(cq, &kp LS(Q))
+        MOD_MORPH_IGNORE_MODS(cr, &kp LS(R))
+        MOD_MORPH_IGNORE_MODS(cs, &kp LS(S))
+        MOD_MORPH_IGNORE_MODS(ct, &kp LS(T))
+
+        MOD_MORPH_IGNORE_MODS(cu, &kp LS(U))
+        MOD_MORPH_IGNORE_MODS(cv, &kp LS(V))
+        MOD_MORPH_IGNORE_MODS(cw, &kp LS(W))
+        MOD_MORPH_IGNORE_MODS(cx, &kp LS(X))
+        MOD_MORPH_IGNORE_MODS(cy, &kp LS(Y))
+
+        MOD_MORPH_IGNORE_MODS(cz, &kp LS(Z))
     };
 };
