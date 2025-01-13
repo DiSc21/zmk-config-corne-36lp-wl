@@ -59,7 +59,18 @@
 #define CREATE_MULTI_MOD_MORPH_MACRO(name, first_key, mmb_bind, mmc_bind, mmg_bind, mmcg_bind, mma_bind, mmac_bind, mmag_bind, mmacg_bind) \
     / { \
         behaviors { \
-            CREATE_MOD_MORPH_SFT(mumo_ ## name, &kp I, &kp I) \
+            CREATE_MOD_MORPH_ALT(m_alt_ ## name, &kp I, &kp I) \
+        }; \
+    }; \
+    / { \
+        macros { \
+            NO_PARAM_SANDWICH(m_shift_ ## name,    &kp LS(first_key), &m_alt_ ## name, &none) \
+            NO_PARAM_SANDWICH(m_no_shift_ ## name, &kp first_key,     &m_alt_ ## name, &none) \
+        }; \
+    }; \
+    / { \
+        behaviors { \
+            CREATE_MOD_MORPH_SFT(mumo_ ## name, &m_no_shift_ ## name, &m_shift_ ## name) \
         }; \
     }; \
     / { \
