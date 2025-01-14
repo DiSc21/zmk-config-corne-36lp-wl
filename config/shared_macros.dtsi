@@ -39,6 +39,7 @@
 ///
 /// @brief helper for creation of simple macro
 ///
+/// @param name: name of the created mod-morph
 /// @param tap_bind: behavior sequence processed on tap
 ///
 #define SEQUENCE_SIMPLE(name, tap_bind) \

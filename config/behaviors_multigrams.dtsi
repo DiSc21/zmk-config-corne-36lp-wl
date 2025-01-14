@@ -37,6 +37,29 @@
 #include "shared_macros.dtsi"
 #include "shared_nomod_morphs.dtsi"
 
+#define DELAYED_MACRO_WAIT_MS 110
+
+/ {
+    macros {
+        ///
+        /// @brief single param macro with artificial delay for use in multi-key macros
+        ///
+        /// @note when using &kp in multikey macros after an other multikey macro it is usually
+        /// queued in before the last key of the inner multikey macro. This behavior adds an
+        /// artificial delay (max-number of inner macro keys times wait-ms) to prevent tap disorder.
+        ///
+        kpds: kpds {
+            compatible = "zmk,behavior-macro-one-param";
+            wait-ms = <DELAYED_MACRO_WAIT_MS>;
+            tap-ms = <30>;
+            #binding-cells = <1>;
+            bindings = <&macro_param_1to1>
+                     , <&macro_tap &kp MACRO_PLACEHOLDER>
+                     ;
+        };
+    };
+};
+
 
 ///
 /// @brief macro for the creation of nested mod-morphes
@@ -89,8 +112,8 @@
     }; \
     / { \
         macros { \
-            SEQUENCE_SIMPLE(m_shift_ ## name,    &kp first_key_c &m_alt_ ## name) \
-            SEQUENCE_SIMPLE(m_no_shift_ ## name, &kp first_key &m_alt_ ## name) \
+            SEQUENCE_SIMPLE(m_shift_ ## name,    first_key_c &m_alt_ ## name) \
+            SEQUENCE_SIMPLE(m_no_shift_ ## name, first_key &m_alt_ ## name) \
         }; \
     }; \
     / { \
@@ -100,7 +123,7 @@
     }; \
     / { \
         macros { \
-            SEQUENCE_SIMPLE(td_spc_ ## name, &mumo_ ## name &kp SPACE) \
+            SEQUENCE_SIMPLE(td_spc_ ## name, &mumo_ ## name &kpds SPACE) \
             SEQUENCE_SIMPLE(td_raw_ ## name, &mumo_ ## name) \
         }; \
     }; \
@@ -113,13 +136,14 @@
 
 
 
-CREATE_MULTI_MOD_MORPH_MACRO(t, &kpr_t, &kpr_ct, &kpr_h,   &kpr_h &kpr_e,   &kpr_e &kpr_r,   &kpr_o &kpr_r,   &kpr_h &kpr_a &kpr_t,   &kpr_h &kpr_i &kpr_s,   &kpr_h &kpr_e &kpr_y,   &kpr_i &kpr_o &kpr_n)
 
-CREATE_MULTI_MOD_MORPH_MACRO(a, &kpr_a, &kpr_ca, &kpr_t,   &kpr_r &kpr_e,   &kpr_v &kpr_e,   &kpr_n &kpr_g,   &kpr_n &kpr_d,   &kpr_c &kpr_k,   &kpr_t &kpr_h,   &kpr_t &kpr_i &kpr_o)
-CREATE_MULTI_MOD_MORPH_MACRO(e, &kpr_e, &kpr_ce, &kpr_r,   &kpr_r &kpr_e,   &kpr_v &kpr_e,   &kpr_n &kpr_g,   &kpr_n &kpr_d,   &kpr_c &kpr_k,   &kpr_t &kpr_h,   &kpr_v &kpr_e &kpr_r)
-CREATE_MULTI_MOD_MORPH_MACRO(o, &kpr_o, &kpr_co, &kpr_r,   &kpr_r &kpr_e,   &kpr_v &kpr_e,   &kpr_n &kpr_g,   &kpr_n &kpr_d,   &kpr_c &kpr_k,   &kpr_t &kpr_h,   &kpr_u &kpr_l &kpr_d)
-CREATE_MULTI_MOD_MORPH_MACRO(i, &kpr_i, &kpr_ci, &kpr_n,   &kpr_r &kpr_e,   &kpr_v &kpr_e,   &kpr_n &kpr_g,   &kpr_n &kpr_d,   &kpr_c &kpr_k,   &kpr_t &kpr_h,   &kpr_g &kpr_h &kpr_t)
-CREATE_MULTI_MOD_MORPH_MACRO(u, &kpr_u, &kpr_cu, &kpr_n,   &kpr_r &kpr_e,   &kpr_v &kpr_e,   &kpr_n &kpr_g,   &kpr_n &kpr_d,   &kpr_c &kpr_k,   &kpr_t &kpr_h,   &kpr_s &kpr_e)
+CREATE_MULTI_MOD_MORPH_MACRO(t, &kpr_t, &kpr_ct,   &kpr_h,   &kpr_h &kpr_e,   &kpr_e &kpr_r,   &kpr_o &kpr_r,   &kpr_h &kpr_a &kpr_t,   &kpr_h &kpr_i &kpr_s,   &kpr_h &kpr_e &kpr_y,   &kpr_i &kpr_o &kpr_n)
+
+CREATE_MULTI_MOD_MORPH_MACRO(a, &kpr_a, &kpr_ca,   &kpr_t,   &kpr_r &kpr_e,   &kpr_v &kpr_e,   &kpr_n &kpr_g,   &kpr_n &kpr_d,   &kpr_c &kpr_k,   &kpr_t &kpr_h,   &kpr_t &kpr_i &kpr_o)
+CREATE_MULTI_MOD_MORPH_MACRO(e, &kpr_e, &kpr_ce,   &kpr_r,   &kpr_r &kpr_e,   &kpr_v &kpr_e,   &kpr_n &kpr_g,   &kpr_n &kpr_d,   &kpr_c &kpr_k,   &kpr_t &kpr_h,   &kpr_v &kpr_e &kpr_r)
+CREATE_MULTI_MOD_MORPH_MACRO(o, &kpr_o, &kpr_co,   &kpr_r,   &kpr_r &kpr_e,   &kpr_v &kpr_e,   &kpr_n &kpr_g,   &kpr_n &kpr_d,   &kpr_c &kpr_k,   &kpr_t &kpr_h,   &kpr_u &kpr_l &kpr_d)
+CREATE_MULTI_MOD_MORPH_MACRO(i, &kpr_i, &kpr_ci,   &kpr_n,   &kpr_r &kpr_e,   &kpr_v &kpr_e,   &kpr_n &kpr_g,   &kpr_n &kpr_d,   &kpr_c &kpr_k,   &kpr_t &kpr_h,   &kpr_g &kpr_h &kpr_t)
+CREATE_MULTI_MOD_MORPH_MACRO(u, &kpr_u, &kpr_cu,   &kpr_n,   &kpr_r &kpr_e,   &kpr_v &kpr_e,   &kpr_n &kpr_g,   &kpr_n &kpr_d,   &kpr_c &kpr_k,   &kpr_t &kpr_h,   &kpr_s &kpr_e)
 
 
 

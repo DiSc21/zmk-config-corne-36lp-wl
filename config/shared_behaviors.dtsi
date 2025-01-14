@@ -41,13 +41,12 @@
 
 / {
     behaviors {
-        skq: sticky_key_quick_release {
+        /omit-if-no-ref/ skq: sticky_key_quick_release {
             compatible = "zmk,behavior-sticky-key";
             #binding-cells = <1>;
             bindings = <&kp>;
             release-after-ms = <STICKY_RELEASE_AFTER_MS>;
             quick-release;
         };
-    };
 };
 

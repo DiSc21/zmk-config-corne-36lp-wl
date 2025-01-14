@@ -24,15 +24,14 @@
 ╭──────────────────────────────────────────────────────────╮
 │ @brief: ZMK dtsi file for key-taps ignoring modifiers.   │
 │                                                          │
-│ @depends:                                                │
-│ - shared_defs.dtsi (key positions)                       │
+│ @note: Calling multi key macros is sometimes colliding   │
+│        with modifiers (CTRL, ALT, ...) when typing fast. │
+│        Hence, some "modifier-resistant" keys are needed. │
 ╰──────────────────────────────────────────────────────────╯
 */
 
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
-
-#include "shared_defs.dtsi"
 
 ///
 /// @brief create mod morph that is ignoring all modifiers
@@ -51,6 +50,8 @@
 
 / {
     behaviors {
+
+        // lower-case modifier-resistant alphas
         MOD_MORPH_IGNORE_MODS(a, &kp A)
         MOD_MORPH_IGNORE_MODS(b, &kp B)
         MOD_MORPH_IGNORE_MODS(c, &kp C)
@@ -84,6 +85,7 @@
         MOD_MORPH_IGNORE_MODS(z, &kp Z)
 
 
+        // UPPER-case modifier-resistant alphas
         MOD_MORPH_IGNORE_MODS(ca, &kp LS(A))
         MOD_MORPH_IGNORE_MODS(cb, &kp LS(B))
         MOD_MORPH_IGNORE_MODS(cc, &kp LS(C))
