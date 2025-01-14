@@ -52,6 +52,23 @@
         };
 
 ///
+/// @brief helper for creation of simple macro
+///
+/// @param name: name of the created mod-morph
+/// @param tap_bind: behavior sequence processed on tap
+/// @param wait_ms: time waited between two consecutive macro taps
+/// @param tap_ms: time key is held for each macro tap
+///
+#define KEY_SEQUENCE_MACRO(name, tap_bind, wait_ms, tap_ms) \
+        /omit-if-no-ref/ name: name { \
+            compatible = "zmk,behavior-macro"; \
+            wait-ms = <wait_ms>; \
+            tap-ms = <tap_ms>; \
+            #binding-cells = <0>; \
+            bindings = <&macro_tap tap_bind>; \
+        };
+
+///
 /// @brief create single-arg &kp-style with some pre and post command
 ///
 /// @param name: name of the created mod-morph

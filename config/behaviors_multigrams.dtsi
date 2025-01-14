@@ -112,8 +112,8 @@
     }; \
     / { \
         macros { \
-            SEQUENCE_SIMPLE(m_shift_ ## name,    first_key_c &m_alt_ ## name) \
-            SEQUENCE_SIMPLE(m_no_shift_ ## name, first_key &m_alt_ ## name) \
+            KEY_SEQUENCE_MACRO(m_shift_ ## name,    first_key_c &m_alt_ ## name, 0, 0) \
+            KEY_SEQUENCE_MACRO(m_no_shift_ ## name, first_key &m_alt_ ## name,   0, 0) \
         }; \
     }; \
     / { \
@@ -123,13 +123,12 @@
     }; \
     / { \
         macros { \
-            SEQUENCE_SIMPLE(td_spc_ ## name, &mumo_ ## name &kpds SPACE) \
-            SEQUENCE_SIMPLE(td_raw_ ## name, &mumo_ ## name) \
+            KEY_SEQUENCE_MACRO(td_spc_ ## name, &mumo_ ## name &kpds SPACE, 0, 0) \
         }; \
     }; \
     / { \
         behaviors { \
-            CREATE_DOUBLE_TAPDANCE(mm_ ## name, &td_raw_ ## name, &td_spc_ ## name) \
+            CREATE_DOUBLE_TAPDANCE(mm_ ## name, &mumo_ ## name, &td_spc_ ## name) \
         }; \
     }; \
 
