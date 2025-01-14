@@ -41,32 +41,27 @@
 ///
 /// @param name: name of the created mod-morph
 /// @param tap_bind: behavior sequence processed on tap
+/// @param wait_ms: time waited between two consecutive macro taps
+/// @param tap_ms: time key is held for each macro tap
 ///
-#define SEQUENCE_SIMPLE(name, tap_bind) \
-        /omit-if-no-ref/ name: name { \
-            compatible = "zmk,behavior-macro"; \
-            wait-ms = <KEY_SEQ_MACRO_WAIT_MS>; \
-            tap-ms = <KEY_SEQ_MACRO_TAP_MS>; \
-            #binding-cells = <0>; \
-            bindings = <&macro_tap tap_bind>; \
-        };
+#define KEY_SEQUENCE_MACRO(name, tap_bind, wait_ms, tap_ms) \
+    /omit-if-no-ref/ name: name { \
+        compatible = "zmk,behavior-macro"; \
+        wait-ms = <wait_ms>; \
+        tap-ms = <tap_ms>; \
+        #binding-cells = <0>; \
+        bindings = <&macro_tap tap_bind>; \
+    };
 
 ///
 /// @brief helper for creation of simple macro
 ///
 /// @param name: name of the created mod-morph
 /// @param tap_bind: behavior sequence processed on tap
-/// @param wait_ms: time waited between two consecutive macro taps
-/// @param tap_ms: time key is held for each macro tap
 ///
-#define KEY_SEQUENCE_MACRO(name, tap_bind, wait_ms, tap_ms) \
-        /omit-if-no-ref/ name: name { \
-            compatible = "zmk,behavior-macro"; \
-            wait-ms = <wait_ms>; \
-            tap-ms = <tap_ms>; \
-            #binding-cells = <0>; \
-            bindings = <&macro_tap tap_bind>; \
-        };
+#define KEY_SEQUENCE_MACRO_SIMPLE(name, tap_bind) \
+        KEY_SEQUENCE_MACRO(name, tap_bind, KEY_SEQ_MACRO_WAIT_MS, KEY_SEQ_MACRO_TAP_MS)
+
 
 ///
 /// @brief create single-arg &kp-style with some pre and post command
@@ -149,45 +144,6 @@
         mods = <(MOD_LGUI|MOD_RGUI)>; \
     };
 
-
-
-
-
-
-///
-/// @brief 
-///
-/// @param 
-/// @param 
-/// @param 
-/// @param 
-///
-#define SHIFT_CAPS_MACRO(name, first_key, post_bind) \
-        /omit-if-no-ref/ mg_shft_ ## name: mg_shft_ ## name { \
-            compatible = "zmk,behavior-macro"; \
-            wait-ms = <KEY_SEQ_MACRO_WAIT_MS>; \
-            tap-ms = <KEY_SEQ_MACRO_TAP_MS>; \
-            #binding-cells = <0>; \
-            bindings = <&macro_tap &kp LS(first_key) post_bind>; \
-        }; \
-        /omit-if-no-ref/ mg_raw_ ## name: mg_raw_ ## name { \
-            compatible = "zmk,behavior-macro"; \
-            wait-ms = <KEY_SEQ_MACRO_WAIT_MS>; \
-            tap-ms = <KEY_SEQ_MACRO_TAP_MS>; \
-            #binding-cells = <0>; \
-            bindings = <&macro_tap &kp first_key post_bind>; \
-        };
-
-///
-/// @brief macro for the creation of CTRL mod-morphes
-///
-/// @param name: name of the created mod-morph
-/// @param raw_binding: unmodified binding
-/// @param mod_binding: the modified behavior
-///
-#define CREATE_SHIFT_MOD_MACRO(name, first_key, post_bind) \
-    SHIFT_CAPS_MACRO(name, first_key, post_bind) \
-    CREATE_MOD_MORPH_SFT(mms_ ## name, &mg_raw_ ## name, &mg_shft_ ## name) \
 
 ///
 /// @brief macro for the creation of CTRL mod-morphes

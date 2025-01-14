@@ -67,7 +67,7 @@
         // CrossSide Combos
         // ----------------
         COMBO_MACRO(combo_sticky_bt_led, &sl L_BT_LED,      LT5 RT0,         COMBO_TAP_TIME_FAST)
-        COMBO_MACRO(combo_to_navigation, &to L_NAV,         LM5 RM0,         COMBO_TAP_TIME_FAST)
+        //COMBO_MACRO(combo_to_navigation, &to L_NAV,         LM5 RM0,         COMBO_TAP_TIME_FAST)
 
         // CrossRow Combos
         // ---------------
@@ -75,11 +75,11 @@
         // opening braces
         COMBO_MACRO(combo_curly_brace_l, &kp LBRC,          RM1 RT2,         COMBO_TAP_TIME_FAST)
         COMBO_MACRO(combo_sqr_brace_l,   &kp LBKT,          RB1 RM2,         COMBO_TAP_TIME_FAST)
-        COMBO_MACRO(combo_sqr_brace_l,   &kp LPAR,          RM0 RT1,         COMBO_TAP_TIME_FAST)
+        COMBO_MACRO(combo_brace_l,       &kp LPAR,          RM0 RT1,         COMBO_TAP_TIME_FAST)
         // closing braces
         COMBO_MACRO(combo_curly_brace_r, &kp RBRC,          RT2 RM3,         COMBO_TAP_TIME_FAST)
         COMBO_MACRO(combo_sqr_brace_r,   &kp RBKT,          RM2 RB3,         COMBO_TAP_TIME_FAST)
-        COMBO_MACRO(combo_sqr_brace_r,   &kp RPAR,          RT3 RM4,         COMBO_TAP_TIME_FAST)
+        COMBO_MACRO(combo_brace_r,       &kp RPAR,          RT3 RM4,         COMBO_TAP_TIME_FAST)
         // signs
         COMBO_MACRO(combo_exclamation,   &kp EXCLAMATION,   RM0 RB0,         COMBO_TAP_TIME_FAST)
         COMBO_MACRO(combo_caret,         &kp CARET,         RM4 RT3,         COMBO_TAP_TIME_FAST)
@@ -107,7 +107,7 @@
         // left-hand side
         COMBO_MACRO(combo_caps_word,     &caps_word,        LM1 LM2,         COMBO_TAP_TIME_FAST)
         COMBO_MACRO(combo_space,         &kp SPACE,         LM2 LM3,         COMBO_TAP_TIME_FAST)
-        COMBO_MACRO(combo_page_down,     &kp PG_DOWN,       LM3 LM4,         COMBO_TAP_TIME_FAST)
+        COMBO_MACRO(combo_page_down,     &kp PG_DN,         LM3 LM4,         COMBO_TAP_TIME_FAST)
         // right-hand side
         COMBO_MACRO(combo_minus,         &kp MINUS,         RM1 RM2,         COMBO_TAP_TIME_FAST)
         COMBO_MACRO(combo_underscore,    &kp UNDERSCORE,    RM2 RM3,         COMBO_TAP_TIME_FAST)

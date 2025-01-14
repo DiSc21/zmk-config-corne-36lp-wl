@@ -37,24 +37,24 @@
 #include "shared_macros.dtsi"
 #include "shared_nomod_morphs.dtsi"
 
-#define DELAYED_MACRO_WAIT_MS 110
+#define DELAYED_MACRO_WAIT_MS 120
 
 / {
     macros {
         ///
-        /// @brief single param macro with artificial delay for use in multi-key macros
+        /// @brief trigger mod-resistant space tap after a short waiting time to ensure key-macro is finished
         ///
-        /// @note when using &kp in multikey macros after an other multikey macro it is usually
-        /// queued in before the last key of the inner multikey macro. This behavior adds an
-        /// artificial delay (max-number of inner macro keys times wait-ms) to prevent tap disorder.
+        /// @note when using &kp in multikey macros after an other multikey macro, it is usually queued
+        /// in before the last key of the inner multikey macro. This behavior adds an artificial delay
+        /// (rule of thumb: max-number of inner macro keys times wait-ms) to prevent such tap disorders.
         ///
-        kpds: kpds {
-            compatible = "zmk,behavior-macro-one-param";
+        kpd_spc: kpd_spc {
+            compatible = "zmk,behavior-macro";
             wait-ms = <DELAYED_MACRO_WAIT_MS>;
             tap-ms = <30>;
-            #binding-cells = <1>;
-            bindings = <&macro_param_1to1>
-                     , <&macro_tap &kp MACRO_PLACEHOLDER>
+            #binding-cells = <0>;
+            bindings = <&macro_tap &none>
+                     , <&macro_tap &kpr_spc>
                      ;
         };
     };
@@ -77,8 +77,18 @@
 /// @param mmacg_bind: combined ALT+CTRL+GUI binding
 ///
 /// @note this macro creates a two-dimensional nested multi-mod-morph.
-/// ALT+SHIFT modify the bindings by appending space (ALT) and caps first letter (SHIFT)
-/// GUI+CTRL alternate the base binding defined by params mmb/mmc/mmg/mmcg_bind
+/// TABDANCE+SHIFT modify the bindings by appending space (TABDANCE) and capital first letter (SHIFT)
+/// ALT+CTRL+GUI alternate the base binding defined by params mmb/mmc/mmg/mma_bind/...
+///
+/// @note behaviors are chained bottom up, i.e. when reading this it might make sense to read this
+/// preprocesser directive reverse from the bottom to the top.
+///
+/// @note initially SHIFT was the first modifier processed. However, it felt like having zmk-macro-behaviors
+/// called/processed before all mod-morphs were processed gave false-negatives (failed detections) if the modifier
+/// keys where released before those macros had finished. I tried to solve this by
+/// - only using the tabdance-append-space macro with ZERO wait-ms and tap-ms
+/// - creating a delayed-key-tap behavior used only for appending space to circumvent timing issues
+/// - not using zmk-macro-behaviors before applying mod-morphs
 ///
 /// @usage 'mumo_##name' for multigram-mod-morph only, i.e. without tapdance-space-append
 /// @usage 'td_mm_##name' for multigram-mod-morph with tapdance-space-append
@@ -86,23 +96,23 @@
 #define CREATE_MULTI_MOD_MORPH_MACRO(name, first_key, first_key_c, mmb_bind, mmc_bind, mmg_bind, mmcg_bind, mma_bind, mmac_bind, mmag_bind, mmacg_bind) \
     / { \
         macros { \
-            SEQUENCE_SIMPLE(mmb_ ## name,   first_key mmb_bind) \
-            SEQUENCE_SIMPLE(mmc_ ## name,   first_key mmc_bind) \
-            SEQUENCE_SIMPLE(mmg_ ## name,   first_key mmg_bind) \
-            SEQUENCE_SIMPLE(mmcg_ ## name,  first_key mmcg_bind) \
-            SEQUENCE_SIMPLE(mma_ ## name,   first_key mma_bind) \
-            SEQUENCE_SIMPLE(mmac_ ## name,  first_key mmac_bind) \
-            SEQUENCE_SIMPLE(mmag_ ## name,  first_key mmag_bind) \
-            SEQUENCE_SIMPLE(mmacg_ ## name, first_key mmacg_bind) \
+            KEY_SEQUENCE_MACRO_SIMPLE(mmb_ ## name,   first_key mmb_bind) \
+            KEY_SEQUENCE_MACRO_SIMPLE(mmc_ ## name,   first_key mmc_bind) \
+            KEY_SEQUENCE_MACRO_SIMPLE(mmg_ ## name,   first_key mmg_bind) \
+            KEY_SEQUENCE_MACRO_SIMPLE(mmcg_ ## name,  first_key mmcg_bind) \
+            KEY_SEQUENCE_MACRO_SIMPLE(mma_ ## name,   first_key mma_bind) \
+            KEY_SEQUENCE_MACRO_SIMPLE(mmac_ ## name,  first_key mmac_bind) \
+            KEY_SEQUENCE_MACRO_SIMPLE(mmag_ ## name,  first_key mmag_bind) \
+            KEY_SEQUENCE_MACRO_SIMPLE(mmacg_ ## name, first_key mmacg_bind) \
             \
-            SEQUENCE_SIMPLE(mmb_sft_ ## name,   first_key_c mmb_bind) \
-            SEQUENCE_SIMPLE(mmc_sft_ ## name,   first_key_c mmc_bind) \
-            SEQUENCE_SIMPLE(mmg_sft_ ## name,   first_key_c mmg_bind) \
-            SEQUENCE_SIMPLE(mmcg_sft_ ## name,  first_key_c mmcg_bind) \
-            SEQUENCE_SIMPLE(mma_sft_ ## name,   first_key_c mma_bind) \
-            SEQUENCE_SIMPLE(mmac_sft_ ## name,  first_key_c mmac_bind) \
-            SEQUENCE_SIMPLE(mmag_sft_ ## name,  first_key_c mmag_bind) \
-            SEQUENCE_SIMPLE(mmacg_sft_ ## name, first_key_c mmacg_bind) \
+            KEY_SEQUENCE_MACRO_SIMPLE(mmb_sft_ ## name,   first_key_c mmb_bind) \
+            KEY_SEQUENCE_MACRO_SIMPLE(mmc_sft_ ## name,   first_key_c mmc_bind) \
+            KEY_SEQUENCE_MACRO_SIMPLE(mmg_sft_ ## name,   first_key_c mmg_bind) \
+            KEY_SEQUENCE_MACRO_SIMPLE(mmcg_sft_ ## name,  first_key_c mmcg_bind) \
+            KEY_SEQUENCE_MACRO_SIMPLE(mma_sft_ ## name,   first_key_c mma_bind) \
+            KEY_SEQUENCE_MACRO_SIMPLE(mmac_sft_ ## name,  first_key_c mmac_bind) \
+            KEY_SEQUENCE_MACRO_SIMPLE(mmag_sft_ ## name,  first_key_c mmag_bind) \
+            KEY_SEQUENCE_MACRO_SIMPLE(mmacg_sft_ ## name, first_key_c mmacg_bind) \
         }; \
     }; \
     / { \
@@ -116,20 +126,20 @@
             CREATE_MOD_MORPH_SFT(m_sft_ag_ ## name,      &mmag_ ## name,      &mmag_sft_ ## name) \
             CREATE_MOD_MORPH_SFT(m_sft_acg_ ## name,     &mmacg_ ## name,     &mmacg_sft_ ## name) \
             \
-            CREATE_MOD_MORPH_GUI(m_gui_ ## name,         &m_sft_b_ ## name,       &m_sft_g_ ## name) \
-            CREATE_MOD_MORPH_GUI(m_ctl_gui_ ## name,     &m_sft_c_ ## name,       &m_sft_cg_ ## name) \
-            CREATE_MOD_MORPH_GUI(m_alt_gui_ ## name,     &m_sft_a_ ## name,       &m_sft_ag_ ## name) \
-            CREATE_MOD_MORPH_GUI(m_alt_ctl_gui_ ## name, &m_sft_ac_ ## name,      &m_sft_acg_ ## name) \
+            CREATE_MOD_MORPH_GUI(m_gui_ ## name,         &m_sft_b_ ## name,   &m_sft_g_ ## name) \
+            CREATE_MOD_MORPH_GUI(m_ctl_gui_ ## name,     &m_sft_c_ ## name,   &m_sft_cg_ ## name) \
+            CREATE_MOD_MORPH_GUI(m_alt_gui_ ## name,     &m_sft_a_ ## name,   &m_sft_ag_ ## name) \
+            CREATE_MOD_MORPH_GUI(m_alt_ctl_gui_ ## name, &m_sft_ac_ ## name,  &m_sft_acg_ ## name) \
             \
             CREATE_MOD_MORPH_CTL(m_ctl_ ## name,         &m_gui_ ## name,     &m_ctl_gui_ ## name) \
             CREATE_MOD_MORPH_CTL(m_alt_ctl_ ## name,     &m_alt_gui_ ## name, &m_alt_ctl_gui_ ## name) \
             \
-            CREATE_MOD_MORPH_ALT(mumo_ ## name,         &m_ctl_ ## name,     &m_alt_ctl_ ## name) \
+            CREATE_MOD_MORPH_ALT(mumo_ ## name,          &m_ctl_ ## name,     &m_alt_ctl_ ## name) \
         }; \
     }; \
     / { \
         macros { \
-            KEY_SEQUENCE_MACRO(td_spc_ ## name, &mumo_ ## name &kpds SPACE, 0, 0) \
+            KEY_SEQUENCE_MACRO(td_spc_ ## name, &mumo_ ## name &kpd_spc, 0, 0) \
         }; \
     }; \
     / { \
@@ -139,59 +149,42 @@
     }; \
 
 
+///
+/// @brief non-vocal multigrams only share tabdance-space and Caps-Shift logic.
+/// - Tabdance: append space
+/// - SHIFT: first letter capital
+///       __________________________________________________________________________________
+///      | <no-mods> | CTRL |  GUI | CTRL+GUI |   ALT |  ALT+CTRL |  ALT+GUI | ALT+CTRL+GUI |
+/// .====|===========|======|======|==========|=======|===========|==========|==============|
+/// | R: |   re      |   -  |   -  |     -    |    -  |     -     |      -   |        -     |
+/// | T: |   th      |  the |  ter |    tor   |  that |   this    |    they  |      tion    |
+/// | W: |   wh      |  who |  was |   with   | which |   were    |     oth  |     ought    |
+/// |____|___________|______|______|__________|_______|___________|__________|______________|
+///
+CREATE_MULTI_MOD_MORPH_MACRO(r, &kpr_r, &kpr_cr,   &kpr_e,   &none,           &none,           &none,                  &none,                         &none,                  &none,                  &none)
+CREATE_MULTI_MOD_MORPH_MACRO(t, &kpr_t, &kpr_ct,   &kpr_h,   &kpr_h &kpr_e,   &kpr_e &kpr_r,   &kpr_o &kpr_r,          &kpr_h &kpr_a &kpr_t,          &kpr_h &kpr_i &kpr_s,   &kpr_h &kpr_e &kpr_y,   &kpr_i &kpr_o &kpr_n)
+CREATE_MULTI_MOD_MORPH_MACRO(w, &kpr_w, &kpr_cw,   &kpr_h,   &kpr_h &kpr_o,   &kpr_a &kpr_s,   &kpr_i &kpr_t &kpr_h,   &kpr_h &kpr_i &kpr_c &kpr_h,   &kpr_e &kpr_r &kpr_e,   &kpr_h &kpr_e &kpr_n,   &kpr_h &kpr_e &kpr_r &kpr_e)
 
-
-
-CREATE_MULTI_MOD_MORPH_MACRO(t, &kpr_t, &kpr_ct,   &kpr_h,   &kpr_h &kpr_e,   &kpr_e &kpr_r,   &kpr_o &kpr_r,   &kpr_h &kpr_a &kpr_t,   &kpr_h &kpr_i &kpr_s,   &kpr_h &kpr_e &kpr_y,   &kpr_i &kpr_o &kpr_n)
-
-CREATE_MULTI_MOD_MORPH_MACRO(a, &kpr_a, &kpr_ca,   &kpr_t,   &kpr_r &kpr_e,   &kpr_v &kpr_e,   &kpr_n &kpr_g,   &kpr_n &kpr_d,   &kpr_c &kpr_k,   &kpr_t &kpr_h,   &kpr_t &kpr_i &kpr_o)
+///
+/// @brief vocal multigrams share some common schemata:
+/// - Tabdance: append space
+/// - SHIFT: first letter capital
+///       _________________________________________________________________________________
+///      | <no-mods> | CTRL |  GUI | CTRL+GUI |  ALT |  ALT+CTRL |  ALT+GUI | ALT+CTRL+GUI |
+///      |===========|======|======|==========|======|===========|==========|==============|
+///      |   VAR     | + re | + ve |   + ng   | + nd |   + ck    |    + th  |      VAR     |
+/// .----|-----------|------|------|----------|------|-----------|----------|--------------|
+/// | A: |   at      |  are |  ave |    ang   |  and |    ack    |     ath  |     ation    |
+/// | E: |   er      |  ere |  eve |    eng   |  end |    eck    |     eth  |      ever    |
+/// | O: |   or      |  ore |  ove |    ong   |  ond |    ock    |     oth  |     ought    |
+/// | I: |   in      |  ire |  ive |    ing   |  ind |    ick    |     ith  |      ight    |
+/// | U: |   un      |  ure |  uve |    ung   |  und |    uck    |     uth  |       urg    |
+/// |____|___________|______|______|__________|______|___________|__________|______________|
+///
+CREATE_MULTI_MOD_MORPH_MACRO(a, &kpr_a, &kpr_ca,   &kpr_t,   &kpr_r &kpr_e,   &kpr_v &kpr_e,   &kpr_n &kpr_g,   &kpr_n &kpr_d,   &kpr_c &kpr_k,   &kpr_t &kpr_h,   &kpr_t &kpr_i &kpr_o &kpr_n)
+CREATE_MULTI_MOD_MORPH_MACRO(o, &kpr_o, &kpr_co,   &kpr_r,   &kpr_r &kpr_e,   &kpr_v &kpr_e,   &kpr_n &kpr_g,   &kpr_n &kpr_d,   &kpr_c &kpr_k,   &kpr_t &kpr_h,   &kpr_u &kpr_g &kpr_h &kpr_t)
 CREATE_MULTI_MOD_MORPH_MACRO(e, &kpr_e, &kpr_ce,   &kpr_r,   &kpr_r &kpr_e,   &kpr_v &kpr_e,   &kpr_n &kpr_g,   &kpr_n &kpr_d,   &kpr_c &kpr_k,   &kpr_t &kpr_h,   &kpr_v &kpr_e &kpr_r)
-CREATE_MULTI_MOD_MORPH_MACRO(o, &kpr_o, &kpr_co,   &kpr_r,   &kpr_r &kpr_e,   &kpr_v &kpr_e,   &kpr_n &kpr_g,   &kpr_n &kpr_d,   &kpr_c &kpr_k,   &kpr_t &kpr_h,   &kpr_u &kpr_l &kpr_d)
 CREATE_MULTI_MOD_MORPH_MACRO(i, &kpr_i, &kpr_ci,   &kpr_n,   &kpr_r &kpr_e,   &kpr_v &kpr_e,   &kpr_n &kpr_g,   &kpr_n &kpr_d,   &kpr_c &kpr_k,   &kpr_t &kpr_h,   &kpr_g &kpr_h &kpr_t)
-CREATE_MULTI_MOD_MORPH_MACRO(u, &kpr_u, &kpr_cu,   &kpr_n,   &kpr_r &kpr_e,   &kpr_v &kpr_e,   &kpr_n &kpr_g,   &kpr_n &kpr_d,   &kpr_c &kpr_k,   &kpr_t &kpr_h,   &kpr_s &kpr_e)
+CREATE_MULTI_MOD_MORPH_MACRO(u, &kpr_u, &kpr_cu,   &kpr_s,   &kpr_r &kpr_e,   &kpr_v &kpr_e,   &kpr_n &kpr_g,   &kpr_n &kpr_d,   &kpr_c &kpr_k,   &kpr_t &kpr_h,   &kpr_r &kpr_g)
 
-
-
-//CREATE_MULTI_MOD_MORPH_MACRO(at, A, &kp T, &kp R &kp E, &kp V &kp E, &kp N &kp G)
-
-//CREATE_MULTI_MOD_MORPH_MACRO(th, &kp T &kp H, &kp T &kp H &kp E, &kp T &kp E &kp R, &kp T &kp H &kp A &kp T)
-//
-//CREATE_MULTI_MOD_MORPH_MACRO(at, &kp A &kp T, &kp A &kp R &kp E, &kp A &kp V &kp E, &kp A &kp N &kp G)
-//CREATE_MULTI_MOD_MORPH_MACRO(er, &kp E &kp R, &kp E &kp R &kp E, &kp E &kp V &kp E, &kp E &kp N &kp G)
-//CREATE_MULTI_MOD_MORPH_MACRO(or, &kp O &kp R, &kp O &kp R &kp E, &kp O &kp V &kp E, &kp O &kp N &kp G)
-//CREATE_MULTI_MOD_MORPH_MACRO(in, &kpr_i &kpr_n,  &kpr_i &kpr_r &kpr_e, &kpr_i &kpr_v &kpr_e, &kpr_i &kpr_n &kpr_g)
-//CREATE_MULTI_MOD_MORPH_MACRO(un, &kp U &kp N, &kp U &kp R &kp E, &kp U &kp V &kp E, &kp U &kp N &kp G)
-
-//#define CREATE_MULTI_MOD_MORPH_MACRO(name, mmb_bind, mmc_bind, mmg_bind, mmcg_bind) \
-//    / { \
-//        macros { \
-//            NO_PARAM_SANDWICH(mmb_ ## name,  &none, mmb_bind,  &none) \
-//            NO_PARAM_SANDWICH(mmc_ ## name,  &none, mmc_bind,  &none) \
-//            NO_PARAM_SANDWICH(mmg_ ## name,  &none, mmg_bind,  &none) \
-//            NO_PARAM_SANDWICH(mmcg_ ## name, &none, mmcg_bind, &none) \
-//        }; \
-//    }; \
-//    / { \
-//        behaviors { \
-//            CREATE_MOD_MORPH_GUI(mcg_ ## name, &mmc_ ## name, &mmcg_ ## name) \
-//            CREATE_MOD_MORPH_GUI(mg_ ## name,  &mmb_ ## name, &mmg_ ## name) \
-//            \
-//            CREATE_MOD_MORPH_CTL(mc_ ## name,  &mg_ ## name,  &mcg_ ## name) \
-//        }; \
-//    }; \
-//    / { \
-//        macros { \
-//            NO_PARAM_SANDWICH(mod_space_ ## name,      &none,      &mc_ ## name, &kp SPACE) \
-//            NO_PARAM_SANDWICH(mod_caps_ ## name,       &sk LSHIFT, &mc_ ## name, &none) \
-//            NO_PARAM_SANDWICH(mod_caps_space_ ## name, &sk LSHIFT, &mc_ ## name, &kp SPACE) \
-//        }; \
-//    }; \
-//    / { \
-//        behaviors { \
-//            CREATE_MOD_MORPH_SFT(mas_ ## name,  &mod_space_ ## name, &mod_caps_space_ ## name) \
-//            CREATE_MOD_MORPH_SFT(ms_ ## name,   &mc_ ## name,        &mod_caps_ ## name) \
-//            \
-//            CREATE_MOD_MORPH_ALT(mumo_ ## name, &ms_ ## name,        &mas_ ## name) \
-//        }; \
-//    };
 

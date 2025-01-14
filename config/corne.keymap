@@ -55,9 +55,6 @@
 #include <dt-bindings/zmk/rgb.h>
 #include <dt-bindings/zmk/pointing.h>
 
-/* urobs num word */
-#include <behaviors/num_word.dtsi>
-
 /* shared defines for key nums, layers and timings */
 #include "shared_defs.dtsi"
 #include "shared_macros.dtsi"
@@ -115,7 +112,7 @@
             display-name = "default";
             bindings = <
                 &none &kp Q          &kp W         &kp E        &kp R               &kp T                 &kp Y               &kp U                 &kp I        &kp O         &kp P             &none
-                &none &hm_l LSHIFT A &hm_l LCTRL S &hm_l LGUI D &hm_l LALT F        &kp G                 &kp H               &hm_r RALT J          &hm_r RGUI K &hm_r RCTRL L &hm_r RSHIFT SEMI &none
+                &none &hm_l LSHIFT A &hm_l LCTRL S &hm_l LGUI D &hm_l LALT F        &lt_pur_l L_NUM G     &lt_pur_l L_NUM H   &hm_r RALT J          &hm_r RGUI K &hm_r RCTRL L &hm_r RSHIFT SEMI &none
                 &none &kp Z          &kp X         &kp C        &kp V               &kp B                 &kp N               &kp M                 &kp COMMA    &kp DOT       &kp FSLH          &none
                                                    &mmnl_bsp    &lt_blu_l L_BRC RET &lt_pur_l L_NUM TAB   &lt_pur_r L_NUM ESC &lt_blu_r L_BRC SPACE &mmnr_del
             >;
@@ -174,7 +171,7 @@
         multigrams {
             display-name = "mg-arrows";
             bindings = <
-                &none &none                &none         &mumo_e      &none        &mumo_t        &none    &mumo_u         &mumo_i        &td_mm_o         &none             &none
+                &none &none                &none         &td_mm_e     &none        &td_mm_t       &none    &td_mm_u        &td_mm_i        &td_mm_o         &none             &none
                 &none &hm_l LSHIFT A       &hm_l LCTRL S &hm_l LGUI D &hm_l LALT F &none          &kp LEFT &hm_r RALT DOWN &hm_r RGUI UP  &hm_r RCTRL RIGHT &hm_r RSHIFT SEMI &none
                 &none &none                &none         &none        &none        &none          &none    &none           &add_spc COMMA &add_spsh DOT     &none             &none
                                                          &trans       &trans       &trans         &trans   &trans          &trans
@@ -218,6 +215,26 @@
                 &none &msc SCRL_LEFT &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT &msc SCRL_RIGHT    &kp LEFT &kp DOWN  &kp  UP   &kp RIGHT &trans    &none
                 &none &msc SCRL_DOWN &trans         &mkp MCLK      &trans          &trans             &trans   &trans    &trans    &trans    &kp PG_DN &none
                                                     &trans         &trans          &trans             &trans   &trans    &trans
+            >;
+        };
+
+        // [NUM_TOG] LAYER
+        // -----------------------------------------------------------------------------------------------------------------------------------------
+        // | - |            |           |          |          ||         |  |    -    |  |         || 7       | 8       | 9        | ,         | - |
+        // |---|------------|-----------|----------|----------||---------|  |    -    |  |---------||---------|---------|----------|-----------|---|
+        // | - |            |           |          |          ||         |  |    -    |  | 0       || 4 [ALT] | 5 [WIN] | 6 [CTRL] | = [SHIFT] | - |
+        // |---|------------|-----------|----------|----------||---------|  |    -    |  |---------||---------|---------|----------|-----------|---|
+        // | - |            |           |          |          ||         |  |    -    |  |         || 1       | 2       | 3        | .         | - |
+        // -----------------------------|----------|----------||---------|  |    -    |  |---------||---------|---------|---------------------------
+        //                              |   BSPC   |          ||   TAB   |  |    -    |  |         ||         |   ENTF  |
+        //                              ---------------------------------------------------------------------------------
+        smart_num {
+            display-name = "smart_num";
+            bindings = <
+                &none &bt BT_CLR   &to L_DEF    &to L_DEF    &to L_DEF    &to L_DEF       &to L_DEF &rgb_ug RGB_TOG &rgb_ug RGB_HUI &rgb_ug RGB_SAI &rgb_ug RGB_BRI &none
+                &none &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4    &to L_DEF &rgb_ug RGB_EFR &rgb_ug RGB_SPD &rgb_ug RGB_SPI &rgb_ug RGB_EFF &none
+                &none &to L_DEF    &to L_DEF    &to L_DEF    &to L_DEF    &to L_DEF       &to L_DEF &to L_DEF       &rgb_ug RGB_HUD &rgb_ug RGB_SAD &rgb_ug RGB_BRD &none
+                                                &to L_DEF    &to L_DEF    &to L_DEF       &to L_DEF &to L_DEF       &to L_DEF
             >;
         };
     };

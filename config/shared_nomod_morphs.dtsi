@@ -51,6 +51,10 @@
 / {
     behaviors {
 
+        // modifier-resistant commands
+        MOD_MORPH_IGNORE_MODS(spc, &kp SPACE)
+        MOD_MORPH_IGNORE_MODS(ret, &kp RETURN)
+
         // lower-case modifier-resistant alphas
         MOD_MORPH_IGNORE_MODS(a, &kp A)
         MOD_MORPH_IGNORE_MODS(b, &kp B)
