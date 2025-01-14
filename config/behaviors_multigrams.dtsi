@@ -86,39 +86,45 @@
 #define CREATE_MULTI_MOD_MORPH_MACRO(name, first_key, first_key_c, mmb_bind, mmc_bind, mmg_bind, mmcg_bind, mma_bind, mmac_bind, mmag_bind, mmacg_bind) \
     / { \
         macros { \
-            SEQUENCE_SIMPLE(mmb_ ## name,   mmb_bind) \
-            SEQUENCE_SIMPLE(mmc_ ## name,   mmc_bind) \
-            SEQUENCE_SIMPLE(mmg_ ## name,   mmg_bind) \
-            SEQUENCE_SIMPLE(mmcg_ ## name,  mmcg_bind) \
+            SEQUENCE_SIMPLE(mmb_ ## name,   first_key mmb_bind) \
+            SEQUENCE_SIMPLE(mmc_ ## name,   first_key mmc_bind) \
+            SEQUENCE_SIMPLE(mmg_ ## name,   first_key mmg_bind) \
+            SEQUENCE_SIMPLE(mmcg_ ## name,  first_key mmcg_bind) \
+            SEQUENCE_SIMPLE(mma_ ## name,   first_key mma_bind) \
+            SEQUENCE_SIMPLE(mmac_ ## name,  first_key mmac_bind) \
+            SEQUENCE_SIMPLE(mmag_ ## name,  first_key mmag_bind) \
+            SEQUENCE_SIMPLE(mmacg_ ## name, first_key mmacg_bind) \
             \
-            SEQUENCE_SIMPLE(mma_ ## name,   mma_bind) \
-            SEQUENCE_SIMPLE(mmac_ ## name,  mmac_bind) \
-            SEQUENCE_SIMPLE(mmag_ ## name,  mmag_bind) \
-            SEQUENCE_SIMPLE(mmacg_ ## name, mmacg_bind) \
+            SEQUENCE_SIMPLE(mmb_sft_ ## name,   first_key_c mmb_bind) \
+            SEQUENCE_SIMPLE(mmc_sft_ ## name,   first_key_c mmc_bind) \
+            SEQUENCE_SIMPLE(mmg_sft_ ## name,   first_key_c mmg_bind) \
+            SEQUENCE_SIMPLE(mmcg_sft_ ## name,  first_key_c mmcg_bind) \
+            SEQUENCE_SIMPLE(mma_sft_ ## name,   first_key_c mma_bind) \
+            SEQUENCE_SIMPLE(mmac_sft_ ## name,  first_key_c mmac_bind) \
+            SEQUENCE_SIMPLE(mmag_sft_ ## name,  first_key_c mmag_bind) \
+            SEQUENCE_SIMPLE(mmacg_sft_ ## name, first_key_c mmacg_bind) \
         }; \
     }; \
     / { \
         behaviors { \
-            CREATE_MOD_MORPH_GUI(m_gui_ ## name,         &mmb_ ## name,       &mmg_ ## name) \
-            CREATE_MOD_MORPH_GUI(m_ctl_gui_ ## name,     &mmc_ ## name,       &mmcg_ ## name) \
-            CREATE_MOD_MORPH_GUI(m_alt_gui_ ## name,     &mma_ ## name,       &mmag_ ## name) \
-            CREATE_MOD_MORPH_GUI(m_alt_ctl_gui_ ## name, &mmac_ ## name,      &mmacg_ ## name) \
+            CREATE_MOD_MORPH_SFT(m_sft_b_ ## name,       &mmb_ ## name,       &mmb_sft_ ## name) \
+            CREATE_MOD_MORPH_SFT(m_sft_c_ ## name,       &mmc_ ## name,       &mmc_sft_ ## name) \
+            CREATE_MOD_MORPH_SFT(m_sft_g_ ## name,       &mmg_ ## name,       &mmg_sft_ ## name) \
+            CREATE_MOD_MORPH_SFT(m_sft_cg_ ## name,      &mmcg_ ## name,      &mmcg_sft_ ## name) \
+            CREATE_MOD_MORPH_SFT(m_sft_a_ ## name,       &mma_ ## name,       &mma_sft_ ## name) \
+            CREATE_MOD_MORPH_SFT(m_sft_ac_ ## name,      &mmac_ ## name,      &mmac_sft_ ## name) \
+            CREATE_MOD_MORPH_SFT(m_sft_ag_ ## name,      &mmag_ ## name,      &mmag_sft_ ## name) \
+            CREATE_MOD_MORPH_SFT(m_sft_acg_ ## name,     &mmacg_ ## name,     &mmacg_sft_ ## name) \
+            \
+            CREATE_MOD_MORPH_GUI(m_gui_ ## name,         &m_sft_b_ ## name,       &m_sft_g_ ## name) \
+            CREATE_MOD_MORPH_GUI(m_ctl_gui_ ## name,     &m_sft_c_ ## name,       &m_sft_cg_ ## name) \
+            CREATE_MOD_MORPH_GUI(m_alt_gui_ ## name,     &m_sft_a_ ## name,       &m_sft_ag_ ## name) \
+            CREATE_MOD_MORPH_GUI(m_alt_ctl_gui_ ## name, &m_sft_ac_ ## name,      &m_sft_acg_ ## name) \
             \
             CREATE_MOD_MORPH_CTL(m_ctl_ ## name,         &m_gui_ ## name,     &m_ctl_gui_ ## name) \
             CREATE_MOD_MORPH_CTL(m_alt_ctl_ ## name,     &m_alt_gui_ ## name, &m_alt_ctl_gui_ ## name) \
             \
-            CREATE_MOD_MORPH_ALT(m_alt_ ## name,         &m_ctl_ ## name,     &m_alt_ctl_ ## name) \
-        }; \
-    }; \
-    / { \
-        macros { \
-            KEY_SEQUENCE_MACRO(m_shift_ ## name,    first_key_c &m_alt_ ## name, 0, 0) \
-            KEY_SEQUENCE_MACRO(m_no_shift_ ## name, first_key &m_alt_ ## name,   0, 0) \
-        }; \
-    }; \
-    / { \
-        behaviors { \
-            CREATE_MOD_MORPH_SFT(mumo_ ## name, &m_no_shift_ ## name, &m_shift_ ## name) \
+            CREATE_MOD_MORPH_ALT(mumo_ ## name,         &m_ctl_ ## name,     &m_alt_ctl_ ## name) \
         }; \
     }; \
     / { \
