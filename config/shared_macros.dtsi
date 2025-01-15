@@ -160,3 +160,14 @@
         bindings = <single_bind>, <double_bind>; \
     };
 
+///
+/// @brief macro for the creation of CTRL mod-morphes
+///
+/// @param name: name of the created mod-morph
+/// @param cmd_binding: the binding (without trailing SPACE)
+///
+#define CREATE_TAPDANCE_SPACE_APPEND(name, cmd_bind) \
+    KEY_SEQUENCE_MACRO_SIMPLE(aspc_ ## name, cmd_bind &kp SPACE) \
+    KEY_SEQUENCE_MACRO_SIMPLE(nspc_ ## name, cmd_bind) \
+    CREATE_DOUBLE_TAPDANCE(name, &nspc_ ## name, &aspc_ ## name)
+

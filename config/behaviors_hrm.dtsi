@@ -96,7 +96,7 @@
             HRM_LEFT_MACRO("balanced", HM_TAPPING_TERM, LAYER_QUICK_TAP_MS, HM_PRIOR_IDLE) \
         };
         /omit-if-no-ref/ hm_l: hm_l {
-            HRM_LEFT_MACRO("hold-preferred", HM_TAPPING_TERM, LAYER_QUICK_TAP_MS, HM_PRIOR_IDLE) \
+            HRM_LEFT_MACRO("balanced", HM_TAPPING_TERM, LAYER_QUICK_TAP_MS, HM_PRIOR_IDLE) \
             hold-trigger-on-release;
         };
 
@@ -104,7 +104,7 @@
             HRM_RIGHT_MACRO("balanced", HM_TAPPING_TERM, LAYER_QUICK_TAP_MS, HM_PRIOR_IDLE) \
         };
         /omit-if-no-ref/ hm_r: hm_r {
-            HRM_RIGHT_MACRO("hold-preferred", HM_TAPPING_TERM, LAYER_QUICK_TAP_MS, HM_PRIOR_IDLE) \
+            HRM_RIGHT_MACRO("balanced", HM_TAPPING_TERM, LAYER_QUICK_TAP_MS, HM_PRIOR_IDLE) \
             hold-trigger-on-release;
         };
     };
