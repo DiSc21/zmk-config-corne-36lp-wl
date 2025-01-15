@@ -37,29 +37,6 @@
 #include "shared_macros.dtsi"
 #include "shared_nomod_morphs.dtsi"
 
-#define DELAYED_MACRO_WAIT_MS 120
-
-/ {
-    macros {
-        ///
-        /// @brief trigger mod-resistant space tap after a short waiting time to ensure key-macro is finished
-        ///
-        /// @note when using &kp in multikey macros after an other multikey macro, it is usually queued
-        /// in before the last key of the inner multikey macro. This behavior adds an artificial delay
-        /// (rule of thumb: max-number of inner macro keys times wait-ms) to prevent such tap disorders.
-        ///
-        kpd_spc: kpd_spc {
-            compatible = "zmk,behavior-macro";
-            wait-ms = <DELAYED_MACRO_WAIT_MS>;
-            tap-ms = <30>;
-            #binding-cells = <0>;
-            bindings = <&macro_tap &none>
-                     , <&macro_tap &kpr_spc>
-                     ;
-        };
-    };
-};
-
 
 ///
 /// @brief macro for the creation of nested mod-morphes
@@ -143,21 +120,21 @@
 /// @brief non-vocal multigrams only share tabdance-space and Caps-Shift logic.
 /// - Tabdance: append space
 /// - SHIFT: first letter capital
-///       __________________________________________________________________________________
-///      | <no-mods> | CTRL |  GUI | CTRL+GUI |   ALT |  ALT+CTRL |  ALT+GUI | ALT+CTRL+GUI |
-/// .====|===========|======|======|==========|=======|===========|==========|==============|
-/// | F: |   for     |   ft |   fr |     -    |  from |     -     |      -   |        -     |
-/// | M: |   ment    |   me |   my |   must   |  many |   much    |    more  |      most    |
-/// | R: |   re      |   rt |   rg |     -    |   rb  |     -     |      -   |        -     |
-/// | T: |   th      |  the |  ter |    tor   |  that |   this    |    they  |      tion    |
-/// | W: |   wh      |  who |  was |   with   | which |   were    |    when  |     where    |
-/// |____|___________|______|______|__________|_______|___________|__________|______________|
+///       ___________________________________________________________________________________
+///      | <no-mods> |  CTRL |  GUI | CTRL+GUI |   ALT |  ALT+CTRL |  ALT+GUI | ALT+CTRL+GUI |
+/// .====|===========|=======|======|==========|=======|===========|==========|==============|
+/// | F: |   for     |    ft |   fr |     -    |  from |     -     |      -   |        -     |
+/// | M: |   ment    |    me |   my |   must   |  many |   much    |    more  |      most    |
+/// | R: |   re      |    rt |   rg |     -    |   rb  |     -     |      -   |        -     |
+/// | T: |   th      |   the |  ter |    tor   |  that |   this    |    they  |      tion    |
+/// | W: |   wh      | would | will |   with   | which |    way    |    when  |      want    |
+/// |____|___________|_______|______|__________|_______|___________|__________|______________|
 ///
-CREATE_MULTI_MOD_MORPH_MACRO(f, &kpr_f, &kpr_cf,   &kpr_o &kpr_r,          &kpr_t,          &kpr_r,          &none,                  &kpr_r &kpr_o &kpr_m,          &none,                  &none,                  &none)
-CREATE_MULTI_MOD_MORPH_MACRO(m, &kpr_m, &kpr_cm,   &kpr_e &kpr_n &kpr_t,   &kpr_e,          &kpr_y,          &kpr_u &kpr_s &kpr_t,   &kpr_a &kpr_n &kpr_y,          &kpr_u &kpr_c &kpr_h,   &kpr_o &kpr_r &kpr_e,   &kpr_o &kpr_s &kpr_t)
-CREATE_MULTI_MOD_MORPH_MACRO(r, &kpr_r, &kpr_cr,   &kpr_e,                 &kpr_t,          &kpr_g,          &none,                  &kpr_b,                        &none,                  &none,                  &none)
-CREATE_MULTI_MOD_MORPH_MACRO(t, &kpr_t, &kpr_ct,   &kpr_h,                 &kpr_h &kpr_e,   &kpr_e &kpr_r,   &kpr_o &kpr_r,          &kpr_h &kpr_a &kpr_t,          &kpr_h &kpr_i &kpr_s,   &kpr_h &kpr_e &kpr_y,   &kpr_i &kpr_o &kpr_n)
-CREATE_MULTI_MOD_MORPH_MACRO(w, &kpr_w, &kpr_cw,   &kpr_h,                 &kpr_h &kpr_o,   &kpr_a &kpr_s,   &kpr_i &kpr_t &kpr_h,   &kpr_h &kpr_i &kpr_c &kpr_h,   &kpr_e &kpr_r &kpr_e,   &kpr_h &kpr_e &kpr_n,   &kpr_h &kpr_e &kpr_r &kpr_e)
+CREATE_MULTI_MOD_MORPH_MACRO(f, &kpr_f, &kpr_cf,   &kpr_o &kpr_r,          &kpr_t,                        &kpr_r,                 &none,                  &kpr_r &kpr_o &kpr_m,          &none,                  &none,                  &none)
+CREATE_MULTI_MOD_MORPH_MACRO(m, &kpr_m, &kpr_cm,   &kpr_e &kpr_n &kpr_t,   &kpr_e,                        &kpr_y,                 &kpr_u &kpr_s &kpr_t,   &kpr_a &kpr_n &kpr_y,          &kpr_u &kpr_c &kpr_h,   &kpr_o &kpr_r &kpr_e,   &kpr_o &kpr_s &kpr_t)
+CREATE_MULTI_MOD_MORPH_MACRO(r, &kpr_r, &kpr_cr,   &kpr_e,                 &kpr_t,                        &kpr_g,                 &none,                  &kpr_b,                        &none,                  &none,                  &none)
+CREATE_MULTI_MOD_MORPH_MACRO(t, &kpr_t, &kpr_ct,   &kpr_h,                 &kpr_h &kpr_e,                 &kpr_e &kpr_r,          &kpr_o &kpr_r,          &kpr_h &kpr_a &kpr_t,          &kpr_h &kpr_i &kpr_s,   &kpr_h &kpr_e &kpr_y,   &kpr_i &kpr_o &kpr_n)
+CREATE_MULTI_MOD_MORPH_MACRO(w, &kpr_w, &kpr_cw,   &kpr_h,                 &kpr_o &kpr_u &kpr_l &kpr_d,   &kpr_i &kpr_l &kpr_l,   &kpr_i &kpr_t &kpr_h,   &kpr_h &kpr_i &kpr_c &kpr_h,   &kpr_a &kpr_y,          &kpr_h &kpr_e &kpr_n,   &kpr_a &kpr_n &kpr_t)
 
 ///
 /// @brief vocal multigrams share some common schemata:
