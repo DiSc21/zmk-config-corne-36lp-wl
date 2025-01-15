@@ -73,23 +73,23 @@
 #define CREATE_MULTI_MOD_MORPH_MACRO(name, first_key, first_key_c, mmb_bind, mmc_bind, mmg_bind, mmcg_bind, mma_bind, mmac_bind, mmag_bind, mmacg_bind) \
     / { \
         macros { \
-            CREATE_TAPDANCE_SPACE_APPEND(mmb_ ## name,   first_key mmb_bind) \
-            CREATE_TAPDANCE_SPACE_APPEND(mmc_ ## name,   first_key mmc_bind) \
-            CREATE_TAPDANCE_SPACE_APPEND(mmg_ ## name,   first_key mmg_bind) \
-            CREATE_TAPDANCE_SPACE_APPEND(mmcg_ ## name,  first_key mmcg_bind) \
-            CREATE_TAPDANCE_SPACE_APPEND(mma_ ## name,   first_key mma_bind) \
-            CREATE_TAPDANCE_SPACE_APPEND(mmac_ ## name,  first_key mmac_bind) \
-            CREATE_TAPDANCE_SPACE_APPEND(mmag_ ## name,  first_key mmag_bind) \
-            CREATE_TAPDANCE_SPACE_APPEND(mmacg_ ## name, first_key mmacg_bind) \
+            CREATE_TAPDANCE_SPACE_APPEND(mmb_ ## name,       &kpr_ ## name mmb_bind) \
+            CREATE_TAPDANCE_SPACE_APPEND(mmc_ ## name,       &kpr_ ## name mmc_bind) \
+            CREATE_TAPDANCE_SPACE_APPEND(mmg_ ## name,       &kpr_ ## name mmg_bind) \
+            CREATE_TAPDANCE_SPACE_APPEND(mmcg_ ## name,      &kpr_ ## name mmcg_bind) \
+            CREATE_TAPDANCE_SPACE_APPEND(mma_ ## name,       &kpr_ ## name mma_bind) \
+            CREATE_TAPDANCE_SPACE_APPEND(mmac_ ## name,      &kpr_ ## name mmac_bind) \
+            CREATE_TAPDANCE_SPACE_APPEND(mmag_ ## name,      &kpr_ ## name mmag_bind) \
+            CREATE_TAPDANCE_SPACE_APPEND(mmacg_ ## name,     &kpr_ ## name mmacg_bind) \
             \
-            CREATE_TAPDANCE_SPACE_APPEND(mmb_sft_ ## name,   first_key_c mmb_bind) \
-            CREATE_TAPDANCE_SPACE_APPEND(mmc_sft_ ## name,   first_key_c mmc_bind) \
-            CREATE_TAPDANCE_SPACE_APPEND(mmg_sft_ ## name,   first_key_c mmg_bind) \
-            CREATE_TAPDANCE_SPACE_APPEND(mmcg_sft_ ## name,  first_key_c mmcg_bind) \
-            CREATE_TAPDANCE_SPACE_APPEND(mma_sft_ ## name,   first_key_c mma_bind) \
-            CREATE_TAPDANCE_SPACE_APPEND(mmac_sft_ ## name,  first_key_c mmac_bind) \
-            CREATE_TAPDANCE_SPACE_APPEND(mmag_sft_ ## name,  first_key_c mmag_bind) \
-            CREATE_TAPDANCE_SPACE_APPEND(mmacg_sft_ ## name, first_key_c mmacg_bind) \
+            CREATE_TAPDANCE_SPACE_APPEND(mmb_sft_ ## name,   &kpr_c ## name mmb_bind) \
+            CREATE_TAPDANCE_SPACE_APPEND(mmc_sft_ ## name,   &kpr_c ## name mmc_bind) \
+            CREATE_TAPDANCE_SPACE_APPEND(mmg_sft_ ## name,   &kpr_c ## name mmg_bind) \
+            CREATE_TAPDANCE_SPACE_APPEND(mmcg_sft_ ## name,  &kpr_c ## name mmcg_bind) \
+            CREATE_TAPDANCE_SPACE_APPEND(mma_sft_ ## name,   &kpr_c ## name mma_bind) \
+            CREATE_TAPDANCE_SPACE_APPEND(mmac_sft_ ## name,  &kpr_c ## name mmac_bind) \
+            CREATE_TAPDANCE_SPACE_APPEND(mmag_sft_ ## name,  &kpr_c ## name mmag_bind) \
+            CREATE_TAPDANCE_SPACE_APPEND(mmacg_sft_ ## name, &kpr_c ## name mmacg_bind) \
         }; \
     }; \
     / { \
