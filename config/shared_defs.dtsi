@@ -96,10 +96,10 @@
 
 /* Layer defs */
 #define L_DEF 0
-#define L_NUM 1
-#define L_BRC 2
-#define L_MG_ARR 3
-#define L_BT_LED 4
+#define L_SMART_NUM 1
+#define L_MG 2
+#define L_BT_LED 3
+#define L_NUM 4
 #define L_NAV 5
 
 /* Timing defaults */

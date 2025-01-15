@@ -84,13 +84,13 @@
         mmnr_del: mmnr_del {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&lt_red_r L_MG_ARR DEL>, <&kp BSPC>;
+            bindings = <&lt_red_r L_MG DEL>, <&kp BSPC>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
         mmnl_bsp: mmnl_bsp {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&lt_red_l L_MG_ARR BSPC>, <&kp DEL>;
+            bindings = <&lt_red_l L_MG BSPC>, <&kp DEL>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
     };
@@ -108,44 +108,27 @@
         default {
             display-name = "default";
             bindings = <
-                &none &kp Q          &kp W         &kp E        &kp R               &kp T                 &kp Y               &kp U                 &kp I        &kp O         &kp P             &none
-                &none &hm_l LSHIFT A &hm_l LCTRL S &hm_l LGUI D &hm_l LALT F        &lt_pur_l L_NUM G     &lt_pur_l L_NUM H   &hm_r RALT J          &hm_r RGUI K &hm_r RCTRL L &hm_r RSHIFT SEMI &none
-                &none &kp Z          &kp X         &kp C        &kp V               &kp B                 &kp N               &kp M                 &kp COMMA    &kp DOT       &kp FSLH          &none
-                                                   &mmnl_bsp    &lt_blu_l L_BRC RET &lt_pur_l L_NUM TAB   &lt_pur_r L_NUM ESC &lt_blu_r L_BRC SPACE &mmnr_del
+                &none &kp Q          &kp W         &kp E        &kp R              &kp T                     &kp Y               &kp U                &kp I        &kp O         &kp P             &none
+                &none &hm_l LSHIFT A &hm_l LCTRL S &hm_l LGUI D &hm_l LALT F       &lt_pur_l L_SMART_NUM G   &lt_pur_l L_NUM H   &hm_r RALT J         &hm_r RGUI K &hm_r RCTRL L &hm_r RSHIFT SEMI &none
+                &none &kp Z          &kp X         &kp C        &kp V              &kp B                     &kp N               &kp M                &kp COMMA    &kp DOT       &kp FSLH          &none
+                                                   &mmnl_bsp    &lt_red_l L_MG RET &lt_red_l L_MG TAB        &lt_red_r L_MG ESC  &lt_red_r L_MG SPACE &mmnr_del
             >;
         };
 
-        // [NUM] LAYER
+        // [SMART_NUM] LAYER
         // -----------------------------------------------------------------------------------------------------------------------------------------
-        // | - | F1         | F2        | F3       | F4       || Euler   |  |    -    |  | +       || 7       | 8       | 9        | *         | - |
-        // | - | F5 [SHIFT] | F6 [CTRL] | F7 [WIN] | F8 [ALT] || PI      |  |    -    |  | 0       || 4 [ALT] | 5 [WIN] | 6 [CTRL] | = [SHIFT] | - |
-        // | - | F9         | F10       | F11      | F12      || Sqrt2   |  |    -    |  | -       || 1       | 2       | 3        | .         | - |
-        // -----------------------------| BSPC     | RET      || **TAB** |  |    -    |  | **ESC** || SPC     | ENTF    |---------------------------
+        // | - |            |           |          |          ||         |  |    -    |  |         || 7       | 8       | 9        |           | - |
+        // | - |            |           |          |          ||         |  |    -    |  | 0       || 4 [ALT] | 5 [WIN] | 6 [CTRL] |           | - |
+        // | - |            |           |          |          ||         |  |    -    |  |         || 1       | 2       | 3        |           | - |
+        // -----------------------------|   BSPC   |          ||   TAB   |  |    -    |  |         ||         |   ENTF  |---------------------------
         //                              ---------------------------------------------------------------------------------
-        numbers {
-            display-name = "numbers";
+        smart_num {
+            display-name = "smart_num";
             bindings = <
-                &none &kp F1                &kp F2         &kp   F3      &kp F4        &trans         &trans &kp N7        &kp N8        &kp N9         &kp ASTERISK             &none
-                &none &hm_shift_l LSHIFT F5 &hm_l LCTRL F6 &hm_l LGUI F7 &hm_l LALT F8 &trans         &kp N0 &hm_r RALT N4 &hm_r RGUI N5 &hm_r RCTRL N6 &hm_shift_r RSHIFT EQUAL &none
-                &none &kp F9                &kp F10        &kp   F11     &kp F12       &trans         &trans &kp N1        &kp N2        &kp N3         &kp FSLH                 &none
-                                                           &trans        &trans        &trans         &trans &trans        &trans
-            >;
-        };
-
-        // [BRC] LAYER (BRACES/SIGNS)
-        // -----------------------------------------------------------------------------------------------------------------------------------------
-        // | - | !         | @        | #       | $         | %         ||   |    -    |   | ^    || &       | *       | (         | )         | - |
-        // | - | ~ [SHIFT] | ` [CTRL] |   [WIN] |     [ALT] | P-UP      ||   |    -    |   | '/"  || { [ALT] | [ [WIN] | ] [CTRL]  | } [SHIFT] | - |
-        // | - | HOME      | INSERT   | PRINT   | END       | P-DOWN    ||   |    -    |   | -/_  || \/|     | <       | >         | //?       | - |
-        // ---------------------------| BSPC    | **RET**   | TAB       ||   |    -    |   | ESC  || **SPC** | ENTF    |----------------------------
-        //                            ----------------------------------------------------------------------------------
-        signs {
-            display-name = "signs";
-            bindings = <
-                &none &kp EXCLAMATION          &kp AT            &kp HASH         &kp DOLLAR &trans       &trans &kp AMPS        &kp ASTERISK    &kp LPAR         &kp RPAR                &none
-                &none &hm_shift_l LSHIFT TILDE &hm_l LCTRL GRAVE &kp SINGLE_QUOTE &kp PRCNT  &trans       &trans &hm_r RALT LBRC &hm_r RGUI LBKT &hm_r RCTRL RBKT &hm_shift_r RSHIFT RBRC &none
-                &none &kp CARET                &kp INSERT        &kp PSCRN        &kp QMARK  &trans       &trans &kp BSLH        &kp LT          &kp GT           &kp FSLH                &none
-                                                                 &trans           &trans     &trans       &trans &trans          &trans
+                &none  &to L_DEF  &to L_DEF  &to L_DEF  &to L_DEF  &to L_DEF       &kp COMMA  &kp N7        &kp N8        &kp N9         &to L_DEF  &none
+                &none  &to L_DEF  &to L_DEF  &to L_DEF  &to L_DEF  &to L_DEF       &kp N0     &hm_r RALT N4 &hm_r RGUI N5 &hm_r RCTRL N6 &to L_DEF  &none
+                &none  &to L_DEF  &to L_DEF  &to L_DEF  &to L_DEF  &to L_DEF       &kp DOT    &kp N1        &kp N2        &kp N3         &to L_DEF  &none
+                                             &kp BSPC   &to L_DEF  &kp TAB         &to L_DEF  &to L_DEF     &kp DEL
             >;
         };
 
@@ -183,6 +166,23 @@
             >;
         };
 
+        // [NUM] LAYER
+        // -----------------------------------------------------------------------------------------------------------------------------------------
+        // | - | F1         | F2        | F3       | F4       || Euler   |  |    -    |  | +       || 7       | 8       | 9        | *         | - |
+        // | - | F5 [SHIFT] | F6 [CTRL] | F7 [WIN] | F8 [ALT] || PI      |  |    -    |  | 0       || 4 [ALT] | 5 [WIN] | 6 [CTRL] | = [SHIFT] | - |
+        // | - | F9         | F10       | F11      | F12      || Sqrt2   |  |    -    |  | -       || 1       | 2       | 3        | .         | - |
+        // -----------------------------| BSPC     | RET      || **TAB** |  |    -    |  | **ESC** || SPC     | ENTF    |---------------------------
+        //                              ---------------------------------------------------------------------------------
+        numbers {
+            display-name = "numbers";
+            bindings = <
+                &none &kp F1                &kp F2         &kp   F3      &kp F4        &trans         &trans &kp N7        &kp N8        &kp N9         &kp ASTERISK             &none
+                &none &hm_shift_l LSHIFT F5 &hm_l LCTRL F6 &hm_l LGUI F7 &hm_l LALT F8 &trans         &kp N0 &hm_r RALT N4 &hm_r RGUI N5 &hm_r RCTRL N6 &hm_shift_r RSHIFT EQUAL &none
+                &none &kp F9                &kp F10        &kp   F11     &kp F12       &trans         &trans &kp N1        &kp N2        &kp N3         &kp FSLH                 &none
+                                                           &trans        &trans        &trans         &trans &trans        &trans
+            >;
+        };
+
         // [NAV] LAYER
         // ----------------------------------------------------------------------------------------------------------------------------------------------------
         // | - |            |           |          |          ||         |  |    -    |  | M-Scroll-L || M-LCKL     | M-MIDDLE   | M-Scroll-R | P-UP       | - |
@@ -203,25 +203,6 @@
             >;
         };
 
-        // [NUM_TOG] LAYER
-        // -----------------------------------------------------------------------------------------------------------------------------------------
-        // | - |            |           |          |          ||         |  |    -    |  |         || 7       | 8       | 9        |           | - |
-        // |---|------------|-----------|----------|----------||---------|  |    -    |  |---------||---------|---------|----------|-----------|---|
-        // | - |            |           |          |          ||         |  |    -    |  | 0       || 4 [ALT] | 5 [WIN] | 6 [CTRL] |           | - |
-        // |---|------------|-----------|----------|----------||---------|  |    -    |  |---------||---------|---------|----------|-----------|---|
-        // | - |            |           |          |          ||         |  |    -    |  |         || 1       | 2       | 3        |           | - |
-        // -----------------------------|----------|----------||---------|  |    -    |  |---------||---------|---------|---------------------------
-        //                              |   BSPC   |          ||   TAB   |  |    -    |  |         ||         |   ENTF  |
-        //                              ---------------------------------------------------------------------------------
-        smart_num {
-            display-name = "smart_num";
-            bindings = <
-                &none  &to L_DEF  &to L_DEF  &to L_DEF  &to L_DEF  &to L_DEF       &to L_DEF  &kp N7        &kp N8        &kp N9         &to L_DEF  &none
-                &none  &to L_DEF  &to L_DEF  &to L_DEF  &to L_DEF  &to L_DEF       &kp N0     &hm_r RALT N4 &hm_r RGUI N5 &hm_r RCTRL N6 &to L_DEF  &none
-                &none  &to L_DEF  &to L_DEF  &to L_DEF  &to L_DEF  &to L_DEF       &to L_DEF  &kp N1        &kp N2        &kp N3         &to L_DEF  &none
-                                             &kp BSPC   &to L_DEF  &kp TAB         &to L_DEF  &to L_DEF     &kp DEL
-            >;
-        };
     };
 };
 
