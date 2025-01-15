@@ -25,22 +25,17 @@
 │                                                       │
 │ @brief: ZMK devicetree file for key combos.           │
 │                                                       │
-│ @depends: shared_defs.dtsi for key positions.         │
-│_________________________     _________________________│
-│ | __|__  __|__  __|__ | |###| | __|__  __|__  __|__ | │
-│ ||_ESC_||__A__||__T__||-StBT--||__Y__||_BSP_||_To0_|| │
-│_|___|______|______|___|_|###|_|___|______|______|___|_│
-│ | __|__  __|__  __|__ | |###| | _____  _____  _____ | │
-│ ||_CAP_||_NTE_||_INS_||-StNum-||__-__||__=__||__'__|| │
-│_|___|______|______|___|_|###|_|___|______|______|___|_│
-│ | __|__  __|__  __|__ | |###| | __|__  __|__  __|__ | │
-│ ||_HOM_||_END_||_ToN_|| |###| ||__N__||__,__||__\__|| │
-│_|___|______|______|___|_|###|_|___|______|______|___|_│
-│            |      |   | |###| |   |      |            │
-│            |______|___|_|###|_|___|______|            │
+│ @depends (ext):                                       │
+│ - behaviors/num_word.dtsi for num word auto-layer.    │
+│                                                       │
+│ @depends (custom):                                    │
+│ - shared_defs.dtsi for key positions.                 │
+│ - behaviors_led.dtsi for layer-color indicators.      │
 ╰───────────────────────────────────────────────────────╯
-
 */
+
+/* urobs num word */
+#include <behaviors/num_word.dtsi>
 
 #include "shared_defs.dtsi"
 #include "behaviors_led.dtsi"
@@ -71,41 +66,68 @@
 
         // CrossSide Combos
         // ----------------
-        COMBO_MACRO(combo_sticky_bt_led, &sl L_BT_LED,     LT5 RT0, COMBO_TAP_TIME_FAST)
-        COMBO_MACRO(combo_to_navigation, &to L_NAV,        LM5 RM0, COMBO_TAP_TIME_FAST)
+        COMBO_MACRO(combo_sticky_bt_led, &sl L_BT_LED,      LT5 RT0,         COMBO_TAP_TIME_FAST)
+        //COMBO_MACRO(combo_to_navigation, &to L_NAV,         LM5 RM0,         COMBO_TAP_TIME_FAST)
 
         // CrossRow Combos
         // ---------------
-        COMBO_MACRO(combo_numbers_left,  &mo L_NUM,        LT3 LM4, COMBO_TAP_TIME_FAST)
-        COMBO_MACRO(combo_mg_arr_left,   &mo L_MG_ARR,     LT4 LM5, COMBO_TAP_TIME_FAST)
-        COMBO_MACRO(combo_mg_arr_right,  &mo L_MG_ARR,     RT1 RM0, COMBO_TAP_TIME_FAST)
+
+        // opening braces
+        COMBO_MACRO(combo_curly_brace_l, &kp LBRC,          RM1 RT2,         COMBO_TAP_TIME_FAST)
+        COMBO_MACRO(combo_sqr_brace_l,   &kp LBKT,          RB1 RM2,         COMBO_TAP_TIME_FAST)
+        COMBO_MACRO(combo_brace_l,       &kp LPAR,          RM0 RT1,         COMBO_TAP_TIME_FAST)
+        // closing braces
+        COMBO_MACRO(combo_curly_brace_r, &kp RBRC,          RT2 RM3,         COMBO_TAP_TIME_FAST)
+        COMBO_MACRO(combo_sqr_brace_r,   &kp RBKT,          RM2 RB3,         COMBO_TAP_TIME_FAST)
+        COMBO_MACRO(combo_brace_r,       &kp RPAR,          RT3 RM4,         COMBO_TAP_TIME_FAST)
+        // signs
+        COMBO_MACRO(combo_exclamation,   &kp EXCLAMATION,   RM0 RB0,         COMBO_TAP_TIME_FAST)
+        COMBO_MACRO(combo_caret,         &kp CARET,         RM4 RT3,         COMBO_TAP_TIME_FAST)
+        COMBO_MACRO(combo_grave,         &kp GRAVE,         RM1 RB2,         COMBO_TAP_TIME_FAST)
+        COMBO_MACRO(combo_perc,          &kp PERCENT,       RB2 RM3,         COMBO_TAP_TIME_FAST)
+
 
         // TopRow Combos
         // -------------
-        COMBO_MACRO(combo_esc,           &kp ESC,          LT1 LT2, COMBO_TAP_TIME_FAST)
-        COMBO_MACRO(combo_tab,           &kp TAB,          LT2 LT3, COMBO_TAP_TIME_FAST)
-        COMBO_MACRO(combo_key_t,         &kp T,            LT3 LT4, COMBO_TAP_TIME_FAST)
-        COMBO_MACRO(combo_key_y,         &kp Y,            RT1 RT2, COMBO_TAP_TIME_FAST)
-        COMBO_MACRO(combo_bspc,          &kp BSPC,         RT2 RT3, COMBO_TAP_TIME_FAST)
-        COMBO_MACRO(combo_to_default,    &to L_DEF,        RT3 RT4, COMBO_TAP_TIME_FAST)
+
+        // left-hand side
+        COMBO_MACRO(combo_esc,           &kp ESC,           LT1 LT2,         COMBO_TAP_TIME_FAST)
+        COMBO_MACRO(combo_insert,        &kp INSERT,        LT2 LT3,         COMBO_TAP_TIME_FAST)
+        COMBO_MACRO(combo_page_up,       &kp PG_UP,         LT3 LT4,         COMBO_TAP_TIME_FAST)
+        // right-hand side
+        COMBO_MACRO(combo_bslh,          &kp BSLH,          RT1 RT2,         COMBO_TAP_TIME_FAST)
+        COMBO_MACRO(combo_pipe,          &kp PIPE,          RT2 RT3,         COMBO_TAP_TIME_FAST)
+        COMBO_MACRO(combo_to_default,    &to L_DEF,         RT3 RT4,         COMBO_TAP_TIME_FAST)
+        COMBO_MACRO(combo_star,          &kp ASTERISK,      RT1 RT2 RT3,     COMBO_TAP_TIME_FAST)
+        COMBO_MACRO(combo_hash,          &kp HASH,          RT2 RT3 RT4,     COMBO_TAP_TIME_FAST)
 
         // MiddleRow Combos
         // ----------------
-        COMBO_MACRO(combo_caps_word,     &caps_word,       LM1 LM2, COMBO_TAP_TIME_FAST)
-        COMBO_MACRO(combo_space,         &kp SPACE,        LM2 LM3, COMBO_TAP_TIME_FAST)
-        COMBO_MACRO(combo_insert,        &kp INSERT,       LM3 LM4, COMBO_TAP_TIME_FAST)
-        COMBO_MACRO(combo_minus,         &kp MINUS,        RM1 RM2, COMBO_TAP_TIME_FAST)
-        COMBO_MACRO(combo_equal,         &kp EQUAL,        RM2 RM3, COMBO_TAP_TIME_FAST)
-        COMBO_MACRO(combo_quote,         &kp SINGLE_QUOTE, RM3 RM4, COMBO_TAP_TIME_FAST)
+
+        // left-hand side
+        COMBO_MACRO(combo_caps_word,     &caps_word,        LM1 LM2,         COMBO_TAP_TIME_FAST)
+        COMBO_MACRO(combo_space,         &kp SPACE,         LM2 LM3,         COMBO_TAP_TIME_FAST)
+        COMBO_MACRO(combo_page_down,     &kp PG_DN,         LM3 LM4,         COMBO_TAP_TIME_FAST)
+        // right-hand side
+        COMBO_MACRO(combo_minus,         &kp MINUS,         RM1 RM2,         COMBO_TAP_TIME_FAST)
+        COMBO_MACRO(combo_underscore,    &kp UNDERSCORE,    RM2 RM3,         COMBO_TAP_TIME_FAST)
+        COMBO_MACRO(combo_equal,         &kp EQUAL,         RM3 RM4,         COMBO_TAP_TIME_FAST)
+        COMBO_MACRO(combo_ampers,        &kp AMPERSAND,     RM1 RM2 RM3,     COMBO_TAP_TIME_FAST)
+        COMBO_MACRO(combo_tilde,         &kp TILDE,         RM2 RM3 RM4,     COMBO_TAP_TIME_FAST)
 
         // BottomRow Combos
         // ----------------
-        COMBO_MACRO(combo_home,          &kp HOME,         LB1 LB2, COMBO_TAP_TIME_FAST)
-        COMBO_MACRO(combo_end,           &kp END,          LB2 LB3, COMBO_TAP_TIME_FAST)
-        COMBO_MACRO(combo_to_numbers,    &to L_NUM,        LB3 LB4, COMBO_TAP_TIME_FAST)
-        COMBO_MACRO(combo_comma,         &kp COMMA,        RB1 RB2, COMBO_TAP_TIME_FAST)
-        COMBO_MACRO(combo_dot,           &kp DOT,          RB2 RB3, COMBO_TAP_TIME_FAST)
-        COMBO_MACRO(combo_bslh,          &kp BSLH,         RB3 RB4, COMBO_TAP_TIME_FAST)
+
+        // left-hand side
+        COMBO_MACRO(combo_home,          &kp HOME,          LB1 LB2,         COMBO_TAP_TIME_FAST)
+        COMBO_MACRO(combo_print,         &kp PSCRN,         LB2 LB3,         COMBO_TAP_TIME_FAST)
+        COMBO_MACRO(combo_end,           &kp END,           LB3 LB4,         COMBO_TAP_TIME_FAST)
+        // right-hand side
+        COMBO_MACRO(combo_quote,         &kp SINGLE_QUOTE,  RB1 RB2,         COMBO_TAP_TIME_FAST)
+        COMBO_MACRO(combo_quotes,        &kp DOUBLE_QUOTES, RB2 RB3,         COMBO_TAP_TIME_FAST)
+        COMBO_MACRO(combo_plus,          &kp PLUS,          RB3 RB4,         COMBO_TAP_TIME_FAST)
+        COMBO_MACRO(combo_dollar,        &kp DOLLAR,        RB1 RB2 RB3,     COMBO_TAP_TIME_FAST)
+        COMBO_MACRO(combo_at,            &kp AT,            RB2 RB3 RB4,     COMBO_TAP_TIME_FAST)
     };
 };
 

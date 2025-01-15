@@ -1,0 +1,125 @@
+/*
+╭──────────────────────────────────────────────────────────╮
+│ @Author:  TheDirkKnight     @Contact:  github.com/DiSc21 │
+│ @License: MIT             @copyright: 2024 TheDirkKnight │
+│ @Data:    2025/01/04                                     │
+╰──────────────────────────────────────────────────────────╯
+ ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡆⠀⠀⠀⠀⠀⠀⠀⣆              ⠀⠀⠀⣶⡀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣾⡇⠀⠀⠀⠀⠀⠀⠀⣿⡇               ⣼⣿⣧
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⡇⠀⠀⠀⠀⠀⠀⠀⡿⣿             ⠀⣰⣿⣿⣿⣆
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⠀⠀⠀⠀⠀⠀⠀⠃⣿⡄           ⠀⢠⣿⣿⣿⣿⣿⣆
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⣿⣿⣿⣿⣿⣿⣷⣼⣿⡇           ⣰⣿⣿⣿⣿⣿⣿⣿⣆
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⡇⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿           ⣰⣿⣿⣿⠋⠉⠙⣿⣿⣿⣆
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣼⣿⣿⣿⣿⣿⣿⣿⣿⡏          ⣰⣿⣿⣿⡇⠀⠀⠀⢸⣿⣿⣟⣆
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢙⡻⢿⣿⡿⡟⣿⡿⠟⣛⠁        ⠀⣴⣿⠿⠛⠋⠁⠀⠀⠀⠈⠙⠛⠿⣿⣦
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣠⣴⡾⠛⠉⠀⠀⠀⠉⠓⠂ ⡀⠀⠐⠛⠁⠀⠀⠀⣸⣿⣦⣄⡀⠀⠈⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠁
+⠀⠀⠀⠀⠀⠀⢀⣀⣀⣤⣤⣶⣿⣿⣿⣿⣿⣷⣆⠀⠀⠀⠀⠀⠀⢠⡇⠀⠀⠀⠀⠀⠀⠀⠈⣻⣿⣿⣿⣷⣶⣤⣤⣤⣄⣀
+⠀⠀⠀⢀⣴⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠁⠀⠀⠀⠀ ⣀⣀  ⠀⠀⠀⠀⠀⠀⠀⠙⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣶⡄
+⠀⠀⡾⣿⣿⣿⣿⠿⠋⢁⣿⣿⣿⣿⣿⣿⣟⣥⣶⢿⡛⠉⠀⠀⠈⠀⠀⠁⠀⠀⠀⠈⢙⡻⢷⣿⣿⣿⣿⣿⣿⣿⡟⠿⠿⣿⣿⣿⣿
+⠀⠀⠀⣿⣿⠟⠁⠀⢠⣿⣿⣿⣿⣿⣿⡿⢟⣭⣶⣿⣷⣄⠀⠀⠀⣄⣀⡄⠀⠀⢀⣴⣿⣿⣷⣝⡻⣿⣿⣿⣿⣿⣿⣦⡀⠀⠉⠛⢿
+⠀⠀⠀⠿⠁⠀⠀⠀⠋⠁⣿⣿⣿⡿⢋⣴⣿⣿⣿⣿⣿⣿⣿⣶⣾⣿⣿⣿⣶⣿⣿⣿⣿⣿⣿⣿⣿⣮⡻⣿⣿⣿⠯⠉⠙
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⠁⠽⠋⠠⠿⠿⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠿⠷⠌⠻⠟
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠻⠿⠿⠿⣿⣿⣿⣿⣿⣿⡿⠿⠿⠿⠟⠁
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠻⠋
+╭──────────────────────────────────────────────────────────╮
+│ @brief: ZMK dtsi file for key-taps ignoring modifiers.   │
+│                                                          │
+│ @note: Calling multi key macros is sometimes colliding   │
+│        with modifiers (CTRL, ALT, ...) when typing fast. │
+│        Hence, some "modifier-resistant" keys are needed. │
+╰──────────────────────────────────────────────────────────╯
+*/
+
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+
+///
+/// @brief create mod morph that is ignoring all modifiers
+///
+/// @param name: name-postfix of the created mod-morph
+/// @param cmd_bind: the behavior assigned to
+///
+#define MOD_MORPH_IGNORE_MODS(name, cmd_bind) \
+    /omit-if-no-ref/ kpr_ ## name: kpr_ ## name { \
+        compatible = "zmk,behavior-mod-morph"; \
+        #binding-cells = <0>; \
+        bindings = <cmd_bind>, <cmd_bind>; \
+        mods = <(MOD_LCTL|MOD_RCTL|MOD_LALT|MOD_RALT|MOD_LSFT|MOD_RSFT|MOD_LGUI|MOD_RGUI)>; \
+    }; \
+
+
+/ {
+    behaviors {
+
+        // modifier-resistant commands
+        MOD_MORPH_IGNORE_MODS(spc, &kp SPACE)
+        MOD_MORPH_IGNORE_MODS(ret, &kp RETURN)
+
+        // lower-case modifier-resistant alphas
+        MOD_MORPH_IGNORE_MODS(a, &kp A)
+        MOD_MORPH_IGNORE_MODS(b, &kp B)
+        MOD_MORPH_IGNORE_MODS(c, &kp C)
+        MOD_MORPH_IGNORE_MODS(d, &kp D)
+        MOD_MORPH_IGNORE_MODS(e, &kp E)
+
+        MOD_MORPH_IGNORE_MODS(f, &kp F)
+        MOD_MORPH_IGNORE_MODS(g, &kp G)
+        MOD_MORPH_IGNORE_MODS(h, &kp H)
+        MOD_MORPH_IGNORE_MODS(i, &kp I)
+        MOD_MORPH_IGNORE_MODS(j, &kp J)
+
+        MOD_MORPH_IGNORE_MODS(k, &kp K)
+        MOD_MORPH_IGNORE_MODS(l, &kp L)
+        MOD_MORPH_IGNORE_MODS(m, &kp M)
+        MOD_MORPH_IGNORE_MODS(n, &kp N)
+        MOD_MORPH_IGNORE_MODS(o, &kp O)
+
+        MOD_MORPH_IGNORE_MODS(p, &kp P)
+        MOD_MORPH_IGNORE_MODS(q, &kp Q)
+        MOD_MORPH_IGNORE_MODS(r, &kp R)
+        MOD_MORPH_IGNORE_MODS(s, &kp S)
+        MOD_MORPH_IGNORE_MODS(t, &kp T)
+
+        MOD_MORPH_IGNORE_MODS(u, &kp U)
+        MOD_MORPH_IGNORE_MODS(v, &kp V)
+        MOD_MORPH_IGNORE_MODS(w, &kp W)
+        MOD_MORPH_IGNORE_MODS(x, &kp X)
+        MOD_MORPH_IGNORE_MODS(y, &kp Y)
+
+        MOD_MORPH_IGNORE_MODS(z, &kp Z)
+
+
+        // UPPER-case modifier-resistant alphas
+        MOD_MORPH_IGNORE_MODS(ca, &kp LS(A))
+        MOD_MORPH_IGNORE_MODS(cb, &kp LS(B))
+        MOD_MORPH_IGNORE_MODS(cc, &kp LS(C))
+        MOD_MORPH_IGNORE_MODS(cd, &kp LS(D))
+        MOD_MORPH_IGNORE_MODS(ce, &kp LS(E))
+
+        MOD_MORPH_IGNORE_MODS(cf, &kp LS(F))
+        MOD_MORPH_IGNORE_MODS(cg, &kp LS(G))
+        MOD_MORPH_IGNORE_MODS(ch, &kp LS(H))
+        MOD_MORPH_IGNORE_MODS(ci, &kp LS(I))
+        MOD_MORPH_IGNORE_MODS(cj, &kp LS(J))
+
+        MOD_MORPH_IGNORE_MODS(ck, &kp LS(K))
+        MOD_MORPH_IGNORE_MODS(cl, &kp LS(L))
+        MOD_MORPH_IGNORE_MODS(cm, &kp LS(M))
+        MOD_MORPH_IGNORE_MODS(cn, &kp LS(N))
+        MOD_MORPH_IGNORE_MODS(co, &kp LS(O))
+
+        MOD_MORPH_IGNORE_MODS(cp, &kp LS(P))
+        MOD_MORPH_IGNORE_MODS(cq, &kp LS(Q))
+        MOD_MORPH_IGNORE_MODS(cr, &kp LS(R))
+        MOD_MORPH_IGNORE_MODS(cs, &kp LS(S))
+        MOD_MORPH_IGNORE_MODS(ct, &kp LS(T))
+
+        MOD_MORPH_IGNORE_MODS(cu, &kp LS(U))
+        MOD_MORPH_IGNORE_MODS(cv, &kp LS(V))
+        MOD_MORPH_IGNORE_MODS(cw, &kp LS(W))
+        MOD_MORPH_IGNORE_MODS(cx, &kp LS(X))
+        MOD_MORPH_IGNORE_MODS(cy, &kp LS(Y))
+
+        MOD_MORPH_IGNORE_MODS(cz, &kp LS(Z))
+    };
+};
