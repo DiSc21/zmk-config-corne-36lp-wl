@@ -99,7 +99,7 @@
         COMBO_MACRO(combo_pipe,          &kp PIPE,          RT2 RT3,         COMBO_TAP_TIME_FAST)
         COMBO_MACRO(combo_to_default,    &to L_DEF,         RT3 RT4,         COMBO_TAP_TIME_FAST)
         COMBO_MACRO(combo_star,          &kp ASTERISK,      RT1 RT2 RT3,     COMBO_TAP_TIME_FAST)
-        COMBO_MACRO(combo_hash,          &kp HASH,          RT1 RT2 RT3 RT4, COMBO_TAP_TIME_FAST)
+        COMBO_MACRO(combo_hash,          &kp HASH,          RT2 RT3 RT4,     COMBO_TAP_TIME_FAST)
 
         // MiddleRow Combos
         // ----------------
@@ -113,7 +113,7 @@
         COMBO_MACRO(combo_underscore,    &kp UNDERSCORE,    RM2 RM3,         COMBO_TAP_TIME_FAST)
         COMBO_MACRO(combo_equal,         &kp EQUAL,         RM3 RM4,         COMBO_TAP_TIME_FAST)
         COMBO_MACRO(combo_ampers,        &kp AMPERSAND,     RM1 RM2 RM3,     COMBO_TAP_TIME_FAST)
-        COMBO_MACRO(combo_tilde,         &kp TILDE,         RM1 RM2 RM3 RM4, COMBO_TAP_TIME_FAST)
+        COMBO_MACRO(combo_tilde,         &kp TILDE,         RM2 RM3 RM4,     COMBO_TAP_TIME_FAST)
 
         // BottomRow Combos
         // ----------------
@@ -127,7 +127,7 @@
         COMBO_MACRO(combo_quotes,        &kp DOUBLE_QUOTES, RB2 RB3,         COMBO_TAP_TIME_FAST)
         COMBO_MACRO(combo_plus,          &kp PLUS,          RB3 RB4,         COMBO_TAP_TIME_FAST)
         COMBO_MACRO(combo_dollar,        &kp DOLLAR,        RB1 RB2 RB3,     COMBO_TAP_TIME_FAST)
-        COMBO_MACRO(combo_at,            &kp AT,            RB1 RB2 RB3 RB4, COMBO_TAP_TIME_FAST)
+        COMBO_MACRO(combo_at,            &kp AT,            RB2 RB3 RB4,     COMBO_TAP_TIME_FAST)
     };
 };
 
