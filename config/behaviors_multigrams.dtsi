@@ -146,14 +146,18 @@
 ///       __________________________________________________________________________________
 ///      | <no-mods> | CTRL |  GUI | CTRL+GUI |   ALT |  ALT+CTRL |  ALT+GUI | ALT+CTRL+GUI |
 /// .====|===========|======|======|==========|=======|===========|==========|==============|
-/// | R: |   re      |   -  |   -  |     -    |    -  |     -     |      -   |        -     |
+/// | F: |   for     |   ft |   fr |     -    |  from |     -     |      -   |        -     |
+/// | M: |   ment    |   me |   my |   must   |  many |   much    |    more  |      most    |
+/// | R: |   re      |   rt |   rg |     -    |   rb  |     -     |      -   |        -     |
 /// | T: |   th      |  the |  ter |    tor   |  that |   this    |    they  |      tion    |
-/// | W: |   wh      |  who |  was |   with   | which |   were    |     oth  |     ought    |
+/// | W: |   wh      |  who |  was |   with   | which |   were    |    when  |     where    |
 /// |____|___________|______|______|__________|_______|___________|__________|______________|
 ///
-CREATE_MULTI_MOD_MORPH_MACRO(r, &kpr_r, &kpr_cr,   &kpr_e,   &none,           &none,           &none,                  &none,                         &none,                  &none,                  &none)
-CREATE_MULTI_MOD_MORPH_MACRO(t, &kpr_t, &kpr_ct,   &kpr_h,   &kpr_h &kpr_e,   &kpr_e &kpr_r,   &kpr_o &kpr_r,          &kpr_h &kpr_a &kpr_t,          &kpr_h &kpr_i &kpr_s,   &kpr_h &kpr_e &kpr_y,   &kpr_i &kpr_o &kpr_n)
-CREATE_MULTI_MOD_MORPH_MACRO(w, &kpr_w, &kpr_cw,   &kpr_h,   &kpr_h &kpr_o,   &kpr_a &kpr_s,   &kpr_i &kpr_t &kpr_h,   &kpr_h &kpr_i &kpr_c &kpr_h,   &kpr_e &kpr_r &kpr_e,   &kpr_h &kpr_e &kpr_n,   &kpr_h &kpr_e &kpr_r &kpr_e)
+CREATE_MULTI_MOD_MORPH_MACRO(f, &kpr_f, &kpr_cf,   &kpr_o &kpr_r,          &kpr_t,          &kpr_r,          &none,                  &kpr_r &kpr_o &kpr_m,          &none,                  &none,                  &none)
+CREATE_MULTI_MOD_MORPH_MACRO(m, &kpr_m, &kpr_cm,   &kpr_e &kpr_n &kpr_t,   &kpr_e,          &kpr_y,          &kpr_u &kpr_s &kpr_t,   &kpr_a &kpr_n &kpr_y,          &kpr_u &kpr_c &kpr_h,   &kpr_o &kpr_r &kpr_e,   &kpr_o &kpr_s &kpr_t)
+CREATE_MULTI_MOD_MORPH_MACRO(r, &kpr_r, &kpr_cr,   &kpr_e,                 &kpr_t,          &kpr_g,          &none,                  &kpr_b,                        &none,                  &none,                  &none)
+CREATE_MULTI_MOD_MORPH_MACRO(t, &kpr_t, &kpr_ct,   &kpr_h,                 &kpr_h &kpr_e,   &kpr_e &kpr_r,   &kpr_o &kpr_r,          &kpr_h &kpr_a &kpr_t,          &kpr_h &kpr_i &kpr_s,   &kpr_h &kpr_e &kpr_y,   &kpr_i &kpr_o &kpr_n)
+CREATE_MULTI_MOD_MORPH_MACRO(w, &kpr_w, &kpr_cw,   &kpr_h,                 &kpr_h &kpr_o,   &kpr_a &kpr_s,   &kpr_i &kpr_t &kpr_h,   &kpr_h &kpr_i &kpr_c &kpr_h,   &kpr_e &kpr_r &kpr_e,   &kpr_h &kpr_e &kpr_n,   &kpr_h &kpr_e &kpr_r &kpr_e)
 
 ///
 /// @brief vocal multigrams share some common schemata:
