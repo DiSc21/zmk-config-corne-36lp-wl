@@ -37,13 +37,21 @@
 #include "shared_macros.dtsi"
 #include "shared_nomod_morphs.dtsi"
 
+///
+/// @brief macro for the creation of CTRL mod-morphes
+///
+/// @param name: name of the created mod-morph
+/// @param cmd_binding: the binding (without trailing SPACE)
+///
+#define CREATE_TAPDANCE_SPACE_APPEND(name, cmd_bind) \
+    KEY_SEQUENCE_MACRO_SIMPLE(aspc_ ## name, cmd_bind &kp SPACE) \
+    KEY_SEQUENCE_MACRO_SIMPLE(nspc_ ## name, cmd_bind) \
+    CREATE_DOUBLE_TAPDANCE(name, &nspc_ ## name, &aspc_ ## name)
 
 ///
 /// @brief macro for the creation of nested mod-morphes
 ///
 /// @param name: postfix of the created mod-morph
-/// @param first_key:   first key prepended to all bindings if SHIFT modifier not active
-/// @param first_key_c: first key prepended to all bindings if SHIFT modifier is active
 /// @param mmb_bind: unmodified base binding
 /// @param mmc_bind: CTRL binding
 /// @param mmg_bind: GUI binding
@@ -70,7 +78,7 @@
 /// @usage 'mumo_##name' for multigram-mod-morph only, i.e. without tapdance-space-append
 /// @usage 'td_mm_##name' for multigram-mod-morph with tapdance-space-append
 ///
-#define CREATE_MULTI_MOD_MORPH_MACRO(name, first_key, first_key_c, mmb_bind, mmc_bind, mmg_bind, mmcg_bind, mma_bind, mmac_bind, mmag_bind, mmacg_bind) \
+#define CREATE_MULTI_MOD_MORPH_MACRO(name, mmb_bind, mmc_bind, mmg_bind, mmcg_bind, mma_bind, mmac_bind, mmag_bind, mmacg_bind) \
     / { \
         macros { \
             CREATE_TAPDANCE_SPACE_APPEND(mmb_ ## name,       &kpr_ ## name mmb_bind) \
@@ -130,11 +138,11 @@
 /// | W: |   wh      | would | will |   with   | which |    way    |    when  |      want    |
 /// |____|___________|_______|______|__________|_______|___________|__________|______________|
 ///
-CREATE_MULTI_MOD_MORPH_MACRO(f, &kpr_f, &kpr_cf,   &kpr_o &kpr_r,          &kpr_t,                        &kpr_r,                 &none,                  &kpr_r &kpr_o &kpr_m,          &none,                  &none,                  &none)
-CREATE_MULTI_MOD_MORPH_MACRO(m, &kpr_m, &kpr_cm,   &kpr_e &kpr_n &kpr_t,   &kpr_e,                        &kpr_y,                 &kpr_u &kpr_s &kpr_t,   &kpr_a &kpr_n &kpr_y,          &kpr_u &kpr_c &kpr_h,   &kpr_o &kpr_r &kpr_e,   &kpr_o &kpr_s &kpr_t)
-CREATE_MULTI_MOD_MORPH_MACRO(r, &kpr_r, &kpr_cr,   &kpr_e,                 &kpr_t,                        &kpr_g,                 &none,                  &kpr_b,                        &none,                  &none,                  &none)
-CREATE_MULTI_MOD_MORPH_MACRO(t, &kpr_t, &kpr_ct,   &kpr_h,                 &kpr_h &kpr_e,                 &kpr_e &kpr_r,          &kpr_o &kpr_r,          &kpr_h &kpr_a &kpr_t,          &kpr_h &kpr_i &kpr_s,   &kpr_h &kpr_e &kpr_y,   &kpr_i &kpr_o &kpr_n)
-CREATE_MULTI_MOD_MORPH_MACRO(w, &kpr_w, &kpr_cw,   &kpr_h,                 &kpr_o &kpr_u &kpr_l &kpr_d,   &kpr_i &kpr_l &kpr_l,   &kpr_i &kpr_t &kpr_h,   &kpr_h &kpr_i &kpr_c &kpr_h,   &kpr_a &kpr_y,          &kpr_h &kpr_e &kpr_n,   &kpr_a &kpr_n &kpr_t)
+CREATE_MULTI_MOD_MORPH_MACRO(f, &kpr_o &kpr_r,          &kpr_t,                        &kpr_r,                 &none,                  &kpr_r &kpr_o &kpr_m,          &none,                  &none,                  &none)
+CREATE_MULTI_MOD_MORPH_MACRO(m, &kpr_e &kpr_n &kpr_t,   &kpr_e,                        &kpr_y,                 &kpr_u &kpr_s &kpr_t,   &kpr_a &kpr_n &kpr_y,          &kpr_u &kpr_c &kpr_h,   &kpr_o &kpr_r &kpr_e,   &kpr_o &kpr_s &kpr_t)
+CREATE_MULTI_MOD_MORPH_MACRO(r, &kpr_e,                 &kpr_t,                        &kpr_g,                 &none,                  &kpr_b,                        &none,                  &none,                  &none)
+CREATE_MULTI_MOD_MORPH_MACRO(t, &kpr_h,                 &kpr_h &kpr_e,                 &kpr_e &kpr_r,          &kpr_o &kpr_r,          &kpr_h &kpr_a &kpr_t,          &kpr_h &kpr_i &kpr_s,   &kpr_h &kpr_e &kpr_y,   &kpr_i &kpr_o &kpr_n)
+CREATE_MULTI_MOD_MORPH_MACRO(w, &kpr_h,                 &kpr_o &kpr_u &kpr_l &kpr_d,   &kpr_i &kpr_l &kpr_l,   &kpr_i &kpr_t &kpr_h,   &kpr_h &kpr_i &kpr_c &kpr_h,   &kpr_a &kpr_y,          &kpr_h &kpr_e &kpr_n,   &kpr_a &kpr_n &kpr_t)
 
 ///
 /// @brief vocal multigrams share some common schemata:
@@ -152,10 +160,10 @@ CREATE_MULTI_MOD_MORPH_MACRO(w, &kpr_w, &kpr_cw,   &kpr_h,                 &kpr_
 /// | U: |   un      |  ure |  uve |    ung   |  und |    uck    |     uth  |       urg    |
 /// |____|___________|______|______|__________|______|___________|__________|______________|
 ///
-CREATE_MULTI_MOD_MORPH_MACRO(a, &kpr_a, &kpr_ca,   &kpr_t,   &kpr_r &kpr_e,   &kpr_v &kpr_e,   &kpr_n &kpr_g,   &kpr_n &kpr_d,   &kpr_c &kpr_k,   &kpr_t &kpr_h,   &kpr_t &kpr_i &kpr_o &kpr_n)
-CREATE_MULTI_MOD_MORPH_MACRO(o, &kpr_o, &kpr_co,   &kpr_r,   &kpr_r &kpr_e,   &kpr_v &kpr_e,   &kpr_n &kpr_g,   &kpr_n &kpr_d,   &kpr_c &kpr_k,   &kpr_t &kpr_h,   &kpr_u &kpr_g &kpr_h &kpr_t)
-CREATE_MULTI_MOD_MORPH_MACRO(e, &kpr_e, &kpr_ce,   &kpr_r,   &kpr_r &kpr_e,   &kpr_v &kpr_e,   &kpr_n &kpr_g,   &kpr_n &kpr_d,   &kpr_c &kpr_k,   &kpr_t &kpr_h,   &kpr_v &kpr_e &kpr_r)
-CREATE_MULTI_MOD_MORPH_MACRO(i, &kpr_i, &kpr_ci,   &kpr_n,   &kpr_r &kpr_e,   &kpr_v &kpr_e,   &kpr_n &kpr_g,   &kpr_n &kpr_d,   &kpr_c &kpr_k,   &kpr_t &kpr_h,   &kpr_g &kpr_h &kpr_t)
-CREATE_MULTI_MOD_MORPH_MACRO(u, &kpr_u, &kpr_cu,   &kpr_s,   &kpr_r &kpr_e,   &kpr_v &kpr_e,   &kpr_n &kpr_g,   &kpr_n &kpr_d,   &kpr_c &kpr_k,   &kpr_t &kpr_h,   &kpr_r &kpr_g)
+CREATE_MULTI_MOD_MORPH_MACRO(a, &kpr_t,   &kpr_r &kpr_e,   &kpr_v &kpr_e,   &kpr_n &kpr_g,   &kpr_n &kpr_d,   &kpr_c &kpr_k,   &kpr_t &kpr_h,   &kpr_t &kpr_i &kpr_o &kpr_n)
+CREATE_MULTI_MOD_MORPH_MACRO(o, &kpr_r,   &kpr_r &kpr_e,   &kpr_v &kpr_e,   &kpr_n &kpr_g,   &kpr_n &kpr_d,   &kpr_c &kpr_k,   &kpr_t &kpr_h,   &kpr_u &kpr_g &kpr_h &kpr_t)
+CREATE_MULTI_MOD_MORPH_MACRO(e, &kpr_r,   &kpr_r &kpr_e,   &kpr_v &kpr_e,   &kpr_n &kpr_g,   &kpr_n &kpr_d,   &kpr_c &kpr_k,   &kpr_t &kpr_h,   &kpr_v &kpr_e &kpr_r)
+CREATE_MULTI_MOD_MORPH_MACRO(i, &kpr_n,   &kpr_r &kpr_e,   &kpr_v &kpr_e,   &kpr_n &kpr_g,   &kpr_n &kpr_d,   &kpr_c &kpr_k,   &kpr_t &kpr_h,   &kpr_g &kpr_h &kpr_t)
+CREATE_MULTI_MOD_MORPH_MACRO(u, &kpr_s,   &kpr_r &kpr_e,   &kpr_v &kpr_e,   &kpr_n &kpr_g,   &kpr_n &kpr_d,   &kpr_c &kpr_k,   &kpr_t &kpr_h,   &kpr_r &kpr_g)
 
 
