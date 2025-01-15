@@ -38,7 +38,7 @@
 #include "shared_nomod_morphs.dtsi"
 
 ///
-/// @brief macro for the creation of CTRL mod-morphes
+/// @brief macro for the creation tab-dance-macros w|wo trailing space
 ///
 /// @param name: name of the created mod-morph
 /// @param cmd_binding: the binding (without trailing SPACE)
@@ -46,7 +46,20 @@
 #define CREATE_TAPDANCE_SPACE_APPEND(name, cmd_bind) \
     KEY_SEQUENCE_MACRO_SIMPLE(aspc_ ## name, cmd_bind &kp SPACE) \
     KEY_SEQUENCE_MACRO_SIMPLE(nspc_ ## name, cmd_bind) \
+    \
     CREATE_DOUBLE_TAPDANCE(name, &nspc_ ## name, &aspc_ ## name)
+
+///
+/// @brief macro for the creation of append-space-tabdance nested in shift-mod-morph
+///
+/// @param name: name of the created mod-morph
+/// @param cmd_binding: the binding (without trailing SPACE)
+///
+#define CREATE_MOD_MORPH_SFT_WITH_TABDANCE_SPACE(name, cmd_bind) \
+    CREATE_TAPDANCE_SPACE_APPEND(mmb_ ## name,     &kpr_ ## name cmd_bind) \
+    CREATE_TAPDANCE_SPACE_APPEND(mmb_sft_ ## name, &kpr_c ## name cmd_bind) \
+    \
+    CREATE_MOD_MORPH_SFT(m_sft_b_ ## name, &td_mmb_ ## name, &td_mmb_sft_ ## name) \
 
 ///
 /// @brief macro for the creation of nested mod-morphes
@@ -80,41 +93,21 @@
 ///
 #define CREATE_MULTI_MOD_MORPH_MACRO(name, mmb_bind, mmc_bind, mmg_bind, mmcg_bind, mma_bind, mmac_bind, mmag_bind, mmacg_bind) \
     / { \
-        macros { \
-            CREATE_TAPDANCE_SPACE_APPEND(mmb_ ## name,       &kpr_ ## name mmb_bind) \
-            CREATE_TAPDANCE_SPACE_APPEND(mmc_ ## name,       &kpr_ ## name mmc_bind) \
-            CREATE_TAPDANCE_SPACE_APPEND(mmg_ ## name,       &kpr_ ## name mmg_bind) \
-            CREATE_TAPDANCE_SPACE_APPEND(mmcg_ ## name,      &kpr_ ## name mmcg_bind) \
-            CREATE_TAPDANCE_SPACE_APPEND(mma_ ## name,       &kpr_ ## name mma_bind) \
-            CREATE_TAPDANCE_SPACE_APPEND(mmac_ ## name,      &kpr_ ## name mmac_bind) \
-            CREATE_TAPDANCE_SPACE_APPEND(mmag_ ## name,      &kpr_ ## name mmag_bind) \
-            CREATE_TAPDANCE_SPACE_APPEND(mmacg_ ## name,     &kpr_ ## name mmacg_bind) \
-            \
-            CREATE_TAPDANCE_SPACE_APPEND(mmb_sft_ ## name,   &kpr_c ## name mmb_bind) \
-            CREATE_TAPDANCE_SPACE_APPEND(mmc_sft_ ## name,   &kpr_c ## name mmc_bind) \
-            CREATE_TAPDANCE_SPACE_APPEND(mmg_sft_ ## name,   &kpr_c ## name mmg_bind) \
-            CREATE_TAPDANCE_SPACE_APPEND(mmcg_sft_ ## name,  &kpr_c ## name mmcg_bind) \
-            CREATE_TAPDANCE_SPACE_APPEND(mma_sft_ ## name,   &kpr_c ## name mma_bind) \
-            CREATE_TAPDANCE_SPACE_APPEND(mmac_sft_ ## name,  &kpr_c ## name mmac_bind) \
-            CREATE_TAPDANCE_SPACE_APPEND(mmag_sft_ ## name,  &kpr_c ## name mmag_bind) \
-            CREATE_TAPDANCE_SPACE_APPEND(mmacg_sft_ ## name, &kpr_c ## name mmacg_bind) \
-        }; \
-    }; \
-    / { \
         behaviors { \
-            CREATE_MOD_MORPH_SFT(m_sft_b_ ## name,       &td_mmb_ ## name,       &td_mmb_sft_ ## name) \
-            CREATE_MOD_MORPH_SFT(m_sft_c_ ## name,       &td_mmc_ ## name,       &td_mmc_sft_ ## name) \
-            CREATE_MOD_MORPH_SFT(m_sft_g_ ## name,       &td_mmg_ ## name,       &td_mmg_sft_ ## name) \
-            CREATE_MOD_MORPH_SFT(m_sft_cg_ ## name,      &td_mmcg_ ## name,      &td_mmcg_sft_ ## name) \
-            CREATE_MOD_MORPH_SFT(m_sft_a_ ## name,       &td_mma_ ## name,       &td_mma_sft_ ## name) \
-            CREATE_MOD_MORPH_SFT(m_sft_ac_ ## name,      &td_mmac_ ## name,      &td_mmac_sft_ ## name) \
-            CREATE_MOD_MORPH_SFT(m_sft_ag_ ## name,      &td_mmag_ ## name,      &td_mmag_sft_ ## name) \
-            CREATE_MOD_MORPH_SFT(m_sft_acg_ ## name,     &td_mmacg_ ## name,     &td_mmacg_sft_ ## name) \
+            CREATE_TAPDANCE_SPACE_APPEND_WITH_TABDANCE_SPACE(name, mmb_bind) \
+            CREATE_TAPDANCE_SPACE_APPEND_WITH_TABDANCE_SPACE(name, mmc_bind) \
+            CREATE_TAPDANCE_SPACE_APPEND_WITH_TABDANCE_SPACE(name, mmg_bind) \
+            CREATE_TAPDANCE_SPACE_APPEND_WITH_TABDANCE_SPACE(name, mmcg_bind) \
+            CREATE_TAPDANCE_SPACE_APPEND_WITH_TABDANCE_SPACE(name, mma_bind) \
+            CREATE_TAPDANCE_SPACE_APPEND_WITH_TABDANCE_SPACE(name, mmac_bind) \
+            CREATE_TAPDANCE_SPACE_APPEND_WITH_TABDANCE_SPACE(name, mmag_bind) \
+            CREATE_TAPDANCE_SPACE_APPEND_WITH_TABDANCE_SPACE(name, mmacg_bind) \
             \
-            CREATE_MOD_MORPH_GUI(m_gui_ ## name,         &m_sft_b_ ## name,   &m_sft_g_ ## name) \
-            CREATE_MOD_MORPH_GUI(m_ctl_gui_ ## name,     &m_sft_c_ ## name,   &m_sft_cg_ ## name) \
-            CREATE_MOD_MORPH_GUI(m_alt_gui_ ## name,     &m_sft_a_ ## name,   &m_sft_ag_ ## name) \
-            CREATE_MOD_MORPH_GUI(m_alt_ctl_gui_ ## name, &m_sft_ac_ ## name,  &m_sft_acg_ ## name) \
+            \
+            CREATE_MOD_MORPH_GUI(m_gui_ ## name,         &td_m_sft_b_ ## name,   &td_m_sft_g_ ## name) \
+            CREATE_MOD_MORPH_GUI(m_ctl_gui_ ## name,     &td_m_sft_c_ ## name,   &td_m_sft_cg_ ## name) \
+            CREATE_MOD_MORPH_GUI(m_alt_gui_ ## name,     &td_m_sft_a_ ## name,   &td_m_sft_ag_ ## name) \
+            CREATE_MOD_MORPH_GUI(m_alt_ctl_gui_ ## name, &td_m_sft_ac_ ## name,  &td_m_sft_acg_ ## name) \
             \
             CREATE_MOD_MORPH_CTL(m_ctl_ ## name,         &m_gui_ ## name,     &m_ctl_gui_ ## name) \
             CREATE_MOD_MORPH_CTL(m_alt_ctl_ ## name,     &m_alt_gui_ ## name, &m_alt_ctl_gui_ ## name) \
