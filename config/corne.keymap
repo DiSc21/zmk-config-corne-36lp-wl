@@ -108,10 +108,10 @@
         default {
             display-name = "default";
             bindings = <
-                &none &kp Q          &kp W         &kp E        &kp R              &kp T                     &kp Y               &kp U                &kp I        &kp O         &kp P             &none
-                &none &hm_l LSHIFT A &hm_l LCTRL S &hm_l LGUI D &hm_l LALT F       &lt_pur_l L_SMART_NUM G   &lt_pur_l L_NUM H   &hm_r RALT J         &hm_r RGUI K &hm_r RCTRL L &hm_r RSHIFT SEMI &none
-                &none &kp Z          &kp X         &kp C        &kp V              &kp B                     &kp N               &kp M                &kp COMMA    &kp DOT       &kp FSLH          &none
-                                                   &mmnl_bsp    &lt_red_l L_MG RET &lt_red_l L_MG TAB        &lt_red_r L_MG ESC  &lt_red_r L_MG SPACE &mmnr_del
+                &none &kp Q             &kp W            &kp E           &kp R              &kp T                     &kp Y               &kp U                &kp I           &kp O            &kp    P             &none
+                &none &ht_l_tr LSHIFT A &ht_l_tr LCTRL S &ht_l_tr LGUI D &ht_l_tr LALT F    &lt_pur_l L_SMART_NUM G   &lt_pur_l L_NUM H   &ht_r_tr RALT J      &ht_r_tr RGUI K &ht_r_tr RCTRL L &ht_r_tr RSHIFT SEMI &none
+                &none &kp Z             &kp X            &kp C           &kp V              &kp B                     &kp N               &kp M                &kp COMMA       &kp DOT          &kp FSLH             &none
+                                                         &mmnl_bsp       &lt_red_l L_MG RET &lt_red_l L_MG TAB        &lt_red_r L_MG ESC  &lt_red_r L_MG SPACE &mmnr_del
             >;
         };
 
@@ -125,10 +125,10 @@
         smart_num {
             display-name = "smart_num";
             bindings = <
-                &none  &to L_DEF  &to L_DEF  &to L_DEF  &to L_DEF  &to L_DEF       &kp COMMA  &kp N7        &kp N8        &kp N9         &to L_DEF  &none
-                &none  &to L_DEF  &to L_DEF  &to L_DEF  &to L_DEF  &to L_DEF       &kp N0     &hm_r RALT N4 &hm_r RGUI N5 &hm_r RCTRL N6 &to L_DEF  &none
-                &none  &to L_DEF  &to L_DEF  &to L_DEF  &to L_DEF  &to L_DEF       &kp DOT    &kp N1        &kp N2        &kp N3         &to L_DEF  &none
-                                             &kp BSPC   &to L_DEF  &kp TAB         &to L_DEF  &to L_DEF     &kp DEL
+                &none  &to L_DEF  &to L_DEF  &to L_DEF  &to L_DEF  &to L_DEF       &kp COMMA  &kp N7           &kp N8           &kp N9            &to L_DEF  &none
+                &none  &to L_DEF  &to L_DEF  &to L_DEF  &to L_DEF  &to L_DEF       &kp N0     &ht_r_tr RALT N4 &ht_r_tr RGUI N5 &ht_r_tr RCTRL N6 &to L_DEF  &none
+                &none  &to L_DEF  &to L_DEF  &to L_DEF  &to L_DEF  &to L_DEF       &kp DOT    &kp N1           &kp N2           &kp N3            &to L_DEF  &none
+                                             &kp BSPC   &to L_DEF  &kp TAB         &to L_DEF  &to L_DEF        &kp DEL
             >;
         };
 
@@ -142,10 +142,10 @@
         multigrams {
             display-name = "mg-arrows";
             bindings = <
-                &none &none                &none         &mumo_e     &none        &mumo_t         &none    &mumo_u         &mumo_i        &mumo_o           &none             &none
-                &none &hm_l LSHIFT A       &hm_l LCTRL S &hm_l LGUI D &hm_l LALT F &none          &kp LEFT &hm_r RALT DOWN &hm_r RGUI UP  &hm_r RCTRL RIGHT &hm_r RSHIFT SEMI &none
-                &none &none                &none         &none        &none        &none          &none    &none           &add_spc COMMA &add_spsh DOT     &none             &none
-                                                         &trans       &trans       &trans         &trans   &trans          &trans
+                &none &none             &none            &mumo_e         &none           &mumo_t        &none    &mumo_u            &mumo_i           &mumo_o              &none                &none
+                &none &ht_l_tr LSHIFT A &ht_l_tr LCTRL S &ht_l_tr LGUI D &ht_l_tr LALT F &none          &kp LEFT &ht_r_tr RALT DOWN &ht_r_tr RGUI UP  &ht_r_tr RCTRL RIGHT &ht_r_tr RSHIFT SEMI &none
+                &none &none             &none            &none           &none           &none          &none    &none              &add_spc COMMA    &add_spsh DOT        &none                &none
+                                                         &trans          &trans          &trans         &trans   &trans             &trans
             >;
         };
 
@@ -177,7 +177,7 @@
             display-name = "numbers";
             bindings = <
                 &none &kp F1                &kp F2         &kp   F3      &kp F4        &trans         &trans &kp N7        &kp N8        &kp N9         &kp ASTERISK             &none
-                &none &hm_shift_l LSHIFT F5 &hm_l LCTRL F6 &hm_l LGUI F7 &hm_l LALT F8 &trans         &kp N0 &hm_r RALT N4 &hm_r RGUI N5 &hm_r RCTRL N6 &hm_shift_r RSHIFT EQUAL &none
+                &none &ht_l_tr LSHIFT F5 &ht_l_tr LCTRL F6 &ht_l_tr LGUI F7 &ht_l_tr LALT F8 &trans         &kp N0 &ht_r_tr RALT N4 &ht_r_tr RGUI N5 &ht_r_tr RCTRL N6 &ht_r_tr RSHIFT EQUAL &none
                 &none &kp F9                &kp F10        &kp   F11     &kp F12       &trans         &trans &kp N1        &kp N2        &kp N3         &kp FSLH                 &none
                                                            &trans        &trans        &trans         &trans &trans        &trans
             >;

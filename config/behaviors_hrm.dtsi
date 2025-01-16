@@ -50,62 +50,83 @@
 ///
 /// @brief auxiliary macro for the creational aux macro used for the creation of homerow mods
 ///
-/// @param hm_flavor: hold-tap basic behavior
-/// @param hm_tapping_term: the time a key is tapped
-/// @param hm_quick_tap_ms: quick tap threshold
-/// @param hm_prior_idle_ms: expected pre-idel-time
+/// @param hold_bind: behavior on hold
+/// @param tap_bind: behavior on tap
+/// @param ht_flavor: hold-tap basic behavior
+/// @param ht_tapping_term: the time a key is tapped
+/// @param Ht_quick_tap_ms: quick tap threshold
+/// @param ht_prior_idle_ms: expected pre-idel-time
 ///
 /// @note this is just an auxiliray macro for the creational macros for left and right hmrs
 ///
-#define HRM_CORE_MACRO(hm_flavor, hm_tapping_term, hm_quick_tap_ms, hm_prior_idle_ms) \
+#define CREATE_HT_CORE(hold_bind, tap_bind, ht_flavor, ht_tapping_term, ht_quick_tap_ms, ht_prior_idle_ms) \
     compatible = "zmk,behavior-hold-tap"; \
     #binding-cells = <2>; \
-    bindings = <&kp>, <&kp>; \
-    flavor = hm_flavor; \
-    tapping-term-ms = <hm_tapping_term>; \
-    quick-tap-ms = <hm_quick_tap_ms>; \
-    require-prior-idle-ms = <hm_prior_idle_ms>;
+    bindings = <hold_bind>, <tap_bind>; \
+    flavor = ht_flavor; \
+    tapping-term-ms = <ht_tapping_term>; \
+    quick-tap-ms = <ht_quick_tap_ms>; \
+    require-prior-idle-ms = <ht_prior_idle_ms>;
 
 ///
-/// @brief auxiliary macro for the creation of right-hand homerow mods
+/// @brief auxiliary macros for the creation of right-hand homerow mods
 ///
-/// @param hm_flavor: hold-tap basic behavior
-/// @param hm_tapping_term: the time a key is tapped
-/// @param hm_quick_tap_ms: quick tap threshold
-/// @param hm_prior_idle_ms: expected pre-idel-time
+/// @param tap_bind: behavior on tap
+/// @param hold_bind: behavior on hold
+/// @param ht_flavor: hold-tap basic behavior
+/// @param ht_tapping_term: the time a key is tapped
+/// @param ht_quick_tap_ms: quick tap threshold
+/// @param ht_prior_idle_ms: expected pre-idel-time
 ///
-#define HRM_RIGHT_MACRO(hm_flavor, hm_tapping_term, hm_quick_tap_ms, hm_prior_idle_ms) \
-    HRM_CORE_MACRO(hm_flavor, hm_tapping_term, hm_quick_tap_ms, hm_prior_idle_ms) \
-    hold-trigger-key-positions = <KEYS_L KEYS_THUMBS>;
+#define CREATE_HT_RIGHT(name, hold_bind, tap_bind, ht_flavor, ht_tapping_term, ht_quick_tap_ms, ht_prior_idle_ms) \
+    /omit-if-no-ref/ ht_r_ ## name: ht_r_ ## name { \
+        CREATE_HT_CORE(tap_bind, hold_bind, ht_flavor, ht_tapping_term, ht_quick_tap_ms, ht_prior_idle_ms) \
+        hold-trigger-key-positions = <KEYS_L KEYS_THUMBS>; \
+        hold-trigger-on-release; \
+    };
+
+
+#define CREATE_HT_RIGHT_NO_TOR(name, hold_bind, tap_bind, ht_flavor, ht_tapping_term, ht_quick_tap_ms, ht_prior_idle_ms) \
+    /omit-if-no-ref/ ht_r_ ## name: ht_r_ ## name { \
+        CREATE_HT_CORE(tap_bind, hold_bind, ht_flavor, ht_tapping_term, ht_quick_tap_ms, ht_prior_idle_ms) \
+        hold-trigger-key-positions = <KEYS_L KEYS_THUMBS>; \
+    };
+
 
 ///
 /// @brief auxiliary macro for the creation of left-hand homerow mods
 ///
-/// @param hm_flavor: hold-tap basic behavior
-/// @param hm_tapping_term: the time a key is tapped
-/// @param hm_quick_tap_ms: quick tap threshold
-/// @param hm_prior_idle_ms: expected pre-idel-time
+/// @param tap_bind: behavior on tap
+/// @param hold_bind: behavior on hold
+/// @param ht_flavor: hold-tap basic behavior
+/// @param ht_tapping_term: the time a key is tapped
+/// @param ht_quick_tap_ms: quick tap threshold
+/// @param ht_prior_idle_ms: expected pre-idel-time
 ///
-#define HRM_LEFT_MACRO(hm_flavor, hm_tapping_term, hm_quick_tap_ms, hm_prior_idle_ms) \
-    HRM_CORE_MACRO(hm_flavor, hm_tapping_term, hm_quick_tap_ms, hm_prior_idle_ms) \
-    hold-trigger-key-positions = <KEYS_R KEYS_THUMBS>;
+#define CREATE_HT_LEFT(name, hold_bind, tap_bind, ht_flavor, ht_tapping_term, ht_quick_tap_ms, ht_prior_idle_ms) \
+    /omit-if-no-ref/ ht_l_ ## name: ht_l_ ## name { \
+        CREATE_HT_CORE(tap_bind, hold_bind, ht_flavor, ht_tapping_term, ht_quick_tap_ms, ht_prior_idle_ms) \
+        hold-trigger-key-positions = <KEYS_R KEYS_THUMBS>; \
+        hold-trigger-on-release; \
+    };
+
+
+#define CREATE_HT_LEFT_NO_TOR(name, hold_bind, tap_bind, ht_flavor, ht_tapping_term, ht_quick_tap_ms, ht_prior_idle_ms) \
+    /omit-if-no-ref/ ht_l_ ## name: ht_l_ ## name { \
+        CREATE_HT_CORE(tap_bind, hold_bind, ht_flavor, ht_tapping_term, ht_quick_tap_ms, ht_prior_idle_ms) \
+        hold-trigger-key-positions = <KEYS_R KEYS_THUMBS>; \
+    };
+
+
 
 / {
     behaviors {
-        /omit-if-no-ref/ hm_shift_l: hm_shift_l {
-            HRM_LEFT_MACRO("balanced", HM_TAPPING_TERM, LAYER_QUICK_TAP_MS, HM_PRIOR_IDLE) \
-        };
-        /omit-if-no-ref/ hm_l: hm_l {
-            HRM_LEFT_MACRO("balanced", HM_TAPPING_TERM, LAYER_QUICK_TAP_MS, HM_PRIOR_IDLE) \
-            hold-trigger-on-release;
-        };
+        // trigger on release NOT enabled
+        //CREATE_HT_LEFT_NO_TOR(nt, &kp, &kp, "balanced", HM_TAPPING_TERM, LAYER_QUICK_TAP_MS, HM_PRIOR_IDLE)
+        //CREATE_HT_RIGHT_NO_TOR(nt, &kp, &kp, "balanced", HM_TAPPING_TERM, LAYER_QUICK_TAP_MS, HM_PRIOR_IDLE)
 
-        /omit-if-no-ref/ hm_shift_r: hm_shift_r {
-            HRM_RIGHT_MACRO("balanced", HM_TAPPING_TERM, LAYER_QUICK_TAP_MS, HM_PRIOR_IDLE) \
-        };
-        /omit-if-no-ref/ hm_r: hm_r {
-            HRM_RIGHT_MACRO("balanced", HM_TAPPING_TERM, LAYER_QUICK_TAP_MS, HM_PRIOR_IDLE) \
-            hold-trigger-on-release;
-        };
+        // WITH trigger on release enabled
+        CREATE_HT_LEFT(tr, &kp, &kp, "balanced", HM_TAPPING_TERM, LAYER_QUICK_TAP_MS, HM_PRIOR_IDLE)
+        CREATE_HT_RIGHT(tr, &kp, &kp, "balanced", HM_TAPPING_TERM, LAYER_QUICK_TAP_MS, HM_PRIOR_IDLE)
     };
 };

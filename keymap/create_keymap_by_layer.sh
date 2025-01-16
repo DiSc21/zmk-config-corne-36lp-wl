@@ -38,7 +38,7 @@ declare -A layers
 
 layers["${base_layer}"]="default"
 layers["numbers"]="orange"
-layers["signs"]="orangered"
+#layers["signs"]="orangered"
 layers["navigation"]="gold"
 
 #

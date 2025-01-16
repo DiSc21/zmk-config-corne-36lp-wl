@@ -114,6 +114,7 @@
         COMBO_MACRO(combo_equal,         &kp EQUAL,         RM3 RM4,         COMBO_TAP_TIME_FAST)
         COMBO_MACRO(combo_ampers,        &kp AMPERSAND,     RM1 RM2 RM3,     COMBO_TAP_TIME_FAST)
         COMBO_MACRO(combo_tilde,         &kp TILDE,         RM2 RM3 RM4,     COMBO_TAP_TIME_FAST)
+        COMBO_MACRO(combo_at2,           &kp AT,            RM1 RM2 RM3 RM4, COMBO_TAP_TIME_FAST)
 
         // BottomRow Combos
         // ----------------
