@@ -6,9 +6,9 @@
 
 /*
 ╭──────────────────────────────────────────────────────────╮
-│ @Author:  TheDirkKnight     @Contact:  github.com/DiSc21 │
-│ @License: MIT             @copyright: 2024 TheDirkKnight │
-│ @Data:    2025/01/04                                     │
+│ @Co-Author: TheDirkKnight   @Contact:  github.com/DiSc21 │
+│ @License:   MIT           @copyright: 2024 TheDirkKnight │
+│ @Data:      2025/01/04                                   │
 ╰──────────────────────────────────────────────────────────╯
  ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡆⠀⠀⠀⠀⠀⠀⠀⣆              ⠀⠀⠀⣶⡀
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣾⡇⠀⠀⠀⠀⠀⠀⠀⣿⡇               ⣼⣿⣧
@@ -27,23 +27,23 @@
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⠁⠽⠋⠠⠿⠿⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠿⠷⠌⠻⠟
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠻⠿⠿⠿⣿⣿⣿⣿⣿⣿⡿⠿⠿⠿⠟⠁
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠻⠋
-╭───────────────────────────────────────────────────────╮
-│ @brief: ZMK keymap for corne 3x5                      │
-│                                                       │
-│ @depends (external and non-std):                      │
-│ - num_word (keeps caps until non-alpha tap)           │
-│                                                       │
-│ @depends (macros and defs):                           │
-│ - combos.dtsi (combos for signs on default layer)     │
-│ - shared_defs.dtsi (key positions)                    │
-│ - shared_macros.dtsi (some aux macros)                │
-│ - shared_nomod_morphs.dtsi (modifier-resistant-keys)  │
-│                                                       │
-│ @depends (custom behaviors):                          │
-│ - behaviors_hrm.dtsi (home-row-modifiers)             │
-│ - behaviors_led.dtsi (custom led-layer-hold-tabs)     │
-│ - behaviors_multigraphs.dtsi (multikey macros)        │
-╰───────────────────────────────────────────────────────╯
+╭──────────────────────────────────────────────────────────╮
+│ @brief: ZMK keymap for corne 3x5                         │
+│                                                          │
+│ @depends (external and non-std):                         │
+│ - num_word (keeps caps until non-alpha tap)              │
+│                                                          │
+│ @depends (macros and defs):                              │
+│ - combos.dtsi (combos for signs on default layer)        │
+│ - shared_defs.dtsi (key positions)                       │
+│ - shared_macros.dtsi (some aux macros)                   │
+│ - shared_nomod_morphs.dtsi (modifier-resistant-keys)     │
+│                                                          │
+│ @depends (custom behaviors):                             │
+│ - behaviors_hrm.dtsi (home-row-modifiers)                │
+│ - behaviors_led.dtsi (custom led-layer-hold-tabs)        │
+│ - behaviors_multigraphs.dtsi (multikey macros)           │
+╰──────────────────────────────────────────────────────────╯
 */
 
 /* std includes */
@@ -108,10 +108,10 @@
         default {
             display-name = "default";
             bindings = <
-                &none &kp Q             &kp W            &kp E           &kp R              &kp T                     &kp Y               &kp U                &kp I           &kp O            &kp    P             &none
-                &none &ht_l_tr LSHIFT A &ht_l_tr LCTRL S &ht_l_tr LGUI D &ht_l_tr LALT F    &lt_pur_l L_SMART_NUM G   &lt_pur_l L_NUM H   &ht_r_tr RALT J      &ht_r_tr RGUI K &ht_r_tr RCTRL L &ht_r_tr RSHIFT SEMI &none
-                &none &kp Z             &kp X            &kp C           &kp V              &kp B                     &kp N               &kp M                &kp COMMA       &kp DOT          &kp FSLH             &none
-                                                         &mmnl_bsp       &lt_red_l L_MG RET &lt_red_l L_MG TAB        &lt_red_r L_MG ESC  &lt_red_r L_MG SPACE &mmnr_del
+                &none &kp Q             &kp W            &kp E           &kp R              &kp T                     &kp Y                  &kp U                &kp I           &kp O            &kp    P             &none
+                &none &ht_l_tr LSHIFT A &ht_l_tr LCTRL S &ht_l_tr LGUI D &ht_l_tr LALT F    &l_to_sn L_SMART_NUM G    &r_to_sn L_SMART_NUM H &ht_r_tr RALT J      &ht_r_tr RGUI K &ht_r_tr RCTRL L &ht_r_tr RSHIFT SEMI &none
+                &none &kp Z             &kp X            &kp C           &kp V              &kp B                     &kp N                  &kp M                &kp COMMA       &kp DOT          &kp FSLH             &none
+                                                         &mmnl_bsp       &l_ht_mg L_MG RET  &l_ht_mg L_MG TAB         &r_ht_mg L_MG ESC      &r_ht_mg L_MG SPACE  &mmnr_del
             >;
         };
 

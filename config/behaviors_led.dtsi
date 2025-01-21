@@ -12,7 +12,7 @@
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⡇⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿           ⣰⣿⣿⣿⠋⠉⠙⣿⣿⣿⣆
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣼⣿⣿⣿⣿⣿⣿⣿⣿⡏          ⣰⣿⣿⣿⡇⠀⠀⠀⢸⣿⣿⣟⣆
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢙⡻⢿⣿⡿⡟⣿⡿⠟⣛⠁        ⠀⣴⣿⠿⠛⠋⠁⠀⠀⠀⠈⠙⠛⠿⣿⣦
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣠⣴⡾⠛⠉⠀⠀⠀⠉⠓⠂ ⡀⠀⠐⠛⠁⠀⠀⠀⣸⣿⣦⣄⡀⠀⠈⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠁
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣠⣴⡾⠛⠉⠀⠀⠀⠉⠓⠂ ⡀⠀⠐⠛⠁⠀⠀⠀⣸⣿⣦⣄⡀ ⠈⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠁
 ⠀⠀⠀⠀⠀⠀⢀⣀⣀⣤⣤⣶⣿⣿⣿⣿⣿⣷⣆⠀⠀⠀⠀⠀⠀⢠⡇⠀⠀⠀⠀⠀⠀⠀⠈⣻⣿⣿⣿⣷⣶⣤⣤⣤⣄⣀
 ⠀⠀⠀⢀⣴⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠁⠀⠀⠀⠀ ⣀⣀  ⠀⠀⠀⠀⠀⠀⠀⠙⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣶⡄
 ⠀⠀⡾⣿⣿⣿⣿⠿⠋⢁⣿⣿⣿⣿⣿⣿⣟⣥⣶⢿⡛⠉⠀⠀⠈⠀⠀⠁⠀⠀⠀⠈⢙⡻⢷⣿⣿⣿⣿⣿⣿⣿⡟⠿⠿⣿⣿⣿⣿
@@ -24,7 +24,11 @@
 ╭──────────────────────────────────────────────────────────╮
 │ @brief: ZMK devicetree file for led-layer-indicators.    │
 │                                                          │
-│ @depends: shared_defs.dtsi for key positions.            │
+│ @depends (macros and defs):                              │
+│ - shared_defs.dtsi (key positions)                       │
+│                                                          │
+│ @depends (custom behaviors):                             │
+│ - behaviors_hrm.dtsi (home-row-modifiers)                │
 ╰──────────────────────────────────────────────────────────╯
 */
 
@@ -32,6 +36,7 @@
 #include <dt-bindings/zmk/keys.h>
 
 #include "shared_defs.dtsi"
+#include "behaviors_hrm.dtsi"
 
 #define RGB_DEF RGB_COLOR_HSB(0,10,2)
 #define RGB_RED RGB_COLOR_HSB(0,100,100)
@@ -40,9 +45,16 @@
 #define RGB_BLU RGB_COLOR_HSB(210,100,100)
 #define RGB_PUR RGB_COLOR_HSB(270,100,100)
 
-#define LED_BASE_MACRO(led_name, led_color) \
-    macros { \
-        led_name: led_name { \
+///
+/// @brief macro behavior for triggering led color changes on hold-layer-mods
+///
+/// @param name of the created macro behavior
+/// @param led_color the color toggled as long as behavior is held
+///
+/// @arg1 layer switched to while macro is "on-hold"
+///
+#define HOLD_LAYER_WITH_LED_CLR_BASE(name, led_color) \
+        htl_ ## name: htl_ ## name { \
             compatible = "zmk,behavior-macro-one-param"; \
             wait-ms = <0>; \
             tap-ms = <0>; \
@@ -54,37 +66,100 @@
                 , <&macro_param_1to1>, <&macro_release &mo MACRO_PLACEHOLDER> \
                 , <&macro_tap &rgb_ug RGB_DEF>; \
         }; \
-    }; \
 
-#define LT_BASE_MACRO(lt_name, lt_macro, lt_flavor, lt_tapping_term, lt_quick_tap_ms, lt_prior_idle_ms) \
-    /omit-if-no-ref/ lt_name: lt_name { \
-        compatible = "zmk,behavior-hold-tap"; \
-        #binding-cells = <2>; \
-        bindings = <lt_macro>, <&kp>; \
-        flavor = lt_flavor; \
-        tapping-term-ms = <lt_tapping_term>; \
-        quick-tap-ms = <lt_quick_tap_ms>; \
-        require-prior-idle-ms = <lt_prior_idle_ms>; \
-        hold-trigger-on-release;
+///
+/// @brief macro behavior for triggering led color changes layer-toggle
+///
+/// @param name of the created macro behavior
+/// @param led_color the color toggled as long as behavior is held
+///
+/// @arg1 layer toggled on tap
+///
+#define TOGGLE_LAYER_WITH_LED_CLR_BASE(name, led_color) \
+        tol_ ## name: tol_ ## name { \
+            compatible = "zmk,behavior-macro-one-param"; \
+            wait-ms = <0>; \
+            tap-ms = <0>; \
+            #binding-cells = <1>; \
+            bindings \
+                = <&macro_param_1to1>, <&macro_tap &to MACRO_PLACEHOLDER> \
+                , <&macro_tap &rgb_ug led_color>; \
+        }; \
 
-#define LT_LED_MACRO(led_name, led_bind, lt_name_l, lt_name_r, led_color, lt_flavor, lt_tapping_term, lt_quick_tap_ms, lt_prior_idle_ms) \
-    / { \
-        LED_BASE_MACRO(led_name, led_color) \
-        behaviors { \
-            LT_BASE_MACRO(lt_name_r, led_bind, lt_flavor, lt_tapping_term, lt_quick_tap_ms, lt_prior_idle_ms) \
-                hold-trigger-key-positions = <KEYS_L KEYS_THUMBS>; \
-            }; \
-            LT_BASE_MACRO(lt_name_l, led_bind, lt_flavor, lt_tapping_term, lt_quick_tap_ms, lt_prior_idle_ms) \
-                hold-trigger-key-positions = <KEYS_R KEYS_THUMBS>; \
-            }; \
+///
+/// @brief macro behavior for toggling layer with led color change and single key tap
+///
+/// @param name of the created macro behavior
+/// @param led_color the color toggled as long as behavior is held
+/// @param layer_num the layer toggled
+///
+/// @arg1 layer toggled on tap
+/// @arg2 key tap performed on macro execution
+///
+#define KP_PLUS_TOGGLE_LAYER_WITH_LED_CLR_BASE(name, led_color, layer_num) \
+        tok_ ## name: tok_ ## name { \
+            compatible = "zmk,behavior-macro-one-param"; \
+            wait-ms = <30>; \
+            tap-ms = <30>; \
+            #binding-cells = <1>; \
+            bindings \
+                = <&macro_tap &to layer_num> \
+                , <&macro_tap &rgb_ug led_color> \
+                , <&macro_param_1to1>, <&macro_press &kp MACRO_PLACEHOLDER>; \
+        }; \
+
+
+///
+/// @brief macro for the creation of left/right-hand hold-tap layer-switch with led color change
+///
+/// @param name: name-suffix of the created hold-tap behavior
+/// @param hold_macro: macro called on hold, i.e. layer-hold plus led color change
+/// @param tap_bind: behavior on tap
+/// @param lt_flavor: hold-tap basic behavior
+/// @param lt_tapping_term: the time a key is tapped
+/// @param lt_quick_tap_ms: quick tap threshold
+/// @param lt_prior_idle_ms: expected pre-idel-time
+///
+#define CREATE_HLT_LED_LR(name, hold_macro, tap_bind, lt_flavor, lt_tapping_term, lt_quick_tap_ms, lt_prior_idle_ms) \
+    behaviors { \
+        /omit-if-no-ref/ l_ ## name: l_ ## name { \
+            CREATE_HT_CORE(hold_macro, tap_bind, lt_flavor, lt_tapping_term, lt_quick_tap_ms, lt_prior_idle_ms) \
+            bindings = <hold_macro>, <tap_bind>; \
+            hold-trigger-key-positions = <KEYS_R KEYS_THUMBS>; \
+            hold-trigger-on-release; \
+        }; \
+        /omit-if-no-ref/ r_ ## name: r_ ## name { \
+            CREATE_HT_CORE(hold_macro, tap_bind, lt_flavor, lt_tapping_term, lt_quick_tap_ms, lt_prior_idle_ms) \
+            bindings = <hold_macro>, <tap_bind>; \
+            hold-trigger-key-positions = <KEYS_L KEYS_THUMBS>; \
+            hold-trigger-on-release; \
         }; \
     }; \
 
 
-LT_LED_MACRO(led_def, &led_def, lt_def_l, lt_def_r, RGB_DEF, "balanced", HM_TAPPING_TERM, LAYER_QUICK_TAP_MS, HM_PRIOR_IDLE)
-LT_LED_MACRO(led_red, &led_red, lt_red_l, lt_red_r, RGB_RED, "balanced", HM_TAPPING_TERM, LAYER_QUICK_TAP_MS, HM_PRIOR_IDLE)
-LT_LED_MACRO(led_yel, &led_yel, lt_yel_l, lt_yel_r, RGB_YEL, "balanced", HM_TAPPING_TERM, LAYER_QUICK_TAP_MS, HM_PRIOR_IDLE)
-LT_LED_MACRO(led_gre, &led_gre, lt_gre_l, lt_gre_r, RGB_GRE, "balanced", HM_TAPPING_TERM, LAYER_QUICK_TAP_MS, HM_PRIOR_IDLE)
-LT_LED_MACRO(led_blu, &led_blu, lt_blu_l, lt_blu_r, RGB_BLU, "balanced", HM_TAPPING_TERM, LAYER_QUICK_TAP_MS, HM_PRIOR_IDLE)
-LT_LED_MACRO(led_pur, &led_pur, lt_pur_l, lt_pur_r, RGB_PUR, "balanced", HM_TAPPING_TERM, LAYER_QUICK_TAP_MS, HM_PRIOR_IDLE)
+
+
+#define LT_LED_MACRO(clr_name, led_color, lt_flavor, lt_tapping_term, lt_quick_tap_ms, lt_prior_idle_ms) \
+    / { \
+        macros { \
+            HOLD_LAYER_WITH_LED_CLR_BASE(clr_name, led_color) \
+            TOGGLE_LAYER_WITH_LED_CLR_BASE(clr_name, led_color) \
+            KP_PLUS_TOGGLE_LAYER_WITH_LED_CLR_BASE(clr_name, led_color, L_DEF) \
+        }; \
+        \
+        behaviors { \
+            CREATE_HLT_LED_LR(ht_ ## clr_name, htl_ ## clr_name, &kp, led_color, lt_flavor, lt_tapping_term, lt_quick_tap_ms, lt_prior_idle_ms) \
+            CREATE_HLT_LED_LR(to_ ## clr_name, tol_ ## clr_name, &kp, led_color, lt_flavor, lt_tapping_term, lt_quick_tap_ms, lt_prior_idle_ms) \
+            CREATE_HLT_LED_LR(re_ ## clr_name, tok_ ## clr_name, &kp, led_color, lt_flavor, lt_tapping_term, lt_quick_tap_ms, lt_prior_idle_ms) \
+        }; \
+    }; \
+
+LT_LED_MACRO(def, RGB_DEF, "balanced", HM_TAPPING_TERM, LAYER_QUICK_TAP_MS, HM_PRIOR_IDLE)
+LT_LED_MACRO(sn,  RGB_YEL, "balanced", HM_TAPPING_TERM, LAYER_QUICK_TAP_MS, HM_PRIOR_IDLE)
+LT_LED_MACRO(mg,  RGB_GRE, "balanced", HM_TAPPING_TERM, LAYER_QUICK_TAP_MS, HM_PRIOR_IDLE)
+LT_LED_MACRO(nav, RGB_PUR, "balanced", HM_TAPPING_TERM, LAYER_QUICK_TAP_MS, HM_PRIOR_IDLE)
+LT_LED_MACRO(blu, RGB_BLU, "balanced", HM_TAPPING_TERM, LAYER_QUICK_TAP_MS, HM_PRIOR_IDLE)
+LT_LED_MACRO(red, RGB_RED, "balanced", HM_TAPPING_TERM, LAYER_QUICK_TAP_MS, HM_PRIOR_IDLE)
+
+
 
