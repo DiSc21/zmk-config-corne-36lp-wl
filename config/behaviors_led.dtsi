@@ -98,14 +98,14 @@
 ///
 #define KP_PLUS_TOGGLE_LAYER_WITH_LED_CLR_BASE(name, led_color, layer_num) \
     tok_ ## name: tok_ ## name { \
-        compatible = "zmk,behavior-macro"; \
+        compatible = "zmk,behavior-macro-one-param"; \
         wait-ms = <30>; \
         tap-ms = <30>; \
-        #binding-cells = <0>; \
+        #binding-cells = <1>; \
         bindings \
             = <&macro_tap &to layer_num> \
             , <&macro_tap &rgb_ug led_color> \
-            , <&macro_tap &trans>; \
+            , <&macro_param_1to1>, <&macro_tap &kp MACRO_PLACEHOLDER>; \
     }; \
 
 
@@ -149,12 +149,12 @@
         }; \
     }; \
 
-LT_LED_MACRO(def, L_DEF, RGB_DEF, "balanced", HM_TAPPING_TERM, LAYER_QUICK_TAP_MS, HM_PRIOR_IDLE)
-LT_LED_MACRO(sn,  L_DEF, RGB_YEL, "balanced", HM_TAPPING_TERM, LAYER_QUICK_TAP_MS, HM_PRIOR_IDLE)
-LT_LED_MACRO(mg,  L_DEF, RGB_GRE, "balanced", HM_TAPPING_TERM, LAYER_QUICK_TAP_MS, HM_PRIOR_IDLE)
-LT_LED_MACRO(nav, L_DEF, RGB_PUR, "balanced", HM_TAPPING_TERM, LAYER_QUICK_TAP_MS, HM_PRIOR_IDLE)
-LT_LED_MACRO(blu, L_DEF, RGB_BLU, "balanced", HM_TAPPING_TERM, LAYER_QUICK_TAP_MS, HM_PRIOR_IDLE)
-LT_LED_MACRO(red, L_DEF, RGB_RED, "balanced", HM_TAPPING_TERM, LAYER_QUICK_TAP_MS, HM_PRIOR_IDLE)
+LT_LED_MACRO(def, L_DEF,       RGB_DEF, "balanced", HM_TAPPING_TERM, LAYER_QUICK_TAP_MS, HM_PRIOR_IDLE)
+LT_LED_MACRO(sn,  L_SMART_NUM, RGB_YEL, "balanced", HM_TAPPING_TERM, LAYER_QUICK_TAP_MS, HM_PRIOR_IDLE)
+LT_LED_MACRO(mg,  L_MG,        RGB_GRE, "balanced", HM_TAPPING_TERM, LAYER_QUICK_TAP_MS, HM_PRIOR_IDLE)
+LT_LED_MACRO(nav, L_NAV,       RGB_PUR, "balanced", HM_TAPPING_TERM, LAYER_QUICK_TAP_MS, HM_PRIOR_IDLE)
+LT_LED_MACRO(bt,  L_BT_LED,    RGB_BLU, "balanced", HM_TAPPING_TERM, LAYER_QUICK_TAP_MS, HM_PRIOR_IDLE)
+LT_LED_MACRO(num, L_NUM,       RGB_RED, "balanced", HM_TAPPING_TERM, LAYER_QUICK_TAP_MS, HM_PRIOR_IDLE)
 
 
 

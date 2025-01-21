@@ -84,13 +84,13 @@
         mmnr_del: mmnr_del {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&r_ht_mg L_MG DEL>, <&kp BSPC>;
+            bindings = <&r_ht_nav L_NAV DEL>, <&kp BSPC>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
         mmnl_bsp: mmnl_bsp {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&l_ht_mg L_MG BSPC>, <&kp DEL>;
+            bindings = <&l_ht_nav L_NAV BSPC>, <&kp DEL>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
     };
@@ -125,10 +125,10 @@
         smart_num {
             display-name = "smart_num";
             bindings = <
-                &none  &tok_def &tok_def &tok_def  &tok_def &tok_def       &kp COMMA  &kp N7           &kp N8           &kp N9            &tok_def &none
-                &none  &tok_def &tok_def &tok_def  &tok_def &tok_def       &kp N0     &ht_r_tr RALT N4 &ht_r_tr RGUI N5 &ht_r_tr RCTRL N6 &tok_def &none
-                &none  &tok_def &tok_def &tok_def  &tok_def &tok_def       &kp DOT    &kp N1           &kp N2           &kp N3            &tok_def &none
-                                         &kp BSPC  &tok_def &kp TAB        &tok_def   &tok_def         &kp DEL
+                &none  &tok_def Q &tok_def W &tok_def E &tok_def R   &tok_def T     &kp COMMA    &kp N7         &kp N8 &kp N9 &tok_def P    &none
+                &none  &tok_def A &tok_def S &tok_def D &tok_def F   &tok_def G     &kp N0       &kp N4         &kp N5 &kp N6 &tok_def SEMI &none
+                &none  &tok_def Z &tok_def X &tok_def C &tok_def V   &tok_def B     &kp DOT      &kp N1         &kp N2 &kp N3 &tok_def FSLH &none
+                                             &kp BSPC   &tok_def RET &kp TAB        &tok_def ESC &tok_def SPACE &kp DEL
             >;
         };
 
