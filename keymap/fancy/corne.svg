@@ -139,63 +139,53 @@ path.combo { stroke: #7f7f7f; }
 </g>
 <g transform="translate(92, 114)" class="key keypos-13">
 <rect rx="6" ry="6" x="-28" y="-28" width="57" height="57" class="key"/>
-<text x="0" y="0" class="key tap">
-<tspan x="0" dy="-1.2em" style="font-size: 88%">&amp;ht_l_tr</tspan><tspan x="0" dy="1.2em" style="font-size: 88%">LSHIFT</tspan><tspan x="0" dy="1.2em" style="font-size: 88%">A</tspan>
-</text>
+<text x="0" y="0" class="key tap">A</text>
+<text x="0" y="26" class="key hold">⏏</text>
 </g>
 <g transform="translate(152, 99)" class="key keypos-14">
 <rect rx="6" ry="6" x="-28" y="-28" width="57" height="57" class="key"/>
-<text x="0" y="0" class="key tap">
-<tspan x="0" dy="-1.2em" style="font-size: 88%">&amp;ht_l_tr</tspan><tspan x="0" dy="1.2em" style="font-size: 88%">LCTRL</tspan><tspan x="0" dy="1.2em" style="font-size: 88%">S</tspan>
-</text>
+<text x="0" y="0" class="key tap">S</text>
+<text x="0" y="26" class="key hold">🕹️</text>
 </g>
 <g transform="translate(214, 92)" class="key keypos-15">
 <rect rx="6" ry="6" x="-28" y="-28" width="57" height="57" class="key"/>
-<text x="0" y="0" class="key tap">
-<tspan x="0" dy="-1.2em" style="font-size: 88%">&amp;ht_l_tr</tspan><tspan x="0" dy="1.2em" style="font-size: 88%">LGUI</tspan><tspan x="0" dy="1.2em" style="font-size: 88%">D</tspan>
-</text>
+<text x="0" y="0" class="key tap">D</text>
+<text x="0" y="26" class="key hold">🐧</text>
 </g>
 <g transform="translate(274, 99)" class="key keypos-16">
 <rect rx="6" ry="6" x="-28" y="-28" width="57" height="57" class="key"/>
-<text x="0" y="0" class="key tap">
-<tspan x="0" dy="-1.2em" style="font-size: 88%">&amp;ht_l_tr</tspan><tspan x="0" dy="1.2em" style="font-size: 88%">LALT</tspan><tspan x="0" dy="1.2em" style="font-size: 88%">F</tspan>
-</text>
+<text x="0" y="0" class="key tap">F</text>
+<text x="0" y="26" class="key hold">☯︎</text>
 </g>
 <g transform="translate(336, 107)" class="key keypos-17">
 <rect rx="6" ry="6" x="-28" y="-28" width="57" height="57" class="key"/>
-<text x="0" y="0" class="key tap">
-<tspan x="0" dy="-1.2em" style="font-size: 88%">&amp;l_to_sn</tspan><tspan x="0" dy="1.2em" style="font-size: 88%">1</tspan><tspan x="0" dy="1.2em" style="font-size: 88%">G</tspan>
-</text>
+<text x="0" y="0" class="key tap">G</text>
+<text x="0" y="26" class="key hold"><tspan style="font-size: 78%">&amp;tol_sn 1</tspan></text>
 </g>
 <g transform="translate(580, 107)" class="key keypos-18">
 <rect rx="6" ry="6" x="-28" y="-28" width="57" height="57" class="key"/>
-<text x="0" y="0" class="key tap">
-<tspan x="0" dy="-1.2em" style="font-size: 88%">&amp;r_to_sn</tspan><tspan x="0" dy="1.2em" style="font-size: 88%">1</tspan><tspan x="0" dy="1.2em" style="font-size: 88%">H</tspan>
-</text>
+<text x="0" y="0" class="key tap">H</text>
+<text x="0" y="26" class="key hold"><tspan style="font-size: 78%">&amp;tol_sn 1</tspan></text>
 </g>
 <g transform="translate(640, 99)" class="key keypos-19">
 <rect rx="6" ry="6" x="-28" y="-28" width="57" height="57" class="key"/>
-<text x="0" y="0" class="key tap">
-<tspan x="0" dy="-1.2em" style="font-size: 88%">&amp;ht_r_tr</tspan><tspan x="0" dy="1.2em" style="font-size: 88%">RALT</tspan><tspan x="0" dy="1.2em" style="font-size: 88%">J</tspan>
-</text>
+<text x="0" y="0" class="key tap">J</text>
+<text x="0" y="26" class="key hold">☯︎</text>
 </g>
 <g transform="translate(702, 92)" class="key keypos-20">
 <rect rx="6" ry="6" x="-28" y="-28" width="57" height="57" class="key"/>
-<text x="0" y="0" class="key tap">
-<tspan x="0" dy="-1.2em" style="font-size: 88%">&amp;ht_r_tr</tspan><tspan x="0" dy="1.2em" style="font-size: 88%">RGUI</tspan><tspan x="0" dy="1.2em" style="font-size: 88%">K</tspan>
-</text>
+<text x="0" y="0" class="key tap">K</text>
+<text x="0" y="26" class="key hold">🐧</text>
 </g>
 <g transform="translate(762, 99)" class="key keypos-21">
 <rect rx="6" ry="6" x="-28" y="-28" width="57" height="57" class="key"/>
-<text x="0" y="0" class="key tap">
-<tspan x="0" dy="-1.2em" style="font-size: 88%">&amp;ht_r_tr</tspan><tspan x="0" dy="1.2em" style="font-size: 88%">RCTRL</tspan><tspan x="0" dy="1.2em" style="font-size: 88%">L</tspan>
-</text>
+<text x="0" y="0" class="key tap">L</text>
+<text x="0" y="26" class="key hold">🕹️</text>
 </g>
 <g transform="translate(824, 114)" class="key keypos-22">
 <rect rx="6" ry="6" x="-28" y="-28" width="57" height="57" class="key"/>
-<text x="0" y="0" class="key tap">
-<tspan x="0" dy="-1.2em" style="font-size: 88%">&amp;ht_r_tr</tspan><tspan x="0" dy="1.2em" style="font-size: 88%">RSHIFT</tspan><tspan x="0" dy="1.2em" style="font-size: 88%">SEMI</tspan>
-</text>
+<text x="0" y="0" class="key tap">;</text>
+<text x="0" y="26" class="key hold">⏏</text>
 </g>
 <g transform="translate(884, 114)" class="key keypos-23">
 <rect rx="6" ry="6" x="-28" y="-28" width="57" height="57" class="key"/>
@@ -255,27 +245,23 @@ path.combo { stroke: #7f7f7f; }
 </g>
 <g transform="translate(311, 232) rotate(15.0)" class="key keypos-37">
 <rect rx="6" ry="6" x="-28" y="-28" width="57" height="57" class="key"/>
-<text x="0" y="0" class="key tap">
-<tspan x="0" dy="-1.2em" style="font-size: 88%">&amp;l_ht_mg</tspan><tspan x="0" dy="1.2em" style="font-size: 88%">2</tspan><tspan x="0" dy="1.2em" style="font-size: 88%">RET</tspan>
-</text>
+<text x="0" y="0" class="key tap">╰┈➤</text>
+<text x="0" y="26" class="key hold"><tspan style="font-size: 78%">&amp;htl_mg 2</tspan></text>
 </g>
 <g transform="translate(382, 244) rotate(30.0)" class="key keypos-38">
 <rect rx="6" ry="6" x="-28" y="-44" width="57" height="88" class="key"/>
-<text x="0" y="0" class="key tap">
-<tspan x="0" dy="-1.2em" style="font-size: 88%">&amp;l_ht_mg</tspan><tspan x="0" dy="1.2em" style="font-size: 88%">2</tspan><tspan x="0" dy="1.2em" style="font-size: 88%">TAB</tspan>
-</text>
+<text x="0" y="0" class="key tap">🔮</text>
+<text x="0" y="42" class="key hold"><tspan style="font-size: 78%">&amp;htl_mg 2</tspan></text>
 </g>
 <g transform="translate(533, 244) rotate(-30.0)" class="key keypos-39">
 <rect rx="6" ry="6" x="-28" y="-44" width="57" height="88" class="key"/>
-<text x="0" y="0" class="key tap">
-<tspan x="0" dy="-1.2em" style="font-size: 88%">&amp;r_ht_mg</tspan><tspan x="0" dy="1.2em" style="font-size: 88%">2</tspan><tspan x="0" dy="1.2em" style="font-size: 88%">ESC</tspan>
-</text>
+<text x="0" y="0" class="key tap">☢️</text>
+<text x="0" y="42" class="key hold"><tspan style="font-size: 78%">&amp;htl_mg 2</tspan></text>
 </g>
 <g transform="translate(604, 232) rotate(-15.0)" class="key keypos-40">
 <rect rx="6" ry="6" x="-28" y="-28" width="57" height="57" class="key"/>
-<text x="0" y="0" class="key tap">
-<tspan x="0" dy="-1.2em" style="font-size: 88%">&amp;r_ht_mg</tspan><tspan x="0" dy="1.2em" style="font-size: 88%">2</tspan><tspan x="0" dy="1.2em" style="font-size: 88%">SPACE</tspan>
-</text>
+<text x="0" y="0" class="key tap">🪐</text>
+<text x="0" y="26" class="key hold"><tspan style="font-size: 78%">&amp;htl_mg 2</tspan></text>
 </g>
 <g transform="translate(671, 223)" class="key keypos-41">
 <rect rx="6" ry="6" x="-28" y="-28" width="57" height="57" class="key"/>
@@ -513,21 +499,18 @@ path.combo { stroke: #7f7f7f; }
 </g>
 <g transform="translate(640, 99)" class="key keypos-19">
 <rect rx="6" ry="6" x="-28" y="-28" width="57" height="57" class="key"/>
-<text x="0" y="0" class="key tap">
-<tspan x="0" dy="-1.2em" style="font-size: 88%">&amp;ht_r_tr</tspan><tspan x="0" dy="1.2em" style="font-size: 88%">RALT</tspan><tspan x="0" dy="1.2em" style="font-size: 88%">N4</tspan>
-</text>
+<text x="0" y="0" class="key tap">4</text>
+<text x="0" y="26" class="key hold">☯︎</text>
 </g>
 <g transform="translate(702, 92)" class="key keypos-20">
 <rect rx="6" ry="6" x="-28" y="-28" width="57" height="57" class="key"/>
-<text x="0" y="0" class="key tap">
-<tspan x="0" dy="-1.2em" style="font-size: 88%">&amp;ht_r_tr</tspan><tspan x="0" dy="1.2em" style="font-size: 88%">RGUI</tspan><tspan x="0" dy="1.2em" style="font-size: 88%">N5</tspan>
-</text>
+<text x="0" y="0" class="key tap">5</text>
+<text x="0" y="26" class="key hold">🐧</text>
 </g>
 <g transform="translate(762, 99)" class="key keypos-21">
 <rect rx="6" ry="6" x="-28" y="-28" width="57" height="57" class="key"/>
-<text x="0" y="0" class="key tap">
-<tspan x="0" dy="-1.2em" style="font-size: 88%">&amp;ht_r_tr</tspan><tspan x="0" dy="1.2em" style="font-size: 88%">RCTRL</tspan><tspan x="0" dy="1.2em" style="font-size: 88%">N6</tspan>
-</text>
+<text x="0" y="0" class="key tap">6</text>
+<text x="0" y="26" class="key hold">🕹️</text>
 </g>
 <g transform="translate(824, 114)" class="key keypos-22">
 <rect rx="6" ry="6" x="-28" y="-28" width="57" height="57" class="key"/>
@@ -812,27 +795,23 @@ path.combo { stroke: #7f7f7f; }
 </g>
 <g transform="translate(92, 114)" class="key keypos-13">
 <rect rx="6" ry="6" x="-28" y="-28" width="57" height="57" class="key"/>
-<text x="0" y="0" class="key tap">
-<tspan x="0" dy="-1.2em" style="font-size: 88%">&amp;ht_l_tr</tspan><tspan x="0" dy="1.2em" style="font-size: 88%">LSHIFT</tspan><tspan x="0" dy="1.2em" style="font-size: 88%">A</tspan>
-</text>
+<text x="0" y="0" class="key tap">A</text>
+<text x="0" y="26" class="key hold">⏏</text>
 </g>
 <g transform="translate(152, 99)" class="key keypos-14">
 <rect rx="6" ry="6" x="-28" y="-28" width="57" height="57" class="key"/>
-<text x="0" y="0" class="key tap">
-<tspan x="0" dy="-1.2em" style="font-size: 88%">&amp;ht_l_tr</tspan><tspan x="0" dy="1.2em" style="font-size: 88%">LCTRL</tspan><tspan x="0" dy="1.2em" style="font-size: 88%">S</tspan>
-</text>
+<text x="0" y="0" class="key tap">S</text>
+<text x="0" y="26" class="key hold">🕹️</text>
 </g>
 <g transform="translate(214, 92)" class="key keypos-15">
 <rect rx="6" ry="6" x="-28" y="-28" width="57" height="57" class="key"/>
-<text x="0" y="0" class="key tap">
-<tspan x="0" dy="-1.2em" style="font-size: 88%">&amp;ht_l_tr</tspan><tspan x="0" dy="1.2em" style="font-size: 88%">LGUI</tspan><tspan x="0" dy="1.2em" style="font-size: 88%">D</tspan>
-</text>
+<text x="0" y="0" class="key tap">D</text>
+<text x="0" y="26" class="key hold">🐧</text>
 </g>
 <g transform="translate(274, 99)" class="key keypos-16">
 <rect rx="6" ry="6" x="-28" y="-28" width="57" height="57" class="key"/>
-<text x="0" y="0" class="key tap">
-<tspan x="0" dy="-1.2em" style="font-size: 88%">&amp;ht_l_tr</tspan><tspan x="0" dy="1.2em" style="font-size: 88%">LALT</tspan><tspan x="0" dy="1.2em" style="font-size: 88%">F</tspan>
-</text>
+<text x="0" y="0" class="key tap">F</text>
+<text x="0" y="26" class="key hold">☯︎</text>
 </g>
 <g transform="translate(336, 107)" class="key keypos-17">
 <rect rx="6" ry="6" x="-28" y="-28" width="57" height="57" class="key"/>
@@ -843,27 +822,23 @@ path.combo { stroke: #7f7f7f; }
 </g>
 <g transform="translate(640, 99)" class="key keypos-19">
 <rect rx="6" ry="6" x="-28" y="-28" width="57" height="57" class="key"/>
-<text x="0" y="0" class="key tap">
-<tspan x="0" dy="-1.2em" style="font-size: 88%">&amp;ht_r_tr</tspan><tspan x="0" dy="1.2em" style="font-size: 88%">RALT</tspan><tspan x="0" dy="1.2em" style="font-size: 88%">DOWN</tspan>
-</text>
+<text x="0" y="0" class="key tap">🡇</text>
+<text x="0" y="26" class="key hold">☯︎</text>
 </g>
 <g transform="translate(702, 92)" class="key keypos-20">
 <rect rx="6" ry="6" x="-28" y="-28" width="57" height="57" class="key"/>
-<text x="0" y="0" class="key tap">
-<tspan x="0" dy="-1.2em" style="font-size: 88%">&amp;ht_r_tr</tspan><tspan x="0" dy="1.2em" style="font-size: 88%">RGUI</tspan><tspan x="0" dy="1.2em" style="font-size: 88%">UP</tspan>
-</text>
+<text x="0" y="0" class="key tap">🡅</text>
+<text x="0" y="26" class="key hold">🐧</text>
 </g>
 <g transform="translate(762, 99)" class="key keypos-21">
 <rect rx="6" ry="6" x="-28" y="-28" width="57" height="57" class="key"/>
-<text x="0" y="0" class="key tap">
-<tspan x="0" dy="-1.2em" style="font-size: 88%">&amp;ht_r_tr</tspan><tspan x="0" dy="1.2em" style="font-size: 88%">RCTRL</tspan><tspan x="0" dy="1.2em" style="font-size: 88%">RIGHT</tspan>
-</text>
+<text x="0" y="0" class="key tap">🡆</text>
+<text x="0" y="26" class="key hold">🕹️</text>
 </g>
 <g transform="translate(824, 114)" class="key keypos-22">
 <rect rx="6" ry="6" x="-28" y="-28" width="57" height="57" class="key"/>
-<text x="0" y="0" class="key tap">
-<tspan x="0" dy="-1.2em" style="font-size: 88%">&amp;ht_r_tr</tspan><tspan x="0" dy="1.2em" style="font-size: 88%">RSHIFT</tspan><tspan x="0" dy="1.2em" style="font-size: 88%">SEMI</tspan>
-</text>
+<text x="0" y="0" class="key tap">;</text>
+<text x="0" y="26" class="key hold">⏏</text>
 </g>
 <g transform="translate(884, 114)" class="key keypos-23">
 <rect rx="6" ry="6" x="-28" y="-28" width="57" height="57" class="key"/>
@@ -1466,27 +1441,23 @@ path.combo { stroke: #7f7f7f; }
 </g>
 <g transform="translate(92, 114)" class="key keypos-13">
 <rect rx="6" ry="6" x="-28" y="-28" width="57" height="57" class="key"/>
-<text x="0" y="0" class="key tap">
-<tspan x="0" dy="-1.2em" style="font-size: 88%">&amp;ht_l_tr</tspan><tspan x="0" dy="1.2em" style="font-size: 88%">LSHIFT</tspan><tspan x="0" dy="1.2em" style="font-size: 88%">F5</tspan>
-</text>
+<text x="0" y="0" class="key tap">F5</text>
+<text x="0" y="26" class="key hold">⏏</text>
 </g>
 <g transform="translate(152, 99)" class="key keypos-14">
 <rect rx="6" ry="6" x="-28" y="-28" width="57" height="57" class="key"/>
-<text x="0" y="0" class="key tap">
-<tspan x="0" dy="-1.2em" style="font-size: 88%">&amp;ht_l_tr</tspan><tspan x="0" dy="1.2em" style="font-size: 88%">LCTRL</tspan><tspan x="0" dy="1.2em" style="font-size: 88%">F6</tspan>
-</text>
+<text x="0" y="0" class="key tap">F6</text>
+<text x="0" y="26" class="key hold">🕹️</text>
 </g>
 <g transform="translate(214, 92)" class="key keypos-15">
 <rect rx="6" ry="6" x="-28" y="-28" width="57" height="57" class="key"/>
-<text x="0" y="0" class="key tap">
-<tspan x="0" dy="-1.2em" style="font-size: 88%">&amp;ht_l_tr</tspan><tspan x="0" dy="1.2em" style="font-size: 88%">LGUI</tspan><tspan x="0" dy="1.2em" style="font-size: 88%">F7</tspan>
-</text>
+<text x="0" y="0" class="key tap">F7</text>
+<text x="0" y="26" class="key hold">🐧</text>
 </g>
 <g transform="translate(274, 99)" class="key keypos-16">
 <rect rx="6" ry="6" x="-28" y="-28" width="57" height="57" class="key"/>
-<text x="0" y="0" class="key tap">
-<tspan x="0" dy="-1.2em" style="font-size: 88%">&amp;ht_l_tr</tspan><tspan x="0" dy="1.2em" style="font-size: 88%">LALT</tspan><tspan x="0" dy="1.2em" style="font-size: 88%">F8</tspan>
-</text>
+<text x="0" y="0" class="key tap">F8</text>
+<text x="0" y="26" class="key hold">☯︎</text>
 </g>
 <g transform="translate(336, 107)" class="key keypos-17">
 <rect rx="6" ry="6" x="-28" y="-28" width="57" height="57" class="key"/>
@@ -1497,27 +1468,23 @@ path.combo { stroke: #7f7f7f; }
 </g>
 <g transform="translate(640, 99)" class="key keypos-19">
 <rect rx="6" ry="6" x="-28" y="-28" width="57" height="57" class="key"/>
-<text x="0" y="0" class="key tap">
-<tspan x="0" dy="-1.2em" style="font-size: 88%">&amp;ht_r_tr</tspan><tspan x="0" dy="1.2em" style="font-size: 88%">RALT</tspan><tspan x="0" dy="1.2em" style="font-size: 88%">N4</tspan>
-</text>
+<text x="0" y="0" class="key tap">4</text>
+<text x="0" y="26" class="key hold">☯︎</text>
 </g>
 <g transform="translate(702, 92)" class="key keypos-20">
 <rect rx="6" ry="6" x="-28" y="-28" width="57" height="57" class="key"/>
-<text x="0" y="0" class="key tap">
-<tspan x="0" dy="-1.2em" style="font-size: 88%">&amp;ht_r_tr</tspan><tspan x="0" dy="1.2em" style="font-size: 88%">RGUI</tspan><tspan x="0" dy="1.2em" style="font-size: 88%">N5</tspan>
-</text>
+<text x="0" y="0" class="key tap">5</text>
+<text x="0" y="26" class="key hold">🐧</text>
 </g>
 <g transform="translate(762, 99)" class="key keypos-21">
 <rect rx="6" ry="6" x="-28" y="-28" width="57" height="57" class="key"/>
-<text x="0" y="0" class="key tap">
-<tspan x="0" dy="-1.2em" style="font-size: 88%">&amp;ht_r_tr</tspan><tspan x="0" dy="1.2em" style="font-size: 88%">RCTRL</tspan><tspan x="0" dy="1.2em" style="font-size: 88%">N6</tspan>
-</text>
+<text x="0" y="0" class="key tap">6</text>
+<text x="0" y="26" class="key hold">🕹️</text>
 </g>
 <g transform="translate(824, 114)" class="key keypos-22">
 <rect rx="6" ry="6" x="-28" y="-28" width="57" height="57" class="key"/>
-<text x="0" y="0" class="key tap">
-<tspan x="0" dy="-1.2em" style="font-size: 88%">&amp;ht_r_tr</tspan><tspan x="0" dy="1.2em" style="font-size: 88%">RSHIFT</tspan><tspan x="0" dy="1.2em" style="font-size: 88%">EQUAL</tspan>
-</text>
+<text x="0" y="0" class="key tap">=</text>
+<text x="0" y="26" class="key hold">⏏</text>
 </g>
 <g transform="translate(884, 114)" class="key keypos-23">
 <rect rx="6" ry="6" x="-28" y="-28" width="57" height="57" class="key"/>
