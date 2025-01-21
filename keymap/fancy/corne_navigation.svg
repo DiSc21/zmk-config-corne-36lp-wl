@@ -324,36 +324,42 @@ path {
 <text x="762" y="102" class="combo tap">~</text>
 </g>
 <g class="combo combopos-27">
+<path d="M732,101 l-71,-1" class="combo"/>
+<path d="M732,101 l71,10" class="combo"/>
+<rect rx="6" ry="6" x="717" y="94" width="30" height="15" class="combo"/>
+<text x="732" y="101" class="combo tap">@</text>
+</g>
+<g class="combo combopos-28">
 <rect rx="6" ry="6" x="107" y="160" width="30" height="15" class="combo"/>
 <text x="122" y="168" class="combo tap">🏡</text>
 </g>
-<g class="combo combopos-28">
+<g class="combo combopos-29">
 <rect rx="6" ry="6" x="168" y="149" width="30" height="15" class="combo"/>
 <text x="183" y="156" class="combo tap">📸</text>
 </g>
-<g class="combo combopos-29">
+<g class="combo combopos-30">
 <rect rx="6" ry="6" x="229" y="149" width="30" height="15" class="combo"/>
 <text x="244" y="156" class="combo tap">🏁</text>
 </g>
-<g class="combo combopos-30">
+<g class="combo combopos-31">
 <rect rx="6" ry="6" x="656" y="149" width="30" height="15" class="combo"/>
 <text x="671" y="156" class="combo tap">&#x27;</text>
 </g>
-<g class="combo combopos-31">
+<g class="combo combopos-32">
 <rect rx="6" ry="6" x="717" y="149" width="30" height="15" class="combo"/>
 <text x="732" y="156" class="combo tap">&quot;</text>
 </g>
-<g class="combo combopos-32">
+<g class="combo combopos-33">
 <rect rx="6" ry="6" x="778" y="160" width="30" height="15" class="combo"/>
 <text x="793" y="168" class="combo tap">+</text>
 </g>
-<g class="combo combopos-33">
+<g class="combo combopos-34">
 <path d="M702,158 l-41,2" class="combo"/>
 <path d="M702,158 l41,2" class="combo"/>
 <rect rx="6" ry="6" x="686" y="150" width="30" height="15" class="combo"/>
 <text x="702" y="158" class="combo tap">$</text>
 </g>
-<g class="combo combopos-34">
+<g class="combo combopos-35">
 <path d="M762,163 l-41,-7" class="combo"/>
 <path d="M762,163 l41,9" class="combo"/>
 <rect rx="6" ry="6" x="748" y="155" width="30" height="15" class="combo"/>
