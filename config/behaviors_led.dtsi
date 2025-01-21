@@ -123,13 +123,13 @@
 #define CREATE_HLT_LED_LR(name, hold_macro, tap_bind, lt_flavor, lt_tapping_term, lt_quick_tap_ms, lt_prior_idle_ms) \
     behaviors { \
         /omit-if-no-ref/ l_ ## name: l_ ## name { \
-            CREATE_HT_CORE(hold_macro, tap_bind, lt_flavor, lt_tapping_term, lt_quick_tap_ms, lt_prior_idle_ms) \
+            CREATE_HT_CORE(lt_flavor, lt_tapping_term, lt_quick_tap_ms, lt_prior_idle_ms) \
             bindings = <hold_macro>, <tap_bind>; \
             hold-trigger-key-positions = <KEYS_R KEYS_THUMBS>; \
             hold-trigger-on-release; \
         }; \
         /omit-if-no-ref/ r_ ## name: r_ ## name { \
-            CREATE_HT_CORE(hold_macro, tap_bind, lt_flavor, lt_tapping_term, lt_quick_tap_ms, lt_prior_idle_ms) \
+            CREATE_HT_CORE(lt_flavor, lt_tapping_term, lt_quick_tap_ms, lt_prior_idle_ms) \
             bindings = <hold_macro>, <tap_bind>; \
             hold-trigger-key-positions = <KEYS_L KEYS_THUMBS>; \
             hold-trigger-on-release; \
@@ -148,9 +148,9 @@
         }; \
         \
         behaviors { \
-            CREATE_HLT_LED_LR(ht_ ## clr_name, htl_ ## clr_name, &kp, led_color, lt_flavor, lt_tapping_term, lt_quick_tap_ms, lt_prior_idle_ms) \
-            CREATE_HLT_LED_LR(to_ ## clr_name, tol_ ## clr_name, &kp, led_color, lt_flavor, lt_tapping_term, lt_quick_tap_ms, lt_prior_idle_ms) \
-            CREATE_HLT_LED_LR(re_ ## clr_name, tok_ ## clr_name, &kp, led_color, lt_flavor, lt_tapping_term, lt_quick_tap_ms, lt_prior_idle_ms) \
+            CREATE_HLT_LED_LR(ht_ ## clr_name, htl_ ## clr_name, &kp, lt_flavor, lt_tapping_term, lt_quick_tap_ms, lt_prior_idle_ms) \
+            CREATE_HLT_LED_LR(to_ ## clr_name, tol_ ## clr_name, &kp, lt_flavor, lt_tapping_term, lt_quick_tap_ms, lt_prior_idle_ms) \
+            CREATE_HLT_LED_LR(re_ ## clr_name, tok_ ## clr_name, &kp, lt_flavor, lt_tapping_term, lt_quick_tap_ms, lt_prior_idle_ms) \
         }; \
     }; \
 
