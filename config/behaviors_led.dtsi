@@ -72,17 +72,18 @@
 ///
 /// @param name of the created macro behavior
 /// @param led_color the color toggled as long as behavior is held
+/// @param layer_num the layer toggled
 ///
 /// @arg1 layer toggled on tap
 ///
-#define TOGGLE_LAYER_WITH_LED_CLR_BASE(name, led_color) \
+#define TOGGLE_LAYER_WITH_LED_CLR_BASE(name, led_color, layer_num) \
     tol_ ## name: tol_ ## name { \
-        compatible = "zmk,behavior-macro-one-param"; \
+        compatible = "zmk,behavior-macro"; \
         wait-ms = <0>; \
         tap-ms = <0>; \
-        #binding-cells = <1>; \
+        #binding-cells = <0>; \
         bindings \
-            = <&macro_param_1to1>, <&macro_tap &to MACRO_PLACEHOLDER> \
+            = <&macro_tap &to layer_num> \
             , <&macro_tap &rgb_ug led_color>; \
     }; \
 
@@ -97,14 +98,14 @@
 ///
 #define KP_PLUS_TOGGLE_LAYER_WITH_LED_CLR_BASE(name, led_color, layer_num) \
     tok_ ## name: tok_ ## name { \
-        compatible = "zmk,behavior-macro-one-param"; \
+        compatible = "zmk,behavior-macro"; \
         wait-ms = <30>; \
         tap-ms = <30>; \
-        #binding-cells = <1>; \
+        #binding-cells = <0>; \
         bindings \
             = <&macro_tap &to layer_num> \
             , <&macro_tap &rgb_ug led_color> \
-            , <&macro_param_1to1>, <&macro_press &kp MACRO_PLACEHOLDER>; \
+            , <&macro_tap &trans>; \
     }; \
 
 
@@ -135,28 +136,25 @@
 
 
 
-
-#define LT_LED_MACRO(clr_name, led_color, lt_flavor, lt_tapping_term, lt_quick_tap_ms, lt_prior_idle_ms) \
+#define LT_LED_MACRO(clr_name, layer_num, led_color, lt_flavor, lt_tapping_term, lt_quick_tap_ms, lt_prior_idle_ms) \
     / { \
         macros { \
             HOLD_LAYER_WITH_LED_CLR_BASE(clr_name, led_color) \
-            TOGGLE_LAYER_WITH_LED_CLR_BASE(clr_name, led_color) \
-            KP_PLUS_TOGGLE_LAYER_WITH_LED_CLR_BASE(clr_name, led_color, L_DEF) \
+            TOGGLE_LAYER_WITH_LED_CLR_BASE(clr_name, led_color, layer_num) \
+            KP_PLUS_TOGGLE_LAYER_WITH_LED_CLR_BASE(clr_name, led_color, layer_num) \
         }; \
         \
         behaviors { \
-            CREATE_HLT_LED_LR(ht_ ## clr_name, htl_ ## clr_name, &kp, lt_flavor, lt_tapping_term, lt_quick_tap_ms, lt_prior_idle_ms) \
-            CREATE_HLT_LED_LR(to_ ## clr_name, tol_ ## clr_name, &kp, lt_flavor, lt_tapping_term, lt_quick_tap_ms, lt_prior_idle_ms) \
-            CREATE_HLT_LED_LR(re_ ## clr_name, tok_ ## clr_name, &kp, lt_flavor, lt_tapping_term, lt_quick_tap_ms, lt_prior_idle_ms) \
+            CREATE_HLT_LED_LR(ht_ ## clr_name, &htl_ ## clr_name, &kp, lt_flavor, lt_tapping_term, lt_quick_tap_ms, lt_prior_idle_ms) \
         }; \
     }; \
 
-LT_LED_MACRO(def, RGB_DEF, "balanced", HM_TAPPING_TERM, LAYER_QUICK_TAP_MS, HM_PRIOR_IDLE)
-LT_LED_MACRO(sn,  RGB_YEL, "balanced", HM_TAPPING_TERM, LAYER_QUICK_TAP_MS, HM_PRIOR_IDLE)
-LT_LED_MACRO(mg,  RGB_GRE, "balanced", HM_TAPPING_TERM, LAYER_QUICK_TAP_MS, HM_PRIOR_IDLE)
-LT_LED_MACRO(nav, RGB_PUR, "balanced", HM_TAPPING_TERM, LAYER_QUICK_TAP_MS, HM_PRIOR_IDLE)
-LT_LED_MACRO(blu, RGB_BLU, "balanced", HM_TAPPING_TERM, LAYER_QUICK_TAP_MS, HM_PRIOR_IDLE)
-LT_LED_MACRO(red, RGB_RED, "balanced", HM_TAPPING_TERM, LAYER_QUICK_TAP_MS, HM_PRIOR_IDLE)
+LT_LED_MACRO(def, L_DEF, RGB_DEF, "balanced", HM_TAPPING_TERM, LAYER_QUICK_TAP_MS, HM_PRIOR_IDLE)
+LT_LED_MACRO(sn,  L_DEF, RGB_YEL, "balanced", HM_TAPPING_TERM, LAYER_QUICK_TAP_MS, HM_PRIOR_IDLE)
+LT_LED_MACRO(mg,  L_DEF, RGB_GRE, "balanced", HM_TAPPING_TERM, LAYER_QUICK_TAP_MS, HM_PRIOR_IDLE)
+LT_LED_MACRO(nav, L_DEF, RGB_PUR, "balanced", HM_TAPPING_TERM, LAYER_QUICK_TAP_MS, HM_PRIOR_IDLE)
+LT_LED_MACRO(blu, L_DEF, RGB_BLU, "balanced", HM_TAPPING_TERM, LAYER_QUICK_TAP_MS, HM_PRIOR_IDLE)
+LT_LED_MACRO(red, L_DEF, RGB_RED, "balanced", HM_TAPPING_TERM, LAYER_QUICK_TAP_MS, HM_PRIOR_IDLE)
 
 
 

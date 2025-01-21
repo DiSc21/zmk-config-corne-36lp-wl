@@ -67,10 +67,13 @@
         // CrossSide Combos
         // ----------------
         COMBO_MACRO(combo_sticky_bt_led, &sl L_BT_LED,      LT5 RT0,         COMBO_TAP_TIME_FAST)
-        //COMBO_MACRO(combo_to_navigation, &to L_NAV,         LM5 RM0,         COMBO_TAP_TIME_FAST)
+        COMBO_MACRO(combo_to_smart_num,  &tol_sn,           LM5 RM0,         COMBO_TAP_TIME_FAST)
 
         // CrossRow Combos
         // ---------------
+
+        // layer toggle
+        COMBO_MACRO(combo_smart_num,     &tol_sn,           LT4 LM5,         COMBO_TAP_TIME_FAST)
 
         // opening braces
         COMBO_MACRO(combo_curly_brace_l, &kp LBRC,          RM1 RT2,         COMBO_TAP_TIME_FAST)
@@ -97,7 +100,7 @@
         // right-hand side
         COMBO_MACRO(combo_bslh,          &kp BSLH,          RT1 RT2,         COMBO_TAP_TIME_FAST)
         COMBO_MACRO(combo_pipe,          &kp PIPE,          RT2 RT3,         COMBO_TAP_TIME_FAST)
-        COMBO_MACRO(combo_to_default,    &to L_DEF,         RT3 RT4,         COMBO_TAP_TIME_FAST)
+        COMBO_MACRO(combo_to_default,    &tol_def,          RT3 RT4,         COMBO_TAP_TIME_FAST)
         COMBO_MACRO(combo_star,          &kp ASTERISK,      RT1 RT2 RT3,     COMBO_TAP_TIME_FAST)
         COMBO_MACRO(combo_hash,          &kp HASH,          RT2 RT3 RT4,     COMBO_TAP_TIME_FAST)
 

@@ -11,10 +11,11 @@
 
 #### Features:
 
-* [x] LED-color layer indicators
-* [x] Couple of combo keys (see keymaps)
+* [ ] Smart-Numbers layer
+* [ ] LED-color layer indicators
+* [ ] Layered combo keys (see keymaps)
 * [x] [Urob's timerless homerow mods](https://github.com/urob/zmk-config)
-* [ ] Multigram Layer Punctuation:
+* [x] Multigram Layer Punctuation:
   |Key          |       OUTPUT | Stickyshift |
   |-------------| ------------:|:-----------:|
   |`,`          |  `,`+`SPACE` |          ⛔ |
@@ -37,22 +38,23 @@
 * [x] Keymap image generator helpers and actions
   - [x] [Keymap image generator](https://github.com/caksoylar/keymap-drawer?tab=readme-ov-file)
   - [x] Playful GitHub actions addition of `shellcheck` with auto comments on issues
+  - [ ] (Dirty) fix PR/Push race-conditions
   - [ ] (Dirty) customized symbols
   - [ ] (Dirty) custom Script to create layer overlays
   - [ ] (Dirty) custom Github workflow for auto updates
 
 #### Features That'll Need Some Work:
 
-* [ ] LED layer indicators
+* [x] LED layer indicators
 * [ ] BT Shortcuts
 * [ ] LED Shortcuts
 * [ ] Mouse Actions
-* [ ] Intelligent CAPS WORD
-* [ ] Intelligent Number Layer
+* [x] Intelligent CAPS WORD
+* [x] Intelligent Number Layer
 
 #### Cleanups/Optimizations:
 
-* [ ] Clean up defines
+* [x] Clean up defines
 * [ ] Clean up overlay script
 * [x] Clean up config (includes)
 * [ ] Optimize numbers layer trigger
