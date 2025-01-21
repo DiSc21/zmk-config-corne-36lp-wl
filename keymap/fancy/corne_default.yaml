@@ -2,60 +2,24 @@ layout: {qmk_keyboard: corne_rotated, layout_name: LAYOUT_split_3x6_3}
 layers:
   default:
   - ['', Q, W, E, R, T, Y, U, I, O]
-  - - P
-    - ''
-    - ''
-    - {t: A, h: ⏏}
-    - {t: S, h: 🕹️}
-    - {t: D, h: 🐧}
-    - {t: F, h: ☯︎}
-    - {t: G, h: NUM}
-    - {t: H, h: '&led_pur 4'}
-    - {t: J, h: ☯︎}
-  - - {t: K, h: 🐧}
-    - {t: L, h: 🕹️}
-    - {t: ;, h: ⏏}
-    - ''
-    - ''
-    - Z
-    - X
-    - C
-    - V
-    - B
+  - [P, '', '', '&ht_l_tr LSHIFT A', '&ht_l_tr LCTRL S', '&ht_l_tr LGUI D', '&ht_l_tr LALT F', '&l_to_sn 1 G', '&r_to_sn 1 H', '&ht_r_tr RALT J']
+  - ['&ht_r_tr RGUI K', '&ht_r_tr RCTRL L', '&ht_r_tr RSHIFT SEMI', '', '', Z, X, C, V, B]
   - - N
     - M
     - ','
     - .
     - /
     - ''
-    - {t: ✂️, h: '&led_red 2', s: 🗑️}
-    - {t: ╰┈➤, h: '&led_red 2'}
-    - {t: 🔮, h: '&led_red 2'}
-    - {t: ☢️, h: '&led_red 2'}
-  - - {t: 🪐, h: '&led_red 2'}
-    - {t: 🗑️, h: '&led_red 2', s: ✂️}
+    - {t: '&lt_red_l 2 BSPC', s: 🗑️}
+    - '&l_ht_mg 2 RET'
+    - '&l_ht_mg 2 TAB'
+    - '&r_ht_mg 2 ESC'
+  - - '&r_ht_mg 2 SPACE'
+    - {t: '&lt_red_r 2 DEL', s: ✂️}
   smart_num:
   - ['', '', '', '', '', '', ',', '7', '8', '9']
-  - - ''
-    - ''
-    - ''
-    - ''
-    - ''
-    - ''
-    - ''
-    - ''
-    - '0'
-    - {t: '4', h: ☯︎}
-  - - {t: '5', h: 🐧}
-    - {t: '6', h: 🕹️}
-    - ''
-    - ''
-    - ''
-    - ''
-    - ''
-    - ''
-    - ''
-    - ''
+  - ['', '', '', '', '', '', '', '', '0', '&ht_r_tr RALT N4']
+  - ['&ht_r_tr RGUI N5', '&ht_r_tr RCTRL N6', '', '', '', '', '', '', '', '']
   - [., '1', '2', '3', '', '', ✂️, '', 🔮, '']
   - ['', 🗑️]
   mg-arrows:
@@ -69,26 +33,8 @@ layers:
     - {t: '&td_mmb_b_u', s: '&td_mmb_a_u'}
     - {t: '&td_mmb_b_i', s: '&td_mmb_a_i'}
     - {t: '&td_mmb_b_o', s: '&td_mmb_a_o'}
-  - - ''
-    - ''
-    - ''
-    - {t: A, h: ⏏}
-    - {t: S, h: 🕹️}
-    - {t: D, h: 🐧}
-    - {t: F, h: ☯︎}
-    - ''
-    - 🡄
-    - {t: 🡇, h: ☯︎}
-  - - {t: 🡅, h: 🐧}
-    - {t: 🡆, h: 🕹️}
-    - {t: ;, h: ⏏}
-    - ''
-    - ''
-    - ''
-    - ''
-    - ''
-    - ''
-    - ''
+  - ['', '', '', '&ht_l_tr LSHIFT A', '&ht_l_tr LCTRL S', '&ht_l_tr LGUI D', '&ht_l_tr LALT F', '', 🡄, '&ht_r_tr RALT DOWN']
+  - ['&ht_r_tr RGUI UP', '&ht_r_tr RCTRL RIGHT', '&ht_r_tr RSHIFT SEMI', '', '', '', '', '', '', '']
   - ['', '', '&add_spc COMMA', '&add_spsh DOT', '', '', '', '', '', '']
   - ['', '']
   bt-lighting:
@@ -135,26 +81,8 @@ layers:
   - ['', '']
   numbers:
   - ['', F1, F2, F3, F4, '', '', '7', '8', '9']
-  - - '*'
-    - ''
-    - ''
-    - {t: F5, h: ⏏}
-    - {t: F6, h: 🕹️}
-    - {t: F7, h: 🐧}
-    - {t: F8, h: ☯︎}
-    - ''
-    - '0'
-    - {t: '4', h: ☯︎}
-  - - {t: '5', h: 🐧}
-    - {t: '6', h: 🕹️}
-    - {t: '=', h: ⏏}
-    - ''
-    - ''
-    - F9
-    - F10
-    - F11
-    - F12
-    - ''
+  - ['*', '', '', '&ht_l_tr LSHIFT F5', '&ht_l_tr LCTRL F6', '&ht_l_tr LGUI F7', '&ht_l_tr LALT F8', '', '0', '&ht_r_tr RALT N4']
+  - ['&ht_r_tr RGUI N5', '&ht_r_tr RCTRL N6', '&ht_r_tr RSHIFT EQUAL', '', '', F9, F10, F11, F12, '']
   - ['', '1', '2', '3', /, '', '', '', '', '']
   - ['', '']
   navigation:
