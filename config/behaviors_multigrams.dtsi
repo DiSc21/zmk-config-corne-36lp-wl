@@ -36,6 +36,7 @@
 #include "shared_defs.dtsi"
 #include "shared_macros.dtsi"
 #include "shared_nomod_morphs.dtsi"
+#include "behaviors_hrm.dtsi"
 
 ///
 /// @brief macro for the creation tab-dance-macros w|wo trailing space
@@ -172,4 +173,9 @@ CREATE_MULTI_MOD_MORPH_MACRO(e, &kpr_r,   &kpr_r &kpr_e,   &kpr_v &kpr_e,   &kpr
 CREATE_MULTI_MOD_MORPH_MACRO(i, &kpr_n,   &kpr_r &kpr_e,   &kpr_v &kpr_e,   &kpr_n &kpr_g,   &kpr_n &kpr_d,   &kpr_c &kpr_k,   &kpr_t &kpr_h,   &kpr_g &kpr_h &kpr_t)
 CREATE_MULTI_MOD_MORPH_MACRO(u, &kpr_s,   &kpr_r &kpr_e,   &kpr_v &kpr_e,   &kpr_n &kpr_g,   &kpr_n &kpr_d,   &kpr_c &kpr_k,   &kpr_t &kpr_h,   &kpr_r &kpr_g)
 
+/ {
+    behaviors {
+        CREATE_HT_LEFT(tra, &kp, &td_mm_a, "balanced", HM_TAPPING_TERM, LAYER_QUICK_TAP_MS, HM_PRIOR_IDLE)
+    };
+};
 
