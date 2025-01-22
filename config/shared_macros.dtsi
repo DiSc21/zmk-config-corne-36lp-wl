@@ -37,6 +37,22 @@
 #define KEY_SEQ_MACRO_TAP_MS 30
 
 ///
+/// @brief macro for the creation of CTRL mod-morphes
+///
+/// @param name: name of the created mod-morph
+/// @param raw_binding: unmodified binding
+/// @param mod_binding: the modified behavior
+///
+#define CREATE_DOUBLE_TAPDANCE(name, single_bind, double_bind) \
+    /omit-if-no-ref/ td_ ## name: td_ ## name { \
+        compatible = "zmk,behavior-tap-dance"; \
+        #binding-cells = <0>; \
+        tapping-term-ms = <TAPDANCE_MS>; \
+        bindings = <single_bind>, <double_bind>; \
+    };
+
+
+///
 /// @brief helper for creation of simple macro
 ///
 /// @param name: name of the created mod-morph
@@ -145,19 +161,5 @@
     };
 
 
-///
-/// @brief macro for the creation of CTRL mod-morphes
-///
-/// @param name: name of the created mod-morph
-/// @param raw_binding: unmodified binding
-/// @param mod_binding: the modified behavior
-///
-#define CREATE_DOUBLE_TAPDANCE(name, single_bind, double_bind) \
-    /omit-if-no-ref/ td_ ## name: td_ ## name { \
-        compatible = "zmk,behavior-tap-dance"; \
-        #binding-cells = <0>; \
-        tapping-term-ms = <TAPDANCE_MS>; \
-        bindings = <single_bind>, <double_bind>; \
-    };
 
 

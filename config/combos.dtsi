@@ -53,11 +53,28 @@
 /// @param combo_keys: keys forming the combo
 /// @param combo_timeout: time out for the combo, i.e. time interval considered as "at the same time"
 ///
-#define COMBO_MACRO(name, combo_binding, combo_keys, combo_timeout) \
+#define COMBO_MACRO_ALL(name, combo_binding, combo_keys, combo_timeout) \
     name { \
         timeout-ms = <combo_timeout>; \
         key-positions = <combo_keys>; \
         bindings = <combo_binding>; \
+        layers = <L_DEF L_SMART_NUM L_MG L_BT_LED L_NUM L_NAV>; \
+    };
+
+#define COMBO_MACRO_NOSN(name, combo_binding, combo_keys, combo_timeout) \
+    name { \
+        timeout-ms = <combo_timeout>; \
+        key-positions = <combo_keys>; \
+        bindings = <combo_binding>; \
+        layers = <L_DEF L_MG L_BT_LED L_NUM L_NAV>; \
+    };
+
+#define COMBO_MACRO_NOMG(name, combo_binding, combo_keys, combo_timeout) \
+    name { \
+        timeout-ms = <combo_timeout>; \
+        key-positions = <combo_keys>; \
+        bindings = <combo_binding>; \
+        layers = <L_DEF L_SMART_NUM L_BT_LED L_NUM L_NAV>; \
     };
 
 / {
@@ -66,68 +83,72 @@
 
         // CrossSide Combos
         // ----------------
-        COMBO_MACRO(combo_sticky_bt_led, &sl L_BT_LED,      LT5 RT0,         COMBO_TAP_TIME_FAST)
-        //COMBO_MACRO(combo_to_navigation, &to L_NAV,         LM5 RM0,         COMBO_TAP_TIME_FAST)
+        COMBO_MACRO_NOMG(combo_sticky_bt_led, &sl L_BT_LED,      LT5 RT0,         COMBO_TAP_TIME_FAST)
+        COMBO_MACRO_NOMG(combo_to_smart_num,  &tol_sn,           LM5 RM0,         COMBO_TAP_TIME_FAST)
 
         // CrossRow Combos
         // ---------------
 
+        // layer toggle
+        COMBO_MACRO_NOMG(combo_smart_num,     &tol_sn,           LT4 LM5,         COMBO_TAP_TIME_FAST)
+
         // opening braces
-        COMBO_MACRO(combo_curly_brace_l, &kp LBRC,          RM1 RT2,         COMBO_TAP_TIME_FAST)
-        COMBO_MACRO(combo_sqr_brace_l,   &kp LBKT,          RB1 RM2,         COMBO_TAP_TIME_FAST)
-        COMBO_MACRO(combo_brace_l,       &kp LPAR,          RM0 RT1,         COMBO_TAP_TIME_FAST)
+        COMBO_MACRO_NOMG(combo_curly_brace_l, &kp LBRC,          RM1 RT2,         COMBO_TAP_TIME_FAST)
+        COMBO_MACRO_NOMG(combo_sqr_brace_l,   &kp LBKT,          RB1 RM2,         COMBO_TAP_TIME_FAST)
+        COMBO_MACRO_NOMG(combo_brace_l,       &kp LPAR,          RM0 RT1,         COMBO_TAP_TIME_FAST)
         // closing braces
-        COMBO_MACRO(combo_curly_brace_r, &kp RBRC,          RT2 RM3,         COMBO_TAP_TIME_FAST)
-        COMBO_MACRO(combo_sqr_brace_r,   &kp RBKT,          RM2 RB3,         COMBO_TAP_TIME_FAST)
-        COMBO_MACRO(combo_brace_r,       &kp RPAR,          RT3 RM4,         COMBO_TAP_TIME_FAST)
+        COMBO_MACRO_NOMG(combo_curly_brace_r, &kp RBRC,          RT2 RM3,         COMBO_TAP_TIME_FAST)
+        COMBO_MACRO_NOMG(combo_sqr_brace_r,   &kp RBKT,          RM2 RB3,         COMBO_TAP_TIME_FAST)
+        COMBO_MACRO_NOMG(combo_brace_r,       &kp RPAR,          RT3 RM4,         COMBO_TAP_TIME_FAST)
         // signs
-        COMBO_MACRO(combo_exclamation,   &kp EXCLAMATION,   RM0 RB0,         COMBO_TAP_TIME_FAST)
-        COMBO_MACRO(combo_caret,         &kp CARET,         RM4 RT3,         COMBO_TAP_TIME_FAST)
-        COMBO_MACRO(combo_grave,         &kp GRAVE,         RM1 RB2,         COMBO_TAP_TIME_FAST)
-        COMBO_MACRO(combo_perc,          &kp PERCENT,       RB2 RM3,         COMBO_TAP_TIME_FAST)
+        COMBO_MACRO_NOMG(combo_exclamation,   &kp EXCLAMATION,   RM0 RB0,         COMBO_TAP_TIME_FAST)
+        COMBO_MACRO_NOMG(combo_caret,         &kp CARET,         RM4 RT3,         COMBO_TAP_TIME_FAST)
+        COMBO_MACRO_NOMG(combo_grave,         &kp GRAVE,         RM1 RB2,         COMBO_TAP_TIME_FAST)
+        COMBO_MACRO_NOMG(combo_perc,          &kp PERCENT,       RB2 RM3,         COMBO_TAP_TIME_FAST)
 
 
         // TopRow Combos
         // -------------
 
         // left-hand side
-        COMBO_MACRO(combo_esc,           &kp ESC,           LT1 LT2,         COMBO_TAP_TIME_FAST)
-        COMBO_MACRO(combo_insert,        &kp INSERT,        LT2 LT3,         COMBO_TAP_TIME_FAST)
-        COMBO_MACRO(combo_page_up,       &kp PG_UP,         LT3 LT4,         COMBO_TAP_TIME_FAST)
+        COMBO_MACRO_NOMG(combo_esc,           &kp ESC,           LT1 LT2,         COMBO_TAP_TIME_FAST)
+        COMBO_MACRO_NOMG(combo_insert,        &kp INSERT,        LT2 LT3,         COMBO_TAP_TIME_FAST)
+        COMBO_MACRO_NOMG(combo_page_up,       &kp PG_UP,         LT3 LT4,         COMBO_TAP_TIME_FAST)
         // right-hand side
-        COMBO_MACRO(combo_bslh,          &kp BSLH,          RT1 RT2,         COMBO_TAP_TIME_FAST)
-        COMBO_MACRO(combo_pipe,          &kp PIPE,          RT2 RT3,         COMBO_TAP_TIME_FAST)
-        COMBO_MACRO(combo_to_default,    &to L_DEF,         RT3 RT4,         COMBO_TAP_TIME_FAST)
-        COMBO_MACRO(combo_star,          &kp ASTERISK,      RT1 RT2 RT3,     COMBO_TAP_TIME_FAST)
-        COMBO_MACRO(combo_hash,          &kp HASH,          RT2 RT3 RT4,     COMBO_TAP_TIME_FAST)
+        COMBO_MACRO_NOMG(combo_bslh,          &kp BSLH,          RT1 RT2,         COMBO_TAP_TIME_FAST)
+        COMBO_MACRO_NOMG(combo_pipe,          &kp PIPE,          RT2 RT3,         COMBO_TAP_TIME_FAST)
+        COMBO_MACRO_NOMG(combo_to_default,    &tol_def,          RT3 RT4,         COMBO_TAP_TIME_FAST)
+        COMBO_MACRO_NOMG(combo_star,          &kp ASTERISK,      RT1 RT2 RT3,     COMBO_TAP_TIME_FAST)
+        COMBO_MACRO_NOMG(combo_hash,          &kp HASH,          RT2 RT3 RT4,     COMBO_TAP_TIME_FAST)
 
         // MiddleRow Combos
         // ----------------
 
         // left-hand side
-        COMBO_MACRO(combo_caps_word,     &caps_word,        LM1 LM2,         COMBO_TAP_TIME_FAST)
-        COMBO_MACRO(combo_space,         &kp SPACE,         LM2 LM3,         COMBO_TAP_TIME_FAST)
-        COMBO_MACRO(combo_page_down,     &kp PG_DN,         LM3 LM4,         COMBO_TAP_TIME_FAST)
+        COMBO_MACRO_NOMG(combo_caps_word,     &caps_word,        LM1 LM2,         COMBO_TAP_TIME_FAST)
+        COMBO_MACRO_NOMG(combo_space,         &kp SPACE,         LM2 LM3,         COMBO_TAP_TIME_FAST)
+        COMBO_MACRO_NOMG(combo_page_down,     &kp PG_DN,         LM3 LM4,         COMBO_TAP_TIME_FAST)
         // right-hand side
-        COMBO_MACRO(combo_minus,         &kp MINUS,         RM1 RM2,         COMBO_TAP_TIME_FAST)
-        COMBO_MACRO(combo_underscore,    &kp UNDERSCORE,    RM2 RM3,         COMBO_TAP_TIME_FAST)
-        COMBO_MACRO(combo_equal,         &kp EQUAL,         RM3 RM4,         COMBO_TAP_TIME_FAST)
-        COMBO_MACRO(combo_ampers,        &kp AMPERSAND,     RM1 RM2 RM3,     COMBO_TAP_TIME_FAST)
-        COMBO_MACRO(combo_tilde,         &kp TILDE,         RM2 RM3 RM4,     COMBO_TAP_TIME_FAST)
+        COMBO_MACRO_NOMG(combo_minus,         &kp MINUS,         RM1 RM2,         COMBO_TAP_TIME_FAST)
+        COMBO_MACRO_NOMG(combo_underscore,    &kp UNDERSCORE,    RM2 RM3,         COMBO_TAP_TIME_FAST)
+        COMBO_MACRO_NOMG(combo_equal,         &kp EQUAL,         RM3 RM4,         COMBO_TAP_TIME_FAST)
+        COMBO_MACRO_NOMG(combo_ampers,        &kp AMPERSAND,     RM1 RM2 RM3,     COMBO_TAP_TIME_FAST)
+        COMBO_MACRO_NOMG(combo_tilde,         &kp TILDE,         RM2 RM3 RM4,     COMBO_TAP_TIME_FAST)
+        COMBO_MACRO_NOMG(combo_at2,           &kp AT,            RM1 RM2 RM3 RM4, COMBO_TAP_TIME_FAST)
 
         // BottomRow Combos
         // ----------------
 
         // left-hand side
-        COMBO_MACRO(combo_home,          &kp HOME,          LB1 LB2,         COMBO_TAP_TIME_FAST)
-        COMBO_MACRO(combo_print,         &kp PSCRN,         LB2 LB3,         COMBO_TAP_TIME_FAST)
-        COMBO_MACRO(combo_end,           &kp END,           LB3 LB4,         COMBO_TAP_TIME_FAST)
+        COMBO_MACRO_NOMG(combo_home,          &kp HOME,          LB1 LB2,         COMBO_TAP_TIME_FAST)
+        COMBO_MACRO_NOMG(combo_print,         &kp PSCRN,         LB2 LB3,         COMBO_TAP_TIME_FAST)
+        COMBO_MACRO_NOMG(combo_end,           &kp END,           LB3 LB4,         COMBO_TAP_TIME_FAST)
         // right-hand side
-        COMBO_MACRO(combo_quote,         &kp SINGLE_QUOTE,  RB1 RB2,         COMBO_TAP_TIME_FAST)
-        COMBO_MACRO(combo_quotes,        &kp DOUBLE_QUOTES, RB2 RB3,         COMBO_TAP_TIME_FAST)
-        COMBO_MACRO(combo_plus,          &kp PLUS,          RB3 RB4,         COMBO_TAP_TIME_FAST)
-        COMBO_MACRO(combo_dollar,        &kp DOLLAR,        RB1 RB2 RB3,     COMBO_TAP_TIME_FAST)
-        COMBO_MACRO(combo_at,            &kp AT,            RB2 RB3 RB4,     COMBO_TAP_TIME_FAST)
+        COMBO_MACRO_NOMG(combo_quote,         &kp SINGLE_QUOTE,  RB1 RB2,         COMBO_TAP_TIME_FAST)
+        COMBO_MACRO_NOMG(combo_quotes,        &kp DOUBLE_QUOTES, RB2 RB3,         COMBO_TAP_TIME_FAST)
+        COMBO_MACRO_NOMG(combo_plus,          &kp PLUS,          RB3 RB4,         COMBO_TAP_TIME_FAST)
+        COMBO_MACRO_NOMG(combo_dollar,        &kp DOLLAR,        RB1 RB2 RB3,     COMBO_TAP_TIME_FAST)
+        COMBO_MACRO_NOMG(combo_at,            &kp AT,            RB2 RB3 RB4,     COMBO_TAP_TIME_FAST)
     };
 };
 
