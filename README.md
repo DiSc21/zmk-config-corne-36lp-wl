@@ -2,20 +2,20 @@
 
 ![Alt text](./keymap/fancy/corne_default.svg)
 
-<svg width="975" height="411" viewBox="0 0 975 411" class="keymap" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<g>
+<div>
+<svg width="975" height="411" viewBox="0 0 975 411" class="keymap">
   <image x="0"   y="20" width="100%" height="100%" href="./keymap/fancy/corne_default.svg" />
   <!--image x="20"  y="0"  width="100%" height="100%" href="./keymap/fancy/corne_signs.svg" /-->
   <image x="-18" y="0"  width="100%" height="100%" href="./keymap/fancy/corne_numbers.svg" />
   <!--image x="-18" y="40" width="100%" height="100%" href="./keymap/fancy/corne_navigation.svg" /-->
-</g>
 </svg>
+</div>
 
 #### Features:
 
-* [ ] Smart-Numbers layer
-* [ ] LED-color layer indicators
-* [ ] Layered combo keys (see keymaps)
+* [x] Smart-Numbers layer
+* [x] LED-color layer indicators
+* [x] Layered combo keys (see keymaps)
 * [x] [Urob's timerless homerow mods](https://github.com/urob/zmk-config)
 * [x] Multigram Layer Punctuation:
   |Key          |       OUTPUT | Stickyshift |
@@ -23,11 +23,12 @@
   |`,`          |  `,`+`SPACE` |          ⛔ |
   |`.`          |  `.`+`SPACE` |          ✅ |
 
-* [ ] Multigram Layer:
+* [ ] Multigram Layer Alphas:
   - On `SHIFT` the initial character is Caps
   - On `TABDANCE` a `SPACE` is appended
   - On `TABDANCE+SHIFT` the initial character is Caps and a `SPACE` is appended
-  - Vocals:
+
+* [x] Vocals:
   | Key |  [Raw - Ctrl - GUI - CTRL+GUI] | ALT + [Raw - Ctrl - GUI - CTRL+GUI] |
   |:---:| ------------------------------:|:----------------------------------- |
   | `a` |       `at` - `are - ave - ang` | `and - ack - ath` - `ation`         |
@@ -35,7 +36,8 @@
   | `o` |       `or` - `ore - ove - ong` | `ond - ock - oth` - `ought`         |
   | `i` |       `in` - `ire - ive - ing` | `ind - ick - ith` - `ight`          |
   | `u` |       `un` - `ure - uve - ung` | `und - uck - uth` - `urg`           |
-  - Consonants:
+
+* [ ] Consonants:
   | Key |  [Raw - Ctrl - GUI - CTRL+GUI] | ALT + [Raw - Ctrl - GUI - CTRL+GUI] |
   |:---:| ------------------------------:|:----------------------------------- |
   | `f` |        `for` - `ft - fr - ___` | `from - ___ - ___` - `___`          |
