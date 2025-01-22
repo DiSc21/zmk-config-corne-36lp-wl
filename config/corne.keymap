@@ -142,10 +142,10 @@
         multigrams {
             display-name = "mg-arrows";
             bindings = <
-                &none &none              &none            &td_mm_e        &none           &td_mm_t       &none    &td_mm_u           &td_mm_i          &td_mm_o             &none                &none
-                &none &ht_l_tra LSHIFT 0 &ht_l_tr LCTRL S &ht_l_tr LGUI D &ht_l_tr LALT F &none          &none    &ht_r_tr RALT DOWN &ht_r_tr RGUI UP  &ht_r_tr RCTRL RIGHT &ht_r_tr RSHIFT SEMI &none
-                &none &none              &none            &none           &none           &none          &none    &none              &add_spc COMMA    &add_spsh DOT        &none                &none
-                                                          &trans          &trans          &trans         &trans   &trans             &trans
+                &none &none              &td_mm_w         &td_mm_e        &td_mm_r         &td_mm_t       &none    &td_mm_u           &td_mm_i          &td_mm_o             &none                &none
+                &none &ht_l_tra LSHIFT 0 &ht_l_tr LCTRL S &ht_l_tr LGUI D &ht_l_trf LALT 0 &none          &none    &ht_r_tr RALT DOWN &ht_r_tr RGUI UP  &ht_r_tr RCTRL RIGHT &ht_r_tr RSHIFT SEMI &none
+                &none &none              &none            &none           &none            &none          &none    &td_mm_m           &add_spc COMMA    &add_spsh DOT        &none                &none
+                                                          &trans          &trans           &trans         &trans   &trans             &trans
             >;
         };
 

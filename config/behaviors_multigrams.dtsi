@@ -176,6 +176,7 @@ CREATE_MULTI_MOD_MORPH_MACRO(u, &kpr_s,   &kpr_r &kpr_e,   &kpr_v &kpr_e,   &kpr
 / {
     behaviors {
         CREATE_HT_LEFT(tra, &kp, &td_mm_a, "balanced", HM_TAPPING_TERM, LAYER_QUICK_TAP_MS, HM_PRIOR_IDLE)
+        CREATE_HT_LEFT(trf, &kp, &td_mm_f, "balanced", HM_TAPPING_TERM, LAYER_QUICK_TAP_MS, HM_PRIOR_IDLE)
     };
 };
 
