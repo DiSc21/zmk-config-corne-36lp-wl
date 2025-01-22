@@ -45,7 +45,7 @@
 ///
 #define CREATE_TAPDANCE_SPACE_APPEND(name, cmd_bind) \
     KEY_SEQUENCE_MACRO_SIMPLE(nspc_ ## name, cmd_bind) \
-    NO_PARAM_SANDWICH(aspc_ ## name, cmd_bind, &none, &kpr_spc) \
+    KEY_SEQUENCE_MACRO_SIMPLE(aspc_ ## name, cmd_bind &kpr_spc) \
     \
     CREATE_DOUBLE_TAPDANCE(name, &nspc_ ## name, &aspc_ ## name)
 
