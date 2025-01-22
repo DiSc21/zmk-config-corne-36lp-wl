@@ -44,8 +44,8 @@
 /// @param cmd_binding: the binding (without trailing SPACE)
 ///
 #define CREATE_TAPDANCE_SPACE_APPEND(name, cmd_bind) \
-    KEY_SEQUENCE_MACRO_SIMPLE(aspc_ ## name, cmd_bind &kp SPACE) \
     KEY_SEQUENCE_MACRO_SIMPLE(nspc_ ## name, cmd_bind) \
+    NO_PARAM_SANDWICH(aspc_ ## name, cmd_bind, &none, &kpr_spc) \
     \
     CREATE_DOUBLE_TAPDANCE(name, &nspc_ ## name, &aspc_ ## name)
 
@@ -125,7 +125,7 @@
             \
             CREATE_MOD_MORPH_ALT(mumo_ ## key_name,          &m_ctl_ ## key_name,          &m_alt_ctl_ ## key_name) \
             \
-            CREATE_TAPDANCE_SPACE_APPEND(mm_ ## key_name,  &mumo_ ## key_name) \
+            CREATE_TAPDANCE_SPACE_APPEND(mm_ ## key_name,    &mumo_ ## key_name) \
         }; \
     }; \
 
