@@ -101,6 +101,7 @@
 #define L_BT_LED 3
 #define L_NUM 4
 #define L_NAV 5
+#define L_DUMMY 6
 
 /* Timing defaults */
 #define HM_TAPPING_TERM 300

@@ -176,6 +176,85 @@ parse_config:
     '&led_red 3': 'NAV'
     '&led_blu 2': 'SIGNS'
     '&led_pur 1': 'NUM'
+    '&htl_nav 5': 'NAV'
+    '&htl_mg 2': '⌐╦╦═─💥'
+    '&htl_sn 1': '🔢'
+
+    # toggle default layer
+    '&tok_def A': {s: 🏠︎, t: A}
+    '&tok_def B': {s: 🏠︎, t: B}
+    '&tok_def C': {s: 🏠︎, t: C}
+    '&tok_def D': {s: 🏠︎, t: D}
+    '&tok_def E': {s: 🏠︎, t: E}
+
+    '&tok_def F': {s: 🏠︎, t: F}
+    '&tok_def G': {s: 🏠︎, t: G}
+    '&tok_def H': {s: 🏠︎, t: H}
+    '&tok_def I': {s: 🏠︎, t: I}
+    '&tok_def J': {s: 🏠︎, t: J}
+
+    '&tok_def K': {s: 🏠︎, t: K}
+    '&tok_def L': {s: 🏠︎, t: L}
+    '&tok_def M': {s: 🏠︎, t: M}
+    '&tok_def N': {s: 🏠︎, t: N}
+    '&tok_def O': {s: 🏠︎, t: O}
+
+    '&tok_def P': {s: 🏠︎, t: P}
+    '&tok_def Q': {s: 🏠︎, t: Q}
+    '&tok_def R': {s: 🏠︎, t: R}
+    '&tok_def S': {s: 🏠︎, t: S}
+    '&tok_def T': {s: 🏠︎, t: T}
+
+    '&tok_def U': {s: 🏠︎, t: U}
+    '&tok_def V': {s: 🏠︎, t: V}
+    '&tok_def W': {s: 🏠︎, t: W}
+    '&tok_def X': {s: 🏠︎, t: X}
+    '&tok_def Y': {s: 🏠︎, t: Y}
+
+    '&tok_def Z': {s: 🏠︎, t: Z}
+
+    '&tok_def RET':   {s: 🏠︎, t: ╰┈➤}
+    '&tok_def ESC':   {s: 🏠︎, t: ☢️}
+    '&tok_def FSLH':  {s: 🏠︎, t: /}
+    '&tok_def SEMI':  {s: 🏠︎, t: ;}
+    '&tok_def SPACE': {s: 🏠︎, t: 🪐}
+
+    # toggle default layer
+    '&td_mm_a': {t: A_, s: ⌨️💃}
+    '&td_mm_b': {t: B_, s: ⌨️💃}
+    '&td_mm_c': {t: C_, s: ⌨️💃}
+    '&td_mm_d': {t: D_, s: ⌨️💃}
+    '&td_mm_e': {t: E_, s: ⌨️💃}
+
+    '&td_mm_f': {t: F_, s: ⌨️💃}
+    '&td_mm_g': {t: G_, s: ⌨️💃}
+    '&td_mm_h': {t: H_, s: ⌨️💃}
+    '&td_mm_i': {t: I_, s: ⌨️💃}
+    '&td_mm_j': {t: J_, s: ⌨️💃}
+
+    '&td_mm_k': {t: K_, s: ⌨️💃}
+    '&td_mm_l': {t: L_, s: ⌨️💃}
+    '&td_mm_m': {t: M_, s: ⌨️💃}
+    '&td_mm_n': {t: N_, s: ⌨️💃}
+    '&td_mm_o': {t: O_, s: ⌨️💃}
+
+    '&td_mm_p': {t: P_, s: ⌨️💃}
+    '&td_mm_q': {t: Q_, s: ⌨️💃}
+    '&td_mm_r': {t: R_, s: ⌨️💃}
+    '&td_mm_s': {t: S_, s: ⌨️💃}
+    '&td_mm_t': {t: T_, s: ⌨️💃}
+
+    '&td_mm_u': {t: U_, s: ⌨️💃}
+    '&td_mm_v': {t: V_, s: ⌨️💃}
+    '&td_mm_w': {t: W_, s: ⌨️💃}
+    '&td_mm_x': {t: X_, s: ⌨️💃}
+    '&td_mm_y': {t: Y_, s: ⌨️💃}
+
+    '&td_mm_z': {t: Z_, s: ⌨️💃}
+
+    '&add_spc COMMA': {t: ',_'}
+    '&add_spsh DOT':  {t: '._'}
+
 
     # LED keys
     '&rgb_ug RGB_TOG':
@@ -236,8 +315,49 @@ parse_config:
       shifted: 𝟓
 
   zmk_combos:
-    combo_sticky_bt_led: {'k': 📌LED}
-    combo_to_default: {'k': 🌐}
+
+    # Layer Combos
+    ##############
+    combo_sticky_bt_led: {'k': 📌🚥}
+    combo_to_smart_num: {'k': 🚩🔢}
+    combo_smart_num: {'k': 🚩🔢}
+    combo_to_default: {'k': 🚩🏠︎}
     combo_to_numbers: {'k': 🔘🔢}
     combo_to_navigation: {'k': 🔘🧭}
-    combo_caps_word: {'k': 🚩⏏}
+
+    # CrossRow Combos
+    #################
+
+    # opening braces and overlapping signs
+    combo_curly_brace_l: {'k': '↗{',   a: mid, o: 0.01}
+    combo_sqr_brace_l:   {'k': '↗[`↘', a: mid, o: 0.01}
+    combo_brace_l:       {'k': '↗(',   a: mid, o: 0.01}
+    ## closing braces
+    combo_curly_brace_r: {'k': '↘}',    a: mid, o: 0.01}
+    combo_sqr_brace_r:   {'k': '↘[%↗', a: mid, o: 0.01}
+    combo_brace_r:       {'k': '↘)^↗', a: mid, o: 0.01}
+    ## signs
+    combo_caret:         {'k': '↘)^↗', a: mid, o: 0.01}
+    combo_grave:         {'k': '↗[`↘', a: mid, o: 0.01}
+    combo_perc:          {'k': '↘[%↗', a: mid, o: 0.01}
+
+    # TopRow Combos
+    ###############
+
+    combo_star:          {'k': '*', a: top,    o: 0.1}
+    combo_hash:          {'k': '#', a: top,    o: -0.1}
+
+    # MidRow Combos
+    ###############
+
+    combo_ampers:        {'k': '&', a: top,    o: 0.235, dendron: true }
+    combo_tilde:         {'k': '~', a: top,    o: 0.09}
+    combo_at2:           {'k': '@', a: bottom, o: -0.08, p: [19,20,21,22]}
+    combo_caps_word:     {'k': 🚩⏏}
+
+    # BotRow Combos
+    ###############
+
+    combo_dollar:        {'k': '$', a: bottom, o: -0.1}
+    combo_at:            {'k': '@', a: bottom, o: -0.0}
+

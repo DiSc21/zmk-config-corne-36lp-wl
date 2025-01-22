@@ -58,7 +58,7 @@
         timeout-ms = <combo_timeout>; \
         key-positions = <combo_keys>; \
         bindings = <combo_binding>; \
-        layers = <L_DEF L_SMART_NUM L_MG L_BT_LED L_NUM L_NAV>; \
+        layers = <L_DEF L_SMART_NUM L_MG L_BT_LED L_NUM L_NAV L_DUMMY>; \
     };
 
 #define COMBO_MACRO_NOSN(name, combo_binding, combo_keys, combo_timeout) \
@@ -66,7 +66,7 @@
         timeout-ms = <combo_timeout>; \
         key-positions = <combo_keys>; \
         bindings = <combo_binding>; \
-        layers = <L_DEF L_MG L_BT_LED L_NUM L_NAV>; \
+        layers = <L_DEF L_MG L_BT_LED L_NUM L_NAV L_DUMMY>; \
     };
 
 #define COMBO_MACRO_NOMG(name, combo_binding, combo_keys, combo_timeout) \
@@ -74,7 +74,7 @@
         timeout-ms = <combo_timeout>; \
         key-positions = <combo_keys>; \
         bindings = <combo_binding>; \
-        layers = <L_DEF L_SMART_NUM L_BT_LED L_NUM L_NAV>; \
+        layers = <L_DEF L_SMART_NUM L_BT_LED L_NUM L_NAV L_DUMMY>; \
     };
 
 / {
@@ -102,7 +102,7 @@
         COMBO_MACRO_NOMG(combo_brace_r,       &kp RPAR,          RT3 RM4,         COMBO_TAP_TIME_FAST)
         // signs
         COMBO_MACRO_NOMG(combo_exclamation,   &kp EXCLAMATION,   RM0 RB0,         COMBO_TAP_TIME_FAST)
-        COMBO_MACRO_NOMG(combo_caret,         &kp CARET,         RM4 RT3,         COMBO_TAP_TIME_FAST)
+        COMBO_MACRO_NOMG(combo_caret,         &kp CARET,         RT4 RM3,         COMBO_TAP_TIME_FAST)
         COMBO_MACRO_NOMG(combo_grave,         &kp GRAVE,         RM1 RB2,         COMBO_TAP_TIME_FAST)
         COMBO_MACRO_NOMG(combo_perc,          &kp PERCENT,       RB2 RM3,         COMBO_TAP_TIME_FAST)
 
@@ -147,8 +147,8 @@
         COMBO_MACRO_NOMG(combo_quote,         &kp SINGLE_QUOTE,  RB1 RB2,         COMBO_TAP_TIME_FAST)
         COMBO_MACRO_NOMG(combo_quotes,        &kp DOUBLE_QUOTES, RB2 RB3,         COMBO_TAP_TIME_FAST)
         COMBO_MACRO_NOMG(combo_plus,          &kp PLUS,          RB3 RB4,         COMBO_TAP_TIME_FAST)
-        COMBO_MACRO_NOMG(combo_dollar,        &kp DOLLAR,        RB1 RB2 RB3,     COMBO_TAP_TIME_FAST)
         COMBO_MACRO_NOMG(combo_at,            &kp AT,            RB2 RB3 RB4,     COMBO_TAP_TIME_FAST)
+        COMBO_MACRO_NOMG(combo_dollar,        &kp DOLLAR,        RB1 RB2 RB3,     COMBO_TAP_TIME_FAST)
     };
 };
 

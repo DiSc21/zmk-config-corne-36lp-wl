@@ -1,11 +1,13 @@
 ## ZMK CORNE 36 LED CONFIG
 
+![Alt text](./keymap/fancy/corne_default.svg)
+
 <svg width="975" height="411" viewBox="0 0 975 411" class="keymap" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <g>
   <image x="0"   y="20" width="100%" height="100%" href="./keymap/fancy/corne_default.svg" />
   <!--image x="20"  y="0"  width="100%" height="100%" href="./keymap/fancy/corne_signs.svg" /-->
   <image x="-18" y="0"  width="100%" height="100%" href="./keymap/fancy/corne_numbers.svg" />
-  <image x="-18" y="40" width="100%" height="100%" href="./keymap/fancy/corne_navigation.svg" />
+  <!--image x="-18" y="40" width="100%" height="100%" href="./keymap/fancy/corne_navigation.svg" /-->
 </g>
 </svg>
 
@@ -20,20 +22,26 @@
   |-------------| ------------:|:-----------:|
   |`,`          |  `,`+`SPACE` |          ⛔ |
   |`.`          |  `.`+`SPACE` |          ✅ |
-  |`Q`          |  `!`+`SPACE` |          ✅ |
-  |`/`          |  `?`+`SPACE` |          ✅ |
 
-* [ ] Multigram Layer Vocals:
-  - On `ALT` a `SPACE` is appended
+* [ ] Multigram Layer:
   - On `SHIFT` the initial character is Caps
-  - On `ALT+SHIFT` the initial character is Caps and a `SPACE` is appended
-  | Key           | Raw  | Ctrl | GUI | CTRL+GUI     |
-  | ------------- |-----:|-----:| ---:| ------------:|
-  | `a`           |   at |  are | ave |          ang |
-  | `e`           |   er |  ere | eve |          eng |
-  | `o`           |   or |  ore | ove |          ong |
-  | `i`           |   in |  ire | ive |          ing |
-  | `u`           |   un |  ure | uve |          ung |
+  - On `TABDANCE` a `SPACE` is appended
+  - On `TABDANCE+SHIFT` the initial character is Caps and a `SPACE` is appended
+  - Vocals:
+  | Key |  [Raw - Ctrl - GUI - CTRL+GUI] | ALT + [Raw - Ctrl - GUI - CTRL+GUI] |
+  |:---:| ------------------------------:|:----------------------------------- |
+  | `a` |       `at` - `are - ave - ang` | `and - ack - ath` - `ation`         |
+  | `e` |       `er` - `ere - eve - eng` | `end - eck - eth` - `ever`          |
+  | `o` |       `or` - `ore - ove - ong` | `ond - ock - oth` - `ought`         |
+  | `i` |       `in` - `ire - ive - ing` | `ind - ick - ith` - `ight`          |
+  | `u` |       `un` - `ure - uve - ung` | `und - uck - uth` - `urg`           |
+  - Consonants:
+  | Key |  [Raw - Ctrl - GUI - CTRL+GUI] | ALT + [Raw - Ctrl - GUI - CTRL+GUI] |
+  |:---:| ------------------------------:|:----------------------------------- |
+  | `f` |        `for` - `ft - fr - ___` | `from - ___ - ___` - `___`          |
+  | `m` |      `ment` - `me - my - must` | `many - much - more` - `most`       |
+  | `t` |       `th` - `the - ter - tor` | `that - this - they` - `tion`       |
+  | `w` |   `wh` - `would - will - with` | `which - way - when` - `want`       |
 
 * [x] Keymap image generator helpers and actions
   - [x] [Keymap image generator](https://github.com/caksoylar/keymap-drawer?tab=readme-ov-file)
