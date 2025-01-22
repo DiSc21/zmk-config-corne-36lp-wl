@@ -143,21 +143,25 @@
 #define CREATE_MOD_MORPH_CTL(name, raw_bind, mod_bind) \
     CREATE_MOD_MORPH_BASE(name, raw_bind, mod_bind) \
         mods = <(MOD_LCTL|MOD_RCTL)>; \
+        keep-mods = <(MOD_LCTL|MOD_RCTL)>; \
     };
 /// @brief macro for the creation of ALT mod-morphes
 #define CREATE_MOD_MORPH_ALT(name, raw_bind, mod_bind) \
     CREATE_MOD_MORPH_BASE(name, raw_bind, mod_bind) \
         mods = <(MOD_LALT|MOD_RALT)>; \
+        keep-mods = <(MOD_LALT|MOD_RALT)>; \
     };
 /// @brief macro for the creation of SHIFT mod-morphes
 #define CREATE_MOD_MORPH_SFT(name, raw_bind, mod_bind) \
     CREATE_MOD_MORPH_BASE(name, raw_bind, mod_bind) \
         mods = <(MOD_LSFT|MOD_RSFT)>; \
+        keep-mods = <(MOD_LSFT|MOD_RSFT)>; \
     };
 /// @brief macro for the creation of GUI mod-morphes
 #define CREATE_MOD_MORPH_GUI(name, raw_bind, mod_bind) \
     CREATE_MOD_MORPH_BASE(name, raw_bind, mod_bind) \
         mods = <(MOD_LGUI|MOD_RGUI)>; \
+        keep-mods = <(MOD_LGUI|MOD_RGUI)>; \
     };
 
 
