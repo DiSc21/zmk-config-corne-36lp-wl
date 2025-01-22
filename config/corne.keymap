@@ -142,8 +142,8 @@
         multigrams {
             display-name = "mg-arrows";
             bindings = <
-                &none &none             &none            &td_mm_e        &none           &td_mm_t       &none    &td_mm_u           &td_mm_i          &td_mm_o             &none                &none
-                &none &ht_l_hw LSHIFT A &ht_l_hw LCTRL S &ht_l_hw LGUI D &ht_l_hw LALT F &none          &none    &ht_r_hw RALT DOWN &ht_r_hw RGUI UP  &ht_r_hw RCTRL RIGHT &ht_r_hw RSHIFT SEMI &none
+                &none &none             &none            &mumo_e         &none           &mumo_t        &none    &mumo_u            &mumo_i           &mumo_o              &none                &none
+                &none &ht_l_hw LSHIFT A &ht_l_hw LCTRL S &ht_l_hw LGUI D &ht_l_hw LALT F &none          &kp LEFT &ht_r_hw RALT DOWN &ht_r_hw RGUI UP  &ht_r_hw RCTRL RIGHT &ht_r_hw RSHIFT SEMI &none
                 &none &none             &none            &none           &none           &none          &none    &none              &add_spc COMMA    &add_spsh DOT        &none                &none
                                                          &trans          &trans          &trans         &trans   &trans             &trans
             >;
