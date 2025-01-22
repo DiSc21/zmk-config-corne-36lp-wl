@@ -83,7 +83,6 @@
         hold-trigger-on-release; \
     };
 
-
 #define CREATE_HT_RIGHT_NO_TOR(name, hold_bind, tap_bind, ht_flavor, ht_tapping_term, ht_quick_tap_ms, ht_prior_idle_ms) \
     /omit-if-no-ref/ ht_r_ ## name: ht_r_ ## name { \
         CREATE_HT_CORE(ht_flavor, ht_tapping_term, ht_quick_tap_ms, ht_prior_idle_ms) \
@@ -91,6 +90,13 @@
         hold-trigger-key-positions = <KEYS_L KEYS_THUMBS>; \
     };
 
+#define CREATE_HT_RIGHT_HOLD_WHILE(name, hold_bind, tap_bind, ht_flavor, ht_tapping_term, ht_quick_tap_ms, ht_prior_idle_ms) \
+    /omit-if-no-ref/ ht_r_ ## name: ht_r_ ## name { \
+        CREATE_HT_CORE(ht_flavor, ht_tapping_term, ht_quick_tap_ms, ht_prior_idle_ms) \
+        hold-while-undecided-linger; \
+        bindings = <hold_bind>, <tap_bind>; \
+        hold-trigger-key-positions = <KEYS_R KEYS_THUMBS>; \
+    };
 
 ///
 /// @brief auxiliary macro for the creation of left-hand homerow mods
@@ -118,11 +124,22 @@
         hold-trigger-key-positions = <KEYS_R KEYS_THUMBS>; \
     };
 
+#define CREATE_HT_LEFT_HOLD_WHILE(name, hold_bind, tap_bind, ht_flavor, ht_tapping_term, ht_quick_tap_ms, ht_prior_idle_ms) \
+    /omit-if-no-ref/ ht_l_ ## name: ht_l_ ## name { \
+        CREATE_HT_CORE(ht_flavor, ht_tapping_term, ht_quick_tap_ms, ht_prior_idle_ms) \
+        hold-while-undecided-linger; \
+        bindings = <hold_bind>, <tap_bind>; \
+        hold-trigger-key-positions = <KEYS_R KEYS_THUMBS>; \
+    };
 
 
 / {
     behaviors {
-        // trigger on release NOT enabled (not used atm 16.01.2025)
+        // hold-while-undecided-linger and trigger on release enabled
+        CREATE_HT_LEFT_HOLD_WHILE(hw, &kp, &kp, "hold-preferred", HM_TAPPING_TERM, LAYER_QUICK_TAP_MS, HM_PRIOR_IDLE)
+        CREATE_HT_RIGHT_HOLD_WHILE(hw, &kp, &kp, "hold-preferred", HM_TAPPING_TERM, LAYER_QUICK_TAP_MS, HM_PRIOR_IDLE)
+
+        // trigger on release NOT enabled
         CREATE_HT_LEFT_NO_TOR(nt, &kp, &kp, "balanced", HM_TAPPING_TERM, LAYER_QUICK_TAP_MS, HM_PRIOR_IDLE)
         CREATE_HT_RIGHT_NO_TOR(nt, &kp, &kp, "balanced", HM_TAPPING_TERM, LAYER_QUICK_TAP_MS, HM_PRIOR_IDLE)
 
