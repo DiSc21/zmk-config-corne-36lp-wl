@@ -2,153 +2,104 @@
 ╭──────────────────────────────────────────────────────────╮
 │ @Author:  TheDirkKnight     @Contact:  github.com/DiSc21 │
 │ @License: MIT             @copyright: 2024 TheDirkKnight │
-│ @Data:    2025/01/04                                     │
+│ @Data:    2025/02/16                                     │
 ╰──────────────────────────────────────────────────────────╯
- ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡆⠀⠀⠀⠀⠀⠀⠀⣆              ⠀⠀⠀⣶⡀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣾⡇⠀⠀⠀⠀⠀⠀⠀⣿⡇               ⣼⣿⣧
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⡇⠀⠀⠀⠀⠀⠀⠀⡿⣿             ⠀⣰⣿⣿⣿⣆
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⠀⠀⠀⠀⠀⠀⠀⠃⣿⡄           ⠀⢠⣿⣿⣿⣿⣿⣆
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⣿⣿⣿⣿⣿⣿⣷⣼⣿⡇           ⣰⣿⣿⣿⣿⣿⣿⣿⣆
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⡇⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿           ⣰⣿⣿⣿⠋⠉⠙⣿⣿⣿⣆
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣼⣿⣿⣿⣿⣿⣿⣿⣿⡏          ⣰⣿⣿⣿⡇⠀⠀⠀⢸⣿⣿⣟⣆
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢙⡻⢿⣿⡿⡟⣿⡿⠟⣛⠁        ⠀⣴⣿⠿⠛⠋⠁⠀⠀⠀⠈⠙⠛⠿⣿⣦
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣠⣴⡾⠛⠉⠀⠀⠀⠉⠓⠂ ⡀⠀⠐⠛⠁⠀⠀⠀⣸⣿⣦⣄⡀⠀⠈⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠁
-⠀⠀⠀⠀⠀⠀⢀⣀⣀⣤⣤⣶⣿⣿⣿⣿⣿⣷⣆⠀⠀⠀⠀⠀⠀⢠⡇⠀⠀⠀⠀⠀⠀⠀⠈⣻⣿⣿⣿⣷⣶⣤⣤⣤⣄⣀
-⠀⠀⠀⢀⣴⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠁⠀⠀⠀⠀ ⣀⣀  ⠀⠀⠀⠀⠀⠀⠀⠙⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣶⡄
-⠀⠀⡾⣿⣿⣿⣿⠿⠋⢁⣿⣿⣿⣿⣿⣿⣟⣥⣶⢿⡛⠉⠀⠀⠈⠀⠀⠁⠀⠀⠀⠈⢙⡻⢷⣿⣿⣿⣿⣿⣿⣿⡟⠿⠿⣿⣿⣿⣿
-⠀⠀⠀⣿⣿⠟⠁⠀⢠⣿⣿⣿⣿⣿⣿⡿⢟⣭⣶⣿⣷⣄⠀⠀⠀⣄⣀⡄⠀⠀⢀⣴⣿⣿⣷⣝⡻⣿⣿⣿⣿⣿⣿⣦⡀⠀⠉⠛⢿
-⠀⠀⠀⠿⠁⠀⠀⠀⠋⠁⣿⣿⣿⡿⢋⣴⣿⣿⣿⣿⣿⣿⣿⣶⣾⣿⣿⣿⣶⣿⣿⣿⣿⣿⣿⣿⣿⣮⡻⣿⣿⣿⠯⠉⠙
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⠁⠽⠋⠠⠿⠿⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠿⠷⠌⠻⠟
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠻⠿⠿⠿⣿⣿⣿⣿⣿⣿⡿⠿⠿⠿⠟⠁
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠻⠋
 ╭───────────────────────────────────────────────────────╮
+│ @brief: ZMK combos — 15 horizontal-adjacent combos.  │
 │                                                       │
-│ @brief: ZMK devicetree file for key combos.           │
+│ @depends: shared_defs.dtsi for positions & timing.    │
 │                                                       │
-│ @depends (ext):                                       │
-│ - behaviors/num_word.dtsi for num word auto-layer.    │
+│ @details:                                             │
+│ All combos use require-prior-idle-ms as roll guard    │
+│ to prevent false triggers during fast typing.         │
 │                                                       │
-│ @depends (custom):                                    │
-│ - shared_defs.dtsi for key positions.                 │
-│ - behaviors_led.dtsi for layer-color indicators.      │
+│ No mid-row combos (HRM zone).                        │
+│ No cross-row combos (moved to symbols layer).        │
+│ No 3-key or 4-key combos (too fragile).              │
 ╰───────────────────────────────────────────────────────╯
 */
 
-/* urobs num word */
-#include <behaviors/num_word.dtsi>
-
 #include "shared_defs.dtsi"
-#include "behaviors_led.dtsi"
-
-/* Timing defaults */
-#define COMBO_TAP_TIME_FAST 35
-#define COMBO_TAP_TIME 50
-
 
 ///
-/// @brief auxiliary macro for the creation of combos
+/// @brief combo creation macro with roll guard
 ///
-/// @param name: name of the combo as used in keymap
-/// @param combo_binding: key events on combo execution
-/// @param combo_keys: keys forming the combo
-/// @param combo_timeout: time out for the combo, i.e. time interval considered as "at the same time"
+/// @param name:          combo identifier
+/// @param combo_binding: output binding
+/// @param combo_keys:    key positions forming the combo
+/// @param combo_timeout: time window for simultaneous press
+/// @param combo_idle:    require-prior-idle-ms (roll guard)
 ///
-#define COMBO_MACRO_ALL(name, combo_binding, combo_keys, combo_timeout) \
+#define COMBO(name, combo_binding, combo_keys, combo_timeout, combo_idle) \
     name { \
         timeout-ms = <combo_timeout>; \
+        require-prior-idle-ms = <combo_idle>; \
         key-positions = <combo_keys>; \
         bindings = <combo_binding>; \
-        layers = <L_DEF L_SMART_NUM L_MG L_BT_LED L_NUM L_NAV>; \
     };
 
-#define COMBO_MACRO_NOSN(name, combo_binding, combo_keys, combo_timeout) \
+#define COMBO_LAYER(name, combo_binding, combo_keys, combo_timeout, combo_idle, combo_layers) \
     name { \
         timeout-ms = <combo_timeout>; \
+        require-prior-idle-ms = <combo_idle>; \
         key-positions = <combo_keys>; \
         bindings = <combo_binding>; \
-        layers = <L_DEF L_MG L_BT_LED L_NUM L_NAV>; \
-    };
-
-#define COMBO_MACRO_NOMG(name, combo_binding, combo_keys, combo_timeout) \
-    name { \
-        timeout-ms = <combo_timeout>; \
-        key-positions = <combo_keys>; \
-        bindings = <combo_binding>; \
-        layers = <L_DEF L_SMART_NUM L_BT_LED L_NUM L_NAV>; \
+        layers = <combo_layers>; \
     };
 
 / {
     combos {
         compatible = "zmk,combos";
 
-        // CrossSide Combos
-        // ----------------
-        COMBO_MACRO_NOMG(combo_sticky_bt_led, &sl L_BT_LED,      LT5 RT0,         COMBO_TAP_TIME_FAST)
-        COMBO_MACRO_NOMG(combo_to_smart_num,  &tol_sn,           LM5 RM0,         COMBO_TAP_TIME_FAST)
+        /*
+         * LEFT HAND — Top Row
+         * ╭─────┬─────┬─────┬─────┬─────╮
+         * │  Q  │  W  │  E  │  R  │  T  │
+         * │  :-ESC-:-INS-:-SCL-:-PGU-:  │
+         */
+        COMBO(combo_esc,       &kp ESC,       LT1 LT2, COMBO_TAP_TIME_FAST, COMBO_PRIOR_IDLE)
+        COMBO(combo_insert,    &kp INSERT,    LT2 LT3, COMBO_TAP_TIME_FAST, COMBO_PRIOR_IDLE)
+        COMBO(combo_caps_word, &caps_word,    LT3 LT4, COMBO_TAP_TIME_FAST, COMBO_PRIOR_IDLE)
+        COMBO(combo_page_up,   &kp PG_UP,     LT4 LT5, COMBO_TAP_TIME_FAST, COMBO_PRIOR_IDLE)
 
-        // CrossRow Combos
-        // ---------------
+        /*
+         * RIGHT HAND — Top Row
+         * ╭─────┬─────┬─────┬─────┬─────╮
+         * │  Y  │  U  │  I  │  O  │  P  │
+         * │     │  :- \ -:- * -:- ~ -:  │
+         */
+        COMBO(combo_bslh,      &kp BSLH,      RT1 RT2, COMBO_TAP_TIME_FAST, COMBO_PRIOR_IDLE)
+        COMBO(combo_star,      &kp ASTERISK,  RT2 RT3, COMBO_TAP_TIME_FAST, COMBO_PRIOR_IDLE)
+        COMBO(combo_tilde,     &kp TILDE,     RT3 RT4, COMBO_TAP_TIME_FAST, COMBO_PRIOR_IDLE)
 
-        // layer toggle
-        COMBO_MACRO_NOMG(combo_smart_num,     &tol_sn,           LT4 LM5,         COMBO_TAP_TIME_FAST)
+        /*
+         * MID ROW — NO COMBOS (HRM zone)
+         */
 
-        // opening braces
-        COMBO_MACRO_NOMG(combo_curly_brace_l, &kp LBRC,          RM1 RT2,         COMBO_TAP_TIME_FAST)
-        COMBO_MACRO_NOMG(combo_sqr_brace_l,   &kp LBKT,          RB1 RM2,         COMBO_TAP_TIME_FAST)
-        COMBO_MACRO_NOMG(combo_brace_l,       &kp LPAR,          RM0 RT1,         COMBO_TAP_TIME_FAST)
-        // closing braces
-        COMBO_MACRO_NOMG(combo_curly_brace_r, &kp RBRC,          RT2 RM3,         COMBO_TAP_TIME_FAST)
-        COMBO_MACRO_NOMG(combo_sqr_brace_r,   &kp RBKT,          RM2 RB3,         COMBO_TAP_TIME_FAST)
-        COMBO_MACRO_NOMG(combo_brace_r,       &kp RPAR,          RT3 RM4,         COMBO_TAP_TIME_FAST)
-        // signs
-        COMBO_MACRO_NOMG(combo_exclamation,   &kp EXCLAMATION,   RM0 RB0,         COMBO_TAP_TIME_FAST)
-        COMBO_MACRO_NOMG(combo_caret,         &kp CARET,         RM4 RT3,         COMBO_TAP_TIME_FAST)
-        COMBO_MACRO_NOMG(combo_grave,         &kp GRAVE,         RM1 RB2,         COMBO_TAP_TIME_FAST)
-        COMBO_MACRO_NOMG(combo_perc,          &kp PERCENT,       RB2 RM3,         COMBO_TAP_TIME_FAST)
+        /*
+         * LEFT HAND — Bottom Row
+         * ╭─────┬─────┬─────┬─────┬─────╮
+         * │  Z  │  X  │  C  │  V  │  B  │
+         * │  :-HOM-:-SPC-:-END-:-PGD-:  │
+         */
+        COMBO(combo_home,      &kp HOME,      LB1 LB2, COMBO_TAP_TIME_FAST, COMBO_PRIOR_IDLE)
+        COMBO(combo_space,     &kp SPACE,     LB2 LB3, COMBO_TAP_TIME_FAST, COMBO_PRIOR_IDLE)
+        COMBO(combo_end,       &kp END,       LB3 LB4, COMBO_TAP_TIME_FAST, COMBO_PRIOR_IDLE)
+        COMBO(combo_page_dn,   &kp PG_DN,     LB4 LB5, COMBO_TAP_TIME_FAST, COMBO_PRIOR_IDLE)
 
+        /*
+         * RIGHT HAND — Bottom Row
+         * ╭─────┬─────┬─────┬─────┬─────╮
+         * │  N  │  M  │  ,  │  .  │  /  │
+         * │     │  :- ' -:- " -:- ` -:  │
+         */
+        COMBO(combo_quote,     &kp SQT,       RB1 RB2, COMBO_TAP_TIME_FAST, COMBO_PRIOR_IDLE)
+        COMBO(combo_dblquote,  &kp DQT,       RB2 RB3, COMBO_TAP_TIME_FAST, COMBO_PRIOR_IDLE)
+        COMBO(combo_grave,     &kp GRAVE,     RB3 RB4, COMBO_TAP_TIME_FAST, COMBO_PRIOR_IDLE)
 
-        // TopRow Combos
-        // -------------
-
-        // left-hand side
-        COMBO_MACRO_NOMG(combo_esc,           &kp ESC,           LT1 LT2,         COMBO_TAP_TIME_FAST)
-        COMBO_MACRO_NOMG(combo_insert,        &kp INSERT,        LT2 LT3,         COMBO_TAP_TIME_FAST)
-        COMBO_MACRO_NOMG(combo_page_up,       &kp PG_UP,         LT3 LT4,         COMBO_TAP_TIME_FAST)
-        // right-hand side
-        COMBO_MACRO_NOMG(combo_bslh,          &kp BSLH,          RT1 RT2,         COMBO_TAP_TIME_FAST)
-        COMBO_MACRO_NOMG(combo_pipe,          &kp PIPE,          RT2 RT3,         COMBO_TAP_TIME_FAST)
-        COMBO_MACRO_NOMG(combo_to_default,    &tol_def,          RT3 RT4,         COMBO_TAP_TIME_FAST)
-        COMBO_MACRO_NOMG(combo_star,          &kp ASTERISK,      RT1 RT2 RT3,     COMBO_TAP_TIME_FAST)
-        COMBO_MACRO_NOMG(combo_hash,          &kp HASH,          RT2 RT3 RT4,     COMBO_TAP_TIME_FAST)
-
-        // MiddleRow Combos
-        // ----------------
-
-        // left-hand side
-        COMBO_MACRO_NOMG(combo_caps_word,     &caps_word,        LM1 LM2,         COMBO_TAP_TIME_FAST)
-        COMBO_MACRO_NOMG(combo_space,         &kp SPACE,         LM2 LM3,         COMBO_TAP_TIME_FAST)
-        COMBO_MACRO_NOMG(combo_page_down,     &kp PG_DN,         LM3 LM4,         COMBO_TAP_TIME_FAST)
-        // right-hand side
-        COMBO_MACRO_NOMG(combo_minus,         &kp MINUS,         RM1 RM2,         COMBO_TAP_TIME_FAST)
-        COMBO_MACRO_NOMG(combo_underscore,    &kp UNDERSCORE,    RM2 RM3,         COMBO_TAP_TIME_FAST)
-        COMBO_MACRO_NOMG(combo_equal,         &kp EQUAL,         RM3 RM4,         COMBO_TAP_TIME_FAST)
-        COMBO_MACRO_NOMG(combo_ampers,        &kp AMPERSAND,     RM1 RM2 RM3,     COMBO_TAP_TIME_FAST)
-        COMBO_MACRO_NOMG(combo_tilde,         &kp TILDE,         RM2 RM3 RM4,     COMBO_TAP_TIME_FAST)
-        COMBO_MACRO_NOMG(combo_at2,           &kp AT,            RM1 RM2 RM3 RM4, COMBO_TAP_TIME_FAST)
-
-        // BottomRow Combos
-        // ----------------
-
-        // left-hand side
-        COMBO_MACRO_NOMG(combo_home,          &kp HOME,          LB1 LB2,         COMBO_TAP_TIME_FAST)
-        COMBO_MACRO_NOMG(combo_print,         &kp PSCRN,         LB2 LB3,         COMBO_TAP_TIME_FAST)
-        COMBO_MACRO_NOMG(combo_end,           &kp END,           LB3 LB4,         COMBO_TAP_TIME_FAST)
-        // right-hand side
-        COMBO_MACRO_NOMG(combo_quote,         &kp SINGLE_QUOTE,  RB1 RB2,         COMBO_TAP_TIME_FAST)
-        COMBO_MACRO_NOMG(combo_quotes,        &kp DOUBLE_QUOTES, RB2 RB3,         COMBO_TAP_TIME_FAST)
-        COMBO_MACRO_NOMG(combo_plus,          &kp PLUS,          RB3 RB4,         COMBO_TAP_TIME_FAST)
-        COMBO_MACRO_NOMG(combo_dollar,        &kp DOLLAR,        RB1 RB2 RB3,     COMBO_TAP_TIME_FAST)
-        COMBO_MACRO_NOMG(combo_at,            &kp AT,            RB2 RB3 RB4,     COMBO_TAP_TIME_FAST)
+        /*
+         * CROSS-SIDE — BT/LED one-shot (default layer only)
+         */
+        COMBO_LAYER(combo_bt_led, &sl L_BT_LED, LT5 RT0, COMBO_TAP_TIME_FAST, COMBO_PRIOR_IDLE, L_DEF)
     };
 };
-

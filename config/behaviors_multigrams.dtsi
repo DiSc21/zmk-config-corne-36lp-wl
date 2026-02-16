@@ -2,31 +2,31 @@
 ╭──────────────────────────────────────────────────────────╮
 │ @Author:  TheDirkKnight     @Contact:  github.com/DiSc21 │
 │ @License: MIT             @copyright: 2024 TheDirkKnight │
-│ @Data:    2025/01/04                                     │
+│ @Data:    2025/02/16                                     │
 ╰──────────────────────────────────────────────────────────╯
- ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡆⠀⠀⠀⠀⠀⠀⠀⣆              ⠀⠀⠀⣶⡀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣾⡇⠀⠀⠀⠀⠀⠀⠀⣿⡇               ⣼⣿⣧
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⡇⠀⠀⠀⠀⠀⠀⠀⡿⣿             ⠀⣰⣿⣿⣿⣆
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⠀⠀⠀⠀⠀⠀⠀⠃⣿⡄           ⠀⢠⣿⣿⣿⣿⣿⣆
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⣿⣿⣿⣿⣿⣿⣷⣼⣿⡇           ⣰⣿⣿⣿⣿⣿⣿⣿⣆
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⡇⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿           ⣰⣿⣿⣿⠋⠉⠙⣿⣿⣿⣆
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣼⣿⣿⣿⣿⣿⣿⣿⣿⡏          ⣰⣿⣿⣿⡇⠀⠀⠀⢸⣿⣿⣟⣆
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢙⡻⢿⣿⡿⡟⣿⡿⠟⣛⠁        ⠀⣴⣿⠿⠛⠋⠁⠀⠀⠀⠈⠙⠛⠿⣿⣦
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣠⣴⡾⠛⠉⠀⠀⠀⠉⠓⠂ ⡀⠀⠐⠛⠁⠀⠀⠀⣸⣿⣦⣄⡀⠀⠈⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠁
-⠀⠀⠀⠀⠀⠀⢀⣀⣀⣤⣤⣶⣿⣿⣿⣿⣿⣷⣆⠀⠀⠀⠀⠀⠀⢠⡇⠀⠀⠀⠀⠀⠀⠀⠈⣻⣿⣿⣿⣷⣶⣤⣤⣤⣄⣀
-⠀⠀⠀⢀⣴⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠁⠀⠀⠀⠀ ⣀⣀  ⠀⠀⠀⠀⠀⠀⠀⠙⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣶⡄
-⠀⠀⡾⣿⣿⣿⣿⠿⠋⢁⣿⣿⣿⣿⣿⣿⣟⣥⣶⢿⡛⠉⠀⠀⠈⠀⠀⠁⠀⠀⠀⠈⢙⡻⢷⣿⣿⣿⣿⣿⣿⣿⡟⠿⠿⣿⣿⣿⣿
-⠀⠀⠀⣿⣿⠟⠁⠀⢠⣿⣿⣿⣿⣿⣿⡿⢟⣭⣶⣿⣷⣄⠀⠀⠀⣄⣀⡄⠀⠀⢀⣴⣿⣿⣷⣝⡻⣿⣿⣿⣿⣿⣿⣦⡀⠀⠉⠛⢿
-⠀⠀⠀⠿⠁⠀⠀⠀⠋⠁⣿⣿⣿⡿⢋⣴⣿⣿⣿⣿⣿⣿⣿⣶⣾⣿⣿⣿⣶⣿⣿⣿⣿⣿⣿⣿⣿⣮⡻⣿⣿⣿⠯⠉⠙
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⠁⠽⠋⠠⠿⠿⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠿⠷⠌⠻⠟
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠻⠿⠿⠿⣿⣿⣿⣿⣿⣿⡿⠿⠿⠿⠟⠁
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠻⠋
 ╭──────────────────────────────────────────────────────────╮
-│ @brief: ZMK devicetree file for led-layer-indicators.    │
+│ @brief: Multigram behaviors for layer 6.                 │
 │                                                          │
 │ @depends:                                                │
-│ - shared_defs.dtsi (key positions)                       │
-│ - shared_macros.dtsi (some aux macros).                  │
+│ - shared_defs.dtsi (positions, timing)                   │
+│ - behaviors_hrm.dtsi (HRM creation macros)               │
+│                                                          │
+│ @details:                                                │
+│ Each multigram key is a 3-level mod-morph tree:          │
+│   SFT → CTL → GUI (innermost)                           │
+│                                                          │
+│ Modifier effects (independent, composable):              │
+│   MGSHIFT = capitalize first letter                      │
+│   MGCTRL  = append "."                                   │
+│   MGGUI   = append " " (space)                           │
+│   MGCTRL+MGGUI = append ". " + sticky shift              │
+│                                                          │
+│ All modifiers are CONSUMED — released inside macros,     │
+│ never passed to OS.                                      │
+│                                                          │
+│ MG-HRM positions (matching real HRM finger positions):   │
+│   Left:  A=MGSHIFT  S=MGCTRL  D=MGGUI                   │
+│   Right: K=MGGUI    L=MGCTRL  ;=MGSHIFT                 │
 ╰──────────────────────────────────────────────────────────╯
 */
 
@@ -34,149 +34,202 @@
 #include <dt-bindings/zmk/keys.h>
 
 #include "shared_defs.dtsi"
-#include "shared_macros.dtsi"
-#include "shared_nomod_morphs.dtsi"
 #include "behaviors_hrm.dtsi"
 
-///
-/// @brief macro for the creation tab-dance-macros w|wo trailing space
-///
-/// @param name: name of the created mod-morph
-/// @param cmd_binding: the binding (without trailing SPACE)
-///
-#define CREATE_TAPDANCE_SPACE_APPEND(name, cmd_bind) \
-    KEY_SEQUENCE_MACRO_SIMPLE(nspc_ ## name, cmd_bind) \
-    KEY_SEQUENCE_MACRO_SIMPLE(aspc_ ## name, cmd_bind &kpr_spc) \
-    \
-    CREATE_DOUBLE_TAPDANCE(name, &nspc_ ## name, &aspc_ ## name)
+/* ─── Release all MG modifiers before typing ─── */
+#define MG_REL \
+    &macro_release &kp LSHIFT &kp RSHIFT &kp LCTRL &kp RCTRL &kp LGUI &kp RGUI
 
-///
-/// @brief macro for the creation of capital leading key
-///
-/// @param name: name of the created mod-morph
-/// @param cmd_binding: the binding (without trailing SPACE)
-///
-#define CREATE_CAPITAL_LEADER_SFT_MOD_MORPH(key_name, mod_name, cmd_bind) \
-    KEY_SEQUENCE_MACRO_SIMPLE(mmb_ ## mod_name ## key_name,     &kpr_ ## key_name cmd_bind) \
-    KEY_SEQUENCE_MACRO_SIMPLE(mmb_sft_ ## mod_name ## key_name, &kpr_c ## key_name cmd_bind) \
-    \
-    CREATE_MOD_MORPH_SFT(td_m_sft_ ## mod_name ## key_name, &mmb_ ## mod_name ## key_name, &mmb_sft_ ## mod_name ## key_name)
+/* ─── Leaf macro: types sequence with mods released ─── */
+#define MG_MACRO(name, ...) \
+    /omit-if-no-ref/ name: name { \
+        compatible = "zmk,behavior-macro"; \
+        #binding-cells = <0>; \
+        wait-ms = <0>; \
+        tap-ms = <5>; \
+        bindings = <MG_REL>, <&macro_tap __VA_ARGS__>; \
+    };
 
-///
-/// @brief macro for the creation of append-space-tabdance nested in shift-mod-morph
-///
-/// @param name: name of the created mod-morph
-/// @param cmd_binding: the binding (without trailing SPACE)
-///
-#define CREATE_MOD_MORPH_SFT_WITH_TABDANCE_SPACE(key_name, mod_name, cmd_bind) \
-    CREATE_TAPDANCE_SPACE_APPEND(mmb_ ## mod_name ## key_name,     &kpr_ ## key_name cmd_bind) \
-    CREATE_TAPDANCE_SPACE_APPEND(mmb_sft_ ## mod_name ## key_name, &kpr_c ## key_name cmd_bind) \
-    \
-    CREATE_MOD_MORPH_SFT(td_m_sft_ ## mod_name ## key_name, &td_mmb_ ## mod_name ## key_name, &td_mmb_sft_  ## mod_name ## key_name) \
+/* ─── Leaf macro: types sequence + sticky shift (for Ctrl+GUI combos) ─── */
+#define MG_MACRO_SK(name, ...) \
+    /omit-if-no-ref/ name: name { \
+        compatible = "zmk,behavior-macro"; \
+        #binding-cells = <0>; \
+        wait-ms = <0>; \
+        tap-ms = <5>; \
+        bindings = <MG_REL>, <&macro_tap __VA_ARGS__>, <&sk LSHIFT>; \
+    };
 
-///
-/// @brief macro for the creation of nested mod-morphes
-///
-/// @param key_name: postfix of the created mod-morph
-/// @param mmb_bind: unmodified base binding
-/// @param mmc_bind: CTRL binding
-/// @param mmg_bind: GUI binding
-/// @param mmcg_bind: combined CTRL+GUI binding
-/// @param mma_bind: ALT binding
-/// @param mmac_bind: ALT+CTRL binding
-/// @param mmag_bind: ALT+GUI binding
-/// @param mmacg_bind: combined ALT+CTRL+GUI binding
-///
-/// @note this macro creates a two-dimensional nested multi-mod-morph.
-/// TABDANCE+SHIFT modify the bindings by appending space (TABDANCE) and capital first letter (SHIFT)
-/// ALT+CTRL+GUI alternate the base binding defined by params mmb/mmc/mmg/mma_bind/...
-///
-/// @note behaviors are chained bottom up, i.e. when reading this it might make sense to read this
-/// preprocesser directive reverse from the bottom to the top.
-/// Rule of thumb: Mod-Morphs are evaluated before any other behavior is processed!
-///
-/// @note initially SHIFT was the first modifier processed. However, it felt like having zmk-macro-behaviors
-/// called/processed before all mod-morphs were processed gave false-negatives (failed detections) if the modifier
-/// keys where released before those macros had finished. I tried to solve this by
-/// - creating a delayed-key-tap behavior used only for appending space to circumvent timing issues
-/// - not using zmk-macro-behaviors before applying mod-morphs
-///
-/// @usage 'mumo_##key_name' for multigram-mod-morph only, i.e. without tapdance-space-append
-/// @usage 'td_mm_##key_name' for multigram-mod-morph with tapdance-space-append
-///
-#define CREATE_MULTI_MOD_MORPH_MACRO(key_name, mmb_bind, mmc_bind, mmg_bind, mmcg_bind, mma_bind, mmac_bind, mmag_bind, mmacg_bind) \
-    / { \
-        behaviors { \
-            CREATE_CAPITAL_LEADER_SFT_MOD_MORPH(key_name, b_,   mmb_bind) \
-            CREATE_CAPITAL_LEADER_SFT_MOD_MORPH(key_name, c_,   mmc_bind) \
-            CREATE_CAPITAL_LEADER_SFT_MOD_MORPH(key_name, g_,   mmg_bind) \
-            CREATE_CAPITAL_LEADER_SFT_MOD_MORPH(key_name, cg_,  mmcg_bind) \
-            CREATE_CAPITAL_LEADER_SFT_MOD_MORPH(key_name, a_,   mma_bind) \
-            CREATE_CAPITAL_LEADER_SFT_MOD_MORPH(key_name, ac_,  mmac_bind) \
-            CREATE_CAPITAL_LEADER_SFT_MOD_MORPH(key_name, ag_,  mmag_bind) \
-            CREATE_CAPITAL_LEADER_SFT_MOD_MORPH(key_name, acg_, mmacg_bind) \
-            \
-            CREATE_MOD_MORPH_GUI(m_gui_ ## key_name,         &td_m_sft_b_ ## key_name,     &td_m_sft_g_ ## key_name) \
-            CREATE_MOD_MORPH_GUI(m_ctl_gui_ ## key_name,     &td_m_sft_c_ ## key_name,     &td_m_sft_cg_ ## key_name) \
-            CREATE_MOD_MORPH_GUI(m_alt_gui_ ## key_name,     &td_m_sft_a_ ## key_name,     &td_m_sft_ag_ ## key_name) \
-            CREATE_MOD_MORPH_GUI(m_alt_ctl_gui_ ## key_name, &td_m_sft_ac_ ## key_name,    &td_m_sft_acg_ ## key_name) \
-            \
-            CREATE_MOD_MORPH_CTL(m_ctl_ ## key_name,         &m_gui_ ## key_name,          &m_ctl_gui_ ## key_name) \
-            CREATE_MOD_MORPH_CTL(m_alt_ctl_ ## key_name,     &m_alt_gui_ ## key_name,      &m_alt_ctl_gui_ ## key_name) \
-            \
-            CREATE_MOD_MORPH_ALT(mumo_ ## key_name,          &m_ctl_ ## key_name,          &m_alt_ctl_ ## key_name) \
-            \
-            CREATE_TAPDANCE_SPACE_APPEND(mm_ ## key_name,    &mumo_ ## key_name) \
-        }; \
-    }; \
+/* ─── Mod-morph helpers ─── */
+#define MG_MM_SFT(name, base, shifted) \
+    /omit-if-no-ref/ name: name { \
+        compatible = "zmk,behavior-mod-morph"; \
+        #binding-cells = <0>; \
+        bindings = <base>, <shifted>; \
+        mods = <(MOD_LSFT|MOD_RSFT)>; \
+    };
+
+#define MG_MM_CTL(name, base, ctrl) \
+    /omit-if-no-ref/ name: name { \
+        compatible = "zmk,behavior-mod-morph"; \
+        #binding-cells = <0>; \
+        bindings = <base>, <ctrl>; \
+        mods = <(MOD_LCTL|MOD_RCTL)>; \
+    };
+
+#define MG_MM_GUI(name, base, gui) \
+    /omit-if-no-ref/ name: name { \
+        compatible = "zmk,behavior-mod-morph"; \
+        #binding-cells = <0>; \
+        bindings = <base>, <gui>; \
+        mods = <(MOD_LGUI|MOD_RGUI)>; \
+    };
+
+/* ─────────────────────────────────────────────────────────
+ * MG_KEY — generates full mod-morph tree for one multigram
+ *
+ * @param n    : unique name (e.g. tion, and, qu)
+ * @param base : base key sequence  (&kp T &kp I &kp O &kp N)
+ * @param cap  : capitalized sequence (&kp LS(T) &kp I &kp O &kp N)
+ *
+ * Generates 15 behaviors per multigram:
+ *   8 leaf macros  (p/s/c/g/sc/sg/cg/scg)
+ *   4 GUI mod-morphs (innermost)
+ *   2 CTL mod-morphs (middle)
+ *   1 SFT mod-morph  (root = mg_<n>)
+ *
+ *   Usage in keymap: &mg_<n>
+ * ───────────────────────────────────────────────────────── */
+#define MG_KEY(n, base, cap) \
+    / { behaviors { \
+        /* leaf macros */ \
+        MG_MACRO(mg_##n##_p,     base) \
+        MG_MACRO(mg_##n##_s,     cap) \
+        MG_MACRO(mg_##n##_c,     base &kp DOT) \
+        MG_MACRO(mg_##n##_g,     base &kp SPACE) \
+        MG_MACRO(mg_##n##_sc,    cap &kp DOT) \
+        MG_MACRO(mg_##n##_sg,    cap &kp SPACE) \
+        MG_MACRO_SK(mg_##n##_cg,  base &kp DOT &kp SPACE) \
+        MG_MACRO_SK(mg_##n##_scg, cap &kp DOT &kp SPACE) \
+        /* GUI mod-morphs (innermost) */ \
+        MG_MM_GUI(mg_##n##_g0, &mg_##n##_p,  &mg_##n##_g) \
+        MG_MM_GUI(mg_##n##_g1, &mg_##n##_c,  &mg_##n##_cg) \
+        MG_MM_GUI(mg_##n##_g2, &mg_##n##_s,  &mg_##n##_sg) \
+        MG_MM_GUI(mg_##n##_g3, &mg_##n##_sc, &mg_##n##_scg) \
+        /* CTL mod-morphs (middle) */ \
+        MG_MM_CTL(mg_##n##_c0, &mg_##n##_g0, &mg_##n##_g1) \
+        MG_MM_CTL(mg_##n##_c1, &mg_##n##_g2, &mg_##n##_g3) \
+        /* SFT mod-morph (root — use this in keymap) */ \
+        MG_MM_SFT(mg_##n,     &mg_##n##_c0, &mg_##n##_c1) \
+    }; };
 
 
-///
-/// @brief non-vocal multigrams only share tabdance-space and Caps-Shift logic.
-/// - Tabdance: append space
-/// - SHIFT: first letter capital
-///       ___________________________________________________________________________________
-///      | <no-mods> |  CTRL |  GUI | CTRL+GUI |   ALT |  ALT+CTRL |  ALT+GUI | ALT+CTRL+GUI |
-/// .====|===========|=======|======|==========|=======|===========|==========|==============|
-/// | F: |   for     |    ft |   fr |     -    |  from |     -     |      -   |        -     |
-/// | M: |   ment    |    me |   my |   must   |  many |   much    |    more  |      most    |
-/// | R: |   re      |    rt |   rg |     -    |   rb  |     -     |      -   |        -     |
-/// | T: |   th      |   the |  ter |    tor   |  that |   this    |    they  |      tion    |
-/// | W: |   wh      | would | will |   with   | which |    way    |    when  |      want    |
-/// |____|___________|_______|______|__________|_______|___________|__________|______________|
-///
-CREATE_MULTI_MOD_MORPH_MACRO(f, &kpr_o &kpr_r,          &kpr_t,                        &kpr_r,                 &none,                  &kpr_r &kpr_o &kpr_m,          &none,                  &none,                  &none)
-CREATE_MULTI_MOD_MORPH_MACRO(m, &kpr_e &kpr_n &kpr_t,   &kpr_e,                        &kpr_y,                 &kpr_u &kpr_s &kpr_t,   &kpr_a &kpr_n &kpr_y,          &kpr_u &kpr_c &kpr_h,   &kpr_o &kpr_r &kpr_e,   &kpr_o &kpr_s &kpr_t)
-CREATE_MULTI_MOD_MORPH_MACRO(r, &kpr_e,                 &kpr_t,                        &kpr_g,                 &none,                  &kpr_b,                        &none,                  &none,                  &none)
-CREATE_MULTI_MOD_MORPH_MACRO(t, &kpr_h,                 &kpr_h &kpr_e,                 &kpr_e &kpr_r,          &kpr_o &kpr_r,          &kpr_h &kpr_a &kpr_t,          &kpr_h &kpr_i &kpr_s,   &kpr_h &kpr_e &kpr_y,   &kpr_i &kpr_o &kpr_n)
-CREATE_MULTI_MOD_MORPH_MACRO(w, &kpr_h,                 &kpr_o &kpr_u &kpr_l &kpr_d,   &kpr_i &kpr_l &kpr_l,   &kpr_i &kpr_t &kpr_h,   &kpr_h &kpr_i &kpr_c &kpr_h,   &kpr_a &kpr_y,          &kpr_h &kpr_e &kpr_n,   &kpr_a &kpr_n &kpr_t)
+/* ─────────────────────────────────────────────────────────
+ * MG-HRM — hold-tap for multigram layer homerow positions
+ *
+ * tap  = multigram root behavior (0-cell)
+ * hold = modifier keycode (1-cell &kp)
+ *
+ * #binding-cells = <2>  →  usage: &mghr_l_xx LSHIFT 0
+ *                        (second param is dummy, ignored by 0-cell tap)
+ * ───────────────────────────────────────────────────────── */
+#define CREATE_MGHR_LEFT(name, tap_bind) \
+    /omit-if-no-ref/ mghr_l_ ## name: mghr_l_ ## name { \
+        compatible = "zmk,behavior-hold-tap"; \
+        #binding-cells = <2>; \
+        flavor = "balanced"; \
+        tapping-term-ms = <HM_TAPPING_TERM>; \
+        quick-tap-ms = <LAYER_QUICK_TAP_MS>; \
+        require-prior-idle-ms = <HM_PRIOR_IDLE>; \
+        bindings = <&kp>, <tap_bind>; \
+        hold-trigger-key-positions = <KEYS_R KEYS_THUMBS>; \
+        hold-trigger-on-release; \
+    };
 
-///
-/// @brief vocal multigrams share some common schemata:
-/// - Tabdance: append space
-/// - SHIFT: first letter capital
-///       _________________________________________________________________________________
-///      | <no-mods> | CTRL |  GUI | CTRL+GUI |  ALT |  ALT+CTRL |  ALT+GUI | ALT+CTRL+GUI |
-///      |===========|======|======|==========|======|===========|==========|==============|
-///      |   VAR     | + re | + ve |   + ng   | + nd |   + ck    |    + th  |      VAR     |
-/// .----|-----------|------|------|----------|------|-----------|----------|--------------|
-/// | A: |   at      |  are |  ave |    ang   |  and |    ack    |     ath  |     ation    |
-/// | E: |   er      |  ere |  eve |    eng   |  end |    eck    |     eth  |      ever    |
-/// | O: |   or      |  ore |  ove |    ong   |  ond |    ock    |     oth  |     ought    |
-/// | I: |   in      |  ire |  ive |    ing   |  ind |    ick    |     ith  |      ight    |
-/// | U: |   un      |  ure |  uve |    ung   |  und |    uck    |     uth  |       urg    |
-/// |____|___________|______|______|__________|______|___________|__________|______________|
-///
-CREATE_MULTI_MOD_MORPH_MACRO(a, &kpr_t,   &kpr_r &kpr_e,   &kpr_v &kpr_e,   &kpr_n &kpr_g,   &kpr_n &kpr_d,   &kpr_c &kpr_k,   &kpr_t &kpr_h,   &kpr_t &kpr_i &kpr_o &kpr_n)
-CREATE_MULTI_MOD_MORPH_MACRO(o, &kpr_r,   &kpr_r &kpr_e,   &kpr_v &kpr_e,   &kpr_n &kpr_g,   &kpr_n &kpr_d,   &kpr_c &kpr_k,   &kpr_t &kpr_h,   &kpr_u &kpr_g &kpr_h &kpr_t)
-CREATE_MULTI_MOD_MORPH_MACRO(e, &kpr_r,   &kpr_r &kpr_e,   &kpr_v &kpr_e,   &kpr_n &kpr_g,   &kpr_n &kpr_d,   &kpr_c &kpr_k,   &kpr_t &kpr_h,   &kpr_v &kpr_e &kpr_r)
-CREATE_MULTI_MOD_MORPH_MACRO(i, &kpr_n,   &kpr_r &kpr_e,   &kpr_v &kpr_e,   &kpr_n &kpr_g,   &kpr_n &kpr_d,   &kpr_c &kpr_k,   &kpr_t &kpr_h,   &kpr_g &kpr_h &kpr_t)
-CREATE_MULTI_MOD_MORPH_MACRO(u, &kpr_s,   &kpr_r &kpr_e,   &kpr_v &kpr_e,   &kpr_n &kpr_g,   &kpr_n &kpr_d,   &kpr_c &kpr_k,   &kpr_t &kpr_h,   &kpr_r &kpr_g)
+#define CREATE_MGHR_RIGHT(name, tap_bind) \
+    /omit-if-no-ref/ mghr_r_ ## name: mghr_r_ ## name { \
+        compatible = "zmk,behavior-hold-tap"; \
+        #binding-cells = <2>; \
+        flavor = "balanced"; \
+        tapping-term-ms = <HM_TAPPING_TERM>; \
+        quick-tap-ms = <LAYER_QUICK_TAP_MS>; \
+        require-prior-idle-ms = <HM_PRIOR_IDLE>; \
+        bindings = <&kp>, <tap_bind>; \
+        hold-trigger-key-positions = <KEYS_L KEYS_THUMBS>; \
+        hold-trigger-on-release; \
+    };
 
+
+/* ╔═══════════════════════════════════════════════════════╗
+ * ║              MULTIGRAM DEFINITIONS                    ║
+ * ╠═══════════════════════════════════════════════════════╣
+ * ║                                                       ║
+ * ║  LEFT HAND                   RIGHT HAND               ║
+ * ║  ╭─────┬─────┬─────┬─────┬─────╮ ╭─────┬─────┬─────┬─────┬─────╮ ║
+ * ║  │ qu  │ wh  │ er  │ re  │ th  │ │ you │uous │ ish │ough │ ph  │ ║
+ * ║  ├─────┼─────┼─────┼─────┼─────┤ ├─────┼─────┼─────┼─────┼─────┤ ║
+ * ║  │ and │ st  │ ing │ for │ ion │ │ ght │ che │ ful │ ly  │ness │ ║
+ * ║  │ SFT │ CTL │ GUI │  —  │  —  │ │  —  │  —  │ GUI │ CTL │ SFT │ ║
+ * ║  ├─────┼─────┼─────┼─────┼─────┤ ├─────┼─────┼─────┼─────┼─────┤ ║
+ * ║  │ at  │ sh  │ ch  │ ed  │ ble │ │ not │ment │true │false│tion │ ║
+ * ║  ╰─────┴─────┴─────┴─────┴─────╯ ╰─────┴─────┴─────┴─────┴─────╯ ║
+ * ╚═══════════════════════════════════════════════════════╝
+ */
+
+/* ─── Left Top Row ─── */
+MG_KEY(qu,   &kp Q &kp U,                         &kp LS(Q) &kp U)
+MG_KEY(wh,   &kp W &kp H,                         &kp LS(W) &kp H)
+MG_KEY(er,   &kp E &kp R,                         &kp LS(E) &kp R)
+MG_KEY(re,   &kp R &kp E,                         &kp LS(R) &kp E)
+MG_KEY(th,   &kp T &kp H,                         &kp LS(T) &kp H)
+
+/* ─── Left Mid Row (and/st/ing have MG-HRMs, for/ion plain) ─── */
+MG_KEY(and,  &kp A &kp N &kp D,                   &kp LS(A) &kp N &kp D)
+MG_KEY(st,   &kp S &kp T,                         &kp LS(S) &kp T)
+MG_KEY(ing,  &kp I &kp N &kp G,                   &kp LS(I) &kp N &kp G)
+MG_KEY(for,  &kp F &kp O &kp R,                   &kp LS(F) &kp O &kp R)
+MG_KEY(ion,  &kp I &kp O &kp N,                   &kp LS(I) &kp O &kp N)
+
+/* ─── Left Bottom Row ─── */
+MG_KEY(at,   &kp A &kp T,                         &kp LS(A) &kp T)
+MG_KEY(sh,   &kp S &kp H,                         &kp LS(S) &kp H)
+MG_KEY(ch,   &kp C &kp H,                         &kp LS(C) &kp H)
+MG_KEY(ed,   &kp E &kp D,                         &kp LS(E) &kp D)
+MG_KEY(ble,  &kp B &kp L &kp E,                   &kp LS(B) &kp L &kp E)
+
+/* ─── Right Top Row ─── */
+MG_KEY(you,  &kp Y &kp O &kp U,                   &kp LS(Y) &kp O &kp U)
+MG_KEY(uous, &kp U &kp O &kp U &kp S,             &kp LS(U) &kp O &kp U &kp S)
+MG_KEY(ish,  &kp I &kp S &kp H,                   &kp LS(I) &kp S &kp H)
+MG_KEY(ough, &kp O &kp U &kp G &kp H,             &kp LS(O) &kp U &kp G &kp H)
+MG_KEY(ph,   &kp P &kp H,                         &kp LS(P) &kp H)
+
+/* ─── Right Mid Row (ful/ly/ness have MG-HRMs, ght/che plain) ─── */
+MG_KEY(ght,  &kp G &kp H &kp T,                   &kp LS(G) &kp H &kp T)
+MG_KEY(che,  &kp C &kp H &kp E,                   &kp LS(C) &kp H &kp E)
+MG_KEY(ful,  &kp F &kp U &kp L,                   &kp LS(F) &kp U &kp L)
+MG_KEY(ly,   &kp L &kp Y,                         &kp LS(L) &kp Y)
+MG_KEY(ness, &kp N &kp E &kp S &kp S,             &kp LS(N) &kp E &kp S &kp S)
+
+/* ─── Right Bottom Row ─── */
+MG_KEY(not,  &kp N &kp O &kp T,                   &kp LS(N) &kp O &kp T)
+MG_KEY(ment, &kp M &kp E &kp N &kp T,             &kp LS(M) &kp E &kp N &kp T)
+MG_KEY(tru,  &kp T &kp R &kp U &kp E,             &kp LS(T) &kp R &kp U &kp E)
+MG_KEY(fls,  &kp F &kp A &kp L &kp S &kp E,       &kp LS(F) &kp A &kp L &kp S &kp E)
+MG_KEY(tion, &kp T &kp I &kp O &kp N,             &kp LS(T) &kp I &kp O &kp N)
+
+
+/* ─── MG-HRM hold-taps (layer 6 homerow positions) ─── */
 / {
     behaviors {
-        CREATE_HT_LEFT(tra, &kp, &td_mm_a, "balanced", HM_TAPPING_TERM, LAYER_QUICK_TAP_MS, HM_PRIOR_IDLE)
-        CREATE_HT_LEFT(trf, &kp, &td_mm_f, "balanced", HM_TAPPING_TERM, LAYER_QUICK_TAP_MS, HM_PRIOR_IDLE)
+        /* Left: A=MGSHIFT, S=MGCTRL, D=MGGUI */
+        CREATE_MGHR_LEFT(and,  &mg_and)
+        CREATE_MGHR_LEFT(st,   &mg_st)
+        CREATE_MGHR_LEFT(ing,  &mg_ing)
+
+        /* Right: K=MGGUI, L=MGCTRL, ;=MGSHIFT */
+        CREATE_MGHR_RIGHT(ful,  &mg_ful)
+        CREATE_MGHR_RIGHT(ly,   &mg_ly)
+        CREATE_MGHR_RIGHT(ness, &mg_ness)
     };
 };
-

@@ -1,48 +1,18 @@
 /*
- * Copyright (c) 2020 The ZMK Contributors
- *
- * SPDX-License-Identifier: MIT
- */
-
-/*
 ╭──────────────────────────────────────────────────────────╮
 │ @Co-Author: TheDirkKnight   @Contact:  github.com/DiSc21 │
 │ @License:   MIT           @copyright: 2024 TheDirkKnight │
-│ @Data:      2025/01/04                                   │
+│ @Data:      2025/02/16                                   │
 ╰──────────────────────────────────────────────────────────╯
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡆⠀⠀⠀⠀⠀⠀⠀⣆
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣾⡇⠀⠀⠀⠀⠀⠀⠀⣿⡇
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⡇⠀⠀⠀⠀⠀⠀⠀⡿⣿
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⠀⠀⠀⠀⠀⠀⠀⠃⣿⡄
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⣿⣿⣿⣿⣿⣿⣷⣼⣿⡇
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⡇⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣼⣿⣿⣿⣿⣿⣿⣿⣿⡏
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢙⡻⢿⣿⡿⡟⣿⡿⠟⣛⠁
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣠⣴⡾⠛⠉⠀⠀⠀⠉⠓⠂ ⡀ ⠐⠛⠁⠀⠀⠀⣸⣿⣦⣄⡀
-⠀⠀⠀⠀⠀⠀⢀⣀⣀⣤⣤⣶⣿⣿⣿⣿⣿⣷⣆⠀⠀⠀⠀⠀⠀⢠⡇⠀⠀⠀⠀⠀⠀⠀⠈⣻⣿⣿⣿⣷⣶⣤⣤⣤⣄⣀
-⠀⠀⠀⢀⣴⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠁⠀⠀⠀⠀ ⣀⣀  ⠀⠀⠀⠀⠀⠀⠀⠙⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣶⡄
-⠀⠀⡾⣿⣿⣿⣿⠿⠋⢁⣿⣿⣿⣿⣿⣿⣟⣥⣶⢿⡛⠉⠀⠀⠈⠀⠀⠁⠀⠀⠀⠈⢙⡻⢷⣿⣿⣿⣿⣿⣿⣿⡟⠿⠿⣿⣿⣿⣿
-⠀⠀⠀⣿⣿⠟⠁⠀⢠⣿⣿⣿⣿⣿⣿⡿⢟⣭⣶⣿⣷⣄⠀⠀⠀⣄⣀⡄⠀⠀⢀⣴⣿⣿⣷⣝⡻⣿⣿⣿⣿⣿⣿⣦⡀⠀⠉⠛⢿
-⠀⠀⠀⠿⠁⠀⠀⠀⠋⠁⣿⣿⣿⡿⢋⣴⣿⣿⣿⣿⣿⣿⣿⣶⣾⣿⣿⣿⣶⣿⣿⣿⣿⣿⣿⣿⣿⣮⡻⣿⣿⣿⠯⠉⠙
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⠁⠽⠋⠠⠿⠿⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠿⠷⠌⠻⠟
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠻⠿⠿⠿⣿⣿⣿⣿⣿⣿⡿⠿⠿⠿⠟⠁
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠻⠋
 ╭──────────────────────────────────────────────────────────╮
-│ @brief: ZMK keymap for corne 3x5                         │
+│ @brief: ZMK keymap for Corne 5×3+3 — 8 layers           │
 │                                                          │
-│ @depends (external and non-std):                         │
-│ - num_word (keeps caps until non-alpha tap)              │
-│                                                          │
-│ @depends (macros and defs):                              │
-│ - combos.dtsi (combos for signs on default layer)        │
-│ - shared_defs.dtsi (key positions)                       │
-│ - shared_macros.dtsi (some aux macros)                   │
-│ - shared_nomod_morphs.dtsi (modifier-resistant-keys)     │
-│                                                          │
-│ @depends (custom behaviors):                             │
+│ @depends:                                                │
+│ - shared_defs.dtsi (positions, timing, layers)           │
 │ - behaviors_hrm.dtsi (home-row-modifiers)                │
-│ - behaviors_led.dtsi (custom led-layer-hold-tabs)        │
-│ - behaviors_multigraphs.dtsi (multikey macros)           │
+│ - behaviors_led.dtsi (LED layer hold-taps)               │
+│ - behaviors_multigrams.dtsi (multigram macros + MG-HRMs) │
+│ - combos.dtsi (15 horizontal-adjacent combos)            │
 ╰──────────────────────────────────────────────────────────╯
 */
 
@@ -50,22 +20,14 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
-
-/* led and mouse includes */
 #include <dt-bindings/zmk/rgb.h>
 #include <dt-bindings/zmk/pointing.h>
 
-/* shared defines for key nums, layers and timings */
+/* project includes */
 #include "shared_defs.dtsi"
-#include "shared_macros.dtsi"
-#include "shared_nomod_morphs.dtsi"
-
-/* some custom behavior definitions */
 #include "behaviors_hrm.dtsi"
 #include "behaviors_led.dtsi"
 #include "behaviors_multigrams.dtsi"
-
-/* custom combos */
 #include "combos.dtsi"
 
 &led_strip {
@@ -74,23 +36,18 @@
 
 / {
 
-    macros {
-        SINGLE_PARAM_SANDWICH(add_spc,  &none, &kp SPACE)
-        SINGLE_PARAM_SANDWICH(add_spsh, &none, &kp SPACE &sk LSHIFT)
-        SINGLE_PARAM_SANDWICH(pre_caps, &sk LSHIFT, &kp SPACE)
-    };
-
     behaviors {
-        mmnr_del: mmnr_del {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&r_ht_nav L_NAV DEL>, <&kp BSPC>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-        mmnl_bsp: mmnl_bsp {
+        /* BSP/DEL mod-morph: Shift+BSP→DEL, Shift+DEL→BSP */
+        mm_bsp: mm_bsp {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&l_ht_nav L_NAV BSPC>, <&kp DEL>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        mm_del: mm_del {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&r_ht_exo L_EXOTIC DEL>, <&kp BSPC>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
     };
@@ -98,111 +55,197 @@
     keymap {
         compatible = "zmk,keymap";
 
-        // The Base Layer
-        // ---------------------------------------------------------------------------------------------------------------------------------------------------
-        // | - |  Q         |  W        | E          | R         || T         | |   -   | | Y         || U         | I          | O         | P           | - |
-        // | - |  A [SHIFT] |  S [CTRL] | D [WIN]    | F [ALT]   || G         | |   -   | | H         || J [ALT]   | K [WIN]    | L [CTRL]  | ;/: [SHIFT] | - |
-        // | - |  Z         |  X        | C          | V         || B         | |   -   | | N         || M         | ,/<        | ./>       | //?         | - |
-        // -----------------------------| BSPC [NAV] | RET [BRC] || TAB [NUM] | |   -   | | ESC [NUM] || SPC [BRC] | ENTF [NAV] |------------------------------
-        //                              -----------------------------------------------------------------------------------------
-        default {
+        /* ═══════════════════════════════════════════════════════
+         * Layer 0: Default
+         * ╭─────┬─────┬─────┬─────┬─────╮ ╭─────┬─────┬─────┬─────┬─────╮
+         * │  Q  │  W  │  E  │  R  │  T  │ │  Y  │  U  │  I  │  O  │  P  │
+         * ├─────┼─────┼─────┼─────┼─────┤ ├─────┼─────┼─────┼─────┼─────┤
+         * │  A  │  S  │  D  │  F  │  G  │ │  H  │  J  │  K  │  L  │  ;  │
+         * │ SFT │ CTL │ GUI │ ALT │     │ │     │ ALT │ GUI │ CTL │ SFT │
+         * ├─────┼─────┼─────┼─────┼─────┤ ├─────┼─────┼─────┼─────┼─────┤
+         * │  Z  │  X  │  C  │  V  │  B  │ │  N  │  M  │  ,  │  .  │  /  │
+         * ╰─────┴─────┼─────┼─────┼─────┤ ├─────┼─────┼─────┼─────┴─────╯
+         *             │ BSP │ RET │ TAB │ │ ESC │ SPC │ DEL │
+         *             │Nav5 │Sym3 │Num1 │ │ MG6 │ FK2 │Exo4 │
+         *             ╰─────┴─────┴─────╯ ╰─────┴─────┴─────╯
+         * ═══════════════════════════════════════════════════════ */
+        default_layer {
             display-name = "default";
             bindings = <
-                &none &kp Q             &kp W            &kp E           &kp R              &kp T                     &kp Y                  &kp U                &kp I           &kp O            &kp    P             &none
-                &none &ht_l_tr LSHIFT A &ht_l_tr LCTRL S &ht_l_tr LGUI D &ht_l_tr LALT F    &l_ht_sn L_SMART_NUM G    &r_ht_sn L_SMART_NUM H &ht_r_tr RALT J      &ht_r_tr RGUI K &ht_r_tr RCTRL L &ht_r_tr RSHIFT SEMI &none
-                &none &kp Z             &kp X            &kp C           &kp V              &kp B                     &kp N                  &kp M                &kp COMMA       &kp DOT          &kp FSLH             &none
-                                                         &mmnl_bsp       &l_ht_mg L_MG RET  &l_ht_mg L_MG TAB         &r_ht_mg L_MG ESC      &r_ht_mg L_MG SPACE  &mmnr_del
+                &none  &kp Q              &kp W             &kp E            &kp R             &kp T                &kp Y              &kp U             &kp I            &kp O             &kp P                &none
+                &none  &ht_l_tr LSHIFT A  &ht_l_tr LCTRL S  &ht_l_tr LGUI D  &ht_l_tr LALT F   &kp G                &kp H              &ht_r_tr RALT J   &ht_r_tr RGUI K  &ht_r_tr RCTRL L  &ht_r_tr RSHIFT SEMI &none
+                &none  &kp Z              &kp X             &kp C            &kp V             &kp B                &kp N              &kp M             &kp COMMA        &kp DOT           &kp FSLH             &none
+                                                             &mm_bsp          &l_ht_sym L_SYM RET  &l_ht_num L_NUM TAB  &b_ht_mg L_MG ESC  &r_ht_fk L_FKEYS SPACE  &mm_del
             >;
         };
 
-        // [SMART_NUM] LAYER
-        // -----------------------------------------------------------------------------------------------------------------------------------------
-        // | - |            |           |          |          ||         |  |    -    |  |         || 7       | 8       | 9        |           | - |
-        // | - |            |           |          |          ||         |  |    -    |  | 0       || 4 [ALT] | 5 [WIN] | 6 [CTRL] |           | - |
-        // | - |            |           |          |          ||         |  |    -    |  |         || 1       | 2       | 3        |           | - |
-        // -----------------------------|   BSPC   |          ||   TAB   |  |    -    |  |         ||         |   ENTF  |---------------------------
-        //                              ---------------------------------------------------------------------------------
-        smart_num {
-            display-name = "smart_num";
-            bindings = <
-                &none  &tok_def Q &tok_def W &tok_def E &tok_def R   &tok_def T     &kp COMMA    &kp N7         &kp N8 &kp N9 &tok_def P    &none
-                &none  &tok_def A &tok_def S &tok_def D &tok_def F   &tok_def G     &kp N0       &kp N4         &kp N5 &kp N6 &tok_def SEMI &none
-                &none  &tok_def Z &tok_def X &tok_def C &tok_def V   &tok_def B     &kp DOT      &kp N1         &kp N2 &kp N3 &tok_def FSLH &none
-                                             &kp BSPC   &tok_def RET &kp TAB        &tok_def ESC &tok_def SPACE &kp DEL
-            >;
-        };
-
-        // [KeyCombos] LAYER
-        // -----------------------------------------------------------------------------------------------------------------------------------------
-        // | - |           |          | E       | R       | T       |  |    -    |  |         | U        | I          | O         |            | - |
-        // | - | A [SHIFT] | S [CTRL] | D [WIN] | F [ALT] |         |  |    -    |  | LEFT    | DOWN     | UP         | RIGHT     | ;          | - |
-        // | - |           |          |         |         |         |  |    -    |  |         |          | ,          | .         | /          | - |
-        // ---------------------------|         |         |         |  |    -    |  |         |          |            |-----------------------------
-        //                            ---------------------------------------------------------------------------------
-        multigrams {
-            display-name = "mg-arrows";
-            bindings = <
-                &none &none              &td_mm_w         &td_mm_e        &td_mm_r         &td_mm_t       &none    &td_mm_u           &td_mm_i          &td_mm_o             &none                &none
-                &none &ht_l_tra LSHIFT 0 &ht_l_tr LCTRL S &ht_l_tr LGUI D &ht_l_trf LALT 0 &none          &none    &ht_r_tr RALT DOWN &ht_r_tr RGUI UP  &ht_r_tr RCTRL RIGHT &ht_r_tr RSHIFT SEMI &none
-                &none &none              &none            &none           &none            &none          &none    &td_mm_m           &add_spc COMMA    &add_spsh DOT        &none                &none
-                                                          &trans          &trans           &trans         &trans   &trans             &trans
-            >;
-        };
-
-        // [LED] LAYER
-        // ---------------------------------------------------------------------------------------------------------------------------------------------
-        // | - | BTCLR      |           |          |          |         |  |    -    |  |         | TOGGLE     | HUE++     | Sat++    | Light++    | - |
-        // | - | B1         | B2        | B3       | B4       | B5      |  |    -    |  |         | Previous   | Slower    | Faster   | Next       | - |
-        // | - |            |           |          |          |         |  |    -    |  |         |            | HUE--     | Sat--    | Light--    | - |
-        // -----------------------------|          |          |         |  |    -    |  |         |            |           |----------------------------
-        //                              ------------------------------------------------------------------------------------
-        lighting {
-            display-name = "bt-lighting";
-            bindings = <
-                &none &bt BT_CLR   &to L_DEF    &to L_DEF    &to L_DEF    &to L_DEF       &to L_DEF &rgb_ug RGB_TOG &rgb_ug RGB_HUI &rgb_ug RGB_SAI &rgb_ug RGB_BRI &none
-                &none &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4    &to L_DEF &rgb_ug RGB_EFR &rgb_ug RGB_SPD &rgb_ug RGB_SPI &rgb_ug RGB_EFF &none
-                &none &to L_DEF    &to L_DEF    &to L_DEF    &to L_DEF    &to L_DEF       &to L_DEF &to L_DEF       &rgb_ug RGB_HUD &rgb_ug RGB_SAD &rgb_ug RGB_BRD &none
-                                                &to L_DEF    &to L_DEF    &to L_DEF       &to L_DEF &to L_DEF       &to L_DEF
-            >;
-        };
-
-        // [NUM] LAYER
-        // -----------------------------------------------------------------------------------------------------------------------------------------
-        // | - | F1         | F2        | F3       | F4       || Euler   |  |    -    |  | +       || 7       | 8       | 9        | *         | - |
-        // | - | F5 [SHIFT] | F6 [CTRL] | F7 [WIN] | F8 [ALT] || PI      |  |    -    |  | 0       || 4 [ALT] | 5 [WIN] | 6 [CTRL] | = [SHIFT] | - |
-        // | - | F9         | F10       | F11      | F12      || Sqrt2   |  |    -    |  | -       || 1       | 2       | 3        | .         | - |
-        // -----------------------------| BSPC     | RET      || **TAB** |  |    -    |  | **ESC** || SPC     | ENTF    |---------------------------
-        //                              ---------------------------------------------------------------------------------
-        numbers {
+        /* ═══════════════════════════════════════════════════════
+         * Layer 1: Numbers (TAB hold → right side)
+         * ╭─────┬─────┬─────┬─────┬─────╮ ╭─────┬─────┬─────┬─────┬─────╮
+         * │     │     │     │     │     │ │  *  │  7  │  8  │  9  │  +  │
+         * ├─────┼─────┼─────┼─────┼─────┤ ├─────┼─────┼─────┼─────┼─────┤
+         * │     │     │     │     │     │ │  0  │  4  │  5  │  6  │  =  │
+         * │ SFT │ CTL │ GUI │ ALT │     │ │     │     │     │     │     │
+         * ├─────┼─────┼─────┼─────┼─────┤ ├─────┼─────┼─────┼─────┼─────┤
+         * │     │     │     │     │     │ │  -  │  1  │  2  │  3  │  /  │
+         * ╰─────┴─────┼─────┼─────┼─────┤ ├─────┼─────┼─────┼─────┴─────╯
+         *             │     │     │*TAB*│ │     │     │     │
+         *             ╰─────┴─────┴─────╯ ╰─────┴─────┴─────╯
+         * Left: base (HRMs active)  Right: numpad, no HRMs
+         * ═══════════════════════════════════════════════════════ */
+        numbers_layer {
             display-name = "numbers";
             bindings = <
-                &none &kp F1                &kp F2         &kp   F3      &kp F4        &trans         &trans &kp N7        &kp N8        &kp N9         &kp ASTERISK             &none
-                &none &ht_l_tr LSHIFT F5 &ht_l_tr LCTRL F6 &ht_l_tr LGUI F7 &ht_l_tr LALT F8 &trans         &kp N0 &ht_r_tr RALT N4 &ht_r_tr RGUI N5 &ht_r_tr RCTRL N6 &ht_r_tr RSHIFT EQUAL &none
-                &none &kp F9                &kp F10        &kp   F11     &kp F12       &trans         &trans &kp N1        &kp N2        &kp N3         &kp FSLH                 &none
-                                                           &trans        &trans        &trans         &trans &trans        &trans
+                &none  &trans  &trans  &trans  &trans  &trans      &kp ASTERISK  &kp N7  &kp N8  &kp N9  &kp PLUS   &none
+                &none  &trans  &trans  &trans  &trans  &trans      &kp N0        &kp N4  &kp N5  &kp N6  &kp EQUAL  &none
+                &none  &trans  &trans  &trans  &trans  &trans      &kp MINUS     &kp N1  &kp N2  &kp N3  &kp FSLH   &none
+                                       &trans  &trans  &trans      &trans        &trans  &trans
             >;
         };
 
-        // [NAV] LAYER
-        // ----------------------------------------------------------------------------------------------------------------------------------------------------
-        // | - |            |           |          |          ||         |  |    -    |  | M-Scroll-L || M-LCKL     | M-MIDDLE   | M-Scroll-R | P-UP       | - |
-        // |---|------------|-----------|----------|----------||---------|  |    -    |  |------------||------------|------------|------------|------------|---|
-        // | - |    [SHIFT] | M2 [CTRL] | M3 [WIN] | M1 [ALT] || M-DBL   |  |    -    |  | <-         || DOWN       | UP         | ->         | M-RCKL     | - |
-        // |---|------------|-----------|----------|----------||---------|  |    -    |  |------------||------------|------------|------------|------------|---|
-        // | - |            |           |          |          ||         |  |    -    |  | <-MOUSE    || M-DOWN     | M-UP       | ->MOUSE    | P-DOWN     | - |
-        // -----------------------------|----------|----------||---------|  |    -    |  |------------||------------|------------|------------------------------
-        //                              | **BSPC** | RET      || TAB     |  |    -    |  | ESC        || SPC        | **ENTF**   |
-        //                              ------------------------------------------------------------------------------------------
-        navigation {
-            display-name = "navigation";
+        /* ═══════════════════════════════════════════════════════
+         * Layer 2: F-Keys (SPC hold → left side)
+         * ╭─────┬─────┬─────┬─────┬─────╮ ╭─────┬─────┬─────┬─────┬─────╮
+         * │ F12 │  F9 │  F8 │  F7 │ PgU │ │     │     │     │     │     │
+         * ├─────┼─────┼─────┼─────┼─────┤ ├─────┼─────┼─────┼─────┼─────┤
+         * │ F11 │  F6 │  F5 │  F4 │ PSc │ │     │     │     │     │     │
+         * │     │     │     │     │     │ │     │ ALT │ GUI │ CTL │ SFT │
+         * ├─────┼─────┼─────┼─────┼─────┤ ├─────┼─────┼─────┼─────┼─────┤
+         * │ F10 │  F3 │  F2 │  F1 │ PgD │ │     │     │     │     │     │
+         * ╰─────┴─────┼─────┼─────┼─────┤ ├─────┼─────┼─────┼─────┴─────╯
+         *             │     │     │     │ │     │*SPC*│     │
+         *             ╰─────┴─────┴─────╯ ╰─────┴─────┴─────╯
+         * Left: F-keys (no HRMs)  Right: base (HRMs active)
+         * ═══════════════════════════════════════════════════════ */
+        fkeys_layer {
+            display-name = "f-keys";
             bindings = <
-                &none &msc SCRL_UP   &mkp RCLK      &mmv MOVE_UP   &mkp LCLK       &trans             &trans   &mkp LCLK &mkp MCLK &mkp RCLK &kp PG_UP &none
-                &none &msc SCRL_LEFT &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT &msc SCRL_RIGHT    &kp LEFT &kp DOWN  &kp  UP   &kp RIGHT &trans    &none
-                &none &msc SCRL_DOWN &trans         &mkp MCLK      &trans          &trans             &trans   &trans    &trans    &trans    &kp PG_DN &none
-                                                    &trans         &trans          &trans             &trans   &trans    &trans
+                &none  &kp F12  &kp F9  &kp F8  &kp F7  &kp PG_UP      &trans  &trans  &trans  &trans  &trans  &none
+                &none  &kp F11  &kp F6  &kp F5  &kp F4  &kp PSCRN      &trans  &trans  &trans  &trans  &trans  &none
+                &none  &kp F10  &kp F3  &kp F2  &kp F1  &kp PG_DN      &trans  &trans  &trans  &trans  &trans  &none
+                                         &trans  &trans  &trans          &trans  &trans  &trans
+            >;
+        };
+
+        /* ═══════════════════════════════════════════════════════
+         * Layer 3: Symbols (RET hold → right side)
+         * ╭─────┬─────┬─────┬─────┬─────╮ ╭─────┬─────┬─────┬─────┬─────╮
+         * │     │     │     │     │     │ │  !  │  @  │  #  │  $  │  %  │
+         * ├─────┼─────┼─────┼─────┼─────┤ ├─────┼─────┼─────┼─────┼─────┤
+         * │     │     │     │     │     │ │  &  │  {  │  -  │  _  │  }  │
+         * │ SFT │ CTL │ GUI │ ALT │     │ │     │     │     │     │     │
+         * ├─────┼─────┼─────┼─────┼─────┤ ├─────┼─────┼─────┼─────┼─────┤
+         * │     │     │     │     │     │ │  |  │  [  │  (  │  )  │  ]  │
+         * ╰─────┴─────┼─────┼─────┼─────┤ ├─────┼─────┼─────┼─────┴─────╯
+         *             │     │*RET*│     │ │     │     │     │
+         *             ╰─────┴─────┴─────╯ ╰─────┴─────┴─────╯
+         * Left: base (HRMs active)  Right: symbols, no HRMs
+         * ═══════════════════════════════════════════════════════ */
+        symbols_layer {
+            display-name = "symbols";
+            bindings = <
+                &none  &trans  &trans  &trans  &trans  &trans      &kp EXCL   &kp AT    &kp HASH   &kp DOLLAR  &kp PERCENT  &none
+                &none  &trans  &trans  &trans  &trans  &trans      &kp AMPS   &kp LBRC  &kp MINUS  &kp UNDER   &kp RBRC     &none
+                &none  &trans  &trans  &trans  &trans  &trans      &kp PIPE   &kp LBKT  &kp LPAR   &kp RPAR    &kp RBKT     &none
+                                       &trans  &trans  &trans      &trans     &trans    &trans
+            >;
+        };
+
+        /* ═══════════════════════════════════════════════════════
+         * Layer 4: Exotic (DEL hold → left side)
+         * ╭─────┬─────┬─────┬─────┬─────╮ ╭─────┬─────┬─────┬─────┬─────╮
+         * │  ~  │  `  │ TODO│  ^  │ TODO│ │     │     │     │     │     │
+         * ├─────┼─────┼─────┼─────┼─────┤ ├─────┼─────┼─────┼─────┼─────┤
+         * │ TODO│ TODO│ TODO│ TODO│ TODO│ │     │     │     │     │     │
+         * │     │     │     │     │     │ │     │ ALT │ GUI │ CTL │ SFT │
+         * ├─────┼─────┼─────┼─────┼─────┤ ├─────┼─────┼─────┼─────┼─────┤
+         * │ TODO│ TODO│ TODO│ TODO│  $  │ │     │     │     │     │     │
+         * ╰─────┴─────┼─────┼─────┼─────┤ ├─────┼─────┼─────┼─────┴─────╯
+         *             │     │     │     │ │     │     │*DEL*│
+         *             ╰─────┴─────┴─────╯ ╰─────┴─────┴─────╯
+         * Left: exotic (no HRMs, compose TBD)  Right: base (HRMs active)
+         * TODO: ä ß ö ü € § £ ± × ¡ ¿ need compose sequences
+         * ═══════════════════════════════════════════════════════ */
+        exotic_layer {
+            display-name = "exotic";
+            bindings = <
+                &none  &kp TILDE  &kp GRAVE  &none       &kp CARET  &none          &trans  &trans  &trans  &trans  &trans  &none
+                &none  &none      &none      &none       &none      &none          &trans  &trans  &trans  &trans  &trans  &none
+                &none  &none      &none      &none       &none      &kp DOLLAR     &trans  &trans  &trans  &trans  &trans  &none
+                                              &trans      &trans     &trans         &trans  &trans  &trans
+            >;
+        };
+
+        /* ═══════════════════════════════════════════════════════
+         * Layer 5: Nav (BSP hold → right side)
+         * ╭─────┬─────┬─────┬─────┬─────╮ ╭─────┬─────┬─────┬─────┬─────╮
+         * │     │     │     │     │     │ │ ScU │ LCl │ MCl │ RCl │ PgU │
+         * ├─────┼─────┼─────┼─────┼─────┤ ├─────┼─────┼─────┼─────┼─────┤
+         * │     │     │     │     │     │ │  ←  │  ↓  │  ↑  │  →  │     │
+         * │ SFT │ CTL │ GUI │ ALT │     │ │     │     │     │     │     │
+         * ├─────┼─────┼─────┼─────┼─────┤ ├─────┼─────┼─────┼─────┼─────┤
+         * │     │     │     │     │     │ │ ScD │ HOM │     │ END │ PgD │
+         * ╰─────┴─────┼─────┼─────┼─────┤ ├─────┼─────┼─────┼─────┴─────╯
+         *             │*BSP*│     │     │ │     │     │     │
+         *             ╰─────┴─────┴─────╯ ╰─────┴─────┴─────╯
+         * Left: base (HRMs active)  Right: nav + mouse, no HRMs
+         * ═══════════════════════════════════════════════════════ */
+        nav_layer {
+            display-name = "nav";
+            bindings = <
+                &none  &trans  &trans  &trans  &trans  &trans      &msc SCRL_UP    &mkp LCLK   &mkp MCLK  &mkp RCLK  &kp PG_UP  &none
+                &none  &trans  &trans  &trans  &trans  &trans      &kp LEFT        &kp DOWN    &kp UP     &kp RIGHT  &none      &none
+                &none  &trans  &trans  &trans  &trans  &trans      &msc SCRL_DOWN  &kp HOME    &none      &kp END    &kp PG_DN  &none
+                                       &trans  &trans  &trans      &trans          &trans      &trans
+            >;
+        };
+
+        /* ═══════════════════════════════════════════════════════
+         * Layer 6: Multigrams (ESC hold → both sides)
+         * ╭─────┬─────┬─────┬─────┬─────╮ ╭─────┬─────┬─────┬─────┬─────╮
+         * │ qu  │ wh  │ er  │ re  │ th  │ │ you │uous │ ish │ough │ ph  │
+         * ├─────┼─────┼─────┼─────┼─────┤ ├─────┼─────┼─────┼─────┼─────┤
+         * │ and │ st  │ ing │ for │ ion │ │ ght │ che │ ful │ ly  │ness │
+         * │MGSFT│MGCTL│MGGUI│  —  │  —  │ │  —  │  —  │MGGUI│MGCTL│MGSFT│
+         * ├─────┼─────┼─────┼─────┼─────┤ ├─────┼─────┼─────┼─────┼─────┤
+         * │ at  │ sh  │ ch  │ ed  │ ble │ │ not │ment │true │false│tion │
+         * ╰─────┴─────┼─────┼─────┼─────┤ ├─────┼─────┼─────┼─────┴─────╯
+         *             │     │     │     │ │*ESC*│     │     │
+         *             ╰─────┴─────┴─────╯ ╰─────┴─────┴─────╯
+         * Both sides: multigrams with MG-HRMs (consumed modifiers)
+         * ═══════════════════════════════════════════════════════ */
+        multigrams_layer {
+            display-name = "multigrams";
+            bindings = <
+                &none  &mg_qu                  &mg_wh                 &mg_er                &mg_re   &mg_th       &mg_you  &mg_uous  &mg_ish                &mg_ough                &mg_ph                    &none
+                &none  &mghr_l_and LSHIFT 0    &mghr_l_st LCTRL 0     &mghr_l_ing LGUI 0    &mg_for  &mg_ion      &mg_ght  &mg_che   &mghr_r_ful RGUI 0     &mghr_r_ly RCTRL 0      &mghr_r_ness RSHIFT 0     &none
+                &none  &mg_at                  &mg_sh                 &mg_ch                &mg_ed   &mg_ble      &mg_not  &mg_ment  &mg_tru                &mg_fls                 &mg_tion                  &none
+                                                                       &trans                &trans   &trans       &trans   &trans    &trans
+            >;
+        };
+
+        /* ═══════════════════════════════════════════════════════
+         * Layer 7: BT/LED (one-shot via T+Y combo)
+         * ╭─────┬─────┬─────┬─────┬─────╮ ╭─────┬─────┬─────┬─────┬─────╮
+         * │BTCLR│     │     │     │     │ │     │ TOG │ HU+ │ SA+ │ BR+ │
+         * ├─────┼─────┼─────┼─────┼─────┤ ├─────┼─────┼─────┼─────┼─────┤
+         * │ BT1 │ BT2 │ BT3 │ BT4 │ BT5 │ │     │ EF← │ SP- │ SP+ │ EF→ │
+         * ├─────┼─────┼─────┼─────┼─────┤ ├─────┼─────┼─────┼─────┼─────┤
+         * │     │     │     │     │     │ │     │     │ HU- │ SA- │ BR- │
+         * ╰─────┴─────┼─────┼─────┼─────┤ ├─────┼─────┼─────┼─────┴─────╯
+         *             │ DEF │ DEF │ DEF │ │ DEF │ DEF │ DEF │
+         *             ╰─────┴─────┴─────╯ ╰─────┴─────┴─────╯
+         * All unassigned keys → &to L_DEF (safe exit)
+         * ═══════════════════════════════════════════════════════ */
+        bt_led_layer {
+            display-name = "bt-led";
+            bindings = <
+                &none  &bt BT_CLR    &to L_DEF     &to L_DEF     &to L_DEF     &to L_DEF          &to L_DEF  &rgb_ug RGB_TOG  &rgb_ug RGB_HUI  &rgb_ug RGB_SAI  &rgb_ug RGB_BRI  &none
+                &none  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4       &to L_DEF  &rgb_ug RGB_EFR  &rgb_ug RGB_SPD  &rgb_ug RGB_SPI  &rgb_ug RGB_EFF  &none
+                &none  &to L_DEF     &to L_DEF     &to L_DEF     &to L_DEF     &to L_DEF          &to L_DEF  &to L_DEF        &rgb_ug RGB_HUD  &rgb_ug RGB_SAD  &rgb_ug RGB_BRD  &none
+                                                    &tol_def      &tol_def      &tol_def           &tol_def   &tol_def         &tol_def
             >;
         };
 
     };
 };
-

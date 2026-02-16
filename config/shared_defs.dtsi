@@ -2,27 +2,10 @@
 ╭──────────────────────────────────────────────────────────╮
 │ @Author:  TheDirkKnight     @Contact:  github.com/DiSc21 │
 │ @License: MIT             @copyright: 2024 TheDirkKnight │
-│ @Data:    2025/01/04                                     │
+│ @Data:    2025/02/16                                     │
 ╰──────────────────────────────────────────────────────────╯
- ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡆⠀⠀⠀⠀⠀⠀⠀⣆              ⠀⠀⠀⣶⡀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣾⡇⠀⠀⠀⠀⠀⠀⠀⣿⡇               ⣼⣿⣧
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⡇⠀⠀⠀⠀⠀⠀⠀⡿⣿             ⠀⣰⣿⣿⣿⣆
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⠀⠀⠀⠀⠀⠀⠀⠃⣿⡄           ⠀⢠⣿⣿⣿⣿⣿⣆
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⣿⣿⣿⣿⣿⣿⣷⣼⣿⡇           ⣰⣿⣿⣿⣿⣿⣿⣿⣆
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⡇⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿           ⣰⣿⣿⣿⠋⠉⠙⣿⣿⣿⣆
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣼⣿⣿⣿⣿⣿⣿⣿⣿⡏          ⣰⣿⣿⣿⡇⠀⠀⠀⢸⣿⣿⣟⣆
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢙⡻⢿⣿⡿⡟⣿⡿⠟⣛⠁        ⠀⣴⣿⠿⠛⠋⠁⠀⠀⠀⠈⠙⠛⠿⣿⣦
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣠⣴⡾⠛⠉⠀⠀⠀⠉⠓⠂ ⡀⠀⠐⠛⠁⠀⠀⠀⣸⣿⣦⣄⡀⠀⠈⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠁
-⠀⠀⠀⠀⠀⠀⢀⣀⣀⣤⣤⣶⣿⣿⣿⣿⣿⣷⣆⠀⠀⠀⠀⠀⠀⢠⡇⠀⠀⠀⠀⠀⠀⠀⠈⣻⣿⣿⣿⣷⣶⣤⣤⣤⣄⣀
-⠀⠀⠀⢀⣴⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠁⠀⠀⠀⠀ ⣀⣀  ⠀⠀⠀⠀⠀⠀⠀⠙⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣶⡄
-⠀⠀⡾⣿⣿⣿⣿⠿⠋⢁⣿⣿⣿⣿⣿⣿⣟⣥⣶⢿⡛⠉⠀⠀⠈⠀⠀⠁⠀⠀⠀⠈⢙⡻⢷⣿⣿⣿⣿⣿⣿⣿⡟⠿⠿⣿⣿⣿⣿
-⠀⠀⠀⣿⣿⠟⠁⠀⢠⣿⣿⣿⣿⣿⣿⡿⢟⣭⣶⣿⣷⣄⠀⠀⠀⣄⣀⡄⠀⠀⢀⣴⣿⣿⣷⣝⡻⣿⣿⣿⣿⣿⣿⣦⡀⠀⠉⠛⢿
-⠀⠀⠀⠿⠁⠀⠀⠀⠋⠁⣿⣿⣿⡿⢋⣴⣿⣿⣿⣿⣿⣿⣿⣶⣾⣿⣿⣿⣶⣿⣿⣿⣿⣿⣿⣿⣿⣮⡻⣿⣿⣿⠯⠉⠙
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⠁⠽⠋⠠⠿⠿⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠿⠷⠌⠻⠟
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠻⠿⠿⠿⣿⣿⣿⣿⣿⣿⡿⠿⠿⠿⠟⠁
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠻⠋
 ╭───────────────────────────────────────────────────────╮
-│ @brief: Collection of kew position and layer defines. │
+│ @brief: Collection of key position and layer defines. │
 │                                                       │
 │╭─────────────────────────╮ ╭─────────────────────────╮│
 ││ ( 0)  1   2   3   4   5 │ │  6   7   8   9  10 (11) ││
@@ -30,6 +13,10 @@
 ││ (24) 25  26  27  28  29 │ │ 30  31  32  33  34 (35) ││
 │╰────────────╮ 36  37  38 │ │ 39  40  41 ╭────────────╯│
 │             ╰────────────╯ ╰────────────╯             │
+│                                                       │
+│ NOTE: 6-column matrix — positions 0/12/24 (LT0/LM0/  │
+│ LB0) and 11/23/35 (RT5/RM5/RB5) are ghost keys       │
+│ (&none). Physical 5×3+3 uses inner 5 columns.         │
 ╰───────────────────────────────────────────────────────╯
 */
 
@@ -63,14 +50,14 @@
 #define RM4 22
 #define RM5 23
 
-/* MID LEFT hand keys */
+/* BOT LEFT hand keys */
 #define LB0 24
 #define LB1 25
 #define LB2 26
 #define LB3 27
 #define LB4 28
 #define LB5 29
-/* MID RIGHT hand keys */
+/* BOT RIGHT hand keys */
 #define RB0 30
 #define RB1 31
 #define RB2 32
@@ -95,20 +82,23 @@
 #define KEYS_THUMBS LH2 LH1 LH0 RH0 RH1 RH2
 
 /* Layer defs */
-#define L_DEF 0
-#define L_SMART_NUM 1
-#define L_MG 2
-#define L_BT_LED 3
-#define L_NUM 4
-#define L_NAV 5
+#define L_DEF      0
+#define L_NUM      1
+#define L_FKEYS    2
+#define L_SYM      3
+#define L_EXOTIC   4
+#define L_NAV      5
+#define L_MG       6
+#define L_BT_LED   7
 
-/* Timing defaults */
-#define HM_TAPPING_TERM 300
+/* HRM timing */
+#define HM_TAPPING_TERM      300
 #define HM_TAPPING_TERM_FAST 200
-#define HM_PRIOR_IDLE 150
+#define HM_PRIOR_IDLE        175
 
-#define LAYER_QUICK_TAP_MS 175
+#define LAYER_QUICK_TAP_MS   175
 
-#define TAPDANCE_MS 250
-
-
+/* Combo timing */
+#define COMBO_TAP_TIME_FAST  35
+#define COMBO_TAP_TIME       50
+#define COMBO_PRIOR_IDLE     150
