@@ -210,9 +210,10 @@
          * ├─────┼─────┼─────┼─────┼─────┤ ├─────┼─────┼─────┼─────┼─────┤
          * │ at  │ sh  │ ch  │ ed  │ ble │ │ not │ment │true │false│tion │
          * ╰─────┴─────┼─────┼─────┼─────┤ ├─────┼─────┼─────┼─────┴─────╯
-         *             │     │     │     │ │*ESC*│     │     │
+         *             │ BSP │ RET │ TAB │ │*ESC*│ SPC │ DEL │
          *             ╰─────┴─────┴─────╯ ╰─────┴─────┴─────╯
          * Both sides: multigrams with MG-HRMs (consumed modifiers)
+         * Thumbs: plain taps (no layer stacking), ESC=trans (layer hold)
          * ═══════════════════════════════════════════════════════ */
         multigrams_layer {
             display-name = "multigrams";
@@ -220,7 +221,7 @@
                 &none  &mg_qu                  &mg_wh                 &mg_er                &mg_re   &mg_th       &mg_you  &mg_uous  &mg_ish                &mg_ough                &mg_ph                    &none
                 &none  &mghr_l_and LSHIFT 0    &mghr_l_st LCTRL 0     &mghr_l_ing LGUI 0    &mg_for  &mg_ion      &mg_ght  &mg_che   &mghr_r_ful RGUI 0     &mghr_r_ly RCTRL 0      &mghr_r_ness RSHIFT 0     &none
                 &none  &mg_at                  &mg_sh                 &mg_ch                &mg_ed   &mg_ble      &mg_not  &mg_ment  &mg_tru                &mg_fls                 &mg_tion                  &none
-                                                                       &trans                &trans   &trans       &trans   &trans    &trans
+                                                                       &kp BSPC              &kp RET  &kp TAB      &trans   &kp SPACE &kp DEL
             >;
         };
 
@@ -249,3 +250,4 @@
 
     };
 };
+

@@ -2,7 +2,7 @@
 ╭──────────────────────────────────────────────────────────╮
 │ @Author:  TheDirkKnight     @Contact:  github.com/DiSc21 │
 │ @License: MIT             @copyright: 2024 TheDirkKnight │
-│ @Data:    2025/02/16                                     │
+│ @Data:    2026/02/16                                     │
 ╰──────────────────────────────────────────────────────────╯
 ╭──────────────────────────────────────────────────────────╮
 │ @brief: Multigram behaviors for layer 6.                 │
@@ -13,20 +13,20 @@
 │                                                          │
 │ @details:                                                │
 │ Each multigram key is a 3-level mod-morph tree:          │
-│   SFT → CTL → GUI (innermost)                           │
+│   SFT → CTL → GUI (innermost)                            │
 │                                                          │
 │ Modifier effects (independent, composable):              │
 │   MGSHIFT = capitalize first letter                      │
-│   MGCTRL  = append "."                                   │
 │   MGGUI   = append " " (space)                           │
-│   MGCTRL+MGGUI = append ". " + sticky shift              │
+│   MGCTRL  = append ". " + sticky shift                   │
+│   MGCTRL+MGGUI = append "." (opt-out of space+sticky)    │
 │                                                          │
 │ All modifiers are CONSUMED — released inside macros,     │
 │ never passed to OS.                                      │
 │                                                          │
 │ MG-HRM positions (matching real HRM finger positions):   │
-│   Left:  A=MGSHIFT  S=MGCTRL  D=MGGUI                   │
-│   Right: K=MGGUI    L=MGCTRL  ;=MGSHIFT                 │
+│   Left:  A=MGSHIFT  S=MGCTRL  D=MGGUI                    │
+│   Right: K=MGGUI    L=MGCTRL  ;=MGSHIFT                  │
 ╰──────────────────────────────────────────────────────────╯
 */
 
@@ -92,6 +92,16 @@
  * @param base : base key sequence  (&kp T &kp I &kp O &kp N)
  * @param cap  : capitalized sequence (&kp LS(T) &kp I &kp O &kp N)
  *
+ * Modifier effects:
+ *   none      = plain                    "tion"
+ *   SFT       = capitalize               "Tion"
+ *   GUI       = append space             "tion "
+ *   CTL       = append ". " + sticky     "tion. " → next caps
+ *   CTL+GUI   = append "."  (opt-out)    "tion."
+ *   SFT+GUI   = cap + space              "Tion "
+ *   SFT+CTL   = cap + ". " + sticky      "Tion. " → next caps
+ *   SFT+CTL+GUI = cap + "."  (opt-out)   "Tion."
+ *
  * Generates 15 behaviors per multigram:
  *   8 leaf macros  (p/s/c/g/sc/sg/cg/scg)
  *   4 GUI mod-morphs (innermost)
@@ -105,12 +115,12 @@
         /* leaf macros */ \
         MG_MACRO(mg_##n##_p,     base) \
         MG_MACRO(mg_##n##_s,     cap) \
-        MG_MACRO(mg_##n##_c,     base &kp DOT) \
+        MG_MACRO_SK(mg_##n##_c,  base &kp DOT &kp SPACE) \
         MG_MACRO(mg_##n##_g,     base &kp SPACE) \
-        MG_MACRO(mg_##n##_sc,    cap &kp DOT) \
+        MG_MACRO_SK(mg_##n##_sc, cap &kp DOT &kp SPACE) \
         MG_MACRO(mg_##n##_sg,    cap &kp SPACE) \
-        MG_MACRO_SK(mg_##n##_cg,  base &kp DOT &kp SPACE) \
-        MG_MACRO_SK(mg_##n##_scg, cap &kp DOT &kp SPACE) \
+        MG_MACRO(mg_##n##_cg,    base &kp DOT) \
+        MG_MACRO(mg_##n##_scg,   cap &kp DOT) \
         /* GUI mod-morphs (innermost) */ \
         MG_MM_GUI(mg_##n##_g0, &mg_##n##_p,  &mg_##n##_g) \
         MG_MM_GUI(mg_##n##_g1, &mg_##n##_c,  &mg_##n##_cg) \
@@ -233,3 +243,4 @@ MG_KEY(tion, &kp T &kp I &kp O &kp N,             &kp LS(T) &kp I &kp O &kp N)
         CREATE_MGHR_RIGHT(ness, &mg_ness)
     };
 };
+
